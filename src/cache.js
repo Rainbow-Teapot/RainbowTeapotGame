@@ -3,26 +3,7 @@ var cache = {
     resources: new Map(),
     numResources:0,
     load: function(tag, source){
-
         
-            /*var body = document.querySelector('body');
-            var img = new Image();
-            
-            cache.insert(tag,img);
-            ajax.loadFile(source).then(function(response){ 
-                console.log("Width: " + img.width);
-                var imgURL = window.URL.createObjectURL(response);
-                img.src = imgURL;
-                
-                body.appendChild(img);
-                //img.src = src;      
-                //cache.retrieve(tag).loadFlag = true;
-                console.log("Se ha cargado de puta madre la imagen");
-                
-
-            }, function(Error){
-                console.log(Error);
-            });*/
             let img = new Image();
             cache.insert(tag,img);
             return new Promise((resolve, reject) => {

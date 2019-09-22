@@ -44,8 +44,7 @@ Scene.prototype.update = function(){
 };
 
 Scene.prototype.draw = function(){
-    if(this.isSceneLoaded){
-        
+    if(this.isSceneLoaded){    
         this.camera.draw();
     }
 }
