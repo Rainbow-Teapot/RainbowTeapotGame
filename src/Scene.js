@@ -2,7 +2,10 @@ function Scene(width, height){
     this.isSceneLoaded = false;
     this.loadingPromises = [];
     this.camera = null;
+
     this.numLayers = 0;
+    this.numObjectLayers = 0;
+
     this.levelTiles = null;
     this.width = width;
     this.height = height;
@@ -12,6 +15,9 @@ function Scene(width, height){
     this.spriteObjectsLayer = new Layer();
     this.GUILayer = new Layer();
 
+    this.player = null;
+
+    this.gameObjects = [];
 };
 
 Scene.prototype.loadToScene = function(tag,src){
@@ -44,6 +50,9 @@ Scene.prototype.create = function(){
 Scene.prototype.update = function(){
     if(this.isSceneLoaded){
         //console.log("Estoy updateando la escena");
+        for(let i = 0; i < this.gameObjects.length; i++){
+            this.gameObjects[i].update();
+        }
         this.camera.update();
     }
 };
