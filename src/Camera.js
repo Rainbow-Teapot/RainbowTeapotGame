@@ -34,22 +34,21 @@ Camera.prototype.calculateMaxPos = function(scene){
 
 Camera.prototype.update = function(){
     
-    
+    let movement;
     if(this.target){
-        if(this.isAbleToMove(target.pos)){
-            this.pos = target.pos;
-        }
+        movement = new Point(this.target.pos.x +  Game.TILE_SIZE,this.target.pos.y + Game.TILE_SIZE);
     }else{
-        
-        let movement = new Point(this.pos.x + 1,this.pos.y + 1);
-        if(this.isAbleToMoveInX(movement.x)){
-            this.pos.x = movement.x;
-            
-        }
-        if(this.isAbleToMoveInY(movement.y)){
-            this.pos.y = movement.y;
-        }
+        movement = new Point(this.pos.x + 1,this.pos.y + 1);
     }
+        
+    if(this.isAbleToMoveInX(movement.x)){
+        this.pos.x = movement.x;
+        
+    }
+    if(this.isAbleToMoveInY(movement.y)){
+        this.pos.y = movement.y;
+    }
+    
 
     this.updateBasis();
     
