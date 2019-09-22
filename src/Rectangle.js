@@ -36,4 +36,5 @@ Rectangle.prototype.draw = function(camera){
     let posAtViewPort = posAtCamera.changeBase(viewport.basis);
     context.fillRect(posAtViewPort.x,posAtViewPort.y,32,32);
 
+    //aquí luego habrá simplemente que cargar la imagen y dibujarla con context.drawImage()
 };

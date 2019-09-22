@@ -7,6 +7,11 @@ function Scene(width, height){
     this.width = width;
     this.height = height;
 
+    this.backgroundLayer = new Layer();
+    this.tileLayer = [];
+    this.spriteObjectsLayer = new Layer();
+    this.GUILayer = new Layer();
+
 };
 
 Scene.prototype.loadToScene = function(tag,src){
@@ -44,7 +49,12 @@ Scene.prototype.update = function(){
 };
 
 Scene.prototype.draw = function(){
-    if(this.isSceneLoaded){    
-        this.camera.draw();
+    if(this.isSceneLoaded){
+        
+        this.backgroundLayer.draw(this.camera);
+        let frameLayer = this.camera.getFrameLayer();
+        frameLayer.draw(this.camera);
+        this.spriteObjectsLayer.draw(this.camera);
+        this.GUILayer.draw(this.camera);
     }
 }
