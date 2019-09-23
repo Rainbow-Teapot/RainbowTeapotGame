@@ -1,2 +1,2 @@
-# 2DEngine
-2D Engine for Web
+# A Rainbow Teapot Studio Game
+Rainbow Teapot Studio Game
