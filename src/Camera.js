@@ -34,22 +34,21 @@ Camera.prototype.calculateMaxPos = function(scene){
 
 Camera.prototype.update = function(){
     
-    
+    let movement;
     if(this.target){
-        if(this.isAbleToMove(target.pos)){
-            this.pos = target.pos;
-        }
+        movement = new Point(this.target.pos.x +  Game.TILE_SIZE,this.target.pos.y + Game.TILE_SIZE);
     }else{
-        
-        let movement = new Point(this.pos.x + 1,this.pos.y + 1);
-        if(this.isAbleToMoveInX(movement.x)){
-            this.pos.x = movement.x;
-            
-        }
-        if(this.isAbleToMoveInY(movement.y)){
-            this.pos.y = movement.y;
-        }
+        movement = new Point(this.pos.x + 1,this.pos.y + 1);
     }
+        
+    if(this.isAbleToMoveInX(movement.x)){
+        this.pos.x = movement.x;
+        
+    }
+    if(this.isAbleToMoveInY(movement.y)){
+        this.pos.y = movement.y;
+    }
+    
 
     this.updateBasis();
     
@@ -68,14 +67,15 @@ Camera.prototype.updateBasis = function(){
     this.basis = new Point(this.pos.x - this.width/2, this.pos.y - this.height/2);
 }
 
-Camera.prototype.draw = function(){
+Camera.prototype.getFrameLayer = function(){
 
     let widthInTiles = Math.floor(this.width / Game.TILE_SIZE);
     let heightInTiles = Math.floor(this.height / Game.TILE_SIZE);
 
-    let tilesToDraw = new Array(widthInTiles * heightInTiles);
+    //let tilesToDraw = new Array(widthInTiles * heightInTiles);
+    let tilesToDraw = new Layer();
 
-    let sceneTiles = this.scene.levelTiles;
+    let sceneTiles = this.scene.tileLayer;
     let numLayers = this.scene.numLayers;
 
     let posInitInTiles = new Point( Math.floor((this.pos.x - this.width/2 ) / Game.TILE_SIZE),
@@ -89,26 +89,19 @@ Camera.prototype.draw = function(){
 
                 let sceneTileIndex = (posInitInTiles.y + j) * Math.floor(this.scene.width/ Game.TILE_SIZE) + (posInitInTiles.x + k);
                 //let sceneIndex =  Math.floor(scene.width / Game.TILE_SIZE);
-                let tile  = sceneTiles[i][sceneTileIndex];
+                let tile  = sceneTiles[i].elements[sceneTileIndex];
                 
                 if(tile){
                     if(!tile.color.equals(TRANSPARENT_COLOR)){
-                        tilesToDraw[j * widthInTiles + k] = tile;
+                        //tilesToDraw[j * widthInTiles + k] = tile;
+                        tilesToDraw.addElement(tile);
                     }
                 }
             }
         }
     }
 
-    //console.log(tilesToDraw);
-
-    for(let i = 0; i < heightInTiles; i++){
-        for(let j = 0; j< widthInTiles; j++){
-            if(tilesToDraw[i * widthInTiles + j]){
-                tilesToDraw[i * widthInTiles + j].draw(this);
-            }
-        }
-    }
+    return tilesToDraw;
 }
 
 Camera.prototype.setTarget = function(target){

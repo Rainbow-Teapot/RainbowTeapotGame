@@ -2,11 +2,22 @@ function Scene(width, height){
     this.isSceneLoaded = false;
     this.loadingPromises = [];
     this.camera = null;
+
     this.numLayers = 0;
+    this.numObjectLayers = 0;
+
     this.levelTiles = null;
     this.width = width;
     this.height = height;
 
+    this.backgroundLayer = new Layer();
+    this.tileLayer = [];
+    this.spriteObjectsLayer = new Layer();
+    this.GUILayer = new Layer();
+
+    this.player = null;
+
+    this.gameObjects = [];
 };
 
 Scene.prototype.loadToScene = function(tag,src){
@@ -23,29 +34,15 @@ Scene.prototype.preload = function(){
 
     let that = this;
 
-    this.loadToScene("layer0","../assets/layer0.png");
-    this.loadToScene("layer1","../assets/layer1.png");
-    this.numLayers = 2;
-
     Promise.all(this.loadingPromises).then( function(){
         console.log("Se han cargado todos los recursos");
         that.create();
     });
-
-    /*cache.load("layer0","../assets/layer0.png").then(function(img){
-        console.log(img.width);
-        cache.retrieve("layer0").loadFlag = true;
-        
-        console.log(img.width);
-   
-    });
-
-    that.create();*/
 };
 
 Scene.prototype.create = function(){
 
-    this.levelTiles = levelParser.parseTiles("layer", this.numLayers);
+    //this.levelTiles = levelParser.parseTiles("layer", this.numLayers);
     this.camera = new Camera(this,viewport,0,0);
     this.isSceneLoaded = true;
 };
@@ -53,24 +50,20 @@ Scene.prototype.create = function(){
 Scene.prototype.update = function(){
     if(this.isSceneLoaded){
         //console.log("Estoy updateando la escena");
+        for(let i = 0; i < this.gameObjects.length; i++){
+            this.gameObjects[i].update();
+        }
         this.camera.update();
     }
 };
 
 Scene.prototype.draw = function(){
     if(this.isSceneLoaded){
-        //console.log("Estoy pintando la escena");
-        this.camera.draw();
-        /*var objectsToDraw = camera.getDrawables(this);
-
-        for(let i = 0; i < this.numLayers; i++){
         
-            for(let j = 0; j < this.levelTiles[i].length; j++){
-    
-                //console.log(levelTiles[i][100]);
-                this.levelTiles[i][j].draw();
-            }
-        }*/
-
+        this.backgroundLayer.draw(this.camera);
+        let frameLayer = this.camera.getFrameLayer();
+        frameLayer.draw(this.camera);
+        this.spriteObjectsLayer.draw(this.camera);
+        this.GUILayer.draw(this.camera);
     }
 }
