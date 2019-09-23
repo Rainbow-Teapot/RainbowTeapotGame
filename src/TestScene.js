@@ -7,9 +7,9 @@ TestScene.prototype.constructor = TestScene;
 
 TestScene.prototype.preload = function(){
 
-    Scene.prototype.loadToScene.call(this,"layer0","../assets/layer0.png");
-    Scene.prototype.loadToScene.call(this,"layer1","../assets/layer1.png");
-    Scene.prototype.loadToScene.call(this,"objectLayer0", "../assets/objectLayer0.png")
+    Scene.prototype.loadToScene.call(this,"layer0","./assets/layer0.png");
+    Scene.prototype.loadToScene.call(this,"layer1","./assets/layer1.png");
+    Scene.prototype.loadToScene.call(this,"objectLayer0", "./assets/objectLayer0.png")
     this.numLayers = 2;
 
     Scene.prototype.preload.call(this);
