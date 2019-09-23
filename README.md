@@ -1,3 +1,3 @@
 # A Rainbow Teapot Studio Game
-Rainbow Teapot Studio Game
-Githb-pages: *https://rainbow-teapot.github.io/RainbowTeapotGame/*
+<p>Rainbow Teapot Studio Game</p>
+<p>Github-pages: **https://rainbow-teapot.github.io/RainbowTeapotGame/**</p>
