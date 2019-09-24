@@ -1,10 +1,13 @@
+/*ejemplo de una escena cualquiera, se llama al constructor de Scene*/
 function TestScene(width, height) {
     Scene.call(this, width, height);
 }
 
+/*Herencia prototipica */
 TestScene.prototype = Object.create(Scene.prototype);
 TestScene.prototype.constructor = TestScene;
 
+/*Ahora es cuando llamamos a loadToScene para cargar los resources */
 TestScene.prototype.preload = function(){
 
     Scene.prototype.loadToScene.call(this,"layer0","./assets/layer0.png");
@@ -15,11 +18,11 @@ TestScene.prototype.preload = function(){
     Scene.prototype.preload.call(this);
 }
 
+/*Ahora es cuando llamamos al levelParser para crear los tiles y los objetos, además aquí 
+podemos crear objetos necesarios que se puedan necesitar para esta escena en concreto */
 TestScene.prototype.create = function(){
 
-    //this.tileLayer = 
     levelParser.parseTiles("layer", this);
-    //this.gameObjects = levelParser.parseObjects("objectLayer", this);
     levelParser.parseObjects("objectLayer", this);
     Scene.prototype.create.call(this);
 
@@ -27,6 +30,8 @@ TestScene.prototype.create = function(){
 
 }
 
+/*se llama al update del padre para que automaticamente vaya actualizando los objetos que contiene,
+adicionalmente podemos crear cosas nuevas o hacer cualquier tipo de gestion en el update de la escena*/
 TestScene.prototype.update = function(){
     Scene.prototype.update.call(this);
     if(this.isSceneLoaded){

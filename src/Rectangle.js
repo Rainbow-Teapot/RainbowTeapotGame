@@ -1,3 +1,7 @@
+/*prototipo para los tiles, tiene que heredar de Drawable y refactorizarse a tiles,
+por ahora solo tiene un color pero mas adelante contendra un resource
+que sera la imagen del tile, el tile se añade el solito a la capa de la escena
+a la que pertenece */
 function Rectangle(scene, x, y, width, height, color, depth){
 
     this.scene = scene;
@@ -10,15 +14,15 @@ function Rectangle(scene, x, y, width, height, color, depth){
     this.scene.tileLayer[this.depth].addElement(this);
 };
 
+/* Simplemente dibuja el tile*/
 Rectangle.prototype.draw = function(camera){
 
     var canvas = document.getElementById("viewport");
     var context = canvas.getContext('2d');
     context.beginPath();
-    //context.rect();
+
     context.fillStyle = this.color.toHTML();
-    //let posx = this.pos.x - viewport.pos.x;
-    //let posy = this.pos.y - viewport.pos.y;
+
     let posAtCamera = this.pos.changeBase(camera.basis);
     let posAtViewPort = posAtCamera.changeBase(viewport.basis);
     context.fillRect(posAtViewPort.x,posAtViewPort.y,32,32);

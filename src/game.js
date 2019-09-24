@@ -1,3 +1,4 @@
+/*objeto global del juego para acceder a datos, no abusar de ella por fa u.u*/
 var Game = {
 
     width : 0,
@@ -6,7 +7,9 @@ var Game = {
     scene: null,
     camera: null,
     TILE_SIZE: 32,
-    createGame : function(scene, width, height,posx = 0,posy = 0){
+
+    /*crea el juego, inicia el viewport (canvas), asigna la escena e inicia el GAMELOOP*/
+    createGame : function(scene, posx, posy, width, height){
         Game.width = width;
         Game.height = height;
         Game.pos = new Point(posx, posy);
@@ -14,12 +17,12 @@ var Game = {
         console.log("le juego se ha iniciado");
 
         viewport.createViewport(width, height, posx, posy)
-        
-        Game.changeScene(scene);    
-        
+        Game.changeScene(scene);           
         coreLoop.loop();
         
     },
+    
+    /*para cambiar de escenas durante la ejecución del juego*/
     changeScene(scene){
         Game.scene = scene;
         coreLoop.setScene(scene);
