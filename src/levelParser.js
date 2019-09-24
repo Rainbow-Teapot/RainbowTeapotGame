@@ -1,5 +1,10 @@
+/*Objeto global para la creación del nivel por medio de imágenes */
 var levelParser =  {
 
+    /*se pillan las imagenes ya cargadas por medio de la cache y gracias al tag,
+    la posibilidad de que haya varias capas para los tiles también se contempla.
+    parseTiles, genera absolutamente todos los tiles de todas las capas del nivel 
+    y se lo endosa al nivel automaticamente por medio del constructor del Tile*/
     parseTiles : function( src, scene){
         
         var img;
@@ -7,6 +12,7 @@ var levelParser =  {
         console.log(scene.tileLayer);
         var canvas = document.createElement('canvas');
         var context = canvas.getContext('2d');
+
         for(let i = 0; i < scene.numLayers; i++){
             context.clearRect(0,0, canvas.width, canvas.height);
             img = cache.retrieve(src + i).img;
@@ -30,6 +36,8 @@ var levelParser =  {
 
     },
 
+    /*igual que parseTile pero referente a la capa de objetos, los objetos se añaden 
+    a la escena por medio del constructor*/
     parseObjects : function(src, scene){
         var img;
         var objects = new Array();
@@ -54,9 +62,6 @@ var levelParser =  {
                     let player = new Player(scene,k*32, j* 32, sprite);
                     scene.player = player;
                 }
-                //let tile = new Rectangle(k*32,j*32,32,32,color);
-                //tiles[i][j * img.width + k] = tile;
-                //tiles[i].addElement(tile);
             }
         }
         console.log(objects);

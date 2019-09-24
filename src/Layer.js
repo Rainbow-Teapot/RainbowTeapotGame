@@ -1,3 +1,6 @@
+/*prototipo para que la gestión de tiles, sprites e imágenes sea más sencilla,
+simplemente es un array que contiene los elementos que se han de dibujar,
+solo ha de contener objetos que hereden de Drawable*/
 function Layer(){
     this.elements = [];
 }

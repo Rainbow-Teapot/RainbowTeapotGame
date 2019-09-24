@@ -1,17 +1,21 @@
+/*Esperar a que se cargue el DOM*/
 document.addEventListener('DOMContentLoaded', function(){
     init();
 }, false);
 
-var toType = function(obj) {
-    return ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1].toLowerCase()
-  }
-
+/*se crea la primera escena que aparecerá y se crea el juego en sí*/
 var init = function(){
-
-    //ajax.loadFile("../assets/layer0.png");
     
-    var scene = new TestScene(20*32, 20*32);
+    const WIDTH_SCENE = 20 * Game.TILE_SIZE;
+    const HEIGHT_SCENE = 20 * Game.TILE_SIZE;
+    
+    const X_OFFSET = 5*Game.TILE_SIZE;
+    const Y_OFFSET = 4*Game.TILE_SIZE;
+    const WIDTH_GAME = 10*Game.TILE_SIZE;
+    const HEIGHT_GAME = 14*Game.TILE_SIZE;
+    
+    let scene = new TestScene(WIDTH_SCENE, HEIGHT_SCENE);
 
-    Game.createGame(scene,10*Game.TILE_SIZE,14*Game.TILE_SIZE, 5*Game.TILE_SIZE,4*Game.TILE_SIZE);
+    Game.createGame(scene,X_OFFSET,Y_OFFSET, WIDTH_GAME,HEIGHT_GAME);
     
 };
