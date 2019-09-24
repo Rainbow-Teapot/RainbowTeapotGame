@@ -11,9 +11,10 @@ var coreLoop = {
     scene: null,
 
     /*se actualiza la escena*/
-    update : function(scene){
+    update : function(scene){        
+
         scene.update();
-        coreLoop.ups++;
+        coreLoop.ups++;        
     },
     
     /*se pilla el canvas del DOM, se limpia el canvas y se vuelve a dibujar la escena*/
@@ -43,6 +44,8 @@ var coreLoop = {
             coreLoop.logProfile();
             coreLoop.resetProfile();
         }
+       
+        input.reset(); 
 
     },
     

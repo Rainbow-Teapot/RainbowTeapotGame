@@ -15,7 +15,8 @@ var init = function(){
     const HEIGHT_GAME = 14*Game.TILE_SIZE;
     
     let scene = new TestScene(WIDTH_SCENE, HEIGHT_SCENE);
-
+   
+    input.init(); 
     Game.createGame(scene,X_OFFSET,Y_OFFSET, WIDTH_GAME,HEIGHT_GAME);
     
 };
