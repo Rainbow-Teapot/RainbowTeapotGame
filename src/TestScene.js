@@ -12,7 +12,8 @@ TestScene.prototype.preload = function(){
 
     Scene.prototype.loadToScene.call(this,"layer0","./assets/layer0.png");
     Scene.prototype.loadToScene.call(this,"layer1","./assets/layer1.png");
-    Scene.prototype.loadToScene.call(this,"objectLayer0", "./assets/objectLayer0.png")
+    Scene.prototype.loadToScene.call(this,"objectLayer0", "./assets/objectLayer0.png");
+    Scene.prototype.loadToScene.call(this,"button", "./assets/touch.png");
     this.numLayers = 2;
 
     Scene.prototype.preload.call(this);
@@ -24,6 +25,10 @@ TestScene.prototype.create = function(){
 
     levelParser.parseTiles("layer", this);
     levelParser.parseObjects("objectLayer", this);
+
+    let buttonSprite = new GUIImage(this,50,50,0,"button");
+    let button = new Button(this,50,50,buttonSprite,0);
+
     Scene.prototype.create.call(this);
 
     this.camera.setTarget(this.player);
