@@ -26,8 +26,13 @@ var levelParser = {
                     let color = context.getImageData(k, j, 1, 1).data;
 
                     //Aquí actuaría la factoria
+<<<<<<< HEAD
                     new Rectangle(scene, k * 32, j * 32, 32, 32, color, i);
 
+=======
+                    new Tile(scene,k*32,j*32,32,32,color,i);
+                    
+>>>>>>> release-0.2.0
                 }
             }
         }
