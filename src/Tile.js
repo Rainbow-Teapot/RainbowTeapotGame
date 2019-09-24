@@ -2,20 +2,20 @@
 por ahora solo tiene un color pero mas adelante contendra un resource
 que sera la imagen del tile, el tile se añade el solito a la capa de la escena
 a la que pertenece */
-function Rectangle(scene, x, y, width, height, color, depth){
+function Tile(scene, x, y, width, height, color, depth){
 
-    this.scene = scene;
-    this.pos = new Point(x,y);
-    this.width = width;
-    this.height = height;
-    this.depth = depth;
+    
+    Drawable.call(this,scene,x,y,depth,null);
     this.id = "r" + x + y;
     this.color = new Color(color[0],color[1],color[2],color[3]);
     this.scene.tileLayer[this.depth].addElement(this);
 };
 
+Tile.prototype = Object.create(Drawable.prototype);
+Tile.prototype.constructor = Tile;
+
 /* Simplemente dibuja el tile*/
-Rectangle.prototype.draw = function(camera){
+Tile.prototype.draw = function(camera){
 
     var canvas = document.getElementById("viewport");
     var context = canvas.getContext('2d');

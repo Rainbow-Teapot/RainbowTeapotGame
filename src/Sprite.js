@@ -1,15 +1,19 @@
 /*prototipo para dibujar los sprites de los objetos y gestionar animaciones, el sprite
 se añade el solito a la escena*/
 function Sprite(scene, x , y , depth,resource){
-    this.scene = scene;
+    /*this.scene = scene;
     this.pos = new Point(x,y);
     this.depth  = depth;
     if(resource)
-        this.resource = resource.img;
+        this.resource = resource.img;*/
+    Drawable.call(this, scene,x,y,depth,resource);
     this.color = new Color(0,0,0,255);
     this.scene.spriteObjectsLayer.addElement(this);
     
 }
+
+Sprite.prototype = Object.create(Drawable.prototype);
+Sprite.prototype.constructor = Sprite;
 
 /*Se utiliza la camara para cambiar de base y ajustarse al canvas*/
 Sprite.prototype.draw = function(camera){
