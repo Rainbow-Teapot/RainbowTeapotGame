@@ -43,6 +43,7 @@ var coreLoop = {
             coreLoop.logProfile();
             coreLoop.resetProfile();
         }
+        input.reset(); 
 
     },
     
