@@ -44,10 +44,6 @@ var coreLoop = {
             coreLoop.logProfile();
             coreLoop.resetProfile();
         }
-<<<<<<< HEAD
-       
-=======
->>>>>>> release-0.2.0
         input.reset(); 
 
     },

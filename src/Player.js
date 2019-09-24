@@ -12,13 +12,6 @@ Player.prototype.update = function () {
     //si se ve un delay ponerlo abajo
     GameObject.prototype.update.call(this);
     console.log("Estoy updateando el JUGADOR");
-<<<<<<< HEAD
-=======
-    this.pos.x += input.isPressedKey("d"); 
-    this.pos.x -= input.isPressedKey("a"); 
-    this.pos.y -= input.isPressedKey("w");
-    this.pos.y += input.isPressedKey("s");
->>>>>>> release-0.2.0
     
     this.pos.x += input.isPressedKey("d"); 
     this.pos.x -= input.isPressedKey("a"); 
