@@ -25,8 +25,8 @@ var Game = {
     /*para cambiar de escenas durante la ejecución del juego*/
     changeScene(scene){
         Game.scene = scene;
-        coreLoop.setScene(scene);
-        Game.scene.preload();
+        //coreLoop.setScene(scene);
+        scene.preload();
     }
 
 

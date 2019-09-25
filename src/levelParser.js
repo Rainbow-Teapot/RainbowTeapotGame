@@ -57,7 +57,6 @@ var levelParser =  {
 
                 //Aquí actuaría la factory
                 if(colorObj.equals(new Color(0,0,0,255))){
-                    console.log("ha encontrado el objeto");
                     let sprite = new Sprite(scene,k*32,j*32,0);
                     let player = new Player(scene,k*32, j* 32, sprite);
                     scene.player = player;

@@ -63,6 +63,7 @@ Scene.prototype.create = function(){
 
     this.camera = new Camera(this,viewport,0,0);
     this.isSceneLoaded = true;
+    coreLoop.setScene(this);
 };
 
 /*actualizar todos los objetos y la camara*/
@@ -96,7 +97,6 @@ Scene.prototype.draw = function(){
 
 Scene.prototype.addClickableObject = function(clickable){
     this.clickableObjects.push(clickable);
-    console.log(this.clickableObjects.length);
 }
 
 Scene.prototype.handleClick = function(e){

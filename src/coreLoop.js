@@ -12,7 +12,8 @@ var coreLoop = {
 
     /*se actualiza la escena*/
     update : function(scene){
-        scene.update();
+        if(scene)
+            scene.update();
         coreLoop.ups++;
     },
     
@@ -22,7 +23,8 @@ var coreLoop = {
         let context = canvas.getContext('2d');
         context.clearRect(0,0, canvas.width, canvas.height);
 
-        scene.draw();
+        if(scene)
+            scene.draw();
         coreLoop.fps++;
     },
     setScene: function(scene){
@@ -35,8 +37,8 @@ var coreLoop = {
 
         idRequest = window.requestAnimationFrame(coreLoop.loop);
 
-        coreLoop.update(Game.scene);
-        coreLoop.draw(Game.scene);
+        coreLoop.update(coreLoop.scene);
+        coreLoop.draw(coreLoop.scene);
 
         if(currentStamp - coreLoop.lastStamp > 999){
             coreLoop.lastStamp = currentStamp;
