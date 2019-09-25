@@ -21,7 +21,7 @@ Sprite.prototype.draw = function(camera){
     var canvas = document.getElementById("viewport");
     var context = canvas.getContext('2d');
 
-    if(!this.resource){
+    if(!this.img){
         context.beginPath();
         context.fillStyle = this.color.toHTML();
         let posAtCamera = this.pos.changeBase(camera.basis);

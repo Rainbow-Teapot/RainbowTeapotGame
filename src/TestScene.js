@@ -12,7 +12,7 @@ TestScene.prototype.preload = function(){
 
     Scene.prototype.loadToScene.call(this,"layer0","./assets/layer0.png");
     Scene.prototype.loadToScene.call(this,"layer1","./assets/layer1.png");
-    Scene.prototype.loadToScene.call(this,"objectLayer0", "./assets/objectLayer0.png")
+    Scene.prototype.loadToScene.call(this,"objectLayer0", "./assets/objectLayer0.png");
     this.numLayers = 2;
 
     Scene.prototype.preload.call(this);
@@ -23,7 +23,8 @@ podemos crear objetos necesarios que se puedan necesitar para esta escena en con
 TestScene.prototype.create = function(){
 
     levelParser.parseTiles("layer", this);
-    levelParser.parseObjects("objectLayer", this);
+    levelParser.parseObjects("objectLayer", this);  
+    
     Scene.prototype.create.call(this);
 
     this.camera.setTarget(this.player);

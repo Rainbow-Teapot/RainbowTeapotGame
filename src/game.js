@@ -16,8 +16,8 @@ var Game = {
 
         console.log("le juego se ha iniciado");
 
-        viewport.createViewport(width, height, posx, posy)
-        Game.changeScene(scene);           
+        Game.changeScene(scene); 
+        viewport.createViewport(width, height, posx, posy)     
         coreLoop.loop();
         
     },
@@ -25,8 +25,8 @@ var Game = {
     /*para cambiar de escenas durante la ejecución del juego*/
     changeScene(scene){
         Game.scene = scene;
-        coreLoop.setScene(scene);
-        Game.scene.preload();
+        //coreLoop.setScene(scene);
+        scene.preload();
     }
 
 
