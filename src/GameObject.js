@@ -20,6 +20,10 @@ GameObject.prototype.update = function(){
     }
 }
 
+GameObject.prototype.performClick = function(){
+    
+}
+
 /*seria necesario hacer un método de destroy, para eliminar objetos una vez, ya no
 se necesiten, bastaría con quitar al objeto del array de objetos de la escena y también
 quitar a su sprite de la layer de la escena para que no se siga dibujando. Sería necesario

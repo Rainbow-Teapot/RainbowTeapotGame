@@ -28,7 +28,12 @@ TestScene.prototype.create = function(){
 
     let buttonSprite = new GUIImage(this,50,50,0,"button");
     let button = new Button(this,50,50,buttonSprite,0);
-
+    button.performClick = function(){
+        alert("jaja si hola");
+    };
+    this.addClickableObject(button);
+    
+    
     Scene.prototype.create.call(this);
 
     this.camera.setTarget(this.player);

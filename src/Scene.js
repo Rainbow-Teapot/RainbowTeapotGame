@@ -27,6 +27,7 @@ function Scene(width, height){
     this.player = null;
 
     this.gameObjects = [];
+    this.clickableObjects = [];
 };
 
 /*funcion para cargar resources necesarios para la creación de la escena,
@@ -90,5 +91,32 @@ Scene.prototype.draw = function(){
         frameLayer.draw(this.camera);
         this.spriteObjectsLayer.draw(this.camera);
         this.GUILayer.draw(this.camera);
+    }
+};
+
+Scene.prototype.addClickableObject = function(clickable){
+    this.clickableObjects.push(clickable);
+    console.log(this.clickableObjects.length);
+}
+
+Scene.prototype.handleClick = function(e){
+    let clickPos = viewport.getCursorPosition(e);
+    let clickedObject = null;
+
+    for(let i = 0; i < Game.scene.clickableObjects.length; i++){
+        let currentClickableObject = Game.scene.clickableObjects[i];
+        let currentDrawable = currentClickableObject.sprite;
+
+        if(currentDrawable.pos.x <= clickPos.x && currentDrawable.pos.y <= clickPos.y
+            && currentDrawable.pos.x + currentDrawable.width >= clickPos.x 
+            && currentDrawable.pos.y + currentDrawable.height>= clickPos.y){
+
+                clickedObject = currentClickableObject;
+                break;
+        }
+    }
+
+    if(clickedObject){
+        clickedObject.performClick();
     }
 }
