@@ -15,6 +15,8 @@ MenuScene.prototype.preload = function(){
 
 MenuScene.prototype.create = function(){
     
+    
+
     let buttonSprite = new GUIImage(this,50,50,0,"button");
     let button = new Button(this,50,50,buttonSprite,0);
     button.performClick = function(){
@@ -22,8 +24,9 @@ MenuScene.prototype.create = function(){
     };
     this.addClickableObject(button);
 
+    audio.play(audio.track1);
     Scene.prototype.create.call(this);
-
+    
 }
 
 MenuScene.prototype.update = function(){
