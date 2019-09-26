@@ -10,7 +10,11 @@ var audio  = {
         }
 
         audio.music = new Audio (trackPath); 
-        audio.music.play(); 
+        const playPromise  = audio.music.play();
+        audio.music.muted = false;
+        /*if (playPromise !== null){
+            playPromise.catch(() => { audio.music.play(); })
+        }*/
     }
 
 

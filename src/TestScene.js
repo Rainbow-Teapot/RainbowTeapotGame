@@ -22,6 +22,7 @@ TestScene.prototype.preload = function(){
 podemos crear objetos necesarios que se puedan necesitar para esta escena en concreto */
 TestScene.prototype.create = function(){
 
+    audio.play(audio.track1);
     levelParser.parseTiles("layer", this);
     levelParser.parseObjects("objectLayer", this);  
     
