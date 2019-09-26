@@ -4,10 +4,20 @@ simplemente no se referencia ningún sprite. El GameObject se añade el solito a
 function GameObject(scene,x,y,sprite,depth){
     this.scene = scene;
     this.sprite = sprite;
-    this.pos = new Point(x,y);
+    this.x = x;
+    this.y = y;
+    this.pos = new Point(this.x,this.y);
     this.depth = depth;
-
+    this.width = Game.TILE_SIZE;
+    this.height = Game.TILE_SIZE;
     this.scene.gameObjects.push(this);
+    this.type = ["GameObject"];
+    if(this.sprite){
+        this.width = this.sprite.width;
+        this.height  = this.sprite.height;
+    }
+
+    physics.quadTree.insert(this);
     console.log("El objeto se ha creado correctamente");
 }
 
@@ -22,6 +32,15 @@ GameObject.prototype.update = function(){
 
 GameObject.prototype.performClick = function(){
     
+}
+
+GameObject.prototype.instanceOf = function(type){
+    for(let i = this.type.length - 1; i >= 0; i--){
+        if(this.type[i] === type){
+            return true;
+        }
+    }
+    return false;
 }
 
 /*seria necesario hacer un método de destroy, para eliminar objetos una vez, ya no
