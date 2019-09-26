@@ -12,10 +12,15 @@ Player.prototype.update = function(){
     //si se ve un delay ponerlo abajo
     GameObject.prototype.update.call(this);
     
-    this.pos.x += input.isPressedKey("d"); 
-    this.pos.x -= input.isPressedKey("a"); 
+    
+
+    //if(!physics.placeMeeting(this,1,0,"Wall"))
+        this.pos.x += input.isPressedKey("d"); 
+    //if(!physics.placeMeeting(this,-1,0,"Wall"))
+        this.pos.x -= input.isPressedKey("a"); 
     this.pos.y -= input.isPressedKey("w");
     this.pos.y += input.isPressedKey("s");
-    
-    console.log(physics.placeMeeting(this,0,0,"Wall"));
+
+    console.log(physics.instancePlace(this,-1,0,"Wall"));
+
 }
