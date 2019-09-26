@@ -13,6 +13,7 @@ var Game = {
         Game.width = width;
         Game.height = height;
         Game.pos = new Point(posx, posy);
+        
 
         console.log("le juego se ha iniciado");
 
