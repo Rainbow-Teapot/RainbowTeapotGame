@@ -57,9 +57,12 @@ var levelParser =  {
 
                 //Aquí actuaría la factory
                 if(colorObj.equals(new Color(0,0,0,255))){
-                    let sprite = new Sprite(scene,k*32,j*32,0);
-                    let player = new Player(scene,k*32, j* 32, sprite);
+                    let sprite = new Sprite(scene,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0);
+                    let player = new Player(scene,k*Game.TILE_SIZE, j* Game.TILE_SIZE, sprite);
                     scene.player = player;
+                }else if(colorObj.equals(new Color(0,255,0,255))){
+                    let sprite = new Sprite(scene,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0);
+                    let wall = new Wall(scene, k*Game.TILE_SIZE, j*Game.TILE_SIZE, sprite);
                 }
             }
         }

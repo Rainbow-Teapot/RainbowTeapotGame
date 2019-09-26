@@ -18,7 +18,8 @@ var Game = {
         console.log("le juego se ha iniciado");
 
         Game.changeScene(scene); 
-        viewport.createViewport(width, height, posx, posy)     
+        viewport.createViewport(width, height, posx, posy);
+        physics.initPhysics(0, 0, scene.width, scene.height);    
         coreLoop.loop();
         
     },

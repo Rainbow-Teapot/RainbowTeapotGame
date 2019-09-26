@@ -3,8 +3,7 @@ var input = {
     keys: new Map(),
     
     init: function () {
-        document.onkeydown = input.saveKey;
-
+        document.onkeypress = input.saveKey;
     },
 
     saveKey: function (e) {
