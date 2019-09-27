@@ -16,7 +16,7 @@ var init = function(){
     
     let scene = new MenuScene(WIDTH_SCENE, HEIGHT_SCENE);
 
-    input.init(); 
+    
     Game.createGame(scene,X_OFFSET,Y_OFFSET, WIDTH_GAME,HEIGHT_GAME);
     
 };
