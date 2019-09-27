@@ -14,13 +14,12 @@ Player.prototype.update = function(){
     
     
 
-    //if(!physics.placeMeeting(this,1,0,"Wall"))
+    if(!physics.placeMeeting(this,1,0,"Wall"))
         this.pos.x += input.isPressedKey("d"); 
-    //if(!physics.placeMeeting(this,-1,0,"Wall"))
+    if(!physics.placeMeeting(this,-1,0,"Wall"))
         this.pos.x -= input.isPressedKey("a"); 
     this.pos.y -= input.isPressedKey("w");
     this.pos.y += input.isPressedKey("s");
 
-    console.log(physics.instancePlace(this,-1,0,"Wall"));
 
 }
