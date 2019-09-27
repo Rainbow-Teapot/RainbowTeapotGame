@@ -27,6 +27,7 @@ function Scene(width, height){
     this.player = null;
 
     this.gameObjects = [];
+    this.clickableObjects = [];
 };
 
 /*funcion para cargar resources necesarios para la creación de la escena,
@@ -47,9 +48,10 @@ por eso no se utiliza loadToScene, se le indica en los hijos que hereden de Scen
 Scene.prototype.preload = function(){
 
     let that = this;
-
+    
     Promise.all(this.loadingPromises).then( function(){
         console.log("Se han cargado todos los recursos");
+        physics.quadTree.clear();
         that.create();
     });
 };
@@ -62,6 +64,8 @@ Scene.prototype.create = function(){
 
     this.camera = new Camera(this,viewport,0,0);
     this.isSceneLoaded = true;
+    coreLoop.setScene(this);
+    console.log(physics.quadTree);
 };
 
 /*actualizar todos los objetos y la camara*/
@@ -91,4 +95,34 @@ Scene.prototype.draw = function(){
         this.spriteObjectsLayer.draw(this.camera);
         this.GUILayer.draw(this.camera);
     }
+};
+
+Scene.prototype.addClickableObject = function(clickable){
+    this.clickableObjects.push(clickable);
+}
+
+Scene.prototype.handleClick = function(e){
+    let clickPos = viewport.getCursorPosition(e);
+    let clickedObject = null;
+
+    for(let i = 0; i < Game.scene.clickableObjects.length; i++){
+        let currentClickableObject = Game.scene.clickableObjects[i];
+        let currentDrawable = currentClickableObject.sprite;
+
+        if(currentDrawable.pos.x <= clickPos.x && currentDrawable.pos.y <= clickPos.y
+            && currentDrawable.pos.x + currentDrawable.width >= clickPos.x 
+            && currentDrawable.pos.y + currentDrawable.height>= clickPos.y){
+
+                clickedObject = currentClickableObject;
+                break;
+        }
+    }
+
+    if(clickedObject){
+        clickedObject.performClick();
+    }
+}
+
+Scene.prototype.destroy = function(){
+
 }

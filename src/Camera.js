@@ -43,11 +43,9 @@ se comprueba en todo momento si puede moverse en los dos ejes, además se actual
 de la camara*/
 Camera.prototype.update = function(){
     
-    let movement;
+    let movement = new Point(0,0);
     if(this.target){
         movement = new Point(this.target.pos.x +  Game.TILE_SIZE,this.target.pos.y + Game.TILE_SIZE);
-    }else{
-        movement = new Point(this.pos.x + 1,this.pos.y + 1);
     }
         
     if(this.isAbleToMoveInX(movement.x)){
@@ -59,8 +57,7 @@ Camera.prototype.update = function(){
     }
     
 
-    this.updateBasis();
-    
+    this.updateBasis();    
 }
 
 Camera.prototype.isAbleToMoveInX = function(pointToMoveX){

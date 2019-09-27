@@ -14,8 +14,9 @@ var init = function(){
     const WIDTH_GAME = 10*Game.TILE_SIZE;
     const HEIGHT_GAME = 14*Game.TILE_SIZE;
     
-    let scene = new TestScene(WIDTH_SCENE, HEIGHT_SCENE);
-    input.init(); 
+    let scene = new MenuScene(WIDTH_SCENE, HEIGHT_SCENE);
+
+    
     Game.createGame(scene,X_OFFSET,Y_OFFSET, WIDTH_GAME,HEIGHT_GAME);
     
 };

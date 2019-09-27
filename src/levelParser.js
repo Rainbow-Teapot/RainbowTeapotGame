@@ -56,11 +56,14 @@ var levelParser = {
                 let colorObj = new Color(color[0], color[1], color[2], color[3]);
 
                 //Aquí actuaría la factory
-                if (colorObj.equals(new Color(0, 0, 0, 255))) {
-                    console.log("ha encontrado el objeto");
-                    let sprite = new Sprite(scene, k * 32, j * 32, 0);
-                    let player = new Player(scene, k * 32, j * 32, sprite);
+
+                if(colorObj.equals(new Color(0,0,0,255))){
+                    let sprite = new Sprite(scene,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0);
+                    let player = new Player(scene,k*Game.TILE_SIZE, j* Game.TILE_SIZE, sprite);
                     scene.player = player;
+                }else if(colorObj.equals(new Color(0,255,0,255))){
+                    //let sprite = new Sprite(scene,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0);
+                    let wall = new Wall(scene, k*Game.TILE_SIZE, j*Game.TILE_SIZE);
                 }
             }
         }
