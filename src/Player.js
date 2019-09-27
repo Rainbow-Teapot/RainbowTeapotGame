@@ -27,15 +27,16 @@ Player.prototype.constructor = Player;
 
 /*Aquí metemos el comportamento del personaje en cada actualización */
 Player.prototype.update = function(){
+    
     //si se ve un delay ponerlo abajo
     GameObject.prototype.update.call(this);
-    
+
     let colLeft = physics.placeMeeting(this,-1,0,"Wall");
     let colRigth = physics.placeMeeting(this,1,0,"Wall");
     let colGround = physics.placeMeeting(this,0,1,"Wall");
 
-    let keyLeft = input.isPressedKey("a");
-    let keyRight = input.isPressedKey("d");
+    let keyLeft = input.isDownKey("a");
+    let keyRight = input.isDownKey("d");
     let keyJump = input.isPressedKey(" ");
 
     //Calcular input
@@ -77,6 +78,8 @@ Player.prototype.update = function(){
             break;
         }
     }
+
+    
 
 }
 

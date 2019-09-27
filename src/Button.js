@@ -7,5 +7,5 @@ Button.prototype = Object.create(GameObject.prototype);
 Button.prototype.constructor = Button;
 
 Button.prototype.update = function(){
-
+    GameObject.prototype.update.call(this);
 }

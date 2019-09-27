@@ -57,8 +57,7 @@ Camera.prototype.update = function(){
     }
     
 
-    this.updateBasis();
-    
+    this.updateBasis();    
 }
 
 Camera.prototype.isAbleToMoveInX = function(pointToMoveX){

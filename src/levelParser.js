@@ -61,8 +61,8 @@ var levelParser =  {
                     let player = new Player(scene,k*Game.TILE_SIZE, j* Game.TILE_SIZE, sprite);
                     scene.player = player;
                 }else if(colorObj.equals(new Color(0,255,0,255))){
-                    let sprite = new Sprite(scene,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0);
-                    let wall = new Wall(scene, k*Game.TILE_SIZE, j*Game.TILE_SIZE, sprite);
+                    //let sprite = new Sprite(scene,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0);
+                    let wall = new Wall(scene, k*Game.TILE_SIZE, j*Game.TILE_SIZE);
                 }
             }
         }
