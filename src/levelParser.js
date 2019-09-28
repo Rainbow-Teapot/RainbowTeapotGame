@@ -5,8 +5,12 @@ var levelParser = {
     la posibilidad de que haya varias capas para los tiles también se contempla.
     parseTiles, genera absolutamente todos los tiles de todas las capas del nivel 
     y se lo endosa al nivel automaticamente por medio del constructor del Tile*/
+<<<<<<< HEAD
     parseTiles : function(scene,src, tileFactory){
         
+=======
+    parseTiles: function (src, scene) {
+>>>>>>> 90a0d8564d84fb34b880fa2a2120048be74471fe
         var img;
         scene.tileLayer = new Array(scene.numLayers);
         console.log(scene.tileLayer);
@@ -25,8 +29,12 @@ var levelParser = {
 
                     let color = context.getImageData(k,j,1,1).data;
                     let colorObj = new Color(color[0],color[1],color[2],color[3]);
+<<<<<<< HEAD
                     
                     console.log("el color: " + color);
+=======
+                   
+>>>>>>> 90a0d8564d84fb34b880fa2a2120048be74471fe
                     //Aquí actuaría la factoria
                     tileFactory.createTileFromColor(colorObj, k*Game.TILE_SIZE, j*Game.TILE_SIZE);
                     /*if(colorObj.equals(new Color(0,30,255,255))){
@@ -46,6 +54,10 @@ var levelParser = {
 
     /*igual que parseTile pero referente a la capa de objetos, los objetos se añaden 
     a la escena por medio del constructor*/
+<<<<<<< HEAD
+=======
+
+>>>>>>> 90a0d8564d84fb34b880fa2a2120048be74471fe
     parseObjects : function( scene,src){
         var img;
         var objects = new Array();
