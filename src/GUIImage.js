@@ -1,5 +1,5 @@
-function GUIImage(scene, x, y, depth, resource){
-    Drawable.call(this,scene,x,y,depth,resource);
+function GUIImage(scene, img,x,y, xInImage, yInImage, width, height, depth){
+    Drawable.call(this,scene,img,x,y, xInImage, yInImage, width, height, depth);
     this.scene.GUILayer.addElement(this);
 }
 

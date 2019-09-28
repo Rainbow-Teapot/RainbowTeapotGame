@@ -2,7 +2,7 @@
 function Player(scene, x, y, sprite, depth){
     GameObject.call(this, scene, x, y, sprite, depth);
     this.type.push("Player");
-    
+
     this.moveX = 0;
     this.VYmax = 14;
     this.VXMax = 9;
