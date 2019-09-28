@@ -21,4 +21,5 @@ Color.prototype.toHTML = function(){
 
 /*variable global para representar un color que se considera no válido,
 no se le hace caso a la hora de pintar*/
+var BLACK_COLOR = new Color(0,0,0,255);
 var TRANSPARENT_COLOR = new Color(0,0,0,0);

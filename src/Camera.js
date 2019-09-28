@@ -97,10 +97,10 @@ Camera.prototype.getFrameLayer = function(){
                 let sceneTileIndex = (posInitInTiles.y + j) * Math.floor(this.scene.width/ Game.TILE_SIZE) + (posInitInTiles.x + k);
                 let tile  = sceneTiles[i].elements[sceneTileIndex];
                 
-                if(tile){
-                    if(!tile.color.equals(TRANSPARENT_COLOR)){
+                if(tile && tile.img){
+                    //if(!tile.color.equals(TRANSPARENT_COLOR)){
                         tilesToDraw.addElement(tile);
-                    }
+                    //}
                 }
             }
         }

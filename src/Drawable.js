@@ -1,16 +1,13 @@
-function Drawable(scene, x, y, depth, resource){
+function Drawable(scene, img, x, y, xInImage, yInImage, width, height, depth){
     this.scene = scene;
     this.pos = new Point(x,y);
-    this.depth = depth;
-    this.img = null;
-    this.width = Game.TILE_SIZE;
-    this.height = Game.TILE_SIZE;
-    if(resource){
-        this.img = cache.retrieve(resource).img;
-        this.width = this.img.width;
-        this.height = this.img.height;
-        console.log(this.toString());
+    this.posInImage = new Point(xInImage, yInImage);
+    if(img){
+        this.img = cache.retrieve(img).img;
     }
+    this.width = width;
+    this.height = height;
+    this.depth = depth;
 }
 
 Drawable.prototype.toString = function(){
