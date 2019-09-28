@@ -1,5 +1,5 @@
 /*Por ahora solo llama al constructor del padre, en este caso GameObject*/
-function Player(scene, x, y, sprite, depth){
+function Player(scene, x, y, sprite, depth) {
     GameObject.call(this, scene, x, y, sprite, depth);
     this.type.push("Player");
 
