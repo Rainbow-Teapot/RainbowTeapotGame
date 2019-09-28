@@ -10,9 +10,9 @@ TestScene.prototype.constructor = TestScene;
 /*Ahora es cuando llamamos a loadToScene para cargar los resources */
 TestScene.prototype.preload = function(){
 
-    Scene.prototype.loadToScene.call(this,"layermap0","./assets/layermap0.png");
     Scene.prototype.loadToScene.call(this,"palette0","./assets/palette0.png");
     Scene.prototype.loadToScene.call(this,"tilemap0","./assets/tilemap0.png");
+    Scene.prototype.loadToScene.call(this,"layermap0","./assets/layermap0.png");
     Scene.prototype.loadToScene.call(this,"objectLayer0", "./assets/objectLayer0.png");
     this.numLayers = 1;
 
@@ -25,7 +25,6 @@ TestScene.prototype.create = function(){
 
     audio.play(audio.track1);
     let tileFactory = new TileFactory(this, "tilemap0", "palette0");
-    console.log(tileFactory);
     levelParser.parseTiles(this,"layermap",tileFactory);
     levelParser.parseObjects(this,"objectLayer");  
     
