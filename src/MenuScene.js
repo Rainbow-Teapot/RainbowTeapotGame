@@ -15,7 +15,7 @@ MenuScene.prototype.preload = function(){
 
 MenuScene.prototype.create = function(){
     
-    let buttonSprite = new GUIImage(this,50,50,0,"button");
+    let buttonSprite = new GUIImage(this,"button",50,50,0,0,114,52,0);
     let button = new Button(this,viewport.width/2 - buttonSprite.width/2,50,buttonSprite,0);
     button.performClick = function(){
         Game.changeScene(new TestScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
