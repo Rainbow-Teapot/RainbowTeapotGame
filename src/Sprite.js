@@ -1,12 +1,9 @@
 /*prototipo para dibujar los sprites de los objetos y gestionar animaciones, el sprite
 se añade el solito a la escena*/
-function Sprite(scene, x , y , depth,resource){
-    /*this.scene = scene;
-    this.pos = new Point(x,y);
-    this.depth  = depth;
-    if(resource)
-        this.resource = resource.img;*/
-    Drawable.call(this, scene,x,y,depth,resource);
+function Sprite(scene, img, x, y, xInImage, yInImage, width, height, depth){
+    
+    Drawable.call(this,scene,img, x, y, xInImage, yInImage, width, height, depth);
+    
     this.color = new Color(0,0,0,255);
     this.scene.spriteObjectsLayer.addElement(this);
     

@@ -1,5 +1,5 @@
-function Background(scene, x, y, depth, resource){
-    Drawable.call(this);
+function Background(scene, img,x,y, xInImage, yInImage, width, height, depth){
+    Drawable.call(this,scene,img,x,y, xInImage, yInImage, width, height, depth);
 
 }
 
