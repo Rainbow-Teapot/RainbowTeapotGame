@@ -36,7 +36,7 @@ Animation.prototype.update = function(){
         
             this.tickCount = 0;
         
-            if (this.currentFrame < this.endIndex) {	
+            if (this.currentFrame < this.endIndex - 1) {	
                 
                 this.currentFrame++;
 

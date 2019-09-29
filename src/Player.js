@@ -5,6 +5,7 @@ function Player(scene, x, y, depth){
 
     this.sprite = new Sprite(this.scene, "cape", this.x, this.y,0,0,29,46,0);
     this.sprite.addAnimation("idle",8,15,4,-1);
+    this.sprite.addAnimation("walk",0,8,3,-1);
     this.sprite.initAnimation("idle");
     this.width = 29;
     this.height = 46;
@@ -49,10 +50,13 @@ Player.prototype.update = function(){
     this.moveX = keyRight - keyLeft;
 
     //calcular velocidad horizontal
-    if(this.moveX != 0)
+    if(this.moveX != 0){
         this.currentVX = this.approach(this.currentVX, this.VXMax * this.moveX, this.groundAcc);
-    else
+        this.sprite.initAnimation("walk");
+    }else{
         this.currentVX = this.approach(this.currentVX, 0, this.groundFricc);
+        this.sprite.initAnimation("idle");
+    }
 
     //calcular velocidad vertical
     if(!colGround){

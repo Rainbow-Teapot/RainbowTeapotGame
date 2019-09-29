@@ -52,6 +52,17 @@ Sprite.prototype.addAnimation = function(key, initIndex, endIndex, frameRate, re
 }
 
 Sprite.prototype.initAnimation = function(key){
-    this.currentAnimation = this.animations.get(key);
-    this.currentAnimation.setActive(true);
+    
+    let newAnimation = this.animations.get(key);
+
+    if(this.currentAnimation != newAnimation){
+        if(this.currentAnimation)
+            this.currentAnimation.setActive(false);
+        this.currentAnimation = newAnimation;
+    }
+    
+    if(!this.currentAnimation.isActive){
+        this.currentAnimation.setActive(true);
+    }
+
 }
