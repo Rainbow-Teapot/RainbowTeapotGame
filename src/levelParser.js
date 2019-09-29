@@ -9,7 +9,7 @@ var levelParser = {
     parseTiles : function(scene,src, tileFactory){
         var img;
         scene.tileLayer = new Array(scene.numLayers);
-        console.log(scene.tileLayer);
+       
         var canvas = document.createElement('canvas');
         var context = canvas.getContext('2d');
 
@@ -25,6 +25,7 @@ var levelParser = {
 
                     let color = context.getImageData(k,j,1,1).data;
                     let colorObj = new Color(color[0],color[1],color[2],color[3]);
+                  
                     //Aquí actuaría la factoria
                     tileFactory.createTileFromColor(colorObj, k*Game.TILE_SIZE, j*Game.TILE_SIZE);
                     /*if(colorObj.equals(new Color(0,30,255,255))){
@@ -64,8 +65,8 @@ var levelParser = {
                 //Aquí actuaría la factory
 
                 if(colorObj.equals(new Color(0,0,0,255))){
-                    let sprite = new Sprite(scene, null,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
-                    let player = new Player(scene,k*Game.TILE_SIZE, j* Game.TILE_SIZE,sprite);
+                    //let sprite = new Sprite(scene, null,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
+                    let player = new Player(scene,k*Game.TILE_SIZE, j* Game.TILE_SIZE);
                     scene.player = player;
                 }else if(colorObj.equals(new Color(0,255,0,255))){
                     //let sprite = new Sprite(scene,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0);

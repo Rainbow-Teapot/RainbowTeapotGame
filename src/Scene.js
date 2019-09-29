@@ -28,6 +28,7 @@ function Scene(width, height){
 
     this.gameObjects = [];
     this.clickableObjects = [];
+    this.animations = [];
 };
 
 /*funcion para cargar resources necesarios para la creación de la escena,
@@ -75,6 +76,10 @@ Scene.prototype.update = function(){
         for(let i = 0; i < this.gameObjects.length; i++){
             this.gameObjects[i].update();
         }
+        for(let i = 0; i < this.animations.length; i++){
+            //console.log("Actualizando animaciones");
+            this.animations[i].update();
+        }
         this.camera.update();
     }
 };
@@ -96,6 +101,10 @@ Scene.prototype.draw = function(){
         this.GUILayer.draw(this.camera);
     }
 };
+
+Scene.prototype.addAnimation = function(animation){
+    this.animations.push(animation);
+}
 
 Scene.prototype.addClickableObject = function(clickable){
     this.clickableObjects.push(clickable);

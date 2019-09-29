@@ -4,9 +4,13 @@ function Sprite(scene, img, x, y, xInImage, yInImage, width, height, depth){
     
     Drawable.call(this,scene,img, x, y, xInImage, yInImage, width, height, depth);
     
+    this.animations = new Map();
+    this.currentAnimation = null;
     this.color = new Color(0,0,0,255);
     this.scene.spriteObjectsLayer.addElement(this);
     
+    this.imgWidthInSprite = this.img.width / this.width;
+    this.imgHeightInSpite = this.img.height / this.height;
 }
 
 Sprite.prototype = Object.create(Drawable.prototype);
@@ -17,12 +21,48 @@ Sprite.prototype.draw = function(camera){
 
     var canvas = document.getElementById("viewport");
     var context = canvas.getContext('2d');
+    let posAtCamera = this.pos.changeBase(camera.basis);
+    let posAtViewPort = posAtCamera.changeBase(viewport.basis);
 
     if(!this.img){
-        context.beginPath();
-        context.fillStyle = this.color.toHTML();
-        let posAtCamera = this.pos.changeBase(camera.basis);
-        let posAtViewPort = posAtCamera.changeBase(viewport.basis);
-        context.fillRect(posAtViewPort.x,posAtViewPort.y,32,32);
+        
+        
+            context.beginPath();
+            context.fillStyle = this.color.toHTML();
+            context.fillRect(posAtViewPort.x,posAtViewPort.y,32,32);
+        
+    }else if (this.currentAnimation){
+
+        
+        let frameToDraw = this.currentAnimation.currentFrame;            
+        let xOffsetOnImage = frameToDraw % this.imgWidthInSprite * this.width;
+        let yOffsetOnImage = Math.floor(frameToDraw / this.imgWidthInSprite) * this.height;
+        
+        context.drawImage(  this.img,xOffsetOnImage, yOffsetOnImage, 
+                            this.width, this.height, 
+                            posAtViewPort.x , posAtViewPort.y, 
+                            this.width, this.height);
+        
     }
+}
+
+Sprite.prototype.addAnimation = function(key, initIndex, endIndex, frameRate, repetitions){
+    let animation = new Animation(this.scene, initIndex, endIndex, frameRate, repetitions);
+    this.animations.set(key, animation);
+}
+
+Sprite.prototype.initAnimation = function(key){
+    
+    let newAnimation = this.animations.get(key);
+
+    if(this.currentAnimation != newAnimation){
+        if(this.currentAnimation)
+            this.currentAnimation.setActive(false);
+        this.currentAnimation = newAnimation;
+    }
+    
+    if(!this.currentAnimation.isActive){
+        this.currentAnimation.setActive(true);
+    }
+
 }
