@@ -1,6 +1,8 @@
 /*Por ahora solo llama al constructor del padre, en este caso GameObject*/
+
 function Player(scene, x, y, depth){
     GameObject.call(this, scene, x, y, depth);
+  
     this.type.push("Player");
 
     this.sprite = new Sprite(this.scene, "cape", this.x, this.y,0,0,29,46,0);
