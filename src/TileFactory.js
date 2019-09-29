@@ -1,7 +1,7 @@
 function TileFactory(scene, tileMap, palette){
     this.factoryMap = new Map();
     this.createFactory(scene, tileMap, palette);
-    console.log(this.factoryMap);
+
 }
 
 TileFactory.prototype.createFactory = function(scene, tileMap, palette){
@@ -12,7 +12,6 @@ TileFactory.prototype.createFactory = function(scene, tileMap, palette){
     
     for(let i = 0; i < img.height; i++){
         for(let j = 0; j < img.width; j++){
-            console.log("jaja si");
             let color = context.getImageData(j,i,1,1).data;
             let colorObj = new Color(color[0], color[1], color[2], color[3]);
             if(!colorObj.equals(BLACK_COLOR)){
@@ -45,7 +44,6 @@ TileFactory.prototype.createFactory = function(scene, tileMap, palette){
 
 TileFactory.prototype.createTileFromColor = function(color, x, y){
     let tileInfo = this.factoryMap.get(color.toHTML());
-    console.log(tileInfo);
     new Tile(tileInfo.scene, tileInfo.img, 
             x, y, 
             tileInfo.xInImage, tileInfo.yInImage,

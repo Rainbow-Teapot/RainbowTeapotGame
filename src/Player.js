@@ -1,7 +1,24 @@
 /*Por ahora solo llama al constructor del padre, en este caso GameObject*/
-function Player(scene, x, y, sprite, depth){
-    GameObject.call(this, scene, x, y, sprite, depth);
+function Player(scene, x, y, depth){
+    GameObject.call(this, scene, x, y, depth);
     this.type.push("Player");
+
+    this.sprite = new Sprite(this.scene, "cape", this.x, this.y,0,0,29,46,0);
+    this.sprite.addAnimation("idleR",8,15,4,-1);
+    this.sprite.addAnimation("walkR",0,8,3,-1);
+    this.sprite.addAnimation("idleL",32,40,4,-1);
+    this.sprite.addAnimation("walkL",25,31,3,-1);
+
+    this.sprite.addAnimation("jumpUpL",19,19,3,-1);
+    this.sprite.addAnimation("jumpDownL",18,18,3,-1);
+    this.sprite.addAnimation("jumpUpR",16,16,3,-1);
+    this.sprite.addAnimation("jumpDownR",17,17,3,-1);
+
+    this.sprite.initAnimation("idleR");
+    this.width = 29;
+    this.height = 46;
+
+    this.faceX = 1;
 
     this.moveX = 0;
     this.VYmax = 14;
@@ -43,15 +60,37 @@ Player.prototype.update = function(){
     this.moveX = keyRight - keyLeft;
 
     //calcular velocidad horizontal
-    if(this.moveX != 0)
+    if(this.moveX != 0){
         this.currentVX = this.approach(this.currentVX, this.VXMax * this.moveX, this.groundAcc);
-    else
+        this.faceX = this.moveX;
+        if(this.faceX == 1)
+            this.sprite.initAnimation("walkR");
+        else if(this.faceX == -1)
+            this.sprite.initAnimation("walkL");
+    }else{
         this.currentVX = this.approach(this.currentVX, 0, this.groundFricc);
+        if(this.faceX == 1)
+            this.sprite.initAnimation("idleR");
+        else if(this.faceX == -1)
+            this.sprite.initAnimation("idleL");
+    }
 
     //calcular velocidad vertical
     if(!colGround){
         this.currentVY = this.approach(this.currentVY, this.VYmax, this.gravity);
-
+        if(this.currentVY > 0){
+            if(this.faceX == 1){
+                this.sprite.initAnimation("jumpDownR");
+            }else if(this.faceX == -1){
+                this.sprite.initAnimation("jumpDownL");
+            }
+        }else{
+            if(this.faceX == 1){
+                this.sprite.initAnimation("jumpUpR");
+            }else if(this.faceX == -1){
+                this.sprite.initAnimation("jumpUpL");
+            }
+        }
     }
 
     if(keyJump && colGround){
