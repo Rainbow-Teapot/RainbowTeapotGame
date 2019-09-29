@@ -1,7 +1,13 @@
 /*Por ahora solo llama al constructor del padre, en este caso GameObject*/
-function Player(scene, x, y, sprite, depth){
-    GameObject.call(this, scene, x, y, sprite, depth);
+function Player(scene, x, y, depth){
+    GameObject.call(this, scene, x, y, depth);
     this.type.push("Player");
+
+    this.sprite = new Sprite(this.scene, "cape", this.x, this.y,0,0,29,46,0);
+    this.sprite.addAnimation("idle",8,15,4,-1);
+    this.sprite.initAnimation("idle");
+    this.width = 29;
+    this.height = 46;
 
     this.moveX = 0;
     this.VYmax = 14;
