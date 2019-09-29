@@ -11,7 +11,6 @@ function Sprite(scene, img, x, y, xInImage, yInImage, width, height, depth){
     
     this.imgWidthInSprite = this.img.width / this.width;
     this.imgHeightInSpite = this.img.height / this.height;
-
 }
 
 Sprite.prototype = Object.create(Drawable.prototype);
@@ -38,11 +37,12 @@ Sprite.prototype.draw = function(camera){
         let frameToDraw = this.currentAnimation.currentFrame;            
         let xOffsetOnImage = frameToDraw % this.imgWidthInSprite * this.width;
         let yOffsetOnImage = Math.floor(frameToDraw / this.imgWidthInSprite) * this.height;
-
+        
         context.drawImage(  this.img,xOffsetOnImage, yOffsetOnImage, 
                             this.width, this.height, 
-                            posAtViewPort.x, posAtViewPort.y, 
+                            posAtViewPort.x , posAtViewPort.y, 
                             this.width, this.height);
+        
     }
 }
 
