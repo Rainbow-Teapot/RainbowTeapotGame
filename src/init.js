@@ -20,3 +20,7 @@ var init = function(){
     Game.createGame(scene,X_OFFSET,Y_OFFSET, WIDTH_GAME,HEIGHT_GAME);
     
 };
+
+Number.prototype.clamp = function(min, max) {
+    return Math.min(Math.max(this, min), max);
+};

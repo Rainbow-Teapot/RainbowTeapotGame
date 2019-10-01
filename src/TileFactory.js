@@ -8,7 +8,7 @@ function TileFactory(scene, tileMap, palette){
 TileFactory.prototype = Object.create(Factory.prototype);
 TileFactory.prototype.constructor = TileFactory;
 
-TileFactory.prototype.createFactory = function(scene, tileMap, palette){
+TileFactory.prototype.createFactory = function(scene, tileMap, palette, layer){
     let canvas = document.createElement('canvas');
     let context = canvas.getContext('2d');
     let img = cache.retrieve(palette).img;
@@ -26,7 +26,7 @@ TileFactory.prototype.createFactory = function(scene, tileMap, palette){
                                 yInImage: i * Game.TILE_SIZE,
                                 width: Game.TILE_SIZE,
                                 height: Game.TILE_SIZE,
-                                depth:0
+                                depth: 0
                                 };
                 this.factoryMap.set(colorObj.toHTML(), tileInfo);
 
@@ -46,11 +46,11 @@ TileFactory.prototype.createFactory = function(scene, tileMap, palette){
     }
 }
 
-TileFactory.prototype.createProductFromColor = function(color, x, y){
+TileFactory.prototype.createProductFromColor = function(color, x, y, depth){
     let tileInfo = this.factoryMap.get(color.toHTML());
     new Tile(tileInfo.scene, tileInfo.img, 
             x, y, 
             tileInfo.xInImage, tileInfo.yInImage,
-            tileInfo.width,tileInfo.height, tileInfo.depth
+            tileInfo.width,tileInfo.height, depth
             );
 }

@@ -30,6 +30,7 @@ function Scene(width, height){
     this.clickableObjects = [];
     this.animations = [];
 
+    this.shadowLevel = 5;
     this.objectFactory = new ObjectFactory(this);
 };
 

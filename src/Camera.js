@@ -50,10 +50,13 @@ Camera.prototype.update = function(){
         
     if(this.isAbleToMoveInX(movement.x)){
         this.pos.x = movement.x;
-        
+    }else{
+        this.pos.x = movement.x.clamp(this.minPoint.x,this.maxPoint.x);
     }
     if(this.isAbleToMoveInY(movement.y)){
         this.pos.y = movement.y;
+    }else{
+        this.pos.y = movement.y.clamp(this.minPoint.y,this.maxPoint.y);
     }
     
 

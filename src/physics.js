@@ -21,7 +21,7 @@ var physics = {
 
         for(let i = 0; i < collidedObjects.length; i++){        
             if(collidedObjects[i].instanceOf(objToCollide)){   
-                if(physics.intersect(collisionMask,collidedObjects[i])){
+                if(object.depth == collidedObjects[i].depth && physics.intersect(collisionMask,collidedObjects[i])){
                     return true;
                 }
             }
@@ -40,7 +40,7 @@ var physics = {
 
         for(let i = 0; i < collidedObjects.length; i++){        
             if(collidedObjects[i].instanceOf(objToCollide)){   
-                if(physics.intersect(collisionMask,collidedObjects[i])){
+                if(object.depth == objToCollide.depth && physics.intersect(collisionMask,collidedObjects[i])){
                     return collidedObjects[i];
                 }
             }
