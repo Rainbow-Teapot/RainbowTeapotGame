@@ -11,8 +11,8 @@ var init = function(){
     
     const X_OFFSET = 5*Game.TILE_SIZE;
     const Y_OFFSET = 4*Game.TILE_SIZE;
-    const WIDTH_GAME = 10*Game.TILE_SIZE;
-    const HEIGHT_GAME = 14*Game.TILE_SIZE;
+    const WIDTH_GAME = 640;
+    const HEIGHT_GAME = 480;
     
     let scene = new MenuScene(WIDTH_SCENE, HEIGHT_SCENE);
 
