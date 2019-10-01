@@ -29,6 +29,8 @@ function Scene(width, height){
     this.gameObjects = [];
     this.clickableObjects = [];
     this.animations = [];
+
+    this.objectFactory = new ObjectFactory(this);
 };
 
 /*funcion para cargar resources necesarios para la creación de la escena,

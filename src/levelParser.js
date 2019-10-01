@@ -28,7 +28,7 @@ var levelParser =  {
                     
                     
                     //Aquí actuaría la factoria
-                    tileFactory.createTileFromColor(colorObj, k*Game.TILE_SIZE, j*Game.TILE_SIZE);
+                    tileFactory.createProductFromColor(colorObj, k*Game.TILE_SIZE, j*Game.TILE_SIZE);
                     /*if(colorObj.equals(new Color(0,30,255,255))){
                         console.log("se ha creado el tile correcto");
                         new Tile(scene,"tilemap0",k*32,j*32,32,32,32,32,i);
@@ -64,15 +64,7 @@ var levelParser =  {
                 let colorObj = new Color(color[0], color[1], color[2], color[3]);
 
                 //Aquí actuaría la factory
-                if(colorObj.equals(new Color(0,0,0,255))){
-                    //let sprite = new Sprite(scene, null,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
-                    let player = new Player(scene,k*Game.TILE_SIZE, j* Game.TILE_SIZE);
-                    scene.player = player;
-                }else if(colorObj.equals(new Color(0,255,0,255))){
-                    //let sprite = new Sprite(scene,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0);
-                    //let sprite = new Sprite(scene, null,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
-                    let wall = new Wall(scene, k*Game.TILE_SIZE, j*Game.TILE_SIZE);
-                }
+                scene.objectFactory.createProductFromColor(colorObj, k*Game.TILE_SIZE, j*Game.TILE_SIZE);
             }
         }
     }
