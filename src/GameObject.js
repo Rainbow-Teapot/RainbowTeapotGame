@@ -43,3 +43,10 @@ GameObject.prototype.instanceOf = function(type){
 se necesiten, bastaría con quitar al objeto del array de objetos de la escena y también
 quitar a su sprite de la layer de la escena para que no se siga dibujando. Sería necesario
 por tanto crear un método en LAYER para eliminar un objeto*/
+GameObject.prototype.destroy = function(){
+
+    if(this.sprite){
+        this.sprite.destroy();
+    }
+    this.scene.removeGameObject(this);
+}

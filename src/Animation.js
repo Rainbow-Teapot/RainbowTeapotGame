@@ -55,3 +55,7 @@ Animation.prototype.update = function(){
         }
     }
 }
+
+Animation.prototype.destroy = function(){
+    this.scene.removeAnimation(this);
+}

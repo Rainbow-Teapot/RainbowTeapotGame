@@ -113,6 +113,27 @@ Scene.prototype.addClickableObject = function(clickable){
     this.clickableObjects.push(clickable);
 }
 
+Scene.prototype.removeAnimation = function(animation){
+    let index = this.animations.indexOf(animation);
+    if (index > -1) {
+        this.animations.splice(index, 1);
+    }
+}
+
+Scene.prototype.removeSprite = function(sprite){
+    let index = this.spriteObjectsLayer.elements.indexOf(sprite);
+    if (index > -1) {
+        this.spriteObjectsLayer.elements.splice(index, 1);
+    } 
+}
+
+Scene.prototype.removeGameObject = function(gameObject){
+    let index = gameObjects.indexOf(gameObject);
+    if (index > -1) {
+        gameObjects.splice(index, 1);
+    }  
+}
+
 Scene.prototype.handleClick = function(e){
     let clickPos = viewport.getCursorPosition(e);
     let clickedObject = null;

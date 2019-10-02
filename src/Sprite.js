@@ -66,3 +66,13 @@ Sprite.prototype.initAnimation = function(key){
     }
 
 }
+
+Sprite.prototype.destroy = function(){
+
+    let animations = this.animations.values;
+    for(let i = 0; i < animations; i++){
+        animations[i].destroy();
+    }
+
+    this.scene.removeSprite(this);
+}
