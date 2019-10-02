@@ -1,9 +1,11 @@
 /*Por ahora solo llama al constructor del padre, en este caso GameObject*/
+
 function Player(scene, x, y, depth){
     GameObject.call(this, scene, x, y, depth);
     this.type.push("Player");
 
     this.sprite = this.prepareAnimations();
+
     this.sprite.initAnimation("idleR");
     this.width = 29;
     this.height = 46;
@@ -100,6 +102,7 @@ Player.prototype.movement = function(){
     }else{
         this.currentVX = this.approach(this.currentVX, 0, this.groundFricc);
         this.currentAnimation = this.animations.IDLE;
+
     }
 
     //calcular velocidad vertical
@@ -118,6 +121,7 @@ Player.prototype.objectInteraction = function(){
 
     if(colKey){
         colKey.pickUp();
+
     }
 
     if(input.isPressedKey("e") ){

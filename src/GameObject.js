@@ -1,7 +1,9 @@
 /*prototipo del que hereda cualquier objeto que vaya a haber en la escena,
 tiene una referencia a un sprite para su dibujado, si no se quiere dibujar
 simplemente no se referencia ningún sprite. El GameObject se añade el solito a la escena*/
+
 function GameObject(scene,x,y,depth){  
+
     this.scene = scene;
     this.sprite = null;
     this.x = x;
@@ -12,7 +14,9 @@ function GameObject(scene,x,y,depth){
     this.height = Game.TILE_SIZE;
     this.scene.gameObjects.push(this);
     this.type = ["GameObject"];
+
     this.disable = false;
+
     physics.quadTree.insert(this);
 
 }

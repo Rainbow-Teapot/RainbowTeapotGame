@@ -55,7 +55,10 @@ Animation.prototype.update = function(){
         }
     }
 }
+<<<<<<< HEAD
 
 Animation.prototype.destroy = function(){
     this.scene.removeAnimation(this);
 }
+=======
+>>>>>>> 241375e233bd26403ae997c6e50e86cfffe9098d

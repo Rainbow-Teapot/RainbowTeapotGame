@@ -13,6 +13,7 @@ function Sprite(scene, img, x, y, xInImage, yInImage, width, height, depth){
         this.imgWidthInSprite = this.img.width / this.width;
         this.imgHeightInSpite = this.img.height / this.height;
     }
+
 }
 
 Sprite.prototype = Object.create(Drawable.prototype);
@@ -32,6 +33,7 @@ Sprite.prototype.draw = function(camera){
             context.beginPath();
             context.fillStyle = this.color.toHTML();
             context.fillRect(posAtViewPort.x,posAtViewPort.y,this.width,this.height);
+
         
     }else if (this.currentAnimation){
 
@@ -77,4 +79,5 @@ Sprite.prototype.destroy = function(){
     }
 
     this.scene.removeSprite(this);
+
 }

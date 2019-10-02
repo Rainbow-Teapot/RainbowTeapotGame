@@ -34,6 +34,7 @@ function Scene(width, height){
     this.objControl = null;
     this.objTarget = null;
     this.objectFactory = new ObjectFactory(this);
+
 };
 
 /*funcion para cargar resources necesarios para la creación de la escena,

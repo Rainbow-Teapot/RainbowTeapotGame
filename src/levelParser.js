@@ -26,6 +26,7 @@ var levelParser = {
 
                     let color = context.getImageData(k,j,1,1).data;
                     let colorObj = new Color(color[0],color[1],color[2],color[3]);
+                  
                     //Aquí actuaría la factoria
                     tileFactory.createProductFromColor(colorObj, k*Game.TILE_SIZE, j*Game.TILE_SIZE, i);
                     /*if(colorObj.equals(new Color(0,30,255,255))){
@@ -65,6 +66,7 @@ var levelParser = {
                 //Aquí actuaría la factory
 
                 scene.objectFactory.createProductFromColor(colorObj, k*Game.TILE_SIZE, j*Game.TILE_SIZE);
+
 
             }
         }
