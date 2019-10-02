@@ -11,12 +11,16 @@ var init = function(){
     
     const X_OFFSET = 5*Game.TILE_SIZE;
     const Y_OFFSET = 4*Game.TILE_SIZE;
-    const WIDTH_GAME = 10*Game.TILE_SIZE;
-    const HEIGHT_GAME = 14*Game.TILE_SIZE;
+    const WIDTH_GAME = 640;
+    const HEIGHT_GAME = 480;
     
     let scene = new MenuScene(WIDTH_SCENE, HEIGHT_SCENE);
 
     
     Game.createGame(scene,X_OFFSET,Y_OFFSET, WIDTH_GAME,HEIGHT_GAME);
     
+};
+
+Number.prototype.clamp = function(min, max) {
+    return Math.min(Math.max(this, min), max);
 };

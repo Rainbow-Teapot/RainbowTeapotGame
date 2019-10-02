@@ -24,10 +24,16 @@ function Scene(width, height){
     this.spriteObjectsLayer = new Layer();
     this.GUILayer = new Layer();
 
-    this.player = null;
+    this.selectedPlayer = null;
 
     this.gameObjects = [];
     this.clickableObjects = [];
+    this.animations = [];
+
+    this.shadowLevel = 5;
+    this.objControl = null;
+    this.objTarget = null;
+    this.objectFactory = new ObjectFactory(this);
 };
 
 /*funcion para cargar resources necesarios para la creación de la escena,
@@ -75,9 +81,40 @@ Scene.prototype.update = function(){
         for(let i = 0; i < this.gameObjects.length; i++){
             this.gameObjects[i].update();
         }
+        for(let i = 0; i < this.animations.length; i++){
+            //console.log("Actualizando animaciones");
+            this.animations[i].update();
+        }
         this.camera.update();
     }
+
+    if(input.isPressedKey("q") && this.objTarget == undefined){
+        
+        let otherPlayer = null;
+
+        if(this.selectedPlayer == this.objControl.colorPlayer){
+            otherPlayer = this.objControl.shadowPlayer;
+            this.objControl.colorPlayer.isSelected = false;
+        }else if(this.selectedPlayer == this.objControl.shadowPlayer){
+            otherPlayer = this.objControl.colorPlayer;
+            this.objControl.colorPlayer.isSelected = true;
+        }
+        this.objControl.colorPlayer.stopMoving();
+        this.objTarget = new Target(this,0,0,this.selectedPlayer.pos,otherPlayer.pos,0.1);
+        this.camera.setTarget(this.objTarget);
+    }
 };
+
+Scene.prototype.changePlayer = function(){
+    this.objTarget = null;
+    if(this.selectedPlayer == this.objControl.colorPlayer){
+        this.selectedPlayer = this.objControl.shadowPlayer;
+    }else if(this.selectedPlayer == this.objControl.shadowPlayer){
+        this.selectedPlayer = this.objControl.colorPlayer;
+    }
+    
+    this.camera.setTarget(this.selectedPlayer);
+}
 
 /*dibujar todas las layer en el siguiente orden: 
     1. Backgrounds
@@ -97,8 +134,35 @@ Scene.prototype.draw = function(){
     }
 };
 
+Scene.prototype.addAnimation = function(animation){
+    this.animations.push(animation);
+}
+
 Scene.prototype.addClickableObject = function(clickable){
     this.clickableObjects.push(clickable);
+}
+
+Scene.prototype.removeAnimation = function(animation){
+    let index = this.animations.indexOf(animation);
+    if (index > -1) {
+        this.animations.splice(index, 1);
+    }
+}
+
+Scene.prototype.removeSprite = function(sprite){
+    let index = this.spriteObjectsLayer.elements.indexOf(sprite);
+    if (index > -1) {
+        this.spriteObjectsLayer.elements.splice(index, 1);
+    } 
+}
+
+Scene.prototype.removeGameObject = function(gameObject){
+
+    gameObject.disable = true;
+    let index = this.gameObjects.indexOf(gameObject);
+    if (index > -1) {
+        this.gameObjects.splice(index, 1);
+    }  
 }
 
 Scene.prototype.handleClick = function(e){
