@@ -72,9 +72,10 @@ Player.prototype.update = function(){
     
     
     this.movement();
-    
     this.animation();
     this.handleColisions(); 
+
+    this.objectInteraction();
 }
 
 
@@ -108,6 +109,23 @@ Player.prototype.movement = function(){
     } else if(keyJump && this.isSelected && colGround){
         this.currentVY = -this.VYmax;
         
+    }
+}
+
+Player.prototype.objectInteraction = function(){
+    let colDoor = physics.instancePlace(this,Math.sign(this.faceX) * 4,0,"Door");
+    let colKey = physics.instancePlace(this,Math.sign(this.faceX),0,"Key");
+
+    if(colKey){
+        colKey.pickUp();
+    }
+
+    if(input.isPressedKey("e") ){
+        if(colDoor && this.scene.objControl.numKeys > 0){ 
+            colDoor.perform();
+        }else{ 
+            console.log("no hay colision con la puerta");
+        }
     }
 }
 

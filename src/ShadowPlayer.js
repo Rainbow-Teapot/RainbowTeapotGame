@@ -48,3 +48,7 @@ ShadowPlayer.prototype.handleColisions = function(){
     Player.prototype.handleColisions.call(this);  
 }
 
+ShadowPlayer.prototype.objectInteraction = function(){
+    Player.prototype.objectInteraction.call(this);
+}
+

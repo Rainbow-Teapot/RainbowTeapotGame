@@ -31,7 +31,7 @@ Sprite.prototype.draw = function(camera){
         
             context.beginPath();
             context.fillStyle = this.color.toHTML();
-            context.fillRect(posAtViewPort.x,posAtViewPort.y,32,32);
+            context.fillRect(posAtViewPort.x,posAtViewPort.y,this.width,this.height);
         
     }else if (this.currentAnimation){
 
