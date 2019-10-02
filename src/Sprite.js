@@ -9,8 +9,10 @@ function Sprite(scene, img, x, y, xInImage, yInImage, width, height, depth){
     this.color = new Color(0,0,0,255);
     this.scene.spriteObjectsLayer.addElement(this);
     
-    this.imgWidthInSprite = this.img.width / this.width;
-    this.imgHeightInSpite = this.img.height / this.height;
+    if(img){
+        this.imgWidthInSprite = this.img.width / this.width;
+        this.imgHeightInSpite = this.img.height / this.height;
+    }
 }
 
 Sprite.prototype = Object.create(Drawable.prototype);

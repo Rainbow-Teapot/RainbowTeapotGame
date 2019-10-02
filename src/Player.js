@@ -70,7 +70,9 @@ Player.prototype.update = function(){
     let colLeft = physics.placeMeeting(this,-1,0,"Wall");
     let colRigth = physics.placeMeeting(this,1,0,"Wall");
     
+    
     this.movement();
+    
     this.animation();
     this.handleColisions(); 
 }
@@ -85,8 +87,9 @@ Player.prototype.movement = function(){
     let colGround = physics.placeMeeting(this,0,1,"Wall");
 
     //Calcular input
-    this.moveX = keyRight - keyLeft;
-
+    if(this.isSelected){
+        this.moveX = keyRight - keyLeft;
+    }
     //calcular velocidad horizontal
     if(this.moveX != 0){
         this.currentVX = this.approach(this.currentVX, this.VXMax * this.moveX, this.groundAcc);
@@ -102,11 +105,15 @@ Player.prototype.movement = function(){
     if(!colGround){
         this.currentVY = this.approach(this.currentVY, this.VYmax, this.gravity);
         this.currentAnimation = this.animations.JUMPING;
-    } else if(keyJump && colGround){
+    } else if(keyJump && this.isSelected && colGround){
         this.currentVY = -this.VYmax;
         
     }
-    
+}
+
+Player.prototype.stopMoving = function(){
+    this.currentVX = 0;
+    this.moveX = 0;
 }
 
 Player.prototype.animation = function(){

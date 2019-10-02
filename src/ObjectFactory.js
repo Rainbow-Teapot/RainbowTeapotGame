@@ -18,7 +18,7 @@ ObjectFactory.prototype.createProductFromColor = function(color, x, y){
         objControl.colorPlayer = new Player(this.scene,color.r * Game.TILE_SIZE, color.g * Game.TILE_SIZE,0);
         objControl.shadowPlayer = new ShadowPlayer(this.scene, color.r *Game.TILE_SIZE, (color.g - this.scene.shadowLevel) * Game.TILE_SIZE,1);
         this.scene.objControl = objControl;
-        this.scene.player = objControl.colorPlayer;
+        this.scene.selectedPlayer = objControl.colorPlayer;
 
 
     }else if(color.equals(new Color(0,0,0,255))){

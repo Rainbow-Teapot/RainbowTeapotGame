@@ -32,7 +32,7 @@ TestScene.prototype.create = function(){
     
     Scene.prototype.create.call(this);
 
-    this.camera.setTarget(this.player);
+    this.camera.setTarget(this.selectedPlayer);
     
 
 }

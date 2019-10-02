@@ -24,13 +24,15 @@ function Scene(width, height){
     this.spriteObjectsLayer = new Layer();
     this.GUILayer = new Layer();
 
-    this.player = null;
+    this.selectedPlayer = null;
 
     this.gameObjects = [];
     this.clickableObjects = [];
     this.animations = [];
 
     this.shadowLevel = 5;
+    this.objControl = null;
+    this.objTarget = null;
     this.objectFactory = new ObjectFactory(this);
 };
 
@@ -85,7 +87,34 @@ Scene.prototype.update = function(){
         }
         this.camera.update();
     }
+
+    if(input.isPressedKey("q") && this.objTarget == undefined){
+        
+        let otherPlayer = null;
+
+        if(this.selectedPlayer == this.objControl.colorPlayer){
+            otherPlayer = this.objControl.shadowPlayer;
+            this.objControl.colorPlayer.isSelected = false;
+        }else if(this.selectedPlayer == this.objControl.shadowPlayer){
+            otherPlayer = this.objControl.colorPlayer;
+            this.objControl.colorPlayer.isSelected = true;
+        }
+        this.objControl.colorPlayer.stopMoving();
+        this.objTarget = new Target(this,0,0,this.selectedPlayer.pos,otherPlayer.pos,0.1);
+        this.camera.setTarget(this.objTarget);
+    }
 };
+
+Scene.prototype.changePlayer = function(){
+    this.objTarget = null;
+    if(this.selectedPlayer == this.objControl.colorPlayer){
+        this.selectedPlayer = this.objControl.shadowPlayer;
+    }else if(this.selectedPlayer == this.objControl.shadowPlayer){
+        this.selectedPlayer = this.objControl.colorPlayer;
+    }
+    
+    this.camera.setTarget(this.selectedPlayer);
+}
 
 /*dibujar todas las layer en el siguiente orden: 
     1. Backgrounds

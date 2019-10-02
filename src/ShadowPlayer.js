@@ -1,7 +1,8 @@
 function ShadowPlayer(scene, x, y, depth){
     Player.call(this,scene, x, y, depth);
     this.type.push("ShadowPlayer");
-    this.isSelected = false;
+    this.isSelected = true;
+    
 }
 
 ShadowPlayer.prototype = Object.create(Player.prototype);
@@ -24,12 +25,18 @@ ShadowPlayer.prototype.prepareAnimations = function(){
 
 ShadowPlayer.prototype.update = function(){
     Player.prototype.update.call(this);
+    
 };
 
 ShadowPlayer.prototype.movement = function(){
     Player.prototype.movement.call(this);
     let colorPlayer = this.scene.objControl.colorPlayer;
-    this.pos.x = colorPlayer.pos.x;
+    if(colorPlayer.isSelected){
+        this.faceX = colorPlayer.faceX;
+        this.pos.x = colorPlayer.pos.x;
+        this.pos.y = colorPlayer.pos.y - this.scene.shadowLevel * Game.TILE_SIZE;
+    }
+    
     //this.currentVY = colorPlayer.currentVY;
 };
 
