@@ -9,3 +9,7 @@ js no soporto definicion de operando asi que hay que hacer una funcion*/
 Point.prototype.changeBase = function(dstBase){
     return new Point(this.x - dstBase.x, this.y - dstBase.y);
 }
+
+Point.prototype.equals = function(otherPoint){
+    return this.x === otherPoint.x && this.y === otherPoint.y;
+}

@@ -9,8 +9,10 @@ function Sprite(scene, img, x, y, xInImage, yInImage, width, height, depth){
     this.color = new Color(0,0,0,255);
     this.scene.spriteObjectsLayer.addElement(this);
     
-    this.imgWidthInSprite = this.img.width / this.width;
-    this.imgHeightInSpite = this.img.height / this.height;
+    if(img){
+        this.imgWidthInSprite = this.img.width / this.width;
+        this.imgHeightInSpite = this.img.height / this.height;
+    }
 }
 
 Sprite.prototype = Object.create(Drawable.prototype);
@@ -29,7 +31,7 @@ Sprite.prototype.draw = function(camera){
         
             context.beginPath();
             context.fillStyle = this.color.toHTML();
-            context.fillRect(posAtViewPort.x,posAtViewPort.y,32,32);
+            context.fillRect(posAtViewPort.x,posAtViewPort.y,this.width,this.height);
         
     }else if (this.currentAnimation){
 
@@ -65,4 +67,14 @@ Sprite.prototype.initAnimation = function(key){
         this.currentAnimation.setActive(true);
     }
 
+}
+
+Sprite.prototype.destroy = function(){
+
+    let animations = this.animations.values;
+    for(let i = 0; i < animations; i++){
+        animations[i].destroy();
+    }
+
+    this.scene.removeSprite(this);
 }

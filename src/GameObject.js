@@ -1,7 +1,7 @@
 /*prototipo del que hereda cualquier objeto que vaya a haber en la escena,
 tiene una referencia a un sprite para su dibujado, si no se quiere dibujar
 simplemente no se referencia ningún sprite. El GameObject se añade el solito a la escena*/
-function GameObject(scene,x,y,depth){
+function GameObject(scene,x,y,depth){  
     this.scene = scene;
     this.sprite = null;
     this.x = x;
@@ -12,7 +12,7 @@ function GameObject(scene,x,y,depth){
     this.height = Game.TILE_SIZE;
     this.scene.gameObjects.push(this);
     this.type = ["GameObject"];
-
+    this.disable = false;
     physics.quadTree.insert(this);
 
 }
@@ -43,3 +43,10 @@ GameObject.prototype.instanceOf = function(type){
 se necesiten, bastaría con quitar al objeto del array de objetos de la escena y también
 quitar a su sprite de la layer de la escena para que no se siga dibujando. Sería necesario
 por tanto crear un método en LAYER para eliminar un objeto*/
+GameObject.prototype.destroy = function(){
+
+    if(this.sprite){
+        this.sprite.destroy();
+    }
+    this.scene.removeGameObject(this);
+}
