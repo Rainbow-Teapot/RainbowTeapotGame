@@ -73,7 +73,6 @@ Player.prototype.update = function(){
     this.movement();
     this.animation();
     this.handleColisions(); 
-
 }
 
 

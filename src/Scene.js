@@ -128,9 +128,9 @@ Scene.prototype.removeSprite = function(sprite){
 }
 
 Scene.prototype.removeGameObject = function(gameObject){
-    let index = gameObjects.indexOf(gameObject);
+    let index = this.gameObjects.indexOf(gameObject);
     if (index > -1) {
-        gameObjects.splice(index, 1);
+        this.gameObjects.splice(index, 1);
     }  
 }
 
