@@ -18,3 +18,7 @@ Drawable.prototype.toString = function(){
 Drawable.prototype.draw = function(camera){
 
 }
+
+Drawable.prototype.destroy = function(){
+
+}

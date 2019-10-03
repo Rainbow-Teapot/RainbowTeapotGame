@@ -76,5 +76,5 @@ Sprite.prototype.destroy = function(){
         animations[i].destroy();
     }
 
-    this.scene.removeSprite(this);
+    this.scene.spriteObjectsLayer.removeElement(this);
 }

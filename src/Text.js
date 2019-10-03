@@ -27,5 +27,9 @@ Text.prototype.changeFont = function(font){
     this.font = font;
 }
 
+Text.prototype.destroy = function(){
+    this.scene.GUILayer.removeElement(this);
+}
+
 
 
