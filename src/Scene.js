@@ -149,13 +149,6 @@ Scene.prototype.removeAnimation = function(animation){
     }
 }
 
-Scene.prototype.removeSprite = function(sprite){
-    let index = this.spriteObjectsLayer.elements.indexOf(sprite);
-    if (index > -1) {
-        this.spriteObjectsLayer.elements.splice(index, 1);
-    } 
-}
-
 Scene.prototype.removeGameObject = function(gameObject){
 
     gameObject.disable = true;

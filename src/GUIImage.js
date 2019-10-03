@@ -14,3 +14,7 @@ GUIImage.prototype.draw = function(camera){
         context.drawImage(this.img,this.pos.x,this.pos.y);
     }
 }
+
+GUIImage.prototype.destroy = function(){
+    this.scene.GUILayer.removeElement(this);
+}
