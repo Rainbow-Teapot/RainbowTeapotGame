@@ -23,6 +23,10 @@ MenuScene.prototype.create = function(){
     };
     this.addClickableObject(button);
 
+    let text = new Text(this,"jaja sí, soy io",100,100,"30px Folks");
+
+    let text3 = new Text(this,"JUGAR sí, soy io",100,240,"50px CartoonRegular");
+
     
     Scene.prototype.create.call(this);
     
