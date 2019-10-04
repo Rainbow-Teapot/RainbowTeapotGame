@@ -17,7 +17,7 @@ GUIImage.prototype.draw = function(camera){
 }
 
 GUIImage.prototype.destroy = function(){
-    console.log("detruit gui");
+
     this.scene.GUILayer.removeElement(this);
     //this.scene.GUILayer.removeElement(this);
 }
