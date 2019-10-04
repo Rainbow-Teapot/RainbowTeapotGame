@@ -10,7 +10,7 @@ TestScene.prototype.constructor = TestScene;
 /*Ahora es cuando llamamos a loadToScene para cargar los resources */
 TestScene.prototype.preload = function(){
 
-    Scene.prototype.loadToScene.call(this,"cape", "./assets/capespritesheet.png");
+    Scene.prototype.loadToScene.call(this,"teapot", "./assets/teapot.png");
     Scene.prototype.loadToScene.call(this,"palette0","./assets/palette0.png");
     Scene.prototype.loadToScene.call(this,"tilemap0","./assets/tilemap0.png");
     Scene.prototype.loadToScene.call(this,"layermap0","./assets/layermap0.png");
