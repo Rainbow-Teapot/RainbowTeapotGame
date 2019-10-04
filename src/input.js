@@ -12,7 +12,7 @@ var input = {
         if(!input.keys.get(e.key))
             input.keysPress.set(e.key,e.key);
         input.keys.set(e.key, e.key); 
-        //console.log(e.key);
+        console.log(e.key);
 
     },
     removeKey: function(e){
