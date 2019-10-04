@@ -29,6 +29,7 @@ ShadowPlayer.prototype.update = function(){
 };
 
 ShadowPlayer.prototype.movement = function(){
+    
     Player.prototype.movement.call(this);
     let colorPlayer = this.scene.objControl.colorPlayer;
     if(colorPlayer.isSelected){
@@ -36,12 +37,16 @@ ShadowPlayer.prototype.movement = function(){
         this.pos.x = colorPlayer.pos.x;
         this.pos.y = colorPlayer.pos.y - this.scene.shadowLevel * Game.TILE_SIZE;
     }
-    
-    //this.currentVY = colorPlayer.currentVY;
 };
 
 ShadowPlayer.prototype.animation = function(){
-    Player.prototype.animation.call(this);
+   
+    let colorPlayer = this.scene.objControl.colorPlayer;
+    if(colorPlayer.isSelected){
+        this.sprite.currentAnimation = colorPlayer.sprite.currentAnimation;
+    }else{
+        Player.prototype.animation.call(this);
+    }
 };
 
 ShadowPlayer.prototype.handleColisions = function(){

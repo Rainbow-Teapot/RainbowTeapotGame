@@ -5,13 +5,13 @@ function Player(scene, x, y, depth){
 
     this.sprite = this.prepareAnimations();
     this.sprite.initAnimation("idleR");
-    this.width = 29;
-    this.height = 46;
+    this.width = 64;
+    this.height = 96;
 
     this.faceX = 1;
 
     this.moveX = 0;
-    this.VYmax = 14;
+    this.VYmax = 17;
     this.VXMax = 9;
     this.currentVX = 0;
     this.currentVY = 0;

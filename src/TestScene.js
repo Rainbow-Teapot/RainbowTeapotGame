@@ -12,7 +12,7 @@ TestScene.prototype.preload = function(){
 
     Scene.prototype.loadToScene.call(this,"teapot", "./assets/teapot.png");
     Scene.prototype.loadToScene.call(this,"palette0","./assets/palette0.png");
-    Scene.prototype.loadToScene.call(this,"tilemap0","./assets/tilemap0.png");
+    Scene.prototype.loadToScene.call(this,"tilemap64","./assets/tilemap64.png");
     Scene.prototype.loadToScene.call(this,"layermap0","./assets/layermap0.png");
     Scene.prototype.loadToScene.call(this,"layermap1","./assets/layermap1.png");
     Scene.prototype.loadToScene.call(this,"objectLayer0", "./assets/objectLayer0.png");
@@ -26,7 +26,7 @@ podemos crear objetos necesarios que se puedan necesitar para esta escena en con
 TestScene.prototype.create = function(){
 
     audio.play(audio.track1);
-    let tileFactory = new TileFactory(this, "tilemap0", "palette0");
+    let tileFactory = new TileFactory(this, "tilemap64", "palette0");
     levelParser.parseTiles(this,"layermap",tileFactory);
     levelParser.parseObjects(this,"objectLayer");  
     
