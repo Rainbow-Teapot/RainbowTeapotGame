@@ -30,11 +30,18 @@ function Scene(width, height){
     this.clickableObjects = [];
     this.animations = [];
 
+<<<<<<< HEAD
     this.shadowLevel = 5;
     this.objControl = null;
     this.objTarget = null;
     this.objectFactory = new ObjectFactory(this);
 
+=======
+    this.shadowLevel = 3;
+    this.objControl = null;
+    this.objTarget = null;
+    this.objectFactory = new ObjectFactory(this);
+>>>>>>> release-1.2.0
 };
 
 /*funcion para cargar resources necesarios para la creación de la escena,

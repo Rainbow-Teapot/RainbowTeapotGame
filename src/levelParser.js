@@ -12,10 +12,16 @@ var levelParser = {
        
         var canvas = document.createElement('canvas');
         var context = canvas.getContext('2d');
+<<<<<<< HEAD
 
         context.clearRect(0,0, canvas.width, canvas.height);
         for(let i = 0; i < scene.numLayers; i++){
     
+=======
+        context.clearRect(0,0, canvas.width, canvas.height);
+        for(let i = 0; i < scene.numLayers; i++){
+            
+>>>>>>> release-1.2.0
             img = cache.retrieve(src + i).img;
             context.drawImage(img, 0, 0);
             //tiles[i] = new Array(img.width * img.height);  
@@ -64,10 +70,7 @@ var levelParser = {
                 let colorObj = new Color(color[0], color[1], color[2], color[3]);
 
                 //Aquí actuaría la factory
-
                 scene.objectFactory.createProductFromColor(colorObj, k*Game.TILE_SIZE, j*Game.TILE_SIZE);
-
-
             }
         }
     }

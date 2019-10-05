@@ -1,19 +1,17 @@
 /*Por ahora solo llama al constructor del padre, en este caso GameObject*/
-
 function Player(scene, x, y, depth){
     GameObject.call(this, scene, x, y, depth);
     this.type.push("Player");
 
     this.sprite = this.prepareAnimations();
-
     this.sprite.initAnimation("idleR");
-    this.width = 29;
-    this.height = 46;
+    this.width = 64;
+    this.height = 96;
 
     this.faceX = 1;
 
     this.moveX = 0;
-    this.VYmax = 14;
+    this.VYmax = 20;
     this.VXMax = 9;
     this.currentVX = 0;
     this.currentVY = 0;
@@ -48,16 +46,16 @@ Player.prototype.constructor = Player;
 
 Player.prototype.prepareAnimations = function(){
 
-    let sprite = new Sprite(this.scene, "cape", this.x, this.y,0,0,29,46,0);
-    sprite.addAnimation("idleR",8,15,4,-1);
-    sprite.addAnimation("walkR",0,8,3,-1);
-    sprite.addAnimation("idleL",32,40,4,-1);
-    sprite.addAnimation("walkL",25,31,3,-1);
+    let sprite = new Sprite(this.scene, "teapot", this.x, this.y,0,0,64,96,0);
+    sprite.addAnimation("idleR",16,19,4,-1);
+    sprite.addAnimation("walkR",0,7,3,-1);
+    sprite.addAnimation("idleL",20,23,4,-1);
+    sprite.addAnimation("walkL",8,15,3,-1);
 
-    sprite.addAnimation("jumpUpL",19,19,3,-1);
-    sprite.addAnimation("jumpDownL",18,18,3,-1);
-    sprite.addAnimation("jumpUpR",16,16,3,-1);
-    sprite.addAnimation("jumpDownR",17,17,3,-1);
+    sprite.addAnimation("jumpUpL",24,24,3,-1);
+    sprite.addAnimation("jumpDownL",24,24,3,-1);
+    sprite.addAnimation("jumpUpR",24,24,3,-1);
+    sprite.addAnimation("jumpDownR",24,24,3,-1);
 
     return sprite;
 
@@ -102,7 +100,6 @@ Player.prototype.movement = function(){
     }else{
         this.currentVX = this.approach(this.currentVX, 0, this.groundFricc);
         this.currentAnimation = this.animations.IDLE;
-
     }
 
     //calcular velocidad vertical
@@ -121,7 +118,6 @@ Player.prototype.objectInteraction = function(){
 
     if(colKey){
         colKey.pickUp();
-
     }
 
     if(input.isPressedKey("e") ){

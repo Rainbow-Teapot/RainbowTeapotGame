@@ -3,6 +3,16 @@
 <head>
     <h1>A Rainbow Teapot Studio Game</h1>
     <h2>Smells like tea spirit</h2>
+    <style>
+    @font-face {
+        font-family: Folks;
+        src: url(./assets/fonts/Folks.ttf);
+    }
+    @font-face {
+        font-family: CartoonRegular;
+        src: url(./assets/fonts/Cartoon_Regular.ttf);
+    }
+    </style>
 </head>
 
 <body>
@@ -20,6 +30,7 @@
     <script src="./src/Drawable.js"></script>
     <script src="./src/Background.js"></script>
     <script src="./src/GUIImage.js"></script>
+    <script src="./src/Text.js"></script>
     <script src="./src/Tile.js"></script>
     <script src="./src/Animation.js"></script>
     <script src="./src/Sprite.js"></script>
@@ -31,21 +42,33 @@
 
 
     <script src="./src/GameObject.js"></script>
-    <script src="./src/Button.js"></script>
-    <script src="./src/Player.js"></script>
-    <script src="./src/ShadowPlayer.js"></script>
-    <script src="./src/Wall.js"></script>
-    <script src="./src/Control.js"></script>
-    <script src="./src/Target.js"></script>
-    <script src="./src/Door.js"></script>
-    <script src="./src/Key.js"></script>
+    <script src="./src/gameobjects/Button.js"></script>
+    <script src="./src/gameobjects/Player.js"></script>
+    <script src="./src/gameobjects/ShadowPlayer.js"></script>
+    <script src="./src/gameobjects/Wall.js"></script>
+    <script src="./src/gameobjects/Control.js"></script>
+    <script src="./src/gameobjects/Target.js"></script>
+    <script src="./src/gameobjects/Door.js"></script>
+    <script src="./src/gameobjects/Key.js"></script>
+
+    <script src="./src/GUISet.js"></script>
+    <script src="./src/guisets/MainMenuGUI.js"></script>
+    <script src="./src/guisets/OptionsMenuGUI.js"></script>
+    <script src="./src/guisets/CreditsMenuGUI.js"></script>
+    <script src="./src/guisets/LevelSelectionMenuGUI.js"></script>
+    <script src="./src/guisets/InGameGUI.js"></script>
+    <script src="./src/guisets/InGameOptionsMenuGUI.js"></script>
+    <script src="./src/guisets/ConfirmLevelGUI.js"></script>
 
     <script src="./src/Camera.js"></script>
     <script src="./src/levelParser.js"></script>
 
     <script src="./src/Scene.js"></script>
-    <script src="./src/TestScene.js"></script>
-    <script src="./src/MenuScene.js"></script>
+    <script src="./src/scenes/TestScene.js"></script>
+    <script src="./src/scenes/MenuScene.js"></script>
+    <script src="./src/scenes/OptionsScene.js"></script>
+    <script src="./src/scenes/CreditsScene.js"></script>
+    <script src="./src/scenes/LevelSelectionScene.js"></script>
 
     <script src="./src/viewport.js"></script>
     <script src="./src/physics.js"></script>

@@ -7,23 +7,18 @@ MenuScene.prototype.constructor = MenuScene;
 
 MenuScene.prototype.preload = function(){
 
-    Scene.prototype.loadToScene.call(this,"button", "./assets/touch.png");
-
+    Scene.prototype.loadToScene.call(this,"button", "./assets/gui/Button.png");
+    Scene.prototype.loadToScene.call(this,"littleButton", "./assets/gui/LittleButton.png");
+    Scene.prototype.loadToScene.call(this,"board", "./assets/gui/Tablero.png");
+    
     Scene.prototype.preload.call(this);
     
 }
 
 MenuScene.prototype.create = function(){
     
-    let buttonSprite = new GUIImage(this,"button",50,50,0,0,114,52,0);
-    let button = new Button(this,viewport.width/2 - buttonSprite.width/2,50);
-    button.sprite = buttonSprite;
-    button.performClick = function(){
-        Game.changeScene(new TestScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
-    };
-    this.addClickableObject(button);
+    let gui = new MainMenuGUI(this);
 
-    
     Scene.prototype.create.call(this);
     
 }

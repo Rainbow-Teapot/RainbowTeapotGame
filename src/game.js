@@ -6,7 +6,7 @@ var Game = {
     pos: null,
     scene: null,
     camera: null,
-    TILE_SIZE: 32,
+    TILE_SIZE: 64,
 
     /*crea el juego, inicia el viewport (canvas), asigna la escena e inicia el GAMELOOP*/
     createGame : function(scene, posx, posy, width, height){

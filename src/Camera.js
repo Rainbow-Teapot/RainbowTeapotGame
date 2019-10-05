@@ -81,8 +81,8 @@ además realizar frustum culling de una manera implicita, ya que los tiles que n
 dentro del rango de la cámara nunca llegan a dibujarse */
 Camera.prototype.getFrameLayer = function(){
 
-    let widthInTiles = Math.floor(this.width / Game.TILE_SIZE);
-    let heightInTiles = Math.floor(this.height / Game.TILE_SIZE);
+    let widthInTiles = Math.floor(this.width / Game.TILE_SIZE) + 1;
+    let heightInTiles = Math.floor(this.height / Game.TILE_SIZE) + 1;
 
     //let tilesToDraw = new Array(widthInTiles * heightInTiles);
     let tilesToDraw = new Layer();
