@@ -30,10 +30,11 @@ TestScene.prototype.create = function(){
     levelParser.parseTiles(this,"layermap",tileFactory);
     levelParser.parseObjects(this,"objectLayer");  
     
+    let gui = new InGameGUI(this);
+
     Scene.prototype.create.call(this);
 
     this.camera.setTarget(this.selectedPlayer);
-    
 
 }
 
