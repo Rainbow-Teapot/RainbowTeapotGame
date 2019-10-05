@@ -32,10 +32,6 @@ Sprite.prototype.draw = function(camera){
             context.beginPath();
             context.fillStyle = this.color.toHTML();
             context.fillRect(posAtViewPort.x,posAtViewPort.y,this.width,this.height);
-<<<<<<< HEAD
-
-=======
->>>>>>> release-1.2.0
         
     }else if (this.currentAnimation){
 
@@ -80,10 +76,5 @@ Sprite.prototype.destroy = function(){
         animations[i].destroy();
     }
 
-<<<<<<< HEAD
-    this.scene.removeSprite(this);
-
-=======
     this.scene.spriteObjectsLayer.removeElement(this);
->>>>>>> release-1.2.0
 }
