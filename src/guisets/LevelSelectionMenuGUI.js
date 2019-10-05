@@ -10,6 +10,8 @@ LevelSelectionMenuGUI.prototype.constructor = LevelSelectionMenuGUI;
 LevelSelectionMenuGUI.prototype.create = function(){
 
     let viewportMiddleX = viewport.width/2;
+    let guiConfirmLevel = new ConfirmLevelGUI(this.scene);
+    guiConfirmLevel.hide();
 
     //boton de ir para atras
     let buttonBackSprite = new GUIImage(this.scene,"littleButton",50,50,0,0,114,52,0);
@@ -28,9 +30,9 @@ LevelSelectionMenuGUI.prototype.create = function(){
     viewportMiddleX = viewport.width/2 - buttonSpritePlay.width/2;
     viewportMiddleY = viewport.height/2 - buttonSpritePlay.height/2;
     let goLevelSelection = function(){
-        Game.changeScene(new TestScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
+        guiConfirmLevel.show();
     };
-    let buttonPlay = new Button(this.scene,viewportMiddleX,viewportMiddleY,0,buttonSpritePlay, goLevelSelection, "JUGAR","30px CartoonRegular");
+    let buttonPlay = new Button(this.scene,viewportMiddleX,viewportMiddleY,0,buttonSpritePlay, goLevelSelection, "Nivel 1","30px CartoonRegular");
 
 
     this.guiObjects.push(buttonBack,buttonPlay);

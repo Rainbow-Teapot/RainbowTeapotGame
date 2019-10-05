@@ -12,6 +12,10 @@ MainMenuGUI.prototype.create = function(){
     let viewportMiddleX = viewport.width/2;
     let viewportMiddleY = viewport.height/2;
     let font = "30px CartoonRegular";
+
+    let tittle = new Text(this.scene,"Detec-Tea",viewportMiddleX -70,100,"80px Folks");
+    let tittle2 = new Text(this.scene,"Mss Teapot",viewportMiddleX + 50 ,170,"80px Folks");
+
     //boton jugar
     let buttonSpritePlay = new GUIImage(this.scene,"button",50,50,0,0,114,52,0);
     viewportMiddleX = viewport.width/2 - buttonSpritePlay.width/2;
