@@ -19,7 +19,7 @@ MenuScene.prototype.create = function(){
     let button = new Button(this,viewport.width/2 - buttonSprite.width/2,50,0,buttonSprite);
     //button.sprite = buttonSprite;
     button.performClick = function(){
-        Game.changeScene(new TestScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
+        Game.changeScene(new TestScene(60 * Game.TILE_SIZE,20* Game.TILE_SIZE));
     };
     this.addClickableObject(button);
 

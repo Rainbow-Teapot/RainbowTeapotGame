@@ -11,7 +11,7 @@ function Player(scene, x, y, depth){
     this.faceX = 1;
 
     this.moveX = 0;
-    this.VYmax = 17;
+    this.VYmax = 20;
     this.VXMax = 9;
     this.currentVX = 0;
     this.currentVY = 0;
