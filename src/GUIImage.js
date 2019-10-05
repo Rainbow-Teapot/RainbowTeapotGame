@@ -1,6 +1,7 @@
 function GUIImage(scene, img,x,y, xInImage, yInImage, width, height, depth){
     Drawable.call(this,scene,img,x,y, xInImage, yInImage, width, height, depth);
     this.isVisible = true;
+    this.scene.GUILayer.addElement(this);
     this.width = this.img.width;
     this.height = this.img.height;
 }

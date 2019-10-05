@@ -9,6 +9,7 @@ MenuScene.prototype.preload = function(){
 
     Scene.prototype.loadToScene.call(this,"button", "./assets/gui/Button.png");
     Scene.prototype.loadToScene.call(this,"littleButton", "./assets/gui/LittleButton.png");
+    Scene.prototype.loadToScene.call(this,"board", "./assets/gui/Tablero.png");
     
     Scene.prototype.preload.call(this);
     
