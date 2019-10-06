@@ -16,6 +16,8 @@ TestScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this,"layermap0","./assets/layermap0.png");
     Scene.prototype.loadToScene.call(this,"layermap1","./assets/layermap1.png");
     Scene.prototype.loadToScene.call(this,"objectLayer0", "./assets/objectLayer0.png");
+    Scene.prototype.loadToScene.call(this,"bg1","./assets/backgrounds/bg_nivel1.png");
+    Scene.prototype.loadToScene.call(this,"fg1","./assets/backgrounds/fg_nivel1.png");
     this.numLayers = 2;
 
     Scene.prototype.preload.call(this);
@@ -30,8 +32,9 @@ TestScene.prototype.create = function(){
     levelParser.parseTiles(this,"layermap",tileFactory);
     levelParser.parseObjects(this,"objectLayer");  
     
-    let gui = new InGameGUI(this);
-
+    let gui = new InGameGUI(this);  
+    let bg = new Background(this,"bg1", -Game.TILE_SIZE/2 -1,Game.TILE_SIZE,0);
+    let fg = new Foreground(this,"fg1",0,Game.TILE_SIZE,0);
     Scene.prototype.create.call(this);
 
     this.camera.setTarget(this.selectedPlayer);
