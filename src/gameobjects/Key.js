@@ -1,16 +1,11 @@
 function Key(scene, x, y, depth, isShadow){
-    GameObject.call(this,scene,x,y,depth);
+    Pickupable.call(this,scene,x,y,depth);
     this.type.push("Key");
-    this.width = Game.TILE_SIZE;
-    this.height = Game.TILE_SIZE;
     this.isShadow = isShadow;
-    this.vel = 0.2;
-    this.initPosY = this.pos.y;
-    this.endPosY = this.pos.y + Game.TILE_SIZE / 2;
     this.sprite = this.prepareSprite(this.isShadow);
 }
 
-Key.prototype = Object.create(GameObject.prototype);
+Key.prototype = Object.create(Pickupable.prototype);
 Key.prototype.constructor = Key;
 
 Key.prototype.prepareSprite = function(isShadow){
@@ -36,19 +31,6 @@ Key.prototype.pickUp = function(){
     if(otherKey){
         otherKey.destroy();
     }
-    this.destroy();
-}
-
-Key.prototype.update = function(){
-    GameObject.prototype.update.call(this);
-
-    if(this.pos.y < this.initPosY){
-        this.pos.y = this.initPosY
-        this.vel = -this.vel;
-    }else if(this.pos.y > this.endPosY){
-        this.pos.y = this.endPosY;
-        this.vel = -this.vel;
-    }
-
-    this.pos.y += this.vel;
+    
+    Pickupable.prototype.pickUp.call(this);
 }

@@ -48,7 +48,7 @@ TileFactory.prototype.createFactory = function(scene, tileMap, palette, layer){
 
 TileFactory.prototype.createProductFromColor = function(color, x, y, depth){
     let tileInfo = this.factoryMap.get(color.toHTML());
-    console.log(color.toHTML());
+    //console.log(color.toHTML());
     new Tile(tileInfo.scene, tileInfo.img, 
             x, y, 
             tileInfo.xInImage, tileInfo.yInImage,
