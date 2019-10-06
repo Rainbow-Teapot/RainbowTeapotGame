@@ -20,7 +20,7 @@ LevelSelectionMenuGUI.prototype.create = function(){
     };
     let buttonBack = new Button(this.scene,25,25,0,buttonBackSprite, goMainMenu);
 
-    //texto OPCIONES
+    //texto NIVELES
     let textLevels = new Text(this.scene,"NIVELES",viewportMiddleX,125,"60px CartoonRegular");
 
 

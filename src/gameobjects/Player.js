@@ -114,10 +114,10 @@ Player.prototype.movement = function(){
 
 Player.prototype.objectInteraction = function(){
     let colDoor = physics.instancePlace(this,Math.sign(this.faceX) * 4,0,"Door");
-    let colKey = physics.instancePlace(this,Math.sign(this.faceX),0,"Key");
+    let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
 
-    if(colKey){
-        colKey.pickUp();
+    if(colPickup){
+        colPickup.pickUp();
     }
 
     if(input.isPressedKey("e") ){

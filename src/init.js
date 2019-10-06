@@ -14,7 +14,7 @@ var init = function(){
     const WIDTH_GAME = 640;
     const HEIGHT_GAME = 480;
     
-    let scene = new MenuScene(WIDTH_SCENE, HEIGHT_SCENE);
+    let scene = new StartScene(WIDTH_SCENE, HEIGHT_SCENE);
 
     
     Game.createGame(scene,X_OFFSET,Y_OFFSET, WIDTH_GAME,HEIGHT_GAME);
