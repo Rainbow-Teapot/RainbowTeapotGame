@@ -36,9 +36,9 @@ function Player(scene, x, y, depth){
         JUMPING: 2
     }
 
-    this.currentAnimation = this.animations.IDLE;
+    this.yOffsetColliderMask = 15;
 
-    
+    this.currentAnimation = this.animations.IDLE;
 }
 /*Hererncia protoripica con GameObject */
 Player.prototype = Object.create(GameObject.prototype);
