@@ -45,6 +45,8 @@ Sprite.prototype.draw = function(camera){
                             posAtViewPort.x , posAtViewPort.y, 
                             this.width, this.height);
         
+    }else{
+        context.drawImage(this.img,posAtViewPort.x , posAtViewPort.y );
     }
 }
 

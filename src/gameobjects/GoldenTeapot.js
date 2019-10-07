@@ -4,7 +4,7 @@ function GoldenTeapot(scene, x, y){
     this.vel = 0.2;
     this.initPosY = this.pos.y - Game.TILE_SIZE/2;
     this.endPosY = this.pos.y;
-    this.sprite = new Sprite(this.scene,null,0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2,0);
+    this.sprite = new Sprite(this.scene,"goldenTeapot",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2,0);
 }
 
 GoldenTeapot.prototype = Object.create(Pickupable.prototype);

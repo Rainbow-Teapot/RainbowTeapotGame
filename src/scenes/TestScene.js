@@ -11,6 +11,12 @@ TestScene.prototype.constructor = TestScene;
 TestScene.prototype.preload = function(){
 
     Scene.prototype.loadToScene.call(this,"teapot", "./assets/teapot.png");
+    Scene.prototype.loadToScene.call(this,"goldenTeapot", "./assets/goldenTeapot.png");
+    Scene.prototype.loadToScene.call(this,"door", "./assets/door.png");
+    Scene.prototype.loadToScene.call(this,"doorShadow", "./assets/doorShadow.png");
+    Scene.prototype.loadToScene.call(this,"key", "./assets/key.png");
+    Scene.prototype.loadToScene.call(this,"keyShadow", "./assets/keyShadow.png");
+    Scene.prototype.loadToScene.call(this,"teapotShadow", "./assets/teapotShadow.png");
     Scene.prototype.loadToScene.call(this,"palette0","./assets/palette0.png");
     Scene.prototype.loadToScene.call(this,"tilemap64","./assets/tilemap64.png");
     Scene.prototype.loadToScene.call(this,"layermap0","./assets/layermap0.png");

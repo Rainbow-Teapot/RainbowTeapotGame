@@ -2,6 +2,9 @@ function Key(scene, x, y, depth, isShadow){
     Pickupable.call(this,scene,x,y,depth);
     this.type.push("Key");
     this.isShadow = isShadow;
+    this.vel = 0.3;
+    this.initPosY = this.pos.y;
+    this.endPosY = this.pos.y + Game.TILE_SIZE/4;
     this.sprite = this.prepareSprite(this.isShadow);
 }
 
@@ -12,9 +15,9 @@ Key.prototype.prepareSprite = function(isShadow){
     let sprite = null;
 
     if(!isShadow){
-        sprite = new Sprite(this.scene,null,0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
+        sprite = new Sprite(this.scene,"key",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
     }else{
-        sprite = new Sprite(this.scene,null,0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
+        sprite = new Sprite(this.scene,"keyShadow",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
     }
 
     return sprite;
