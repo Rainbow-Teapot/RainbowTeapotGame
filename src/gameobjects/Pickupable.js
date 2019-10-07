@@ -7,6 +7,8 @@ function Pickupable(scene, x, y, depth){
     this.vel = 0.2;
     this.initPosY = this.pos.y;
     this.endPosY = this.pos.y + Game.TILE_SIZE / 2;
+
+    this.collider = new Collider(this,this.pos.x,this.pos.y,this.width,this.height,0,0);
 }
 
 Pickupable.prototype = Object.create(GameObject.prototype);

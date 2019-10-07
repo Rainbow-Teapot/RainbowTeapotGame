@@ -38,7 +38,7 @@ function Player(scene, x, y, depth){
 
     this.currentAnimation = this.animations.IDLE;
 
-    
+    this.collider = new Collider(this,this.pos.x,this.pos.y,this.width,this.height,0,0);    
 }
 /*Hererncia protoripica con GameObject */
 Player.prototype = Object.create(GameObject.prototype);

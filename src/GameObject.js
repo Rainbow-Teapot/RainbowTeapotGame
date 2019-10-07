@@ -13,7 +13,7 @@ function GameObject(scene,x,y,depth){
     this.scene.gameObjects.push(this);
     this.type = ["GameObject"];
     this.disable = false;
-    physics.quadTree.insert(this);
+    //physics.quadTree.insert(this);
 
 }
 
