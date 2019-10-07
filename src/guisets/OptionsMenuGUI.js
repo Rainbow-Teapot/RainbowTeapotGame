@@ -16,23 +16,62 @@ OptionsMenuGUI.prototype.create = function(){
     board.pos.x -= board.width/2;
     
     //boton de ir para atras
-    let buttonBackSprite = new GUIImage(this.scene,"littleButton",50,50,0,0,114,52,0);
+    let buttonBackSprite = new GUIImage(this.scene,"littleButton",50,50,0,0,114,52,0);    
     let goMainMenu = function(){
         Game.changeScene(new MenuScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
     let buttonBack = new Button(this.scene,25,25,0,buttonBackSprite, goMainMenu);
 
     //texto OPCIONES
-    let textOptions = new Text(this.scene,"OPCIONES",viewportMiddleX ,120,"60px CartoonRegular");
+    let textOptions = new Text(this.scene,i18n.translate(Game.lang, "options"),viewportMiddleX ,120,"60px CartoonRegular");
     //texto volumen
-    let textVolume = new Text(this.scene,"Volumen",viewportMiddleX,170,"40px CartoonRegular");
-    //texto idioma
-    let textLanguage = new Text(this.scene,"Idioma:",viewportMiddleX - 64,300,"40px CartoonRegular");
-    //texto musica
-    let textMusic = new Text(this.scene,"Música:",viewportMiddleX - 64,350,"40px CartoonRegular");
-    //texto efectos sonido
-    let textSoundEffects = new Text(this.scene,"Sonido:",viewportMiddleX - 64,400,"40px CartoonRegular");
+    let textVolume = new Text(this.scene,i18n.translate(Game.lang, "volume"),viewportMiddleX,170,"40px CartoonRegular");
+    
 
-    this.guiObjects.push(buttonBack);
+    let tab = 64; 
+    if(Game.lang=== i18n.eng){
+        tab = 50;
+    }
+
+    //texto idioma
+    let textLanguage = new Text(this.scene,i18n.translate(Game.lang, "lang"),viewportMiddleX - tab,300,"40px CartoonRegular");
+    //tetera idioma
+    let buttonTeapotSprite;
+    
+    if(Game.lang === i18n.eng)
+        buttonTeapotSprite=new GUIImage(this.scene, "teapotEng", 40,40,0,0,114,52,0 );
+    else{
+        buttonTeapotSprite=new GUIImage(this.scene, "teapotEsp", 40,40,0,0,114,52,0 );        
+    }
+    
+   
+    let changeLanguage = function(){
+        if(Game.lang === i18n.eng){
+            Game.lang = i18n.esp;
+            buttonTeapotSprite = new GUIImage(this.scene, "teapotEsp", 40,40,0,0,114,52,0 ); 
+            buttonTeapot.sprite.setVisible(false);                 
+            buttonTeapot = new Button(this.scene, viewportMiddleX+70, 250, 0, buttonTeapotSprite, changeLanguage);
+            buttonTeapot.sprite.setVisible(true);   
+            
+        }
+        else{
+            Game.lang = i18n.eng;
+            buttonTeapotSprite = new GUIImage(this.scene, "teapotEng", 40,40,0,0,114,52,0 );       
+            buttonTeapot.sprite.setVisible(false);      
+            buttonTeapot = new Button(this.scene, viewportMiddleX+70, 250, 0, buttonTeapotSprite, changeLanguage);
+            buttonTeapot.sprite.setVisible(true); 
+            
+        }
+    }    
+
+    let buttonTeapot = new Button(this.scene, viewportMiddleX+70, 250, 0, buttonTeapotSprite, changeLanguage);
+    
+
+    //texto musicas
+    let textMusic = new Text(this.scene,i18n.translate(Game.lang, "music"),viewportMiddleX - 64,350,"40px CartoonRegular");
+    //texto efectos sonido
+    let textSoundEffects = new Text(this.scene,i18n.translate(Game.lang, "sound"),viewportMiddleX - 64,400,"40px CartoonRegular");
+   
+    this.guiObjects.push(buttonBack, buttonTeapot);
     this.guiSprites.push(textOptions,board,textVolume,textLanguage,textMusic,textSoundEffects);
 };

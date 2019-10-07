@@ -19,7 +19,7 @@ CreditsMenuGUI.prototype.create = function(){
     let buttonBack = new Button(this.scene,25,25,0,buttonBackSprite, goMainMenu);
 
     //texto OPCIONES
-    let textCredits = new Text(this.scene,"CRÉDITOS",viewportMiddleX,125,"60px CartoonRegular");
+    let textCredits = new Text(this.scene, i18n.translate(Game.lang, "credits"),viewportMiddleX,125,"60px CartoonRegular");
 
     this.guiObjects.push(buttonBack);
     this.guiSprites.push(textCredits);

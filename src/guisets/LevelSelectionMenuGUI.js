@@ -21,7 +21,7 @@ LevelSelectionMenuGUI.prototype.create = function(){
     let buttonBack = new Button(this.scene,25,25,0,buttonBackSprite, goMainMenu);
 
     //texto NIVELES
-    let textLevels = new Text(this.scene,"NIVELES",viewportMiddleX,125,"60px CartoonRegular");
+    let textLevels = new Text(this.scene,i18n.translate(Game.lang, "levels"),viewportMiddleX,125,"60px CartoonRegular");
 
 
     let viewportMiddleY = viewport.height/2;
@@ -32,7 +32,7 @@ LevelSelectionMenuGUI.prototype.create = function(){
     let goLevelSelection = function(){
         guiConfirmLevel.show();
     };
-    let buttonPlay = new Button(this.scene,viewportMiddleX,viewportMiddleY,0,buttonSpritePlay, goLevelSelection, "Nivel 1","30px CartoonRegular");
+    let buttonPlay = new Button(this.scene,viewportMiddleX,viewportMiddleY,0,buttonSpritePlay, goLevelSelection, i18n.translate(Game.lang, "lvl1"),"30px CartoonRegular");
 
 
     this.guiObjects.push(buttonBack,buttonPlay);

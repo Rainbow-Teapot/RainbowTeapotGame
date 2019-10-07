@@ -28,8 +28,7 @@ EndLevelMenuGUI.prototype.create = function(){
         Game.changeScene(new LevelSelectionScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
     let buttonLevel = new Button(this.scene,viewportMiddleX - buttonLevelSprite.width/2,viewportDown,0,buttonLevelSprite, goLevelSelection,
-                    "Niveles", "40px CartoonRegular");
-
+                    i18n.translate(Game.lang, levels), "40px CartoonRegular");
 
     //boton de siguientes
     let buttonNextSprite = new GUIImage(this.scene,"littleButton",50,50,0,0,114,52,0);
@@ -39,7 +38,7 @@ EndLevelMenuGUI.prototype.create = function(){
     let buttonNext = new Button(this.scene,viewportMiddleX + 200 - buttonNextSprite.width,viewportDown,0,buttonNextSprite, goNextLevel);
 
     //texto congratulaciones
-    let textCongrants = new Text(this.scene,"¡ENHORABUENA!",viewportMiddleX,110,"60px CartoonRegular");
+    let textCongrants = new Text(this.scene,i18n.translate(Game.lang, "win"),viewportMiddleX,110,"60px CartoonRegular");
 
     this.guiObjects.push(buttonRestart,buttonNext,buttonLevel);
     this.guiSprites.push(textCongrants);

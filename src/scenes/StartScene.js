@@ -10,6 +10,10 @@ StartScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this,"button", "./assets/gui/Button.png");
     Scene.prototype.loadToScene.call(this,"littleButton", "./assets/gui/LittleButton.png");
     Scene.prototype.loadToScene.call(this,"board", "./assets/gui/Tablero.png");
+    Scene.prototype.loadToScene.call(this,"teapotEng", "./assets/gui/tetera_eng.png");
+    Scene.prototype.loadToScene.call(this,"teapotEsp", "./assets/gui/tetera_esp.png");
+
+
     
     Scene.prototype.preload.call(this);
     
@@ -26,7 +30,7 @@ StartScene.prototype.create = function(){
     let goLevelSelection = function(){
         Game.changeScene(new MenuScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
-    let buttonPlay = new Button(this,viewportMiddleX,viewportMiddleY,0,buttonSpritePlay, goLevelSelection,"EMPEZAR",font);
+    let buttonPlay = new Button(this,viewportMiddleX,viewportMiddleY,0,buttonSpritePlay, goLevelSelection,i18n.translate(Game.lang, "start"),font);
 
     Scene.prototype.create.call(this);
     
