@@ -22,6 +22,7 @@ function Scene(width, height){
     this.backgroundLayer = new Layer();
     this.tileLayer = [];
     this.spriteObjectsLayer = new Layer();
+    this.foregroundLayer = new Layer();
     this.GUILayer = new Layer();
 
     this.selectedPlayer = null;
@@ -29,6 +30,8 @@ function Scene(width, height){
     this.gameObjects = [];
     this.clickableObjects = [];
     this.animations = [];
+
+    this.middleSceneX = width/2;
 
     this.shadowLevel = 3;
     this.objControl = null;
@@ -100,7 +103,8 @@ Scene.prototype.update = function(){
             this.objControl.colorPlayer.isSelected = true;
         }
         this.objControl.colorPlayer.stopMoving();
-        this.objTarget = new Target(this,0,0,this.selectedPlayer.pos,otherPlayer.pos,0.1);
+        let initPos = new Point(this.selectedPlayer.pos.x,this.selectedPlayer.pos.y);
+        this.objTarget = new Target(this,0,0,initPos,otherPlayer.pos,0.1);
         this.camera.setTarget(this.objTarget);
     }
 };
@@ -127,9 +131,11 @@ Scene.prototype.draw = function(){
     if(this.isSceneLoaded){
         
         this.backgroundLayer.draw(this.camera);
+        
         let frameLayer = this.camera.getFrameLayer();
         frameLayer.draw(this.camera);
         this.spriteObjectsLayer.draw(this.camera);
+        this.foregroundLayer.draw(this.camera);
         this.GUILayer.draw(this.camera);
     }
 };

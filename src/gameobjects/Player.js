@@ -52,8 +52,8 @@ Player.prototype.prepareAnimations = function(){
     sprite.addAnimation("idleL",20,23,4,-1);
     sprite.addAnimation("walkL",8,15,3,-1);
 
-    sprite.addAnimation("jumpUpL",24,24,3,-1);
-    sprite.addAnimation("jumpDownL",24,24,3,-1);
+    sprite.addAnimation("jumpUpL",25,25,3,-1);
+    sprite.addAnimation("jumpDownL",25,25,3,-1);
     sprite.addAnimation("jumpUpR",24,24,3,-1);
     sprite.addAnimation("jumpDownR",24,24,3,-1);
 
@@ -114,10 +114,10 @@ Player.prototype.movement = function(){
 
 Player.prototype.objectInteraction = function(){
     let colDoor = physics.instancePlace(this,Math.sign(this.faceX) * 4,0,"Door");
-    let colKey = physics.instancePlace(this,Math.sign(this.faceX),0,"Key");
+    let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
 
-    if(colKey){
-        colKey.pickUp();
+    if(colPickup){
+        colPickup.pickUp();
     }
 
     if(input.isPressedKey("e") ){

@@ -1,25 +1,23 @@
 function Key(scene, x, y, depth, isShadow){
-    GameObject.call(this,scene,x,y,depth);
+    Pickupable.call(this,scene,x,y,depth);
     this.type.push("Key");
-    this.width = Game.TILE_SIZE;
-    this.height = Game.TILE_SIZE;
     this.isShadow = isShadow;
-    this.vel = 0.2;
+    this.vel = 0.3;
     this.initPosY = this.pos.y;
-    this.endPosY = this.pos.y + Game.TILE_SIZE / 2;
+    this.endPosY = this.pos.y + Game.TILE_SIZE/4;
     this.sprite = this.prepareSprite(this.isShadow);
 }
 
-Key.prototype = Object.create(GameObject.prototype);
+Key.prototype = Object.create(Pickupable.prototype);
 Key.prototype.constructor = Key;
 
 Key.prototype.prepareSprite = function(isShadow){
     let sprite = null;
 
     if(!isShadow){
-        sprite = new Sprite(this.scene,null,0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
+        sprite = new Sprite(this.scene,"key",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
     }else{
-        sprite = new Sprite(this.scene,null,0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
+        sprite = new Sprite(this.scene,"keyShadow",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
     }
 
     return sprite;
@@ -36,19 +34,6 @@ Key.prototype.pickUp = function(){
     if(otherKey){
         otherKey.destroy();
     }
-    this.destroy();
-}
-
-Key.prototype.update = function(){
-    GameObject.prototype.update.call(this);
-
-    if(this.pos.y < this.initPosY){
-        this.pos.y = this.initPosY
-        this.vel = -this.vel;
-    }else if(this.pos.y > this.endPosY){
-        this.pos.y = this.endPosY;
-        this.vel = -this.vel;
-    }
-
-    this.pos.y += this.vel;
+    
+    Pickupable.prototype.pickUp.call(this);
 }

@@ -11,11 +11,20 @@ TestScene.prototype.constructor = TestScene;
 TestScene.prototype.preload = function(){
 
     Scene.prototype.loadToScene.call(this,"teapot", "./assets/teapot.png");
+    Scene.prototype.loadToScene.call(this,"goldenTeapot", "./assets/goldenTeapot.png");
+    Scene.prototype.loadToScene.call(this,"door", "./assets/door.png");
+    Scene.prototype.loadToScene.call(this,"doorShadow", "./assets/doorShadow.png");
+    Scene.prototype.loadToScene.call(this,"key", "./assets/key.png");
+    Scene.prototype.loadToScene.call(this,"keyShadow", "./assets/keyShadow.png");
+    Scene.prototype.loadToScene.call(this,"teapotShadow", "./assets/teapotShadow.png");
     Scene.prototype.loadToScene.call(this,"palette0","./assets/palette0.png");
     Scene.prototype.loadToScene.call(this,"tilemap64","./assets/tilemap64.png");
     Scene.prototype.loadToScene.call(this,"layermap0","./assets/layermap0.png");
     Scene.prototype.loadToScene.call(this,"layermap1","./assets/layermap1.png");
     Scene.prototype.loadToScene.call(this,"objectLayer0", "./assets/objectLayer0.png");
+    Scene.prototype.loadToScene.call(this,"bg1","./assets/backgrounds/bg_nivel1_1.png");
+    Scene.prototype.loadToScene.call(this,"bg2","./assets/backgrounds/bg_nivel1_2.png");
+    Scene.prototype.loadToScene.call(this,"fg1","./assets/backgrounds/fg_nivel1_1.png");
     this.numLayers = 2;
 
     Scene.prototype.preload.call(this);
@@ -30,8 +39,10 @@ TestScene.prototype.create = function(){
     levelParser.parseTiles(this,"layermap",tileFactory);
     levelParser.parseObjects(this,"objectLayer");  
     
-    let gui = new InGameGUI(this);
-
+    let gui = new InGameGUI(this);  
+    let bg = new Background(this,"bg1", -Game.TILE_SIZE/2 -1,-Game.TILE_SIZE*2,0);
+    let bg2 = new Background(this,"bg2", 0,Game.TILE_SIZE,-1);
+    let fg = new Foreground(this,"fg1",0,Game.TILE_SIZE,0);
     Scene.prototype.create.call(this);
 
     this.camera.setTarget(this.selectedPlayer);

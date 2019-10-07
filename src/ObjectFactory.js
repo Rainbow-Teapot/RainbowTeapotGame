@@ -22,12 +22,9 @@ ObjectFactory.prototype.createProductFromColor = function(color, x, y){
 
 
     }else if(color.equals(new Color(0,0,0,255))){
-        //let sprite = new Sprite(scene, null,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
         let player = new Player(this.scene,x, y);
         this.scene.player = player;
     }else if(color.equals(new Color(0,255,0,255))){
-        //let sprite = new Sprite(scene,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0);
-        //let sprite = new Sprite(scene, null,k*Game.TILE_SIZE,j*Game.TILE_SIZE,0,0,Game.TILE_SIZE,Game.TILE_SIZE,0);
         let wall = new Wall(this.scene, x, y,0);
     }else if(color.equals(new Color(255,0,0,255))){
         let wall = new Wall(this.scene,x,y,1);
@@ -39,5 +36,8 @@ ObjectFactory.prototype.createProductFromColor = function(color, x, y){
     }else if(color.equals(new Color(0,0,255,255))){
         new Key(this.scene,x,y,0, false);
         new Key(this.scene,x,y-Game.TILE_SIZE * this.scene.shadowLevel,0, true);
+    }else if(color.equals(new Color(255,255,0,255))){
+        console.log("created teapot");
+        new GoldenTeapot(this.scene,x,y,0);
     }
 }
