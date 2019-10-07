@@ -11,7 +11,7 @@ Foreground.prototype.draw = function(camera){
     var context = canvas.getContext('2d');
     
     let posAtCamera = this.pos.changeBase(camera.basis);
-    posAtCamera.x += (camera.pos.x + this.scene.middleSceneX) * 0.1 * (this.depth + 1);
+    posAtCamera.x += (-camera.pos.x) * 0.2 * (this.depth + 1);
 
     let posAtViewPort = posAtCamera.changeBase(viewport.basis);
 
