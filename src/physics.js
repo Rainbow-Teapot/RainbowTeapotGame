@@ -10,16 +10,12 @@ var physics = {
     },
     placeMeeting: function(object, xOffset, yOffset, objToCollide){
         
-        /*let collisionMask = {
-            x: object.pos.x + xOffset,
-            y: object.pos.y + yOffset,
-            pos: new Point(object.pos.x + xOffset, object.pos.y + yOffset),
-            width: object.width,
-            height: object.height
-        };*/
-        let collisionMask = object.collider;
-        collisionMask.x += xOffset;
-        collisionMask.y += yOffset;
+        let collisionMask = {
+            x: object.pos.x  + object.xOffsetColliderMask + xOffset,
+            y: object.pos.y + object.yOffsetColliderMask +yOffset,
+            width: object.width - object.xOffsetColliderMask,
+            height: object.height - object.yOffsetColliderMask
+        };
 
         let collidedObjects = physics.quadTree.retrieve({collisionMask})
 
@@ -51,9 +47,12 @@ var physics = {
     getCollisionMask : function(object,xOffset,yOffset){
         
         if(object){
-            let collisionMask = object.collider;
-            collisionMask.x += xOffset;
-            collisionMask.y += yOffset;
+            let collisionMask = {
+                x: object.pos.x + xOffset,
+                y: object.pos.y + yOffset,
+                width: object.width,
+                height: object.height
+            };
             return collisionMask;
         }else{
             
