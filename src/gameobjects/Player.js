@@ -115,6 +115,9 @@ Player.prototype.movement = function(){
 Player.prototype.objectInteraction = function(){
     let colDoor = physics.instancePlace(this,Math.sign(this.faceX) * 4,0,"Door");
     let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
+    let colLever = physics.instancePlace(this,Math.sign(this.faceX),0,"Lever");
+
+    
 
     if(colPickup){
         colPickup.pickUp();
@@ -123,8 +126,11 @@ Player.prototype.objectInteraction = function(){
     if(input.isPressedKey("e") ){
         if(colDoor && this.scene.objControl.numKeys > 0){ 
             colDoor.perform();
-        }else{ 
-            console.log("no hay colision con la puerta");
+        }
+        if(colLever){
+            console.log("me he topado con la lever");
+            colLever.action();
+            
         }
     }
 }
