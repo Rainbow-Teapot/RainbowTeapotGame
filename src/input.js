@@ -9,14 +9,16 @@ var input = {
     },
 
     saveKey: function (e) {
-        if(!input.keys.get(e.key))
-            input.keysPress.set(e.key,e.key);
-        input.keys.set(e.key, e.key); 
-        //onsole.log(e.key);
+        let key = e.key.toLowerCase();
+        if(!input.keys.get(key))
+            input.keysPress.set(key,key);
+        input.keys.set(key, key); 
+        //console.log(key);
 
     },
     removeKey: function(e){
-        input.keys.delete(e.key);
+        let key = e.key.toLowerCase();
+        input.keys.delete(key);
     },
     pressedKey: function (keyCode) {
         return (input.keys.indexOf(keyCode) !== -1) ? true : false;
