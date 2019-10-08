@@ -26,6 +26,22 @@ OptionsMenuGUI.prototype.create = function(){
     let textOptions = new Text(this.scene,i18n.translate(Game.lang, "options"),viewportMiddleX ,120,"60px CartoonRegular");
     //texto volumen
     let textVolume = new Text(this.scene,i18n.translate(Game.lang, "volume"),viewportMiddleX,170,"40px CartoonRegular");
+
+    let buttonReduceVolumeSprite = new GUIImage(this.scene,"flechaIzq",50,50,0,0,114,52,0);
+    let buttonIncrementVolumeSprite = new GUIImage(this.scene, "flechaDer", 50,50,0,0,114,52,0);
+
+    let incrementVolume = function(){
+        audio.setVolume(0.1);
+    }
+    let decrementVolume = function(){
+        audio.setVolume(-0.1);
+    }
+    
+    let buttonVolumeUp = new Button(this.scene,viewportMiddleX+100, 200,0,buttonIncrementVolumeSprite, incrementVolume);
+    let buttonVolumeDown = new Button(this.scene,viewportMiddleX-120,200,0,buttonReduceVolumeSprite, decrementVolume);
+    if(audio.music!= null){
+    var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX-100+(audio.music.volume*200), 200);
+    }
     
 
     let tab = 64; 
@@ -72,6 +88,6 @@ OptionsMenuGUI.prototype.create = function(){
     //texto efectos sonido
     let textSoundEffects = new Text(this.scene,i18n.translate(Game.lang, "sound"),viewportMiddleX - 64,400,"40px CartoonRegular");
    
-    this.guiObjects.push(buttonBack, buttonTeapot);
+    this.guiObjects.push(buttonBack, buttonTeapot, buttonVolumeUp, buttonVolumeDown, teapotVolumeSprite);
     this.guiSprites.push(textOptions,board,textVolume,textLanguage,textMusic,textSoundEffects);
 };

@@ -19,6 +19,6 @@ InGameGUI.prototype.create = function(){
     };
     let buttonOptions = new Button(this.scene,viewport.width - buttonOptionsSprite.width - 25,25,0,buttonOptionsSprite, showOptionMenu);
 
-
+    
     this.guiObjects.push(buttonOptions);
 };
