@@ -13,7 +13,8 @@ GoldenTeapot.prototype = Object.create(Pickupable.prototype);
 GoldenTeapot.prototype.constructor = GoldenTeapot;
 
 GoldenTeapot.prototype.pickUp = function(){
-    Game.changeScene(new EndLevelScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));    
+    Game.changeScene(new EndLevelScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
+    console.log("He cogido la tetera");
     Pickupable.prototype.pickUp.call(this);
 }
 
