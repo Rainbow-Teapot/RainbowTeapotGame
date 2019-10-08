@@ -31,11 +31,11 @@ OptionsMenuGUI.prototype.create = function(){
     let buttonIncrementVolumeSprite = new GUIImage(this.scene, "flechaDer", 50,50,0,0,114,52,0);
 
     let incrementVolume = function(){
-        audio.setVolume(0.1);
+        if(audio.setVolume(0.1))
         teapotVolumeSprite.pos.x +=0.1*200;
     }
     let decrementVolume = function(){
-        audio.setVolume(-0.1);
+        if(audio.setVolume(-0.1))
         teapotVolumeSprite.pos.x -=0.1*200;
 
     }

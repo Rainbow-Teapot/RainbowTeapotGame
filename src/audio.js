@@ -22,9 +22,12 @@ var audio = {
         if (audio.music != null) {
             let futureVolume = audio.music.volume + volume;
             console.log(futureVolume);
-            if ((0 <= futureVolume) && (futureVolume <= 1.0))
+            if ((0 <= futureVolume) && (futureVolume <= 1.0)) {
                 audio.music.volume = futureVolume;
+                return true;
+            }
         }
+        return false;
     }
 
 };

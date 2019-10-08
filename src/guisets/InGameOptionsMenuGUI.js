@@ -26,13 +26,13 @@ InGameOptionsMenuGUI.prototype.create = function(){
 
 
     let incrementVolume = function(){
-        audio.setVolume(0.1);        
+        if(audio.setVolume(0.1))     
         teapotVolumeSprite.pos.x +=0.1*200;
   
         
     }
     let decrementVolume = function(){
-        audio.setVolume(-0.1);
+        if(audio.setVolume(-0.1))
         teapotVolumeSprite.pos.x -= 0.1*200;
 
     }
