@@ -26,11 +26,15 @@ InGameOptionsMenuGUI.prototype.create = function(){
 
 
     let incrementVolume = function(){
-        audio.setVolume(0.1);          
+        audio.setVolume(0.1);        
+        teapotVolumeSprite.pos.x +=0.1*200;
+  
         
     }
     let decrementVolume = function(){
         audio.setVolume(-0.1);
+        teapotVolumeSprite.pos.x -= 0.1*200;
+
     }
     
     let buttonVolumeUp = new Button(this.scene,viewportMiddleX+100, 200,0,buttonIncrementVolumeSprite, incrementVolume);
