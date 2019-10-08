@@ -28,7 +28,7 @@ EndLevelMenuGUI.prototype.create = function(){
         Game.changeScene(new LevelSelectionScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
     let buttonLevel = new Button(this.scene,viewportMiddleX - buttonLevelSprite.width/2,viewportDown,0,buttonLevelSprite, goLevelSelection,
-                    i18n.translate(Game.lang, levels), "40px CartoonRegular");
+                    i18n.translate(Game.lang, "levels"), "40px CartoonRegular");
 
     //boton de siguientes
     let buttonNextSprite = new GUIImage(this.scene,"littleButton",50,50,0,0,114,52,0);

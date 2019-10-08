@@ -13,7 +13,10 @@ GoldenTeapot.prototype = Object.create(Pickupable.prototype);
 GoldenTeapot.prototype.constructor = GoldenTeapot;
 
 GoldenTeapot.prototype.pickUp = function(){
-    Game.changeScene(new EndLevelScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));    
+    this.scene.fadeType = "fadeOut";
+    this.scene.functionFade = function(){
+        Game.changeScene(new EndLevelScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
+    }
     Pickupable.prototype.pickUp.call(this);
 }
 

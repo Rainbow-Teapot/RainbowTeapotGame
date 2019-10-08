@@ -18,6 +18,7 @@ OptionsMenuGUI.prototype.create = function(){
     //boton de ir para atras
     let buttonBackSprite = new GUIImage(this.scene,"littleButton",50,50,0,0,114,52,0);    
     let goMainMenu = function(){
+        
         Game.changeScene(new MenuScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
     let buttonBack = new Button(this.scene,25,25,0,buttonBackSprite, goMainMenu);

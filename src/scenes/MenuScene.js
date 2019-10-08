@@ -1,5 +1,7 @@
 function MenuScene(width, height){
     Scene.call(this,width,height);
+    this.transition = new Transition;
+    
 }
 
 MenuScene.prototype = Object.create(Scene.prototype);
@@ -12,7 +14,6 @@ MenuScene.prototype.preload = function(){
     //Scene.prototype.loadToScene.call(this,"board", "./assets/gui/Tablero.png");
     
     Scene.prototype.preload.call(this);
-    
 }
 
 MenuScene.prototype.create = function(){

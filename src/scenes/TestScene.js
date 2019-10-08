@@ -1,6 +1,7 @@
 /*ejemplo de una escena cualquiera, se llama al constructor de Scene*/
 function TestScene(width, height) {
     Scene.call(this, width, height);
+    this.transition = new Transition();
 }
 
 /*Herencia prototipica */
@@ -10,6 +11,7 @@ TestScene.prototype.constructor = TestScene;
 /*Ahora es cuando llamamos a loadToScene para cargar los resources */
 TestScene.prototype.preload = function(){
 
+    Scene.prototype.loadToScene.call(this,"transition", "./assets/transition.png");
     Scene.prototype.loadToScene.call(this,"teapot", "./assets/teapot.png");
     Scene.prototype.loadToScene.call(this,"goldenTeapot", "./assets/goldenTeapot.png");
     Scene.prototype.loadToScene.call(this,"door", "./assets/door.png");
@@ -43,6 +45,7 @@ TestScene.prototype.create = function(){
     let bg = new Background(this,"bg1", -Game.TILE_SIZE/2 -1,-Game.TILE_SIZE*2,0);
     let bg2 = new Background(this,"bg2", 0,Game.TILE_SIZE,-1);
     let fg = new Foreground(this,"fg1",0,Game.TILE_SIZE,0);
+    
     Scene.prototype.create.call(this);
 
     this.camera.setTarget(this.selectedPlayer);
@@ -56,4 +59,14 @@ TestScene.prototype.update = function(){
     if(this.isSceneLoaded){
         //console.log("Estoy updateando la escena");
     }
+}
+
+TestScene.prototype.draw = function(){
+    
+    Scene.prototype.draw.call(this);
+
+    if(this.isSceneLoaded){
+        
+    
+    }  
 }

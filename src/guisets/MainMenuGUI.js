@@ -21,7 +21,10 @@ MainMenuGUI.prototype.create = function(){
     viewportMiddleX = viewport.width/2 - buttonSpritePlay.width/2;
     viewportMiddleY = viewport.height/2 - buttonSpritePlay.height/2;
     let goLevelSelection = function(){
-        Game.changeScene(new LevelSelectionScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
+        this.scene.fadeType = "fadeOut";
+        this.scene.functionFade = function(){ 
+            Game.changeScene(new LevelSelectionScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
+        }   
     };
     let buttonPlay = new Button(this.scene,viewportMiddleX,viewportMiddleY,0,buttonSpritePlay, goLevelSelection,i18n.translate(Game.lang, "play"),font);
 
@@ -30,6 +33,7 @@ MainMenuGUI.prototype.create = function(){
     viewportMiddleX = viewport.width/2 - buttonSpriteOptions.width/2;
     viewportMiddleY = viewport.height/2 - buttonSpriteOptions.height/2 + 80;
     let goOptions = function(){
+        
         Game.changeScene(new OptionsScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
     let buttonOptions = new Button(this.scene,viewportMiddleX,viewportMiddleY,0,buttonSpriteOptions, goOptions,i18n.translate(Game.lang, "options"),font);
