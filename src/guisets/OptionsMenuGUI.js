@@ -78,6 +78,7 @@ OptionsMenuGUI.prototype.create = function(){
             buttonTeapot.sprite.setVisible(true); 
             
         }
+        Game.changeScene(new OptionsScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     }    
 
     let buttonTeapot = new Button(this.scene, viewportMiddleX+70, 250, 0, buttonTeapotSprite, changeLanguage);
