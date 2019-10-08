@@ -13,7 +13,7 @@ InGameGUI.prototype.create = function(){
     optionMenu.hide();
 
     //boton de ir para atras
-    let buttonOptionsSprite = new GUIImage(this.scene,"littleButton",50,50,0,0,114,52,0);
+    let buttonOptionsSprite = new GUIImage(this.scene,"botonVolver",50,50,0,0,114,52,0);
     let showOptionMenu = function(){
         optionMenu.show();
     };

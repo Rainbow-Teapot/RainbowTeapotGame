@@ -15,7 +15,13 @@ StartScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this,"flechaIzq", "./assets/gui/flechaIzq.png");
     Scene.prototype.loadToScene.call(this,"flechaDer", "./assets/gui/flechaDer.png");
     Scene.prototype.loadToScene.call(this, "teapotVolume", "./assets/gui/teteracurva.png");
-    
+    Scene.prototype.loadToScene.call(this, "whiteSquare", "./assets/gui/cuadrado_blanco.png");
+    Scene.prototype.loadToScene.call(this, "tick", "./assets/gui/tick1.png");
+    Scene.prototype.loadToScene.call(this, "botonContinuar", "./assets/gui/botonContinuar.png");
+    Scene.prototype.loadToScene.call(this, "botonReempezar", "./assets/gui/botonReempezar.png");
+    Scene.prototype.loadToScene.call(this, "botonVolver", "./assets/gui/botonVolver.png");
+    Scene.prototype.loadToScene.call(this, "botonCerrar", "./assets/gui/botonCerrar.png");
+
     Scene.prototype.preload.call(this);
     
 }

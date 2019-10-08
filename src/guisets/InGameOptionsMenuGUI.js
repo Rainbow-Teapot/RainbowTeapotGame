@@ -22,23 +22,23 @@ InGameOptionsMenuGUI.prototype.create = function(){
     
     let buttonReduceVolumeSprite = new GUIImage(this.scene,"flechaIzq",50,50,0,0,114,52,0);
     let buttonIncrementVolumeSprite = new GUIImage(this.scene, "flechaDer", 50,50,0,0,114,52,0);
-    var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX-100+(audio.music.volume*200), 200);
+    var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX-110+(audio.music.volume*180), 200);
 
 
     let incrementVolume = function(){
         if(audio.setVolume(0.1))     
-        teapotVolumeSprite.pos.x +=0.1*200;
+        teapotVolumeSprite.pos.x +=0.1*180;
   
         
     }
     let decrementVolume = function(){
         if(audio.setVolume(-0.1))
-        teapotVolumeSprite.pos.x -= 0.1*200;
+        teapotVolumeSprite.pos.x -= 0.1*180;
 
     }
     
-    let buttonVolumeUp = new Button(this.scene,viewportMiddleX+100, 200,0,buttonIncrementVolumeSprite, incrementVolume);
-    let buttonVolumeDown = new Button(this.scene,viewportMiddleX-120,200,0,buttonReduceVolumeSprite, decrementVolume);
+    let buttonVolumeUp = new Button(this.scene,viewportMiddleX+105, 200,0,buttonIncrementVolumeSprite, incrementVolume);
+    let buttonVolumeDown = new Button(this.scene,viewportMiddleX-125,200,0,buttonReduceVolumeSprite, decrementVolume);
 
     //boton volver al juego
     let buttonSpriteResume = new GUIImage(this.scene,"button",50,50,0,0,114,52,0);

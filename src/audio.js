@@ -9,10 +9,16 @@ var audio = {
             audio.music.src = "";
         }
 
-        audio.music = new Audio(trackPath);
-        const playPromise = audio.music.play();
+        audio.music = new Audio(trackPath);        
         audio.music.muted = false;
         audio.music.volume = 0.3;
+        audio.music.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+        audio.music.play();
+
+        //const playPromise = audio.music.play();
         /*if (playPromise !== null){
             playPromise.catch(() => { audio.music.play(); })
         }*/
@@ -28,6 +34,7 @@ var audio = {
             }
         }
         return false;
-    }
+    },
+   
 
 };

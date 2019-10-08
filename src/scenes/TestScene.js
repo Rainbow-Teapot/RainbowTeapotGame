@@ -13,11 +13,11 @@ TestScene.prototype.preload = function(){
 
     Scene.prototype.loadToScene.call(this,"transition", "./assets/transition.png");
     Scene.prototype.loadToScene.call(this,"teapot", "./assets/teapot.png");
-    Scene.prototype.loadToScene.call(this,"goldenTeapot", "./assets/goldenTeapot.png");
-    Scene.prototype.loadToScene.call(this,"door", "./assets/door.png");
-    Scene.prototype.loadToScene.call(this,"doorShadow", "./assets/doorShadow.png");
-    Scene.prototype.loadToScene.call(this,"key", "./assets/key.png");
-    Scene.prototype.loadToScene.call(this,"keyShadow", "./assets/keyShadow.png");
+    Scene.prototype.loadToScene.call(this,"goldenTeapot", "./assets/objects/goldenTeapot.png");
+    Scene.prototype.loadToScene.call(this,"door", "./assets/objects/door.png");
+    Scene.prototype.loadToScene.call(this,"doorShadow", "./assets/objects/doorShadow.png");
+    Scene.prototype.loadToScene.call(this,"key", "./assets/objects/key.png");
+    Scene.prototype.loadToScene.call(this,"keyShadow", "./assets/objects/keyShadow.png");
     Scene.prototype.loadToScene.call(this,"teapotShadow", "./assets/teapotShadow.png");
     Scene.prototype.loadToScene.call(this,"palette0","./assets/palette0.png");
     Scene.prototype.loadToScene.call(this,"tilemap64","./assets/tilemap64.png");
@@ -27,6 +27,7 @@ TestScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this,"bg1","./assets/backgrounds/bg_nivel1_1.png");
     Scene.prototype.loadToScene.call(this,"bg2","./assets/backgrounds/bg_nivel1_2.png");
     Scene.prototype.loadToScene.call(this,"fg1","./assets/backgrounds/fg_nivel1_1.png");
+   
     this.numLayers = 2;
 
     Scene.prototype.preload.call(this);

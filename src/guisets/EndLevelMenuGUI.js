@@ -16,7 +16,7 @@ EndLevelMenuGUI.prototype.create = function(){
 
 
     //boton de repetir
-    let buttonRestartSprite = new GUIImage(this.scene,"littleButton",50,50,0,0,114,52,0);
+    let buttonRestartSprite = new GUIImage(this.scene,"botonReempezar",50,50,0,0,114,52,0);
     let restartLevel = function(){
         Game.changeScene(new TestScene(60 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
@@ -31,7 +31,7 @@ EndLevelMenuGUI.prototype.create = function(){
                     i18n.translate(Game.lang, "levels"), "40px CartoonRegular");
 
     //boton de siguientes
-    let buttonNextSprite = new GUIImage(this.scene,"littleButton",50,50,0,0,114,52,0);
+    let buttonNextSprite = new GUIImage(this.scene,"botonContinuar",50,50,0,0,114,52,0);
     let goNextLevel = function(){
         Game.changeScene(new TestScene(60 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
