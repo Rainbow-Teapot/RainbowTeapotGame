@@ -15,8 +15,8 @@ ShadowPlayer.prototype.prepareAnimations = function(){
     sprite.addAnimation("idleL",20,23,4,-1);
     sprite.addAnimation("walkL",8,15,3,-1);
 
-    sprite.addAnimation("jumpUpL",24,24,3,-1);
-    sprite.addAnimation("jumpDownL",24,24,3,-1);
+    sprite.addAnimation("jumpUpL",25,25,3,-1);
+    sprite.addAnimation("jumpDownL",25,25,3,-1);
     sprite.addAnimation("jumpUpR",24,24,3,-1);
     sprite.addAnimation("jumpDownR",24,24,3,-1);
 

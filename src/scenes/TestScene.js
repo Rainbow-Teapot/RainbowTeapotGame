@@ -25,6 +25,7 @@ TestScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this,"layermap1","./assets/layermap1.png");
     Scene.prototype.loadToScene.call(this,"objectLayer0", "./assets/objectLayer0.png");
     Scene.prototype.loadToScene.call(this,"bg1","./assets/backgrounds/bg_nivel1_1.png");
+    Scene.prototype.loadToScene.call(this,"bgPass","./assets/backgrounds/bgPass.png");
     Scene.prototype.loadToScene.call(this,"bg2","./assets/backgrounds/bg_nivel1_2.png");
     Scene.prototype.loadToScene.call(this,"fg1","./assets/backgrounds/fg_nivel1_1.png");
    
@@ -43,10 +44,25 @@ TestScene.prototype.create = function(){
     levelParser.parseObjects(this,"objectLayer");  
     
     let gui = new InGameGUI(this);  
-    let bg = new Background(this,"bg1", -Game.TILE_SIZE/2 -1,-Game.TILE_SIZE*2,0);
-    let bg2 = new Background(this,"bg2", 0,Game.TILE_SIZE,-1);
+    let bg = new Background(this,"bg1", -Game.TILE_SIZE/2 -1,0,0);
+    let bg2 = new Background(this,"bg2", 0,Game.TILE_SIZE * 4,-1);
+    let bgPass = new Background(this,"bgPass", 0,-Game.TILE_SIZE,0);
+    
     let fg = new Foreground(this,"fg1",0,Game.TILE_SIZE,0);
     
+    //DESDOBLE SOMBRA/COLOR
+    let colorPlayer = this.objControl.colorPlayer;
+    let shadowPlayer = this.objControl.shadowPlayer;
+
+    this.objControl.shadowPlayer.pos.y = this.objControl.colorPlayer.pos.y;
+    let tweenbgPass = new Tween(this,bgPass,4,bgPass.pos.x,bgPass.pos.y - Game.TILE_SIZE * 3,0,-1);
+    let tweenbg2 = new Tween(this,bg2,4,bg2.pos.x,bg2.pos.y - Game.TILE_SIZE * 3,0,-1);
+    let tweenPlayer = new Tween(this,shadowPlayer,4,
+        shadowPlayer.pos.x,colorPlayer.pos.y  - Game.TILE_SIZE * 3,0,-1);
+
+
+    //FIN DESDOBLE SOMBRA/COLOR
+
     Scene.prototype.create.call(this);
 
     this.camera.setTarget(this.selectedPlayer);
