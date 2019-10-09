@@ -16,17 +16,10 @@ function Player(scene, x, y, depth){
     this.currentVX = 0;
     this.currentVY = 0;
 
-    this.jumpHeight = 8;
     this.gravity = 1;
 
     this.groundAcc = 1;
-    this.groundFricc = 2;
-
-    this.airAcc = 0.75;
-    this.airFricc = 0.1;
-
-    this.isJumping = false;
-    this.isFalling = false;
+    this.groundFricc = 1.2;
 
     this.isSelected = true;
 
@@ -36,9 +29,15 @@ function Player(scene, x, y, depth){
         JUMPING: 2
     }
 
-    this.currentAnimation = this.animations.IDLE;
+    this.states = {
+        DISABLED: 0,
+        INPUTED: 1,
+    }
 
-    
+    this.yOffsetColliderMask = 15;
+    this.numLifes = this.scene.objControl.numLifes;
+    this.currentState = this.states.DISABLED;
+    this.currentAnimation = this.animations.IDLE;
 }
 /*Hererncia protoripica con GameObject */
 Player.prototype = Object.create(GameObject.prototype);
@@ -70,14 +69,25 @@ Player.prototype.update = function(){
     let colLeft = physics.placeMeeting(this,-1,0,"Wall");
     let colRigth = physics.placeMeeting(this,1,0,"Wall");
     
-    
-    this.movement();
+    this.behaviour();
     this.animation();
     this.handleColisions(); 
-
-    this.objectInteraction();
+    
 }
 
+Player.prototype.behaviour = function(){
+    switch(this.currentState){
+        case this.states.DISABLED:
+            this.stopMoving();
+        break;
+        case this.states.INPUTED:
+            this.movement();
+            this.objectInteraction();
+        break;
+        default:
+            break;
+    }
+}
 
 Player.prototype.movement = function(){
     
@@ -115,6 +125,7 @@ Player.prototype.movement = function(){
 Player.prototype.objectInteraction = function(){
     let colDoor = physics.instancePlace(this,Math.sign(this.faceX) * 4,0,"Door");
     let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
+    let colLever = physics.instancePlace(this,Math.sign(this.faceX),0,"Lever");
 
     if(colPickup){
         colPickup.pickUp();
@@ -123,13 +134,17 @@ Player.prototype.objectInteraction = function(){
     if(input.isPressedKey("e") ){
         if(colDoor && this.scene.objControl.numKeys > 0){ 
             colDoor.perform();
-        }else{ 
-            console.log("no hay colision con la puerta");
+        }
+        if(colLever){
+            console.log("me he topado con la lever");
+            colLever.action();
+            
         }
     }
 }
 
 Player.prototype.stopMoving = function(){
+    this.currentAnimation = this.animations.IDLE;
     this.currentVX = 0;
     this.moveX = 0;
 }
@@ -205,4 +220,12 @@ Player.prototype.approach = function(start, end, shift){
         return Math.min(start + shift, end);
     else
         return Math.max(start - shift, end);
+}
+
+Player.prototype.heal = function(){
+    this.scene.objControl.heal();
+}
+
+Player.prototype.damage = function(health){
+    this.scene.objControl.damage();
 }

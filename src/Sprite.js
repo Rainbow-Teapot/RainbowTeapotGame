@@ -6,7 +6,7 @@ function Sprite(scene, img, x, y, xInImage, yInImage, width, height, depth){
     
     this.animations = new Map();
     this.currentAnimation = null;
-    this.color = new Color(0,0,0,255);
+    this.color = new Color(255,0,0,255);
     this.scene.spriteObjectsLayer.addElement(this);
     
     if(img){

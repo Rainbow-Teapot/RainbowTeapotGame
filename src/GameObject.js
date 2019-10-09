@@ -10,10 +10,12 @@ function GameObject(scene,x,y,depth){
     this.depth = depth;
     this.width = Game.TILE_SIZE;
     this.height = Game.TILE_SIZE;
+    this.xOffsetColliderMask = 0;
+    this.yOffsetColliderMask = 0;
     this.scene.gameObjects.push(this);
     this.type = ["GameObject"];
     this.disable = false;
-    physics.quadTree.insert(this);
+    //physics.quadTree.insert(this);
 
 }
 

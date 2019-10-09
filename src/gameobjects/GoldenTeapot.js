@@ -5,13 +5,25 @@ function GoldenTeapot(scene, x, y){
     this.initPosY = this.pos.y - Game.TILE_SIZE/2;
     this.endPosY = this.pos.y;
     this.sprite = new Sprite(this.scene,"goldenTeapot",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2,0);
+
+    this.collider = new Collider(this,this.pos.x,this.pos.y,this.width,this.height,0,0);
 }
 
 GoldenTeapot.prototype = Object.create(Pickupable.prototype);
 GoldenTeapot.prototype.constructor = GoldenTeapot;
 
 GoldenTeapot.prototype.pickUp = function(){
-    Game.changeScene(new EndLevelScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));    
+    this.scene.fadeType = "fadeOut";
+    this.scene.functionFade = function(){
+        Game.changeScene(new EndLevelScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
+    }
+
+    let colorPlayer = this.scene.objControl.colorPlayer;
+    let shadowPlayer =  this.scene.objControl.shadowPlayer;
+
+    colorPlayer.currentState = colorPlayer.states.DISABLED;
+    shadowPlayer.currentState = shadowPlayer.states.DISABLED;
+
     Pickupable.prototype.pickUp.call(this);
 }
 

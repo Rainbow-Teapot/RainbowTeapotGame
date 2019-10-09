@@ -9,7 +9,7 @@ function Door(scene, x, y){
     this.shadowSprite = new Sprite( this.scene,"doorShadow",
                                     this.pos.x,this.pos.y - Game.TILE_SIZE * this.scene.shadowLevel,
                                     0,0,Game.TILE_SIZE,Game.TILE_SIZE*2,0);
-    console.log(this.pos);
+    this.collider = new Collider(this,this.pos.x,this.pos.y,this.width,this.height,0,0);
 }
 
 Door.prototype = Object.create(GameObject.prototype);
@@ -20,6 +20,7 @@ Door.prototype.perform = function(){
     for(let i = 0; i < this.walls.length; i++){
         this.walls[i].destroy();
     }
+    this.scene.gui.useKey();
     this.shadowSprite.destroy();
     this.destroy();
 }

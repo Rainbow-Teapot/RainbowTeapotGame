@@ -11,17 +11,17 @@ var physics = {
     placeMeeting: function(object, xOffset, yOffset, objToCollide){
         
         let collisionMask = {
-            x: object.pos.x + xOffset,
-            y: object.pos.y + yOffset,
-            pos: new Point(object.pos.x + xOffset, object.pos.y + yOffset),
-            width: object.width,
-            height: object.height
+            x: object.pos.x  + object.xOffsetColliderMask + xOffset,
+            y: object.pos.y + object.yOffsetColliderMask +yOffset,
+            width: object.width - object.xOffsetColliderMask,
+            height: object.height - object.yOffsetColliderMask
         };
+
         let collidedObjects = physics.quadTree.retrieve({collisionMask})
 
         for(let i = 0; i < collidedObjects.length; i++){        
-            if(collidedObjects[i].instanceOf(objToCollide)){   
-                if(!collidedObjects[i].disable && object.depth == collidedObjects[i].depth && physics.intersect(collisionMask,collidedObjects[i])){
+            if(collidedObjects[i].object.instanceOf(objToCollide)){   
+                if(!collidedObjects[i].object.disable && object.depth == collidedObjects[i].object.depth && physics.intersect(collisionMask,collidedObjects[i])){
                     return true;
                 }
             }
@@ -35,9 +35,9 @@ var physics = {
         let collidedObjects = physics.quadTree.retrieve({collisionMask})
 
         for(let i = 0; i < collidedObjects.length; i++){        
-            if(collidedObjects[i].instanceOf(objToCollide)){
-                if(!collidedObjects[i].disable && physics.intersect(collisionMask,collidedObjects[i])){
-                    return collidedObjects[i];
+            if(collidedObjects[i].object.instanceOf(objToCollide)){
+                if(!collidedObjects[i].object.disable && physics.intersect(collisionMask,collidedObjects[i])){
+                    return collidedObjects[i].object;
                 }
             }
         }
@@ -45,35 +45,34 @@ var physics = {
     
     },
     getCollisionMask : function(object,xOffset,yOffset){
-        let collisionMask = null;
         
         if(object){
-            collisionMask = {
+            let collisionMask = {
                 x: object.pos.x + xOffset,
                 y: object.pos.y + yOffset,
-                pos: new Point(object.pos.x + xOffset, object.pos.y + yOffset),
                 width: object.width,
                 height: object.height
             };
+            return collisionMask;
         }else{
-            collisionMask = {
+            
+            let collisionMask = {
                 x: xOffset,
                 y: yOffset,
-                pos: new Point(xOffset, yOffset),
                 width: Game.TILE_SIZE,
                 height: Game.TILE_SIZE
             };
+            return collisionMask;
         }
 
-        return collisionMask;
     },
     intersect: function(objectA, objectB){
 
-        let aMinPos = new Point(objectA.pos.x, objectA.pos.y);
-        let aMaxPos = new Point(objectA.pos.x + objectA.width, objectA.pos.y + objectA.height);
+        let aMinPos = new Point(objectA.x, objectA.y);
+        let aMaxPos = new Point(objectA.x + objectA.width, objectA.y + objectA.height);
 
-        let bMinPos = new Point(objectB.pos.x, objectB.pos.y);
-        let bMaxPos = new Point(objectB.pos.x + objectB.width, objectB.pos.y + objectB.height);
+        let bMinPos = new Point(objectB.x, objectB.y);
+        let bMaxPos = new Point(objectB.x + objectB.width, objectB.y + objectB.height);
 
         return aMaxPos.x > bMinPos.x && aMinPos.x < bMaxPos.x 
                 && aMaxPos.y > bMinPos.y && aMinPos.y < bMaxPos.y;

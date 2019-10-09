@@ -21,10 +21,10 @@ ConfirmLevelGUI.prototype.create = function(){
     let playLevel = function(){
         Game.changeScene(new TestScene(60 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
-    let buttonPlay = new Button(this.scene,viewportMiddleX - buttonPlaySprite.width/2 + 40,360,0,buttonPlaySprite, playLevel,"JUGAR",font);
+    let buttonPlay = new Button(this.scene,viewportMiddleX - buttonPlaySprite.width/2 + 40,360,0,buttonPlaySprite, playLevel,i18n.translate(Game.lang, "play"),font);
 
     //boton para cerrar
-    let buttonExitSprite = new GUIImage(this.scene,"littleButton",50,50,0,0,114,52,0);
+    let buttonExitSprite = new GUIImage(this.scene,"botonCerrar",50,50,0,0,114,52,0);
     let that = this;
     let cancelSelection = function(){
         that.hide();

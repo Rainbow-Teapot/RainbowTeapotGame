@@ -27,6 +27,10 @@ function Scene(width, height){
 
     this.selectedPlayer = null;
 
+    this.transition = null;
+    this.fadeType = "fadeIn";
+    this.functionFade = null;
+
     this.gameObjects = [];
     this.clickableObjects = [];
     this.animations = [];
@@ -130,13 +134,18 @@ contenedora. En la layer background habrá backgrund0, background1...*/
 Scene.prototype.draw = function(){
     if(this.isSceneLoaded){
         
-        this.backgroundLayer.draw(this.camera);
         
+        this.backgroundLayer.draw(this.camera);
         let frameLayer = this.camera.getFrameLayer();
         frameLayer.draw(this.camera);
+        
         this.spriteObjectsLayer.draw(this.camera);
         this.foregroundLayer.draw(this.camera);
         this.GUILayer.draw(this.camera);
+        
+        if(this.transition){
+            this.transition.fade(this.fadeType,this.camera,this.functionFade);
+        }
     }
 };
 

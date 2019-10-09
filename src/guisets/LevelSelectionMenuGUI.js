@@ -14,14 +14,14 @@ LevelSelectionMenuGUI.prototype.create = function(){
     guiConfirmLevel.hide();
 
     //boton de ir para atras
-    let buttonBackSprite = new GUIImage(this.scene,"littleButton",50,50,0,0,114,52,0);
+    let buttonBackSprite = new GUIImage(this.scene,"botonVolver",50,50,0,0,114,52,0);
     let goMainMenu = function(){
         Game.changeScene(new MenuScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
     let buttonBack = new Button(this.scene,25,25,0,buttonBackSprite, goMainMenu);
 
     //texto NIVELES
-    let textLevels = new Text(this.scene,"NIVELES",viewportMiddleX,125,"60px CartoonRegular");
+    let textLevels = new Text(this.scene,i18n.translate(Game.lang, "levels"),viewportMiddleX,125,"60px CartoonRegular");
 
 
     let viewportMiddleY = viewport.height/2;
@@ -32,7 +32,7 @@ LevelSelectionMenuGUI.prototype.create = function(){
     let goLevelSelection = function(){
         guiConfirmLevel.show();
     };
-    let buttonPlay = new Button(this.scene,viewportMiddleX,viewportMiddleY,0,buttonSpritePlay, goLevelSelection, "Nivel 1","30px CartoonRegular");
+    let buttonPlay = new Button(this.scene,viewportMiddleX,viewportMiddleY,0,buttonSpritePlay, goLevelSelection, i18n.translate(Game.lang, "lvl1"),"30px CartoonRegular");
 
 
     this.guiObjects.push(buttonBack,buttonPlay);
