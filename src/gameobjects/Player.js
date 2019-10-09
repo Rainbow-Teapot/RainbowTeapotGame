@@ -25,8 +25,6 @@ function Player(scene, x, y, depth){
     this.airAcc = 0.75;
     this.airFricc = 0.1;
 
-    this.isJumping = false;
-    this.isFalling = false;
 
     this.isSelected = true;
 
@@ -36,8 +34,15 @@ function Player(scene, x, y, depth){
         JUMPING: 2
     }
 
+    this.states = {
+        DISABLED: 0,
+        INPUTED: 1,
+    }
+
+
     this.yOffsetColliderMask = 15;
 
+    this.currentState = this.states.DISABLED;
     this.currentAnimation = this.animations.IDLE;
 }
 /*Hererncia protoripica con GameObject */
@@ -70,14 +75,25 @@ Player.prototype.update = function(){
     let colLeft = physics.placeMeeting(this,-1,0,"Wall");
     let colRigth = physics.placeMeeting(this,1,0,"Wall");
     
-    
-    this.movement();
+    this.behaviour();
     this.animation();
     this.handleColisions(); 
-
-    this.objectInteraction();
+    
 }
 
+Player.prototype.behaviour = function(){
+    switch(this.currentState){
+        case this.states.DISABLED:
+            this.stopMoving();
+        break;
+        case this.states.INPUTED:
+            this.movement();
+            this.objectInteraction();
+        break;
+        default:
+            break;
+    }
+}
 
 Player.prototype.movement = function(){
     
