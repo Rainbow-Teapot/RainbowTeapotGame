@@ -55,5 +55,13 @@ ShadowPlayer.prototype.handleColisions = function(){
 
 ShadowPlayer.prototype.objectInteraction = function(){
     Player.prototype.objectInteraction.call(this);
+    if(input.isPressedKey("p")){
+        console.log("me curoo");
+        this.heal();
+    }
+    if(input.isPressedKey("o")){
+        console.log("me dañooo");
+        this.damage();
+    }
 }
 

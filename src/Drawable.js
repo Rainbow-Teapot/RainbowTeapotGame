@@ -22,3 +22,7 @@ Drawable.prototype.draw = function(camera){
 Drawable.prototype.destroy = function(){
 
 }
+
+Drawable.prototype.setImage =function(keyImage){
+    this.img = cache.retrieve(keyImage).img;
+}

@@ -18,6 +18,10 @@ TestScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this,"doorShadow", "./assets/objects/doorShadow.png");
     Scene.prototype.loadToScene.call(this,"key", "./assets/objects/key.png");
     Scene.prototype.loadToScene.call(this,"keyShadow", "./assets/objects/keyShadow.png");
+    Scene.prototype.loadToScene.call(this,"keyOn", "./assets/objects/keyGUI.png");
+    Scene.prototype.loadToScene.call(this,"keyOff", "./assets/objects/keyOffGUI.png");
+    Scene.prototype.loadToScene.call(this,"teaLife", "./assets/objects/sobresTe.png");
+    Scene.prototype.loadToScene.call(this,"teaLifeGUI", "./assets/objects/sobresTeGUI.png");
     Scene.prototype.loadToScene.call(this,"teapotShadow", "./assets/teapotShadow.png");
     Scene.prototype.loadToScene.call(this,"palette0","./assets/palette0.png");
     Scene.prototype.loadToScene.call(this,"tilemap64","./assets/tilemap64.png");
@@ -43,7 +47,7 @@ TestScene.prototype.create = function(){
     levelParser.parseTiles(this,"layermap",tileFactory);
     levelParser.parseObjects(this,"objectLayer");  
     
-    let gui = new InGameGUI(this);  
+    this.gui = new InGameGUI(this);  
     let bg = new Background(this,"bg1", -Game.TILE_SIZE/2 -1,0,0);
     let bg2 = new Background(this,"bg2", 0,Game.TILE_SIZE * 4,-1);
     let bgPass = new Background(this,"bgPass", 0,-Game.TILE_SIZE,0);

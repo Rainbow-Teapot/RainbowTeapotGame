@@ -35,5 +35,7 @@ Key.prototype.pickUp = function(){
         otherKey.destroy();
     }
     
+    this.scene.gui.pickUpKey();
+
     Pickupable.prototype.pickUp.call(this);
 }
