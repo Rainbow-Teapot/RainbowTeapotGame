@@ -17,6 +17,13 @@ GoldenTeapot.prototype.pickUp = function(){
     this.scene.functionFade = function(){
         Game.changeScene(new EndLevelScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     }
+
+    let colorPlayer = this.scene.objControl.colorPlayer;
+    let shadowPlayer =  this.scene.objControl.shadowPlayer;
+
+    colorPlayer.currentState = colorPlayer.states.DISABLED;
+    shadowPlayer.currentState = shadowPlayer.states.DISABLED;
+
     Pickupable.prototype.pickUp.call(this);
 }
 

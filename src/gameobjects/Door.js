@@ -20,6 +20,7 @@ Door.prototype.perform = function(){
     for(let i = 0; i < this.walls.length; i++){
         this.walls[i].destroy();
     }
+    this.scene.gui.useKey();
     this.shadowSprite.destroy();
     this.destroy();
 }

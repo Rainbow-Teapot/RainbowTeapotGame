@@ -16,15 +16,10 @@ function Player(scene, x, y, depth){
     this.currentVX = 0;
     this.currentVY = 0;
 
-    this.jumpHeight = 8;
     this.gravity = 1;
 
     this.groundAcc = 1;
-    this.groundFricc = 2;
-
-    this.airAcc = 0.75;
-    this.airFricc = 0.1;
-
+    this.groundFricc = 1.2;
 
     this.isSelected = true;
 
@@ -39,9 +34,8 @@ function Player(scene, x, y, depth){
         INPUTED: 1,
     }
 
-
     this.yOffsetColliderMask = 15;
-
+    this.numLifes = this.scene.objControl.numLifes;
     this.currentState = this.states.DISABLED;
     this.currentAnimation = this.animations.IDLE;
 }
@@ -133,8 +127,6 @@ Player.prototype.objectInteraction = function(){
     let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
     let colLever = physics.instancePlace(this,Math.sign(this.faceX),0,"Lever");
 
-    
-
     if(colPickup){
         colPickup.pickUp();
     }
@@ -152,6 +144,7 @@ Player.prototype.objectInteraction = function(){
 }
 
 Player.prototype.stopMoving = function(){
+    this.currentAnimation = this.animations.IDLE;
     this.currentVX = 0;
     this.moveX = 0;
 }
@@ -227,4 +220,12 @@ Player.prototype.approach = function(start, end, shift){
         return Math.min(start + shift, end);
     else
         return Math.max(start - shift, end);
+}
+
+Player.prototype.heal = function(){
+    this.scene.objControl.heal();
+}
+
+Player.prototype.damage = function(health){
+    this.scene.objControl.damage();
 }
