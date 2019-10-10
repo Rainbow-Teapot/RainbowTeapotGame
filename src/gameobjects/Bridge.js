@@ -15,15 +15,15 @@ Bridge.prototype.prepareSprite = function(isShadow,faceY){
     if(!isShadow){
         console.log(this.pos);
         if(faceY == -1){
-            this.sprite = new Sprite(this.scene,null,this.pos.x,this.pos.y - Game.TILE_SIZE * 2,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE * 3);
+            this.sprite = new Sprite(this.scene,"bridgeY",this.pos.x,this.pos.y - Game.TILE_SIZE * 2,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE * 3);
         }else if(faceY == 1){
-            this.sprite = new Sprite(this.scene,null,this.pos.x,this.pos.y,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE * 3);
+            this.sprite = new Sprite(this.scene,"bridgeY",this.pos.x,this.pos.y,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE * 3);
         }
     }else{
         if(faceY == -1){
-            this.sprite = new Sprite(this.scene,null,this.pos.x,this.pos.y - Game.TILE_SIZE * 2,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE * 3);
+            this.sprite = new Sprite(this.scene,"bridgeYShadow",this.pos.x,this.pos.y - Game.TILE_SIZE * 2,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE * 3);
         }else if(faceY == 1){
-            this.sprite = new Sprite(this.scene,null,this.pos.x,this.pos.y,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE * 3);
+            this.sprite = new Sprite(this.scene,"bridgeYShadow",this.pos.x,this.pos.y,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE * 3);
         }
     }
 }
@@ -69,12 +69,12 @@ Bridge.prototype.perform = function(){
         }
         this.sprite.destroy();
         if(!this.isShadow){
-            this.sprite = new Sprite(this.scene,null,this.pos.x,this.pos.y+ Game.TILE_SIZE,0,0,Game.TILE_SIZE * 3,Game.TILE_SIZE / 2);
+            this.sprite = new Sprite(this.scene,"bridgeX",this.pos.x,this.pos.y+ Game.TILE_SIZE,0,0,Game.TILE_SIZE * 3,Game.TILE_SIZE / 2);
             let shadowBridge = physics.instancePlace(null,this.pos.x, this.pos.y - Game.TILE_SIZE * this.scene.shadowLevel,"Bridge");
             if(shadowBridge)
                 shadowBridge.perform();
         }else{
-            this.sprite = new Sprite(this.scene,null,this.pos.x,this.pos.y+ Game.TILE_SIZE,0,0,Game.TILE_SIZE * 3,Game.TILE_SIZE / 2);
+            this.sprite = new Sprite(this.scene,"bridgeXShadow",this.pos.x,this.pos.y+ Game.TILE_SIZE,0,0,Game.TILE_SIZE * 3,Game.TILE_SIZE / 2);
         }
         this.activated = true;
     }
