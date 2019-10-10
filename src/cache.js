@@ -9,18 +9,18 @@ var cache = {
     para cargar JSONs*/
     load: function(tag, source){
         
-            let img = new Image();
-            cache.insert(tag,img);
-            return new Promise((resolve, reject) => {
-                
-                img.addEventListener('load', e => resolve(img));
-                img.addEventListener('error', () => {
-                  reject(new Error(`Failed to load image's URL: ${source}`));
-                });
-                img.src = source;
-                
+        let img = new Image();
+        cache.insert(tag,img);
+        return new Promise((resolve, reject) => {
+            
+            img.addEventListener('load', e => resolve(img));
+            img.addEventListener('error', () => {
+                reject(new Error(`Failed to load image's URL: ${source}`));
             });
-       
+            img.src = source;
+            
+        });
+        
     },
     /*crea un resource y lo mete en el mapa*/
     insert: function(tag, img){

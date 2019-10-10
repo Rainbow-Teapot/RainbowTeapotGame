@@ -48,12 +48,14 @@ con ella cargaremos tilemaps, spritesheets, imagenes y JSONs, hace uso de la cac
 las promesas en un array para luego esperar a todas ellas y poder continuar*/
 Scene.prototype.loadToScene = function(tag,src){
     
-    var promise = cache.load(tag,src).then(function(img){
-        console.log("Terminada de cargar recurso: " + tag);
-        cache.retrieve(tag).loadFlag = true;
-    });
+    if(!cache.retrieve(tag)){
+        var promise = cache.load(tag,src).then(function(img){
+            console.log("Terminada de cargar recurso: " + tag);
+            cache.retrieve(tag).loadFlag = true;
+        });
 
-    this.loadingPromises.push(promise);
+        this.loadingPromises.push(promise);
+    }
 };
 
 /*esperar a que todo se haya cargado y pasar al create, aquí no se especifica lo que hay que cargar,
@@ -148,6 +150,10 @@ Scene.prototype.draw = function(){
         }
     }
 };
+
+Scene.prototype.restart = function(){
+    Game.changeScene(this);
+}
 
 Scene.prototype.addAnimation = function(animation){
     this.animations.push(animation);

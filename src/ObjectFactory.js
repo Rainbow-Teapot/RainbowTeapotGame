@@ -19,10 +19,12 @@ ObjectFactory.prototype.createProductFromColor = function(color, x, y){
         let objControl = new Control(this.scene, x, y);
         this.scene.objControl = objControl;
 
-        let playerColorPos = new Point(objControl.pos.x,objControl.pos.y + Game.TILE_SIZE/2);
         let playerShadowPos = new Point(objControl.pos.x,objControl.pos.y - this.scene.shadowLevel * Game.TILE_SIZE + Game.TILE_SIZE/2);
-        objControl.colorPlayer = new Player(this.scene,playerColorPos.x, playerColorPos.y,0);
+        let playerColorPos = new Point(objControl.pos.x,objControl.pos.y + Game.TILE_SIZE/2);
+
         objControl.shadowPlayer = new ShadowPlayer(this.scene, playerShadowPos.x, playerShadowPos.y,1);
+        objControl.colorPlayer = new Player(this.scene,playerColorPos.x, playerColorPos.y,0);
+        
     
         this.scene.selectedPlayer = objControl.colorPlayer;
 
