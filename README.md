@@ -10,7 +10,6 @@
 <p align="justify">Nuestro jugador tendrá la oportunidad de experimentar todas las mecánicas clásicas de un juego de plataformas en dos dimensiones. Sin embargo, contará con el extra de una mecánica especial: podrá cambiar el control del personaje para jugar con su sombra, es decir, se podrá interactuar con la sombra de nuestra protagonista para sortear los obstáculos que nos encontraremos a lo largo de los niveles.</p>
 **Ejemplo de nivel:**
 <p>A continuación se muestra un ejemplo del nivel, tanto un boceto inicial del desarrollo, como su resultado final, justo debajo</p>
-![Boceto](C:\Users\Carlos Marques\Desktop\Universidad\Juegos para Web y Redes Sociales\Nivel1_01.png)
 **Prueba nuestro juego aquí:**
 <p>Github-pages: <strong>https://rainbow-teapot.github.io/RainbowTeapotGame/</strong> </p>
 **Desarrollado por Rainbow Teapot Studio. Todos los derechos reservados. 2019**
