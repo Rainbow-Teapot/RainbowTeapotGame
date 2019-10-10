@@ -12,7 +12,7 @@ OptionsMenuGUI.prototype.create = function () {
     let viewportMiddleX = viewport.width / 2;
 
     //tablero
-    let board = new GUIImage(this.scene, "board", viewport.width / 2, 125);
+    let board = new GUIImage(this.scene, "board", viewport.width / 2, 125, 0, 0, 0, 0);
     board.pos.x -= board.width / 2;
 
     //boton de ir para atras
@@ -30,6 +30,8 @@ OptionsMenuGUI.prototype.create = function () {
 
     let buttonReduceVolumeSprite = new GUIImage(this.scene, "flechaIzq", 50, 50, 0, 0, 114, 52, 0);
     let buttonIncrementVolumeSprite = new GUIImage(this.scene, "flechaDer", 50, 50, 0, 0, 114, 52, 0);
+    let buttonVolumeLine = new GUIImage(this.scene, "volumeLine", viewportMiddleX - 109, 225, 0, 0, 0, 0, 0);
+
 
     let incrementVolume = function () {
         if (audio.setVolume(0.1))
@@ -118,6 +120,6 @@ OptionsMenuGUI.prototype.create = function () {
     //texto efectos sonido
     let textSoundEffects = new Text(this.scene, i18n.translate(Game.lang, "sound"), viewportMiddleX - 64, 400, "40px CartoonRegular");
 
-    this.guiObjects.push(buttonBack, buttonTeapot, buttonVolumeUp, buttonVolumeDown, teapotVolumeSprite, tickSprite);
+    this.guiObjects.push(buttonBack, buttonTeapot, buttonVolumeUp, buttonVolumeDown, teapotVolumeSprite, tickSprite, buttonVolumeLine);
     this.guiSprites.push(textOptions, board, textVolume, textLanguage, textMusic, textSoundEffects, buttonOnOffMusic);
 };

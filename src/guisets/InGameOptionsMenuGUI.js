@@ -28,6 +28,9 @@ InGameOptionsMenuGUI.prototype.create = function(){
     
     let buttonReduceVolumeSprite = new GUIImage(this.scene,"flechaIzq",50,50,0,0,114,52,0);
     let buttonIncrementVolumeSprite = new GUIImage(this.scene, "flechaDer", 50,50,0,0,114,52,0);
+    let buttonVolumeLine = new GUIImage(this.scene, "volumeLine", viewportMiddleX - 109, 225, 0, 0, 0, 0, 0);
+
+
     var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX-110+(audio.music.volume*180), 200,0,0,32,32,0);
 
 
@@ -75,7 +78,7 @@ InGameOptionsMenuGUI.prototype.create = function(){
     };
     let buttonRestart = new Button(this.scene,viewportMiddleX - Game.TILE_SIZE + 25,viewportMiddleY,0,buttonRestartSprite, restartLevel);
 
-    this.guiSprites.push(bgAlpha,board,textVolume,textOptions, teapotVolumeSprite);
+    this.guiSprites.push(bgAlpha,board,textVolume,textOptions, buttonVolumeLine,teapotVolumeSprite);
     this.guiObjects.push(buttonResume, buttonLevel, buttonVolumeDown, buttonVolumeUp, buttonRestart);
     
 };

@@ -1,7 +1,7 @@
 var audio = {
     music: null,
     track1: "./music/jazz_music.wav",
-    trackMenu: "./music/main_theme_v1_flute_violin.mp3",
+    trackMenu: "./music/main_theme.mp3",
     trackDefeat: "./music/defeat_theme.mp3",
     trackVictory: "./music/victory_theme_high.mp3",
     trackLevel1: "./music/level_1.mp3",
