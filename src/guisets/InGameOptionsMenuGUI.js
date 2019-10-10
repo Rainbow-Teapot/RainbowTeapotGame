@@ -12,9 +12,15 @@ InGameOptionsMenuGUI.prototype.create = function(){
     let font = "30px CartoonRegular";
     let viewportMiddleX = viewport.width/2;
 
+    //fondo
+    let bgAlpha = new GUIImage(this.scene, null, 0,0,0,0,viewport.width,viewport.height);
+    bgAlpha.setColor(new Color(155,175,183,255));
+    bgAlpha.setAlpha(0.75);
+
     //tablero
-    let board = new GUIImage(this.scene,"board", viewport.width/2,125);
+    let board = new GUIImage(this.scene,"board", viewport.width/2,125,0,0,289,322,0);
     board.pos.x -= board.width/2;
+
     //texto OPCIONES
     let textOptions = new Text(this.scene,i18n.translate(Game.lang, "options"),viewportMiddleX ,120,"60px CartoonRegular");
     //texto volumen
@@ -22,7 +28,7 @@ InGameOptionsMenuGUI.prototype.create = function(){
     
     let buttonReduceVolumeSprite = new GUIImage(this.scene,"flechaIzq",50,50,0,0,114,52,0);
     let buttonIncrementVolumeSprite = new GUIImage(this.scene, "flechaDer", 50,50,0,0,114,52,0);
-    var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX-110+(audio.music.volume*180), 200);
+    var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX-110+(audio.music.volume*180), 200,0,0,32,32,0);
 
 
     let incrementVolume = function(){
@@ -37,6 +43,8 @@ InGameOptionsMenuGUI.prototype.create = function(){
 
     }
     
+
+
     let buttonVolumeUp = new Button(this.scene,viewportMiddleX+105, 200,0,buttonIncrementVolumeSprite, incrementVolume);
     let buttonVolumeDown = new Button(this.scene,viewportMiddleX-125,200,0,buttonReduceVolumeSprite, decrementVolume);
 
@@ -59,7 +67,7 @@ InGameOptionsMenuGUI.prototype.create = function(){
     };
     let buttonLevel = new Button(this.scene,viewportMiddleX,viewportMiddleY,0,buttonSpriteLevel, goLevelSelection,i18n.translate(Game.lang, "levels"),font);
 
-    this.guiSprites.push(board,textVolume,textOptions, teapotVolumeSprite);
+    this.guiSprites.push(bgAlpha,board,textVolume,textOptions, teapotVolumeSprite);
     this.guiObjects.push(buttonResume, buttonLevel, buttonVolumeDown, buttonVolumeUp);
     
 };

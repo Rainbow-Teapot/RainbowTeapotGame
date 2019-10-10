@@ -8,11 +8,6 @@ function Sprite(scene, img, x, y, xInImage, yInImage, width, height, depth){
     this.currentAnimation = null;
     this.color = new Color(255,0,0,255);
     this.scene.spriteObjectsLayer.addElement(this);
-    
-    if(img){
-        this.imgWidthInSprite = this.img.width / this.width;
-        this.imgHeightInSpite = this.img.height / this.height;
-    }
 }
 
 Sprite.prototype = Object.create(Drawable.prototype);
@@ -26,9 +21,9 @@ Sprite.prototype.draw = function(camera){
     let posAtCamera = this.pos.changeBase(camera.basis);
     let posAtViewPort = posAtCamera.changeBase(viewport.basis);
 
+    context.globalAlpha = this.alpha;
+
     if(!this.img){
-        
-        
             context.beginPath();
             context.fillStyle = this.color.toHTML();
             context.fillRect(posAtViewPort.x,posAtViewPort.y,this.width,this.height);
@@ -48,6 +43,8 @@ Sprite.prototype.draw = function(camera){
     }else{
         context.drawImage(this.img,posAtViewPort.x , posAtViewPort.y );
     }
+
+    context.globalAlpha = 1.0;
 }
 
 Sprite.prototype.addAnimation = function(key, initIndex, endIndex, frameRate, repetitions){
