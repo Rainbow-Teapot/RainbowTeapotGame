@@ -4,7 +4,6 @@ function Player(scene, x, y, depth){
     this.type.push("Player");
 
     this.sprite = this.prepareAnimations();
-    this.sprite.initAnimation("idleR");
     this.width = 64;
     this.height = 96;
 
@@ -21,7 +20,9 @@ function Player(scene, x, y, depth){
     this.groundAcc = 1;
     this.groundFricc = 1.2;
 
-    this.isSelected = true;
+    //this.isSelected = true;
+
+    this.isShadow = true;
 
     this.animations = {
         IDLE: 0,
@@ -31,13 +32,19 @@ function Player(scene, x, y, depth){
 
     this.states = {
         DISABLED: 0,
-        INPUTED: 1,
+        SELECTED: 1,
+        DESELECTED: 2,
     }
 
     this.yOffsetColliderMask = 15;
     this.numLifes = this.scene.objControl.numLifes;
     this.currentState = this.states.DISABLED;
     this.currentAnimation = this.animations.IDLE;
+
+    this.keyLeft = 0;
+    this.keyRight = 0;
+    this.keyJump = 0;
+
 }
 /*Hererncia protoripica con GameObject */
 Player.prototype = Object.create(GameObject.prototype);
@@ -65,9 +72,6 @@ Player.prototype.update = function(){
     
     //si se ve un delay ponerlo abajo
     GameObject.prototype.update.call(this);
-
-    let colLeft = physics.placeMeeting(this,-1,0,"Wall");
-    let colRigth = physics.placeMeeting(this,1,0,"Wall");
     
     this.behaviour();
     this.animation();
@@ -80,27 +84,42 @@ Player.prototype.behaviour = function(){
         case this.states.DISABLED:
             this.stopMoving();
         break;
-        case this.states.INPUTED:
+        case this.states.SELECTED:
+            this.input();
             this.movement();
             this.objectInteraction();
         break;
+        case this.states.DESELECTED:
+            this.passive();
         default:
             break;
     }
 }
 
+Player.prototype.input = function(){
+    this.keyLeft = input.isDownKey("a");
+    this.keyRight = input.isDownKey("d");
+    this.keyJump = input.isPressedKey(" ");
+
+    if(input.isPressedKey("q")){
+        this.scene.swapPlayer();
+    }
+}
+
+Player.prototype.stopMoving = function(){
+    this.currentAnimation = this.animations.IDLE;
+    this.currentVX = 0;
+    this.moveX = 0;
+}
+
 Player.prototype.movement = function(){
-    
-    let keyLeft = input.isDownKey("a");
-    let keyRight = input.isDownKey("d");
-    let keyJump = input.isPressedKey(" ");
+
 
     let colGround = physics.placeMeeting(this,0,1,"Wall");
 
     //Calcular input
-    if(this.isSelected){
-        this.moveX = keyRight - keyLeft;
-    }
+    this.moveX = this.keyRight - this.keyLeft;
+    
     //calcular velocidad horizontal
     if(this.moveX != 0){
         this.currentVX = this.approach(this.currentVX, this.VXMax * this.moveX, this.groundAcc);
@@ -116,7 +135,7 @@ Player.prototype.movement = function(){
     if(!colGround){
         this.currentVY = this.approach(this.currentVY, this.VYmax, this.gravity);
         this.currentAnimation = this.animations.JUMPING;
-    } else if(keyJump && this.isSelected && colGround){
+    } else if(this.keyJump && colGround){
         this.currentVY = -this.VYmax;
         
     }
@@ -127,33 +146,36 @@ Player.prototype.objectInteraction = function(){
     let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
     let colLever = physics.instancePlace(this,Math.sign(this.faceX),0,"Lever");
 
-    if(colPickup){
+    if(colPickup && this.isAbleToInteractWith(colPickup)){
         colPickup.pickUp();
     }
 
     if(input.isPressedKey("e") ){
-        if(colDoor && this.scene.objControl.numKeys > 0){ 
+        if(colDoor && this.scene.objControl.numKeys > 0 && this.isShadow){ 
             colDoor.perform();
         }
-        if(colLever){
+        if(colLever && this.isAbleToInteractWith(colPickup)){
             console.log("me he topado con la lever");
             colLever.action();
             
         }
     }
+
+
 }
 
-Player.prototype.stopMoving = function(){
-    this.currentAnimation = this.animations.IDLE;
-    this.currentVX = 0;
+Player.prototype.passive = function(){
     this.moveX = 0;
+    this.keyLeft = 0;
+    this.keyRight = 0;
+    this.keyJump = 0;
+    this.movement();
 }
 
 Player.prototype.animation = function(){
 
     switch(this.currentAnimation){
         case this.animations.IDLE:
-
             if(this.faceX == 1)
                 this.sprite.initAnimation("idleR");
             else if(this.faceX == -1)
@@ -215,11 +237,19 @@ Player.prototype.handleColisions = function(){
     }
 }
 
+Player.prototype.isAbleToInteractWith = function(object){
+    return object.isShadow = this.isShadow;
+}
+
 Player.prototype.approach = function(start, end, shift){
     if(start < end)
         return Math.min(start + shift, end);
     else
         return Math.max(start - shift, end);
+}
+
+Player.prototype.setCurrentState = function(state){
+    this.currentState = this.states[state];
 }
 
 Player.prototype.heal = function(){
