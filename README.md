@@ -15,12 +15,31 @@
 
 **Ejemplo de nivel:**
 
-<p>A continuación se muestra un ejemplo del nivel, tanto un boceto inicial del desarrollo, como su resultado final:</p>
+<p>A continuación se muestra un ejemplo del nivel, se puede observar que la parte coloreada con bordes negros es el mundo real, mientras que la parte en color gris y sin color, es la parte por donde se mueve la sombra:</p>
 
 ![Boceto](Imagenes_readme/Nivel1_01.png)
+
+<p>Aquí mostramos un ejemplo del juego propio de manera real, tal y como se vería en el juego: </p>
+
+![Nivel](Imagenes_readme/Escenario_real.PNG)
 
 **Prueba nuestro juego aquí:**
 
 <p>Github-pages: <strong>https://rainbow-teapot.github.io/RainbowTeapotGame/</strong> </p>
 
 **Desarrollado por Rainbow Teapot Studio. Todos los derechos reservados. 2019**
+
+![Logotipo](Imagenes_readme/RTLogo.png)
+
+**Integrantes del equipo de Rainbow Teapot Studios:**
+
+<p>Andrea Rodríguez González- Programador / Relaciones Públicas</p>
+
+<p>Marcos Agudo Alarcón - Programador</p>
+
+<p>Celia  Merino Valladolid- Artista</p>
+
+<p>Juan Antonio Ruiz Ramirez- Ingeniero de Sonido</p>
+
+<p>Carlos Marques González - Game Designer / Level Designer</p>
+
