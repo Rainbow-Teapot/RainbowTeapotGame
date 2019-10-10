@@ -20,7 +20,7 @@ var i18n = {
         options: "OPTIONS",       
         credits: "CREDITS", 
         ranking: "Ranking",
-        win: "CONTRATULATIONS!",
+        win: "CONGRATULATIONS!",
         volume: "Volume",
         sound: "Sound",
         lang: "Language",

@@ -26,8 +26,7 @@ var audio = {
 
     setVolume: function (volume) {
         if (audio.music != null) {
-            let futureVolume = audio.music.volume + volume;
-            console.log(futureVolume);
+            let futureVolume = audio.music.volume + volume;            
             if ((0 <= futureVolume) && (futureVolume <= 1.0)) {
                 audio.music.volume = futureVolume;
                 return true;
