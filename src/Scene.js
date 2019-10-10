@@ -20,7 +20,7 @@ function Scene(width, height){
     this.height = height;
 
     this.backgroundLayer = new Layer();
-    this.tileLayer = [];
+    this.tileLayer = [new Layer(), new Layer()];
     this.spriteObjectsLayer = new Layer();
     this.foregroundLayer = new Layer();
     this.GUILayer = new Layer();
@@ -136,12 +136,16 @@ contenedora. En la layer background habrá backgrund0, background1...*/
 Scene.prototype.draw = function(){
     if(this.isSceneLoaded){
         
-        
         this.backgroundLayer.draw(this.camera);
-        let frameLayer = this.camera.getFrameLayer();
-        frameLayer.draw(this.camera);
+        
+        let frameLayerShadow = this.camera.getFrameLayer(this.tileLayer[0]);
+        frameLayerShadow.draw(this.camera);
         
         this.spriteObjectsLayer.draw(this.camera);
+
+        let frameLayerColor = this.camera.getFrameLayer(this.tileLayer[1]);
+        frameLayerColor.draw(this.camera);
+
         this.foregroundLayer.draw(this.camera);
         this.GUILayer.draw(this.camera);
         
