@@ -13,7 +13,7 @@ ConfirmLevelGUI.prototype.create = function(){
     let viewportMiddleX = viewport.width/2;
 
     //board
-    let board = new GUIImage(this.scene,"board", viewport.width/2,125);
+    let board = new GUIImage(this.scene,"board", viewport.width/2,125,0,0,289,322,0);
     board.pos.x -= board.width/2;
 
     //boton para confirmar
