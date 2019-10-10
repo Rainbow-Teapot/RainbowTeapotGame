@@ -26,6 +26,11 @@ TestScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this,"bridgeXShadow", "./assets//objects/puente2sombra.png");
     Scene.prototype.loadToScene.call(this,"bridgeY", "./assets/objects/puente.png");
     Scene.prototype.loadToScene.call(this,"bridgeX", "./assets/objects/puente2.png");    
+    Scene.prototype.loadToScene.call(this,"leverOn", "./assets/objects/palanca_derecha.png");    
+    Scene.prototype.loadToScene.call(this,"leverOff", "./assets/objects/palanca_izquierda.png");    
+    Scene.prototype.loadToScene.call(this,"leverOnShadow", "./assets/objects/palanca_derecha_sombra.png");    
+    Scene.prototype.loadToScene.call(this,"leverOffShadow", "./assets/objects/palanca_izquierda_sombra.png");    
+    
     Scene.prototype.loadToScene.call(this,"teapotShadow", "./assets/teapotShadow.png");   
     Scene.prototype.loadToScene.call(this,"palette0","./assets/palette0.png");
     Scene.prototype.loadToScene.call(this,"tilemap64","./assets/tilemap64.png");

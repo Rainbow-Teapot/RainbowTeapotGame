@@ -12,9 +12,9 @@ Lever.prototype.constructor = Lever;
 
 Lever.prototype.prepareSprite = function(isShadow){
     if(!isShadow){
-        this.sprite = new Sprite(this.scene,null,0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2);
+        this.sprite = new Sprite(this.scene,"leverOff",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2);
     }else{
-        this.sprite = new Sprite(this.scene,null,0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2);
+        this.sprite = new Sprite(this.scene,"leverOffShadow",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2);
     }
 }
 
@@ -23,6 +23,14 @@ Lever.prototype.action = function(){
     let activable = physics.instancePlace(null,this.posActivable.x, this.posActivable.y, "Bridge");
     if(activable){
         activable.perform();
+        if(!this.isShadow){
+            this.sprite.destroy();
+            this.sprite = new Sprite(this.scene,"leverOn",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2);
+        }else{
+            this.sprite.destroy();
+            this.sprite = new Sprite(this.scene,"leverOnShadow",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2);
+        }
+        
         console.log("he activado el puente");
     }else{
         console.log("No he encontrado nada");
