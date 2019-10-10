@@ -17,7 +17,7 @@
 
 <p>A continuación se muestra un ejemplo del nivel, tanto un boceto inicial del desarrollo, como su resultado final:</p>
 
-![Boceto](C:\Users\Carlos Marques\Desktop\Universidad\Juegos para Web y Redes Sociales\Nivel1_01)
+![Boceto](Imagenes_readme/Nivel1_01.png)
 
 **Prueba nuestro juego aquí:**
 
