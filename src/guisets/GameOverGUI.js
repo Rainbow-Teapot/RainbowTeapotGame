@@ -8,7 +8,7 @@ GameOverGUI.prototype = Object.create(GUISet.prototype);
 GameOverGUI.prototype.constructor = GameOverGUI;
 
 GameOverGUI.prototype.create = function(){
-
+    
     let viewportMiddleX = viewport.width/2;
     let viewportDown = viewport.height - 100;
 
@@ -31,6 +31,7 @@ GameOverGUI.prototype.create = function(){
 
     //texto congratulaciones
     let textGameOver = new Text(this.scene,i18n.translate(Game.lang, "gameOver"),viewportMiddleX,110,"60px CartoonRegular");
+    
 
     this.guiObjects.push(buttonRestart,buttonLevel);
     this.guiSprites.push(textGameOver);

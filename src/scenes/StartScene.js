@@ -1,5 +1,6 @@
 function StartScene(width, height){
     Scene.call(this,width,height);
+    
 }
 
 StartScene.prototype = Object.create(Scene.prototype);

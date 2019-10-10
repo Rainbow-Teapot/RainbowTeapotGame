@@ -10,10 +10,7 @@ EndLevelMenuGUI.prototype.constructor = EndLevelMenuGUI;
 EndLevelMenuGUI.prototype.create = function(){
 
     let viewportMiddleX = viewport.width/2;
-    let viewportDown = viewport.height - 100;
-
-    
-
+    let viewportDown = viewport.height - 100;   
 
     //boton de repetir
     let buttonRestartSprite = new GUIImage(this.scene,"botonReempezar",50,50,0,0,114,52,0);

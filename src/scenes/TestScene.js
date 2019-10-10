@@ -2,6 +2,7 @@
 function TestScene(width, height) {
     Scene.call(this, width, height);
     this.transition = new Transition();
+    this.track = audio.trackLevel1;
 }
 
 /*Herencia prototipica */
@@ -51,7 +52,7 @@ TestScene.prototype.preload = function(){
 podemos crear objetos necesarios que se puedan necesitar para esta escena en concreto */
 TestScene.prototype.create = function(){
 
-    audio.play(audio.track1);
+    audio.play(this.track);
     let tileFactory = new TileFactory(this, "tilemap64", "palette0");
     levelParser.parseTiles(this,"layermap",tileFactory);
     levelParser.parseObjects(this,"objectLayer");  
