@@ -14,6 +14,7 @@ var i18n = {
         resume: "VOLVER",
         start: "EMPEZAR",
         lvl1: "Nivel 1",
+        gameOver: "¡Te rompiste!"
     },
 
     eng:{
@@ -30,6 +31,7 @@ var i18n = {
         resume: "RESUME",
         start: "START",
         lvl1: "Level 1",
+        gameOver: "You broke!"
 
 
     },

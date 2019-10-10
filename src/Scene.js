@@ -20,7 +20,7 @@ function Scene(width, height){
     this.height = height;
 
     this.backgroundLayer = new Layer();
-    this.tileLayer = [];
+    this.tileLayer = [new Layer(), new Layer()];
     this.spriteObjectsLayer = new Layer();
     this.foregroundLayer = new Layer();
     this.GUILayer = new Layer();
@@ -48,12 +48,14 @@ con ella cargaremos tilemaps, spritesheets, imagenes y JSONs, hace uso de la cac
 las promesas en un array para luego esperar a todas ellas y poder continuar*/
 Scene.prototype.loadToScene = function(tag,src){
     
-    var promise = cache.load(tag,src).then(function(img){
-        console.log("Terminada de cargar recurso: " + tag);
-        cache.retrieve(tag).loadFlag = true;
-    });
+    if(!cache.retrieve(tag)){
+        var promise = cache.load(tag,src).then(function(img){
+            console.log("Terminada de cargar recurso: " + tag);
+            cache.retrieve(tag).loadFlag = true;
+        });
 
-    this.loadingPromises.push(promise);
+        this.loadingPromises.push(promise);
+    }
 };
 
 /*esperar a que todo se haya cargado y pasar al create, aquí no se especifica lo que hay que cargar,
@@ -134,12 +136,16 @@ contenedora. En la layer background habrá backgrund0, background1...*/
 Scene.prototype.draw = function(){
     if(this.isSceneLoaded){
         
-        
         this.backgroundLayer.draw(this.camera);
-        let frameLayer = this.camera.getFrameLayer();
-        frameLayer.draw(this.camera);
+        
+        let frameLayerShadow = this.camera.getFrameLayer(this.tileLayer[0]);
+        frameLayerShadow.draw(this.camera);
         
         this.spriteObjectsLayer.draw(this.camera);
+
+        let frameLayerColor = this.camera.getFrameLayer(this.tileLayer[1]);
+        frameLayerColor.draw(this.camera);
+
         this.foregroundLayer.draw(this.camera);
         this.GUILayer.draw(this.camera);
         
@@ -148,6 +154,10 @@ Scene.prototype.draw = function(){
         }
     }
 };
+
+Scene.prototype.restart = function(){
+    Game.changeScene(this);
+}
 
 Scene.prototype.addAnimation = function(animation){
     this.animations.push(animation);
