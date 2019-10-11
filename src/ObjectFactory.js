@@ -59,7 +59,7 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
             }
         }else if(color.g == 128 && color.b == 128){
             new DamageBlock(this.scene, x, y, 0,color.r);
-            new DamageBlock(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1,color.r);
+            //new DamageBlock(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1,color.r);
         }
 
     } else if (color.a == 255) {

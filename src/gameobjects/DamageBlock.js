@@ -1,16 +1,21 @@
 function DamageBlock(scene, x, y, depth, facingColor){
     GameObject.call(this,scene,x,y,depth);
-    this.currentFacing = setFacingByColor(facingColor)
-    this.collider = this.prepareCollider(facing);
+    this.type.push("DamageBlock");
     this.facings = {
-        UP = 0,
-        RIGHT = 1,
-        DOWN = 2,
-        LEFT = 3,
-        NORMAL = 4,
+        UP: 0,
+        RIGHT: 1,
+        DOWN: 2,
+        LEFT: 3,
+        NORMAL: 4,
     }
+    this.currentFacing = this.setFacingByColor(facingColor)
     this.OFFSET_X = 20;
     this.OFFSET_Y = 20;
+    
+    this.prepareCollider();
+    this.sprite = new Sprite(this.scene,null,0,0,0,0,64,64);
+    
+
 }
 
 DamageBlock.prototype = Object.create(GameObject.prototype);
@@ -31,25 +36,25 @@ DamageBlock.prototype.setFacingByColor = function(color){
     }
 }
 
-DamageBlock.prototype.prepareCollider = function(currentFacing){
+DamageBlock.prototype.prepareCollider = function(){
 
     let xOffset = 0;
     let yOffset = 0;
     let width = this.width;
     let height = this.height;
 
-    switch(currentFacing){
+    switch(this.currentFacing){
         case this.facings.UP:
-            yOffset = this.OFFSET_Y;
+            yOffset = -this.OFFSET_Y;
             break;
         case this.facings.RIGHT:
             width -= this.OFFSET_X;
             break;
         case this.facings.DOWN:
-            this.height -= this.OFFSET_Y;
+            height -= this.OFFSET_Y;
             break;
         case this.facings.LEFT:
-            xOffset = this.OFFSET_X;
+            xOffset = -this.OFFSET_X;
             break;
         case this.facings.NORMAL:
             break;
@@ -57,5 +62,5 @@ DamageBlock.prototype.prepareCollider = function(currentFacing){
             return new Error(`No valid facing for ObjDamage`);
             
     }
-    return new Collider(this,this.pos.x,this.pos.y,width,height, xOffset, yOffset);
+    this.collider = new Collider(this,this.pos.x,this.pos.y,width,height, xOffset, yOffset);
 }

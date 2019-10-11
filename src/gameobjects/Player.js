@@ -27,13 +27,15 @@ function Player(scene, x, y, depth){
     this.animations = {
         IDLE: 0,
         WALKING: 1,
-        JUMPING: 2
+        JUMPING: 2,
+        DAMAGED: 3,
     }
 
     this.states = {
         DISABLED: 0,
         SELECTED: 1,
         DESELECTED: 2,
+        DAMAGED: 3,
     }
 
     this.yOffsetColliderMask = 15;
@@ -63,6 +65,9 @@ Player.prototype.prepareAnimations = function(){
     sprite.addAnimation("jumpUpR",24,24,3,-1);
     sprite.addAnimation("jumpDownR",24,24,3,-1);
 
+    sprite.addAnimation("damagedR",26,26,3,3);
+    sprite.addAnimation("damagedL",27,27,3,3);
+
     return sprite;
 
 };
@@ -91,6 +96,16 @@ Player.prototype.behaviour = function(){
         break;
         case this.states.DESELECTED:
             this.passive();
+        break;
+        case this.states.DAMAGED:
+            
+            if(this.sprite.currentAnimation.isFinished){
+                console.log("HE TERMINADO LA ANIMCAION DE DAÑO");
+                this.currentState = this.states.SELECTED;
+            }
+            console.log("me estoy haciedno daño");
+            //this.movement();
+        break;
         default:
             break;
     }
@@ -145,9 +160,18 @@ Player.prototype.objectInteraction = function(){
     let colDoor = physics.instancePlace(this,Math.sign(this.faceX) * 4,0,"Door");
     let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
     let colLever = physics.instancePlace(this,Math.sign(this.faceX),0,"Lever");
+    let colDamage = physics.instancePlace(this,Math.sign(this.faceX), 0,"DamageBlock");
 
     if(colPickup && this.isAbleToInteractWith(colPickup)){
         colPickup.pickUp();
+    }
+
+    if(colDamage){
+        this.currentAnimation = this.animations.DAMAGED;
+        this.currentState = this.states.DAMAGED;
+        this.moveX = Math.sign( this.pos.x - colDamage.pos.x);
+        this.currentVX = 9 * this.moveX;
+        this.currentVY = -9;
     }
 
     if(input.isPressedKey("e") ){
@@ -207,6 +231,12 @@ Player.prototype.animation = function(){
             }
 
             break;
+        case this.animations.DAMAGED:
+            if(this.faceX == 1){
+                this.sprite.initAnimation("damagedR");
+            }else if(this.faceX == -1){
+                this.sprite.initAnimation("damagedL");
+            }
         default:
             break;
     }   

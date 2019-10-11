@@ -61,7 +61,7 @@ Sprite.prototype.initAnimation = function(key){
             this.currentAnimation.setActive(false);
         this.currentAnimation = newAnimation;
     }
-    
+
     if(!this.currentAnimation.isActive){
         this.currentAnimation.setActive(true);
     }
