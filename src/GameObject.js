@@ -25,6 +25,7 @@ ningun metodo draw ya que de eso ya se encarga el sprite*/
 GameObject.prototype.update = function(){
     if(this.sprite){
         this.sprite.pos = this.pos;
+        this.sprite.depth = this.depth;
     }
 }
 

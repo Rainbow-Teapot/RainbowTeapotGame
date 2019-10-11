@@ -17,6 +17,11 @@ Control.prototype.damage = function(){
         this.shadowPlayer.numLifes--;
         this.colorPlayer.numLifes--;
         this.scene.gui.lowerHealth();
+
+        if(this.numLifes == 0){
+            Game.changeScene(new GameOverScene(new GameOverScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE)));
+        }
+
     }
 }
 

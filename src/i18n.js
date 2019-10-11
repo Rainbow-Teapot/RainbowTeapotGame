@@ -14,13 +14,14 @@ var i18n = {
         resume: "VOLVER",
         start: "EMPEZAR",
         lvl1: "Nivel 1",
+        gameOver: "¡Te rompiste!"
     },
 
     eng:{
         options: "OPTIONS",       
         credits: "CREDITS", 
         ranking: "Ranking",
-        win: "CONTRATULATIONS!",
+        win: "CONGRATULATIONS!",
         volume: "Volume",
         sound: "Sound",
         lang: "Language",
@@ -30,6 +31,7 @@ var i18n = {
         resume: "RESUME",
         start: "START",
         lvl1: "Level 1",
+        gameOver: "You broke!"
 
 
     },

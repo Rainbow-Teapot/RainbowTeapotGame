@@ -12,9 +12,9 @@ var levelParser = {
        
         var canvas = document.createElement('canvas');
         var context = canvas.getContext('2d');
-        context.clearRect(0,0, canvas.width, canvas.height);
+        
         for(let i = 0; i < scene.numLayers; i++){
-            
+            context.clearRect(0,0, canvas.width, canvas.height);
             img = cache.retrieve(src + i).img;
             context.drawImage(img, 0, 0);
             //tiles[i] = new Array(img.width * img.height);  
@@ -25,16 +25,8 @@ var levelParser = {
 
                     let color = context.getImageData(k,j,1,1).data;
                     let colorObj = new Color(color[0],color[1],color[2],color[3]);
-                  
                     //Aquí actuaría la factoria
                     tileFactory.createProductFromColor(colorObj, k*Game.TILE_SIZE, j*Game.TILE_SIZE, i);
-                    /*if(colorObj.equals(new Color(0,30,255,255))){
-                        console.log("se ha creado el tile correcto");
-                        new Tile(scene,"tilemap0",k*32,j*32,32,32,32,32,i);
-                    }else{
-                        new Tile(scene, null,0,0,0,0,0,0,0);
-                    }*/
-                    
                 }
             }
         }

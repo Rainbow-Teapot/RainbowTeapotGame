@@ -20,7 +20,7 @@ function Scene(width, height){
     this.height = height;
 
     this.backgroundLayer = new Layer();
-    this.tileLayer = [];
+    this.tileLayer = [new Layer(), new Layer()];
     this.spriteObjectsLayer = new Layer();
     this.foregroundLayer = new Layer();
     this.GUILayer = new Layer();
@@ -37,10 +37,10 @@ function Scene(width, height){
 
     this.middleSceneX = width/2;
 
-    this.shadowLevel = 3;
-    this.objControl = null;
-    this.objTarget = null;
+    
     this.objectFactory = new ObjectFactory(this);
+
+    this.track = null; 
 };
 
 /*funcion para cargar resources necesarios para la creación de la escena,
@@ -48,12 +48,14 @@ con ella cargaremos tilemaps, spritesheets, imagenes y JSONs, hace uso de la cac
 las promesas en un array para luego esperar a todas ellas y poder continuar*/
 Scene.prototype.loadToScene = function(tag,src){
     
-    var promise = cache.load(tag,src).then(function(img){
-        console.log("Terminada de cargar recurso: " + tag);
-        cache.retrieve(tag).loadFlag = true;
-    });
+    if(!cache.retrieve(tag)){
+        var promise = cache.load(tag,src).then(function(img){
+            console.log("Terminada de cargar recurso: " + tag);
+            cache.retrieve(tag).loadFlag = true;
+        });
 
-    this.loadingPromises.push(promise);
+        this.loadingPromises.push(promise);
+    }
 };
 
 /*esperar a que todo se haya cargado y pasar al create, aquí no se especifica lo que hay que cargar,
@@ -95,34 +97,10 @@ Scene.prototype.update = function(){
         this.camera.update();
     }
 
-    if(input.isPressedKey("q") && this.objTarget == undefined){
-        
-        let otherPlayer = null;
-
-        if(this.selectedPlayer == this.objControl.colorPlayer){
-            otherPlayer = this.objControl.shadowPlayer;
-            this.objControl.colorPlayer.isSelected = false;
-        }else if(this.selectedPlayer == this.objControl.shadowPlayer){
-            otherPlayer = this.objControl.colorPlayer;
-            this.objControl.colorPlayer.isSelected = true;
-        }
-        this.objControl.colorPlayer.stopMoving();
-        let initPos = new Point(this.selectedPlayer.pos.x,this.selectedPlayer.pos.y);
-        this.objTarget = new Target(this,0,0,initPos,otherPlayer.pos,0.1);
-        this.camera.setTarget(this.objTarget);
-    }
+    
 };
 
-Scene.prototype.changePlayer = function(){
-    this.objTarget = null;
-    if(this.selectedPlayer == this.objControl.colorPlayer){
-        this.selectedPlayer = this.objControl.shadowPlayer;
-    }else if(this.selectedPlayer == this.objControl.shadowPlayer){
-        this.selectedPlayer = this.objControl.colorPlayer;
-    }
-    
-    this.camera.setTarget(this.selectedPlayer);
-}
+
 
 /*dibujar todas las layer en el siguiente orden: 
     1. Backgrounds
@@ -134,12 +112,17 @@ contenedora. En la layer background habrá backgrund0, background1...*/
 Scene.prototype.draw = function(){
     if(this.isSceneLoaded){
         
-        
         this.backgroundLayer.draw(this.camera);
-        let frameLayer = this.camera.getFrameLayer();
-        frameLayer.draw(this.camera);
         
+        let frameLayerShadow = this.camera.getFrameLayer(this.tileLayer[0]);
+        frameLayerShadow.draw(this.camera);
+        
+        this.spriteObjectsLayer.sortByDepth();
         this.spriteObjectsLayer.draw(this.camera);
+
+        let frameLayerColor = this.camera.getFrameLayer(this.tileLayer[1]);
+        frameLayerColor.draw(this.camera);
+
         this.foregroundLayer.draw(this.camera);
         this.GUILayer.draw(this.camera);
         
@@ -148,6 +131,10 @@ Scene.prototype.draw = function(){
         }
     }
 };
+
+Scene.prototype.restart = function(){
+    Game.changeScene(this);
+}
 
 Scene.prototype.addAnimation = function(animation){
     this.animations.push(animation);

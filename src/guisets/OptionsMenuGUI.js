@@ -12,7 +12,7 @@ OptionsMenuGUI.prototype.create = function () {
     let viewportMiddleX = viewport.width / 2;
 
     //tablero
-    let board = new GUIImage(this.scene, "board", viewport.width / 2, 125);
+    let board = new GUIImage(this.scene, "board", viewport.width / 2, 125, 0, 0, 0, 0);
     board.pos.x -= board.width / 2;
 
     //boton de ir para atras
@@ -30,6 +30,8 @@ OptionsMenuGUI.prototype.create = function () {
 
     let buttonReduceVolumeSprite = new GUIImage(this.scene, "flechaIzq", 50, 50, 0, 0, 114, 52, 0);
     let buttonIncrementVolumeSprite = new GUIImage(this.scene, "flechaDer", 50, 50, 0, 0, 114, 52, 0);
+    let buttonVolumeLine = new GUIImage(this.scene, "volumeLine", viewportMiddleX - 109, 225, 0, 0, 0, 0, 0);
+
 
     let incrementVolume = function () {
         if (audio.setVolume(0.1))
@@ -44,9 +46,10 @@ OptionsMenuGUI.prototype.create = function () {
     //botones opciones musica
     let buttonVolumeUp = new Button(this.scene, viewportMiddleX + 105, 200, 0, buttonIncrementVolumeSprite, incrementVolume);
     let buttonVolumeDown = new Button(this.scene, viewportMiddleX - 125, 200, 0, buttonReduceVolumeSprite, decrementVolume);
-    if (audio.music != null){
-        if(audio.music.muted === false) {
-        var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX - 110 + (audio.music.volume * 180), 200);}
+    if (audio.music != null) {
+        if (audio.music.muted === false) {
+            var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX - 110 + (audio.music.volume * 180), 200, 0 ,0, 0, 0);
+        }
     }
 
 
@@ -83,39 +86,41 @@ OptionsMenuGUI.prototype.create = function () {
     //texto musicas
     let textMusic = new Text(this.scene, i18n.translate(Game.lang, "music"), viewportMiddleX - 64, 350, "40px CartoonRegular");
 
-    let buttonOnOffMusicSprite = new GUIImage(this.scene, "whiteSquare", 50, 50, 0, 0, 114, 52, 0); 
-   
+    let buttonOnOffMusicSprite = new GUIImage(this.scene, "whiteSquare", 50, 50, 0, 0, 114, 52, 0);
 
-    let onOffMusic = function(){
-        
-        if(audio.music===null){
-            audio.play(audio.track1);
-            tickSprite.isVisible = true; 
-    
-        }else if(audio.music.muted === true){
-                audio.music.muted = false; 
-                tickSprite.isVisible = true; 
-               
-        }else{
-            audio.music.muted = true; 
+
+    let onOffMusic = function () {
+
+        if (audio.music === null) {
+            console.log(this.scene);
+            audio.play(this.scene.track);
+            tickSprite.isVisible = true;
+
+        } else if (audio.music.muted === true) {
+            audio.music.muted = false;
+            tickSprite.isVisible = true;
+
+        } else {
+            audio.music.muted = true;
             tickSprite.isVisible = false;
         }
         Game.changeScene(new OptionsScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE));
-        
+
     };
 
-    let buttonOnOffMusic = new Button(this.scene, viewportMiddleX+75, 320, 0, buttonOnOffMusicSprite, onOffMusic);
+    let buttonOnOffMusic = new Button(this.scene, viewportMiddleX + 75, 320, 0, buttonOnOffMusicSprite, onOffMusic);
 
-    let tickSprite = new GUIImage (this.scene, "tick", viewportMiddleX+75, 315, 0, 114, 52, 0); 
-    if((audio.music === null)||(audio.music.muted === true))
+    let tickSprite = new GUIImage(this.scene, "tick", viewportMiddleX + 75, 315, 0, 0, 0, 0);
+    
+    if ((audio.music === null) || (audio.music.muted === true))
         tickSprite.isVisible = false;
-        else{
-            tickSprite.isVisible = true;
-        }
+    else {
+        tickSprite.isVisible = true;
+    }
 
     //texto efectos sonido
     let textSoundEffects = new Text(this.scene, i18n.translate(Game.lang, "sound"), viewportMiddleX - 64, 400, "40px CartoonRegular");
 
-    this.guiObjects.push(buttonBack, buttonTeapot, buttonVolumeUp, buttonVolumeDown, teapotVolumeSprite, tickSprite);
+    this.guiObjects.push(buttonBack, buttonTeapot, buttonVolumeUp, buttonVolumeDown, teapotVolumeSprite, tickSprite, buttonVolumeLine);
     this.guiSprites.push(textOptions, board, textVolume, textLanguage, textMusic, textSoundEffects, buttonOnOffMusic);
 };

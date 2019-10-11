@@ -79,7 +79,7 @@ Camera.prototype.updateBasis = function(){
 /*De aqui conseguimos sacar que tiles dibujar, dejemoslo en que designa el FrameBuffer,
 además realizar frustum culling de una manera implicita, ya que los tiles que no "caigan"
 dentro del rango de la cámara nunca llegan a dibujarse */
-Camera.prototype.getFrameLayer = function(){
+Camera.prototype.getFrameLayer = function(layerToDraw){
 
     let widthInTiles = Math.floor(this.width / Game.TILE_SIZE) + 1;
     let heightInTiles = Math.floor(this.height / Game.TILE_SIZE) + 1;
@@ -87,27 +87,24 @@ Camera.prototype.getFrameLayer = function(){
     //let tilesToDraw = new Array(widthInTiles * heightInTiles);
     let tilesToDraw = new Layer();
 
-    let sceneTiles = this.scene.tileLayer;
-    let numLayers = this.scene.numLayers;
-
     let posInitInTiles = new Point( Math.floor((this.pos.x - this.width/2 ) / Game.TILE_SIZE),
                                     Math.floor((this.pos.y - this.height/2) / Game.TILE_SIZE));
 
-    for(let i = 0; i < numLayers; i++){
-        for(let j = 0; j < heightInTiles; j++){
-            for(let k = 0; k < widthInTiles; k++){
+    
+    for(let j = 0; j < heightInTiles; j++){
+        for(let k = 0; k < widthInTiles; k++){
 
-                let sceneTileIndex = (posInitInTiles.y + j) * Math.floor(this.scene.width/ Game.TILE_SIZE) + (posInitInTiles.x + k);
-                let tile  = sceneTiles[i].elements[sceneTileIndex];
-                
-                if(tile && tile.img){
-                    //if(!tile.color.equals(TRANSPARENT_COLOR)){
-                        tilesToDraw.addElement(tile);
-                    //}
-                }
+            let sceneTileIndex = (posInitInTiles.y + j) * Math.floor(this.scene.width/ Game.TILE_SIZE) + (posInitInTiles.x + k);
+            let tile  = layerToDraw.elements[sceneTileIndex];
+            
+            if(tile && tile.img){
+                //if(!tile.color.equals(TRANSPARENT_COLOR)){
+                    tilesToDraw.addElement(tile);
+                //}
             }
         }
     }
+    
 
     return tilesToDraw;
 }

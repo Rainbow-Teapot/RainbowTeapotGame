@@ -1,17 +1,21 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <h1>A Rainbow Teapot Studio Game</h1>
     <h2>Smells like tea spirit</h2>
+    <p1>Controls: Q change between shadow and color, E interact doors, levers...,  A/D move left/right, SpaceBar jump</p1>
     <style>
-    @font-face {
-        font-family: Folks;
-        src: url(./assets/fonts/Folks.ttf);
-    }
-    @font-face {
-        font-family: CartoonRegular;
-        src: url(./assets/fonts/Cartoon_Regular.ttf);
-    }
+        @font-face {
+            font-family: Folks;
+            src: url(./assets/fonts/Folks.ttf);
+        }
+
+        @font-face {
+            font-family: CartoonRegular;
+            src: url(./assets/fonts/Cartoon_Regular.ttf);
+        }
     </style>
 </head>
 
@@ -26,6 +30,7 @@
     <script src="./src/cache.js"></script>
     <script src="./src/Point.js"></script>
     <script src="./src/Collider.js"></script>
+    <script src="./src/Timer.js"></script>
 
     <script src="./src/QuadTree.js"></script>
 
@@ -56,14 +61,19 @@
     <script src="./src/gameobjects/Wall.js"></script>
     <script src="./src/gameobjects/Control.js"></script>
     <script src="./src/gameobjects/Activable.js"></script>
+    <script src="./src/gameobjects/DamageBlock.js"></script>
     <script src="./src/gameobjects/Bridge.js"></script>
     <script src="./src/gameobjects/Lever.js"></script>
     <script src="./src/gameobjects/Target.js"></script>
     <script src="./src/gameobjects/Door.js"></script>
     <script src="./src/gameobjects/Key.js"></script>
+    <script src="./src/gameobjects/Movable.js"></script>
+    <script src="./src/gameobjects/MovablePlatform.js"></script>
+
 
     <script src="./src/GUISet.js"></script>
     <script src="./src/guisets/MainMenuGUI.js"></script>
+    <script src="./src/guisets/GameOverGUI.js"></script>
     <script src="./src/guisets/OptionsMenuGUI.js"></script>
     <script src="./src/guisets/EndLevelMenuGUI.js"></script>
     <script src="./src/guisets/CreditsMenuGUI.js"></script>
@@ -78,6 +88,7 @@
     <script src="./src/Scene.js"></script>
     <script src="./src/scenes/StartScene.js"></script>
     <script src="./src/scenes/TestScene.js"></script>
+    <script src="./src/scenes/GameOverScene.js"></script>
     <script src="./src/scenes/MenuScene.js"></script>
     <script src="./src/scenes/EndLevelScene.js"></script>
     <script src="./src/scenes/OptionsScene.js"></script>

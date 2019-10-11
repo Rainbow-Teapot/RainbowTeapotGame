@@ -4,7 +4,6 @@ function Player(scene, x, y, depth){
     this.type.push("Player");
 
     this.sprite = this.prepareAnimations();
-    this.sprite.initAnimation("idleR");
     this.width = 64;
     this.height = 96;
 
@@ -21,23 +20,37 @@ function Player(scene, x, y, depth){
     this.groundAcc = 1;
     this.groundFricc = 1.2;
 
-    this.isSelected = true;
+    //this.isSelected = true;
+
+    this.isShadow = false;
+    this.hasInmunity = false;
 
     this.animations = {
         IDLE: 0,
         WALKING: 1,
-        JUMPING: 2
+        JUMPING: 2,
+        DAMAGED: 3,
     }
 
     this.states = {
         DISABLED: 0,
-        INPUTED: 1,
+        SELECTED: 1,
+        DESELECTED: 2,
+        DAMAGED: 3,
     }
 
     this.yOffsetColliderMask = 15;
     this.numLifes = this.scene.objControl.numLifes;
     this.currentState = this.states.DISABLED;
     this.currentAnimation = this.animations.IDLE;
+
+    this.keyLeft = 0;
+    this.keyRight = 0;
+    this.keyJump = 0;
+
+    let that = this;
+    this.timerInmunity = new Timer(this, function(){that.hasInmunity = false; that.sprite.alpha = 1.0;},2000);
+
 }
 /*Hererncia protoripica con GameObject */
 Player.prototype = Object.create(GameObject.prototype);
@@ -46,6 +59,7 @@ Player.prototype.constructor = Player;
 Player.prototype.prepareAnimations = function(){
 
     let sprite = new Sprite(this.scene, "teapot", this.x, this.y,0,0,64,96,0);
+   
     sprite.addAnimation("idleR",16,19,4,-1);
     sprite.addAnimation("walkR",0,7,3,-1);
     sprite.addAnimation("idleL",20,23,4,-1);
@@ -56,6 +70,9 @@ Player.prototype.prepareAnimations = function(){
     sprite.addAnimation("jumpUpR",24,24,3,-1);
     sprite.addAnimation("jumpDownR",24,24,3,-1);
 
+    sprite.addAnimation("damagedR",26,26,3,3);
+    sprite.addAnimation("damagedL",27,27,3,3);
+
     return sprite;
 
 };
@@ -65,13 +82,14 @@ Player.prototype.update = function(){
     
     //si se ve un delay ponerlo abajo
     GameObject.prototype.update.call(this);
-
-    let colLeft = physics.placeMeeting(this,-1,0,"Wall");
-    let colRigth = physics.placeMeeting(this,1,0,"Wall");
     
     this.behaviour();
     this.animation();
     this.handleColisions(); 
+
+    if(this.hasInmunity)
+        this.sprite.blinkEffect(0.1);
+    //this.sprite.alpha = 0.5;
     
 }
 
@@ -80,27 +98,53 @@ Player.prototype.behaviour = function(){
         case this.states.DISABLED:
             this.stopMoving();
         break;
-        case this.states.INPUTED:
+        case this.states.SELECTED:
+            this.input();
             this.movement();
             this.objectInteraction();
+            this.getDamaged();
+        break;
+        case this.states.DESELECTED:
+            this.passive();
+            this.getDamaged();
+        break;
+        case this.states.DAMAGED:
+            
+            if(this.sprite.currentAnimation.isFinished){
+                console.log("HE TERMINADO LA ANIMCAION DE DAÑO");
+                this.currentState = this.states.SELECTED;
+            }
+            console.log("me estoy haciedno daño");
+            //this.movement();
         break;
         default:
             break;
     }
 }
 
+Player.prototype.input = function(){
+    this.keyLeft = input.isDownKey("a");
+    this.keyRight = input.isDownKey("d");
+    this.keyJump = input.isPressedKey(" ");
+
+    if(input.isPressedKey("q")){
+        this.scene.swapPlayer();
+    }
+}
+
+Player.prototype.stopMoving = function(){
+    this.currentAnimation = this.animations.IDLE;
+    this.currentVX = 0;
+    this.moveX = 0;
+}
+
 Player.prototype.movement = function(){
-    
-    let keyLeft = input.isDownKey("a");
-    let keyRight = input.isDownKey("d");
-    let keyJump = input.isPressedKey(" ");
 
     let colGround = physics.placeMeeting(this,0,1,"Wall");
 
     //Calcular input
-    if(this.isSelected){
-        this.moveX = keyRight - keyLeft;
-    }
+    this.moveX = this.keyRight - this.keyLeft;
+    
     //calcular velocidad horizontal
     if(this.moveX != 0){
         this.currentVX = this.approach(this.currentVX, this.VXMax * this.moveX, this.groundAcc);
@@ -116,7 +160,7 @@ Player.prototype.movement = function(){
     if(!colGround){
         this.currentVY = this.approach(this.currentVY, this.VYmax, this.gravity);
         this.currentAnimation = this.animations.JUMPING;
-    } else if(keyJump && this.isSelected && colGround){
+    } else if(this.keyJump && colGround){
         this.currentVY = -this.VYmax;
         
     }
@@ -126,34 +170,54 @@ Player.prototype.objectInteraction = function(){
     let colDoor = physics.instancePlace(this,Math.sign(this.faceX) * 4,0,"Door");
     let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
     let colLever = physics.instancePlace(this,Math.sign(this.faceX),0,"Lever");
+    
 
-    if(colPickup){
+    if(colPickup && this.isAbleToInteractWith(colPickup)){
         colPickup.pickUp();
     }
 
     if(input.isPressedKey("e") ){
-        if(colDoor && this.scene.objControl.numKeys > 0){ 
+        if(colDoor && this.scene.objControl.numKeys > 0 && !this.isShadow){ 
             colDoor.perform();
         }
-        if(colLever){
+        if(colLever && this.isAbleToInteractWith(colLever)){
             console.log("me he topado con la lever");
             colLever.action();
             
         }
     }
+
+
 }
 
-Player.prototype.stopMoving = function(){
-    this.currentAnimation = this.animations.IDLE;
-    this.currentVX = 0;
+Player.prototype.getDamaged = function(){
+    if(!this.hasInmunity){
+        let colDamage = physics.instancePlace(this,Math.sign(this.faceX), 0,"DamageBlock");
+        if(colDamage){
+            this.damage();
+            this.hasInmunity = true;
+            this.timerInmunity.initTimer();
+            this.currentAnimation = this.animations.DAMAGED;
+            this.currentState = this.states.DAMAGED;
+            this.moveX = Math.sign( this.pos.x - colDamage.pos.x);
+            this.currentVX = 9 * this.moveX;
+            this.currentVY = -9;
+        }
+    }
+}
+
+Player.prototype.passive = function(){
     this.moveX = 0;
+    this.keyLeft = 0;
+    this.keyRight = 0;
+    this.keyJump = 0;
+    this.movement();
 }
 
 Player.prototype.animation = function(){
 
     switch(this.currentAnimation){
         case this.animations.IDLE:
-
             if(this.faceX == 1)
                 this.sprite.initAnimation("idleR");
             else if(this.faceX == -1)
@@ -185,6 +249,12 @@ Player.prototype.animation = function(){
             }
 
             break;
+        case this.animations.DAMAGED:
+            if(this.faceX == 1){
+                this.sprite.initAnimation("damagedR");
+            }else if(this.faceX == -1){
+                this.sprite.initAnimation("damagedL");
+            }
         default:
             break;
     }   
@@ -215,11 +285,19 @@ Player.prototype.handleColisions = function(){
     }
 }
 
+Player.prototype.isAbleToInteractWith = function(object){
+    return this.isShadow == object.isShadow;
+}
+
 Player.prototype.approach = function(start, end, shift){
     if(start < end)
         return Math.min(start + shift, end);
     else
         return Math.max(start - shift, end);
+}
+
+Player.prototype.setCurrentState = function(state){
+    this.currentState = this.states[state];
 }
 
 Player.prototype.heal = function(){

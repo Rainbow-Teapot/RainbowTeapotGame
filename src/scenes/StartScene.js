@@ -1,5 +1,6 @@
 function StartScene(width, height){
     Scene.call(this,width,height);
+    
 }
 
 StartScene.prototype = Object.create(Scene.prototype);
@@ -21,6 +22,9 @@ StartScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this, "botonReempezar", "./assets/gui/botonReempezar.png");
     Scene.prototype.loadToScene.call(this, "botonVolver", "./assets/gui/botonVolver.png");
     Scene.prototype.loadToScene.call(this, "botonCerrar", "./assets/gui/botonCerrar.png");
+    Scene.prototype.loadToScene.call(this, "botonAjustes", "./assets/gui/botonAjustes.png");
+    Scene.prototype.loadToScene.call(this, "volumeLine", "./assets/gui/palito.png");
+
 
     Scene.prototype.preload.call(this);
     

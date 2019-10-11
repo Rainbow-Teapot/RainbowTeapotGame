@@ -11,4 +11,4 @@ function Wall(scene, x, y, depth, width, height){
 }
 
 Wall.prototype = Object.create(GameObject.prototype);
-Wall.prototype.constructor = Player;
+Wall.prototype.constructor = Wall;

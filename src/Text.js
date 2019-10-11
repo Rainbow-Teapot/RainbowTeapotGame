@@ -18,7 +18,7 @@ Text.prototype.draw = function(camera){
     context.fillStyle = this.color.toHTML();
     context.font = this.font;
     context.textAlign = "center";
-    //if(this.isVisible)
+    if(this.isVisible)
     context.fillText(this.string,this.pos.x,this.pos.y);
 }
 
@@ -34,7 +34,7 @@ Text.prototype.destroy = function(){
     this.scene.GUILayer.removeElement(this);
 }
 
-/*Text.prototype.setVisible = function(isVisible){
+Text.prototype.setVisible = function(isVisible){
     GUIImage.prototype.setVisible.call(this,isVisible);
-}*/
+}
 

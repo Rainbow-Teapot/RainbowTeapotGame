@@ -13,13 +13,13 @@ ConfirmLevelGUI.prototype.create = function(){
     let viewportMiddleX = viewport.width/2;
 
     //board
-    let board = new GUIImage(this.scene,"board", viewport.width/2,125);
+    let board = new GUIImage(this.scene,"board", viewport.width/2,125,0,0,289,322,0);
     board.pos.x -= board.width/2;
 
     //boton para confirmar
     let buttonPlaySprite = new GUIImage(this.scene,"button",50,50,0,0,114,52,0);
     let playLevel = function(){
-        Game.changeScene(new TestScene(60 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
+        Game.changeScene(new TestScene(60 * Game.TILE_SIZE,18 * Game.TILE_SIZE));
     };
     let buttonPlay = new Button(this.scene,viewportMiddleX - buttonPlaySprite.width/2 + 40,360,0,buttonPlaySprite, playLevel,i18n.translate(Game.lang, "play"),font);
 
