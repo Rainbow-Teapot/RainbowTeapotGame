@@ -68,7 +68,10 @@ TestScene.prototype.preload = function () {
 podemos crear objetos necesarios que se puedan necesitar para esta escena en concreto */
 TestScene.prototype.create = function () {
 
+    Scene.prototype.create.call(this);
+
     audio.play(this.track);
+
     let tileFactory = new TileFactory(this, "tilemap64", "palette0");
     levelParser.parseTiles(this, "layermap", tileFactory);
     levelParser.parseObjects(this, "objectLayer");
@@ -93,10 +96,10 @@ TestScene.prototype.create = function () {
 
     //FIN DESDOBLE SOMBRA/COLOR
 
-    Scene.prototype.create.call(this);
+    
 
     this.camera.setTarget(this.selectedPlayer);
-
+    console.log(physics.quadTree);
 }
 
 /*se llama al update del padre para que automaticamente vaya actualizando los objetos que contiene,

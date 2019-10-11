@@ -21,7 +21,7 @@ var Game = {
         
         Game.changeScene(scene);
         viewport.createViewport(width, height, posx, posy);
-        physics.initPhysics(0, 0, scene.width, scene.height);
+        //physics.initPhysics(0, 0, scene.width, scene.height);
         input.init(); 
         coreLoop.loop();
         
