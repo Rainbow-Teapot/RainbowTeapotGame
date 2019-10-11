@@ -22,7 +22,7 @@ function Player(scene, x, y, depth){
 
     //this.isSelected = true;
 
-    this.isShadow = true;
+    this.isShadow = false;
 
     this.animations = {
         IDLE: 0,
@@ -151,10 +151,10 @@ Player.prototype.objectInteraction = function(){
     }
 
     if(input.isPressedKey("e") ){
-        if(colDoor && this.scene.objControl.numKeys > 0 && this.isShadow){ 
+        if(colDoor && this.scene.objControl.numKeys > 0 && !this.isShadow){ 
             colDoor.perform();
         }
-        if(colLever && this.isAbleToInteractWith(colPickup)){
+        if(colLever && this.isAbleToInteractWith(colLever)){
             console.log("me he topado con la lever");
             colLever.action();
             
@@ -238,7 +238,7 @@ Player.prototype.handleColisions = function(){
 }
 
 Player.prototype.isAbleToInteractWith = function(object){
-    return object.isShadow = this.isShadow;
+    return this.isShadow == object.isShadow;
 }
 
 Player.prototype.approach = function(start, end, shift){

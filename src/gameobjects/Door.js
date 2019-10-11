@@ -1,7 +1,8 @@
-function Door(scene, x, y){
-    GameObject.call(this,scene,x, y);
+function Door(scene, x, y, depth,isShadow){
+    GameObject.call(this,scene,x, y,depth);
     this.type.push("Door");
     this.depth = 0;
+    this.isShadow = isShadow;
     this.width = Game.TILE_SIZE;
     this.height = Game.TILE_SIZE * 2;
     this.sprite = new Sprite(this.scene,"door",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE*2,0);
@@ -17,6 +18,7 @@ Door.prototype.constructor = Door;
 
 Door.prototype.perform = function(){
     console.log("Puerta activada");
+    this.scene.objControl.numKeys--;
     for(let i = 0; i < this.walls.length; i++){
         this.walls[i].destroy();
     }

@@ -34,10 +34,8 @@ Movable.prototype.update = function () {
             this.pos.x += this.vel;
         } else {
             this.faceX = -1;
-            console.log("Vuelta");
         }
     } else if (this.faceX === -1) {
-        console.log("Dale");
         if (this.pos.x > this.initPosX) {
 
             this.pos.x -= this.vel;
