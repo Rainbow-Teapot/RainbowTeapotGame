@@ -13,7 +13,7 @@ function DamageBlock(scene, x, y, depth, facingColor){
     this.OFFSET_Y = 20;
     
     this.prepareCollider();
-    this.sprite = new Sprite(this.scene,null,0,0,0,0,64,64);
+    //this.sprite = new Sprite(this.scene,null,0,0,0,0,64,64);
     
 
 }
@@ -45,7 +45,7 @@ DamageBlock.prototype.prepareCollider = function(){
 
     switch(this.currentFacing){
         case this.facings.UP:
-            yOffset = -this.OFFSET_Y;
+            yOffset = this.OFFSET_Y;
             break;
         case this.facings.RIGHT:
             width -= this.OFFSET_X;

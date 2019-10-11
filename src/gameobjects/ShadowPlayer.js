@@ -19,12 +19,21 @@ ShadowPlayer.prototype.prepareAnimations = function(){
     sprite.addAnimation("jumpUpR",24,24,3,-1);
     sprite.addAnimation("jumpDownR",24,24,3,-1);
 
+    sprite.addAnimation("damagedR",26,26,3,3);
+    sprite.addAnimation("damagedL",27,27,3,3);
+
     return sprite;
 };
 
 
 ShadowPlayer.prototype.objectInteraction = function(){
     Player.prototype.objectInteraction.call(this);
+
+    let colorPlayer = this.scene.objControl.colorPlayer;
+    if(colorPlayer.currentState == this.states.DAMAGED){
+        this.scene.swapPlayer();
+    }
+
     if(input.isPressedKey("p")){
         console.log("me curoo");
         this.heal();
@@ -38,7 +47,7 @@ ShadowPlayer.prototype.objectInteraction = function(){
 ShadowPlayer.prototype.passive = function(){
     
     let colorPlayer = this.scene.objControl.colorPlayer;
-    this.currentAnimation = colorPlayer.currentAnimation;
+   
     this.faceX = colorPlayer.faceX;
     this.pos.x = colorPlayer.pos.x;
     this.pos.y = colorPlayer.pos.y - this.scene.shadowLevel * Game.TILE_SIZE;
@@ -46,4 +55,6 @@ ShadowPlayer.prototype.passive = function(){
     //para indicar que se puede atravesar cosas
     this.input();
     this.movement();
+
+    this.currentAnimation = colorPlayer.currentAnimation;
 }

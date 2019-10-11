@@ -23,6 +23,7 @@ function Player(scene, x, y, depth){
     //this.isSelected = true;
 
     this.isShadow = false;
+    this.hasInmunity = false;
 
     this.animations = {
         IDLE: 0,
@@ -93,15 +94,18 @@ Player.prototype.behaviour = function(){
             this.input();
             this.movement();
             this.objectInteraction();
+            this.getDamaged();
         break;
         case this.states.DESELECTED:
             this.passive();
+            this.getDamaged();
         break;
         case this.states.DAMAGED:
             
             if(this.sprite.currentAnimation.isFinished){
                 console.log("HE TERMINADO LA ANIMCAION DE DAÑO");
                 this.currentState = this.states.SELECTED;
+                this.hasInmunity = false;
             }
             console.log("me estoy haciedno daño");
             //this.movement();
@@ -128,7 +132,6 @@ Player.prototype.stopMoving = function(){
 }
 
 Player.prototype.movement = function(){
-
 
     let colGround = physics.placeMeeting(this,0,1,"Wall");
 
@@ -160,18 +163,10 @@ Player.prototype.objectInteraction = function(){
     let colDoor = physics.instancePlace(this,Math.sign(this.faceX) * 4,0,"Door");
     let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
     let colLever = physics.instancePlace(this,Math.sign(this.faceX),0,"Lever");
-    let colDamage = physics.instancePlace(this,Math.sign(this.faceX), 0,"DamageBlock");
+    
 
     if(colPickup && this.isAbleToInteractWith(colPickup)){
         colPickup.pickUp();
-    }
-
-    if(colDamage){
-        this.currentAnimation = this.animations.DAMAGED;
-        this.currentState = this.states.DAMAGED;
-        this.moveX = Math.sign( this.pos.x - colDamage.pos.x);
-        this.currentVX = 9 * this.moveX;
-        this.currentVY = -9;
     }
 
     if(input.isPressedKey("e") ){
@@ -186,6 +181,21 @@ Player.prototype.objectInteraction = function(){
     }
 
 
+}
+
+Player.prototype.getDamaged = function(){
+    if(!this.hasInmunity){
+        let colDamage = physics.instancePlace(this,Math.sign(this.faceX), 0,"DamageBlock");
+        if(colDamage ){
+            this.damage();
+            this.hasInmunity = true;
+            this.currentAnimation = this.animations.DAMAGED;
+            this.currentState = this.states.DAMAGED;
+            this.moveX = Math.sign( this.pos.x - colDamage.pos.x);
+            this.currentVX = 9 * this.moveX;
+            this.currentVY = -9;
+        }
+    }
 }
 
 Player.prototype.passive = function(){

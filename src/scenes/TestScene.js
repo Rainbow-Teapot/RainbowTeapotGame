@@ -120,7 +120,11 @@ TestScene.prototype.swapPlayer = function(){
             this.objControl.shadowPlayer.setCurrentState("SELECTED");
         }else if(this.selectedPlayer == this.objControl.shadowPlayer){
             otherPlayer = this.objControl.colorPlayer;
-            this.objControl.colorPlayer.setCurrentState("SELECTED");
+            if(this.objControl.colorPlayer.currentState != this.objControl.colorPlayer.states.DAMAGED){
+                this.objControl.colorPlayer.setCurrentState("SELECTED");
+            }else{
+                //this.objControl.colorPlayer.setCurrentState("SELECTED");
+            }
             this.objControl.shadowPlayer.setCurrentState("DESELECTED");
         }
         //this.objControl.colorPlayer.stopMoving();
