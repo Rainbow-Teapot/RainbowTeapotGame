@@ -42,6 +42,7 @@ ShadowPlayer.prototype.objectInteraction = function(){
         console.log("me dañooo");
         this.damage();
     }
+    this.sprite.alpha = colorPlayer.sprite.alpha;
 }
 
 ShadowPlayer.prototype.passive = function(){
@@ -55,6 +56,6 @@ ShadowPlayer.prototype.passive = function(){
     //para indicar que se puede atravesar cosas
     this.input();
     this.movement();
-
+    this.sprite.alpha = colorPlayer.sprite.alpha;
     this.currentAnimation = colorPlayer.currentAnimation;
 }

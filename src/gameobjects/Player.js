@@ -48,6 +48,9 @@ function Player(scene, x, y, depth){
     this.keyRight = 0;
     this.keyJump = 0;
 
+    let that = this;
+    this.timerInmunity = new Timer(this, function(){that.hasInmunity = false; that.sprite.alpha = 1.0;},2000);
+
 }
 /*Hererncia protoripica con GameObject */
 Player.prototype = Object.create(GameObject.prototype);
@@ -56,6 +59,7 @@ Player.prototype.constructor = Player;
 Player.prototype.prepareAnimations = function(){
 
     let sprite = new Sprite(this.scene, "teapot", this.x, this.y,0,0,64,96,0);
+   
     sprite.addAnimation("idleR",16,19,4,-1);
     sprite.addAnimation("walkR",0,7,3,-1);
     sprite.addAnimation("idleL",20,23,4,-1);
@@ -82,6 +86,10 @@ Player.prototype.update = function(){
     this.behaviour();
     this.animation();
     this.handleColisions(); 
+
+    if(this.hasInmunity)
+        this.sprite.blinkEffect(0.1);
+    //this.sprite.alpha = 0.5;
     
 }
 
@@ -105,7 +113,6 @@ Player.prototype.behaviour = function(){
             if(this.sprite.currentAnimation.isFinished){
                 console.log("HE TERMINADO LA ANIMCAION DE DAÑO");
                 this.currentState = this.states.SELECTED;
-                this.hasInmunity = false;
             }
             console.log("me estoy haciedno daño");
             //this.movement();
@@ -186,9 +193,10 @@ Player.prototype.objectInteraction = function(){
 Player.prototype.getDamaged = function(){
     if(!this.hasInmunity){
         let colDamage = physics.instancePlace(this,Math.sign(this.faceX), 0,"DamageBlock");
-        if(colDamage ){
+        if(colDamage){
             this.damage();
             this.hasInmunity = true;
+            this.timerInmunity.initTimer();
             this.currentAnimation = this.animations.DAMAGED;
             this.currentState = this.states.DAMAGED;
             this.moveX = Math.sign( this.pos.x - colDamage.pos.x);
