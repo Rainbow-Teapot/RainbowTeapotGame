@@ -10,7 +10,7 @@ var init = function(){
     const HEIGHT_SCENE = 20 * Game.TILE_SIZE;
     
     const X_OFFSET = 2*Game.TILE_SIZE;
-    const Y_OFFSET = 2*Game.TILE_SIZE;
+    const Y_OFFSET = 3*Game.TILE_SIZE;
     const WIDTH_GAME = 640;
     const HEIGHT_GAME = 480;
     
