@@ -24,6 +24,8 @@ Animation.prototype.isFinished = function(){
 
 Animation.prototype.setActive = function(isActive){
     this.isActive = isActive;
+    this.isFinished = false;
+    this.currentRepetition = 0;
     this.currentFrame = this.initIndex;
 }
 

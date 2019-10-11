@@ -1,8 +1,7 @@
 function ShadowPlayer(scene, x, y, depth){
     Player.call(this,scene, x, y, depth);
     this.type.push("ShadowPlayer");
-    this.isSelected = true;
-    
+    this.isShadow = true;
 }
 
 ShadowPlayer.prototype = Object.create(Player.prototype);
@@ -20,41 +19,21 @@ ShadowPlayer.prototype.prepareAnimations = function(){
     sprite.addAnimation("jumpUpR",24,24,3,-1);
     sprite.addAnimation("jumpDownR",24,24,3,-1);
 
+    sprite.addAnimation("damagedR",26,26,3,3);
+    sprite.addAnimation("damagedL",27,27,3,3);
+
     return sprite;
 };
 
-ShadowPlayer.prototype.update = function(){
-    Player.prototype.update.call(this);
-    
-};
-
-ShadowPlayer.prototype.movement = function(){
-    
-    Player.prototype.movement.call(this);
-    let colorPlayer = this.scene.objControl.colorPlayer;
-    if(colorPlayer.isSelected){
-        this.faceX = colorPlayer.faceX;
-        this.pos.x = colorPlayer.pos.x;
-        this.pos.y = colorPlayer.pos.y - this.scene.shadowLevel * Game.TILE_SIZE;
-    }
-};
-
-ShadowPlayer.prototype.animation = function(){
-   
-    let colorPlayer = this.scene.objControl.colorPlayer;
-    if(colorPlayer.isSelected){
-        this.sprite.currentAnimation = colorPlayer.sprite.currentAnimation;
-    }else{
-        Player.prototype.animation.call(this);
-    }
-};
-
-ShadowPlayer.prototype.handleColisions = function(){
-    Player.prototype.handleColisions.call(this);  
-}
 
 ShadowPlayer.prototype.objectInteraction = function(){
     Player.prototype.objectInteraction.call(this);
+
+    let colorPlayer = this.scene.objControl.colorPlayer;
+    if(colorPlayer.currentState == this.states.DAMAGED){
+        this.scene.swapPlayer();
+    }
+
     if(input.isPressedKey("p")){
         console.log("me curoo");
         this.heal();
@@ -63,5 +42,20 @@ ShadowPlayer.prototype.objectInteraction = function(){
         console.log("me dañooo");
         this.damage();
     }
+    this.sprite.alpha = colorPlayer.sprite.alpha;
 }
 
+ShadowPlayer.prototype.passive = function(){
+    
+    let colorPlayer = this.scene.objControl.colorPlayer;
+   
+    this.faceX = colorPlayer.faceX;
+    this.pos.x = colorPlayer.pos.x;
+    this.pos.y = colorPlayer.pos.y - this.scene.shadowLevel * Game.TILE_SIZE;
+
+    //para indicar que se puede atravesar cosas
+    this.input();
+    this.movement();
+    this.sprite.alpha = colorPlayer.sprite.alpha;
+    this.currentAnimation = colorPlayer.currentAnimation;
+}

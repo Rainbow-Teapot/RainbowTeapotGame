@@ -37,9 +37,7 @@ function Scene(width, height){
 
     this.middleSceneX = width/2;
 
-    this.shadowLevel = 3;
-    this.objControl = null;
-    this.objTarget = null;
+    
     this.objectFactory = new ObjectFactory(this);
 
     this.track = null; 
@@ -99,34 +97,10 @@ Scene.prototype.update = function(){
         this.camera.update();
     }
 
-    if(input.isPressedKey("q") && this.objTarget == undefined){
-        
-        let otherPlayer = null;
-
-        if(this.selectedPlayer == this.objControl.colorPlayer){
-            otherPlayer = this.objControl.shadowPlayer;
-            this.objControl.colorPlayer.isSelected = false;
-        }else if(this.selectedPlayer == this.objControl.shadowPlayer){
-            otherPlayer = this.objControl.colorPlayer;
-            this.objControl.colorPlayer.isSelected = true;
-        }
-        this.objControl.colorPlayer.stopMoving();
-        let initPos = new Point(this.selectedPlayer.pos.x,this.selectedPlayer.pos.y);
-        this.objTarget = new Target(this,0,0,initPos,otherPlayer.pos,0.1);
-        this.camera.setTarget(this.objTarget);
-    }
+    
 };
 
-Scene.prototype.changePlayer = function(){
-    this.objTarget = null;
-    if(this.selectedPlayer == this.objControl.colorPlayer){
-        this.selectedPlayer = this.objControl.shadowPlayer;
-    }else if(this.selectedPlayer == this.objControl.shadowPlayer){
-        this.selectedPlayer = this.objControl.colorPlayer;
-    }
-    
-    this.camera.setTarget(this.selectedPlayer);
-}
+
 
 /*dibujar todas las layer en el siguiente orden: 
     1. Backgrounds

@@ -25,8 +25,8 @@ Tween.prototype.update = function(){
         let colorPlayer = this.scene.objControl.colorPlayer;
         let shadowPlayer = this.scene.objControl.shadowPlayer;
         if(this.object === shadowPlayer){
-            colorPlayer.currentState = colorPlayer.states.INPUTED;
-            shadowPlayer.currentState = shadowPlayer.states.INPUTED;
+            colorPlayer.currentState = colorPlayer.states.SELECTED;
+            shadowPlayer.currentState = shadowPlayer.states.DESELECTED;
         }
         this.destroy();
     }
