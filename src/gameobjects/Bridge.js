@@ -39,12 +39,12 @@ Bridge.prototype.prepareCollisions = function (faceY, isShadow) {
     }
 
     if (faceY == -1) {
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 4; i++) {
             walls[i] = new Wall(this.scene, this.pos.x, this.pos.y - Game.TILE_SIZE * i, depth, Game.TILE_SIZE / 2, Game.TILE_SIZE);
 
         }
     } else if (faceY == 1) {
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 4; i++) {
             walls[i] = new Wall(this.scene, this.pos.x, this.pos.y + Game.TILE_SIZE * i, depth, Game.TILE_SIZE / 2, Game.TILE_SIZE);
         }
     }
@@ -63,18 +63,18 @@ Bridge.prototype.perform = function () {
             depth = 1;
         }
 
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 4; i++) {
             this.walls[i].disable = true;
             new Wall(this.scene, this.pos.x + Game.TILE_SIZE * i, this.pos.y + Game.TILE_SIZE, depth, Game.TILE_SIZE, Game.TILE_SIZE / 2);
         }
         this.sprite.destroy();
         if (!this.isShadow) {
-            this.sprite = new Sprite(this.scene, "bridgeX", this.pos.x, this.pos.y + Game.TILE_SIZE, 0, 0, Game.TILE_SIZE * 3, Game.TILE_SIZE / 2);
+            this.sprite = new Sprite(this.scene, "bridgeX", this.pos.x, this.pos.y + Game.TILE_SIZE, 0, 0, Game.TILE_SIZE * 4, Game.TILE_SIZE / 2);
             let shadowBridge = physics.instancePlace(null, this.pos.x, this.pos.y - Game.TILE_SIZE * this.scene.shadowLevel, "Bridge");
             if (shadowBridge)
                 shadowBridge.perform();
         } else {
-            this.sprite = new Sprite(this.scene, "bridgeXShadow", this.pos.x, this.pos.y + Game.TILE_SIZE, 0, 0, Game.TILE_SIZE * 3, Game.TILE_SIZE / 2);
+            this.sprite = new Sprite(this.scene, "bridgeXShadow", this.pos.x, this.pos.y + Game.TILE_SIZE, 0, 0, Game.TILE_SIZE * 4, Game.TILE_SIZE / 2);
         }
         this.activated = true;
     }
