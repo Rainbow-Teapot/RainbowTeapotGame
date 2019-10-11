@@ -14,7 +14,7 @@ StartScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this,"teapotEng", "./assets/gui/tetera_eng.png");
     Scene.prototype.loadToScene.call(this,"teapotEsp", "./assets/gui/tetera_esp.png");
     Scene.prototype.loadToScene.call(this,"flechaIzq", "./assets/gui/flechaIzq.png");
-    Scene.prototype.loadToScene.call(this,"flechaDer", "./assets/gui/flechaDer.png");
+    Scene.prototype.loadToScene.call(this,"flechaDer", "./assets/gui/flechader.png");
     Scene.prototype.loadToScene.call(this, "teapotVolume", "./assets/gui/teteracurva.png");
     Scene.prototype.loadToScene.call(this, "whiteSquare", "./assets/gui/cuadrado_blanco.png");
     Scene.prototype.loadToScene.call(this, "tick", "./assets/gui/tick1.png");
