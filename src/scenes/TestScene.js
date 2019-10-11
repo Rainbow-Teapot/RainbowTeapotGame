@@ -15,6 +15,7 @@ TestScene.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "transition", "./assets/transition.png");
     Scene.prototype.loadToScene.call(this, "teapot", "./assets/teapot.png");
     Scene.prototype.loadToScene.call(this, "goldenTeapot", "./assets/objects/goldenTeapot.png");
+    Scene.prototype.loadToScene.call(this, "goldenTeapotShadow", "./assets/objects/goldenTeapotShadow.png");
     Scene.prototype.loadToScene.call(this, "door", "./assets/objects/door.png");
     Scene.prototype.loadToScene.call(this, "doorShadow", "./assets/objects/doorShadow.png");
     Scene.prototype.loadToScene.call(this, "key", "./assets/objects/key.png");
@@ -31,6 +32,14 @@ TestScene.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "leverOff", "./assets/objects/palanca_izquierda.png");
     Scene.prototype.loadToScene.call(this, "leverOnShadow", "./assets/objects/palanca_derecha_sombra.png");
     Scene.prototype.loadToScene.call(this, "leverOffShadow", "./assets/objects/palanca_izquierda_sombra.png");
+    
+
+    //Aún por colocar
+    Scene.prototype.loadToScene.call(this, "teaLifeShadow", "./assets/objects/teShadow.png");
+    Scene.prototype.loadToScene.call(this, "grid", "./assets/objects/reja.png");
+    Scene.prototype.loadToScene.call(this, "gridShadow", "./assets/objects/rejaShadow.png");
+
+    //Lvl 2
     Scene.prototype.loadToScene.call(this, "movablePlatform", "./assets/objects/platform.png");
     Scene.prototype.loadToScene.call(this, "movablePlatformShadow", "./assets/objects/platformShadow.png");
 
