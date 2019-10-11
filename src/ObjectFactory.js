@@ -34,9 +34,9 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
         //objeto palanca
         if (color.b == 64) {
             if (color.r % 5 == 1) color.r--;
-            if (color.g % 5 == 1) color.g--;
-            //console.log(color.r);
-            //console.log(color.g);
+            if (color.g % 5 == 4) color.g--;
+            console.log(color.r);
+            console.log(color.g);
             new Lever(this.scene, x, y, 0, false, color.r * Game.TILE_SIZE, color.g * Game.TILE_SIZE);
             new Lever(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 0, true, color.r * Game.TILE_SIZE, color.g * Game.TILE_SIZE);
             //objeto puente levadizo
@@ -44,9 +44,11 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
             if (color.b == 255) {
                 new Bridge(this.scene, x, y, 0, false, -1);
                 new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, -1);
+                
             } else if (color.b == 128) {
                 new Bridge(this.scene, x, y, 0, false, 1);
                 new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1);
+                
             }
             //objeto plataforma móvil     
         } else if (color.g == 64) {

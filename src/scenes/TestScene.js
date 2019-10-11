@@ -74,11 +74,11 @@ TestScene.prototype.create = function () {
     levelParser.parseObjects(this, "objectLayer");
 
     this.gui = new InGameGUI(this);
-    let bg = new Background(this, "bg1", -Game.TILE_SIZE / 2 - 1, 0, 0);
-    let bg2 = new Background(this, "bg2", 0, Game.TILE_SIZE * 4, -1);
-    let bgPass = new Background(this, "bgPass", 0, -Game.TILE_SIZE, 0);
+    let bg = new Background(this, "bg1", -Game.TILE_SIZE / 2 - 1, -Game.TILE_SIZE*2, 0);
+    let bg2 = new Background(this, "bg2", 0, Game.TILE_SIZE * 2 , -1);
+    let bgPass = new Background(this, "bgPass", 0, -Game.TILE_SIZE*3, 0);
 
-    let fg = new Foreground(this, "fg1", 0, Game.TILE_SIZE, 0);
+    let fg = new Foreground(this, "fg1", 0, -Game.TILE_SIZE * 2, 0);
 
     //DESDOBLE SOMBRA/COLOR
     let colorPlayer = this.objControl.colorPlayer;

@@ -117,6 +117,7 @@ Scene.prototype.draw = function(){
         let frameLayerShadow = this.camera.getFrameLayer(this.tileLayer[0]);
         frameLayerShadow.draw(this.camera);
         
+        this.spriteObjectsLayer.sortByDepth();
         this.spriteObjectsLayer.draw(this.camera);
 
         let frameLayerColor = this.camera.getFrameLayer(this.tileLayer[1]);
