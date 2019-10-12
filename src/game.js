@@ -22,15 +22,9 @@ var Game = {
         Game.changeScene(scene);
         viewport.createViewport(width, height, posx, posy);
         //physics.initPhysics(0, 0, scene.width, scene.height);
-        input.init(); 
-        game.joystick = new VirtualJoystick({
-            mouseSupport: true,
-            stationaryBase: true,
-            baseX: viewport.canvas.offsetLeft + Game.TILE_SIZE,
-            baseY: viewport.canvas.offsetTop + viewport.height - Game.TILE_SIZE,
-            stickRadius: 70,
-            limitStickTravel: true,
-    });
+         
+        
+        input.init();
         coreLoop.loop();
         
     },
