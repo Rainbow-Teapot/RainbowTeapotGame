@@ -44,11 +44,11 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
             if (color.b == 255) {
                 new Bridge(this.scene, x, y, 0, false, -1);
                 new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, -1);
-                
+
             } else if (color.b == 128) {
                 new Bridge(this.scene, x, y, 0, false, 1);
                 new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1);
-                
+
             }
             //objeto plataforma móvil     
         } else if (color.g == 64) {
@@ -59,8 +59,8 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
                 new MovablePlatform(this.scene, x, y, 0, false, 2, color.b);
                 new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 2, color.b);
             }
-        }else if(color.g == 128 && color.b == 128){
-            new DamageBlock(this.scene, x, y, 0,color.r);
+        } else if (color.g == 128 && color.b == 128) {
+            new DamageBlock(this.scene, x, y, 0, color.r);
             //new DamageBlock(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1,color.r);
         }
 
@@ -75,11 +75,14 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
         } else if (color.equals(new Color(255, 122, 0, 255))) {
             new Door(this.scene, x, y, 0, false);
         } else if (color.equals(new Color(0, 0, 255, 255))) {
-            new Key(this.scene, x, y, 0, false);
-            new Key(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true);
+            new Key(this.scene, x, y-16, 0, false);
+            new Key(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel-16, 1, true);
         } else if (color.equals(new Color(255, 255, 0, 255))) {
             console.log("created teapot");
             new GoldenTeapot(this.scene, x, y, 0);
+        } else if (color.equals(new Color(255, 122, 122, 255))) {
+            new TeaLife(this.scene, x, y - 16, 0, false);
+            new TeaLife(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 0, true);
         }
     }
 }
