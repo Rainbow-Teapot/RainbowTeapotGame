@@ -81,8 +81,8 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
             console.log("created teapot");
             new GoldenTeapot(this.scene, x, y, 0);
         }else if(color.equals(new Color(255, 122, 122, 255))){
-            new TeaLife(this.scene, x, y, 0, false);
-            new TeaLife(this.scene, x, y-Game.TILE_SIZE*this.scene.shadowLevel, 0, true); 
+            new TeaLife(this.scene, x, y-16, 0, false);
+            new TeaLife(this.scene, x, y-Game.TILE_SIZE*this.scene.shadowLevel-16, 0, true); 
         }
     }
 }
