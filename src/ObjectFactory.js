@@ -76,7 +76,7 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
             new Door(this.scene, x, y, 0, false);
         } else if (color.equals(new Color(0, 0, 255, 255))) {
             new Key(this.scene, x, y, 0, false);
-            new Key(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 0, true);
+            new Key(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true);
         } else if (color.equals(new Color(255, 255, 0, 255))) {
             console.log("created teapot");
             new GoldenTeapot(this.scene, x, y, 0);

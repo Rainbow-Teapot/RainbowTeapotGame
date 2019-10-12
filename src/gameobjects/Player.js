@@ -141,6 +141,7 @@ Player.prototype.stopMoving = function(){
 Player.prototype.movement = function(){
 
     let colGround = physics.placeMeeting(this,0,1,"Wall");
+    let colMovable = physics.instancePlace(this,this.faceX,1,"MovablePlatform");
 
     //Calcular input
     this.moveX = this.keyRight - this.keyLeft;
@@ -156,13 +157,17 @@ Player.prototype.movement = function(){
         this.currentAnimation = this.animations.IDLE;
     }
 
+    //velocidad horizontal movable
+    if(colMovable  && physics.placeMeeting(this,this.faceX,1,"MovablePlatform")){ 
+        this.pos.x += colMovable.vel * colMovable.faceX;
+    }
+
     //calcular velocidad vertical
-    if(!colGround){
+    if(!colGround && !physics.placeMeeting(this,0,1,"MovablePlatform")){
         this.currentVY = this.approach(this.currentVY, this.VYmax, this.gravity);
         this.currentAnimation = this.animations.JUMPING;
-    } else if(this.keyJump && colGround){
+    } else if(this.keyJump && (colGround || physics.placeMeeting(this,0,1,"MovablePlatform"))){
         this.currentVY = -this.VYmax;
-        
     }
 }
 
@@ -265,7 +270,8 @@ Player.prototype.handleColisions = function(){
     //Colisiones horizontales a precision de pixel
     for(let i = 0; i < Math.abs(this.currentVX); i++){
 
-        if(!physics.placeMeeting(this,Math.sign(this.currentVX),0,"Wall")){
+        if(!physics.placeMeeting(this,Math.sign(this.currentVX),0,"Wall") && 
+            !physics.placeMeeting(this,Math.sign(this.currentVX) * 5,0,"Movable")){
             this.pos.x += Math.sign(this.currentVX);
         }else{
             this.currentVX = 0;
@@ -276,7 +282,8 @@ Player.prototype.handleColisions = function(){
     //colisiones verticales a precision de pixel
     for(let i = 0; i < Math.abs(this.currentVY); i++){
 
-        if(!physics.placeMeeting(this,0,Math.sign(this.currentVY),"Wall")){
+        if(!physics.placeMeeting(this,0,Math.sign(this.currentVY),"Wall") && 
+            !physics.placeMeeting(this,0,Math.sign(this.currentVY),"Movable")){
             this.pos.y += Math.sign(this.currentVY);
         }else{
             this.currentVY = 0;

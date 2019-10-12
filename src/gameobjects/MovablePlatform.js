@@ -2,9 +2,12 @@ function MovablePlatform(scene, x, y, depth, isShadow, faceXY, tiles) {
     Movable.call(this, scene, x, y, depth);
     this.type.push("MovablePlatform");
     this.isShadow = isShadow;
-    this.vel = 0.5;
+    this.vel = 2;
     this.initPosX = this.pos.x;
     this.initPosY = this.pos.y;
+
+    this.width = Game.TILE_SIZE * 4;
+    this.height = Game.TILE_SIZE/2;
 
     this.sprite = this.prepareSprite(this.isShadow);
     if (faceXY === 0) {
@@ -18,11 +21,12 @@ function MovablePlatform(scene, x, y, depth, isShadow, faceXY, tiles) {
     }
 
     this.endPosX = this.pos.x + Game.TILE_SIZE * tiles;
-    console.log(this.pos.x);
-    console.log(this.endPosX);
     this.endPosY = this.pos.y + Game.TILE_SIZE * tiles;
-    console.log(this.endPosY);
+
+    this.collider = new Collider(this, this.pos.x, this.pos.y, this.width, this.height, this.xOffsetColliderMask, this.yOffsetColliderMask,true);
+    console.log(physics.movableList);
 }
+
 MovablePlatform.prototype = Object.create(Movable.prototype);
 MovablePlatform.prototype.constructor = MovablePlatform;
 

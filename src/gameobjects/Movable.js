@@ -3,8 +3,6 @@ function Movable(scene, x, y, depth) {
     this.activated = false;
     this.type.push("Movable");
 
-    this.width = Game.TILE_SIZE;
-    this.height = Game.TILE_SIZE;
 
     this.vel = 0.5;
     this.initPosX = this.pos.x;
@@ -12,7 +10,6 @@ function Movable(scene, x, y, depth) {
 
     this.initPosY = this.pos.y;
     this.endPosY = this.pos.y + Game.TILE_SIZE / 2;
-    this.collider = new Collider(this, this.pos.x, this.pos.y, this.width, this.height, 0, 0);
 
     this.faceX = 0;
     this.faceY = 0;
@@ -37,7 +34,6 @@ Movable.prototype.update = function () {
         }
     } else if (this.faceX === -1) {
         if (this.pos.x > this.initPosX) {
-
             this.pos.x -= this.vel;
         } else {
             this.faceX = 1;
@@ -56,6 +52,11 @@ Movable.prototype.update = function () {
         } else {
             faceY = 1;
         }
+    }
+
+    if(this.collider){
+        this.collider.x = this.pos.x;
+        this.collider.y = this.pos.y;
     }
     GameObject.prototype.update.call(this);
 
