@@ -36,7 +36,7 @@ var physics = {
         
         let collidedObjects = physics.quadTree.retrieve(collisionMask);
 
-        //collidedObjects.concat(physics.movableList);
+        collidedObjects = collidedObjects.concat(physics.movableList);
 
         for(let i = 0; i < collidedObjects.length; i++){        
             if(collidedObjects[i].object.instanceOf(objToCollide)){

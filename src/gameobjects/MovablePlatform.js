@@ -2,7 +2,7 @@ function MovablePlatform(scene, x, y, depth, isShadow, faceXY, tiles) {
     Movable.call(this, scene, x, y, depth);
     this.type.push("MovablePlatform");
     this.isShadow = isShadow;
-    this.vel = 0.5;
+    this.vel = 2;
     this.initPosX = this.pos.x;
     this.initPosY = this.pos.y;
 
