@@ -81,5 +81,5 @@ Bridge.prototype.perform = function () {
 }
 
 Bridge.prototype.update = function () {
-
+    this.sprite.depth = this.depth;
 }

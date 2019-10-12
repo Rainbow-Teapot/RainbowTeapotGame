@@ -8,6 +8,8 @@ function Sprite(scene, img, x, y, xInImage, yInImage, width, height, depth){
     this.currentAnimation = null;
     this.color = new Color(255,0,0,255);
     this.scene.spriteObjectsLayer.addElement(this);
+    
+    this.alphaMult = -1;
 }
 
 Sprite.prototype = Object.create(Drawable.prototype);
@@ -22,7 +24,7 @@ Sprite.prototype.draw = function(camera){
     let posAtViewPort = posAtCamera.changeBase(viewport.basis);
 
     context.globalAlpha = this.alpha;
-
+    
     if(!this.img){
             context.beginPath();
             context.fillStyle = this.color.toHTML();
@@ -47,6 +49,22 @@ Sprite.prototype.draw = function(camera){
     context.globalAlpha = 1.0;
 }
 
+Sprite.prototype.blinkEffect = function(velFade){
+
+    this.alpha += velFade * this.alphaMult;
+
+    if(this.alpha < 0.0){
+        this.alpha = 0.0;
+        this.alphaMult = 1.0;
+        console.log(this.alpha);
+    }else if(this.alpha > 1.0){
+        this.alpha = 1.0;
+        this.alphaMult = -1.0;
+    }
+    
+    
+}
+
 Sprite.prototype.addAnimation = function(key, initIndex, endIndex, frameRate, repetitions){
     let animation = new Animation(this.scene, initIndex, endIndex, frameRate, repetitions);
     this.animations.set(key, animation);
@@ -61,7 +79,7 @@ Sprite.prototype.initAnimation = function(key){
             this.currentAnimation.setActive(false);
         this.currentAnimation = newAnimation;
     }
-    
+
     if(!this.currentAnimation.isActive){
         this.currentAnimation.setActive(true);
     }

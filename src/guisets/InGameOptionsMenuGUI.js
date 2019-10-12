@@ -73,7 +73,7 @@ InGameOptionsMenuGUI.prototype.create = function(){
     //boton de repetir
     let buttonRestartSprite = new GUIImage(this.scene,"botonReempezar",50,50,0,0,114,52,0);
     let restartLevel = function(){
-        Game.changeScene(new TestScene(60 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
+        Game.changeScene(new TestScene(60 * Game.TILE_SIZE,18 * Game.TILE_SIZE));
         //this.scene.restart();
     };
     let buttonRestart = new Button(this.scene,viewportMiddleX - Game.TILE_SIZE + 25,viewportMiddleY,0,buttonRestartSprite, restartLevel);

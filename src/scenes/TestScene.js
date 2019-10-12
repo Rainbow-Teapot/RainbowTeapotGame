@@ -3,6 +3,10 @@ function TestScene(width, height) {
     Scene.call(this, width, height);
     this.transition = new Transition();
     this.track = audio.trackLevel1;
+
+    this.shadowLevel = 3;
+    this.objControl = null;
+    this.objTarget = null;
 }
 
 /*Herencia prototipica */
@@ -15,7 +19,7 @@ TestScene.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "transition", "./assets/transition.png");
     Scene.prototype.loadToScene.call(this, "teapot", "./assets/teapot.png");
     Scene.prototype.loadToScene.call(this, "goldenTeapot", "./assets/objects/goldenTeapot.png");
-    Scene.prototype.loadToScene.call(this, "goldenTeapotShadow", "./assets/objects/goldenTeapotShadow.png");
+    //Scene.prototype.loadToScene.call(this, "goldenTeapotShadow", "./assets/objects/goldenTeapotShadow.png");
     Scene.prototype.loadToScene.call(this, "door", "./assets/objects/door.png");
     Scene.prototype.loadToScene.call(this, "doorShadow", "./assets/objects/doorShadow.png");
     Scene.prototype.loadToScene.call(this, "key", "./assets/objects/key.png");
@@ -64,17 +68,20 @@ TestScene.prototype.preload = function () {
 podemos crear objetos necesarios que se puedan necesitar para esta escena en concreto */
 TestScene.prototype.create = function () {
 
+    Scene.prototype.create.call(this);
+
     audio.play(this.track);
+
     let tileFactory = new TileFactory(this, "tilemap64", "palette0");
     levelParser.parseTiles(this, "layermap", tileFactory);
     levelParser.parseObjects(this, "objectLayer");
 
     this.gui = new InGameGUI(this);
-    let bg = new Background(this, "bg1", -Game.TILE_SIZE / 2 - 1, 0, 0);
-    let bg2 = new Background(this, "bg2", 0, Game.TILE_SIZE * 4, -1);
-    let bgPass = new Background(this, "bgPass", 0, -Game.TILE_SIZE, 0);
+    let bg = new Background(this, "bg1", -Game.TILE_SIZE / 2 - 1, -Game.TILE_SIZE*2, 0);
+    let bg2 = new Background(this, "bg2", 0, Game.TILE_SIZE * 2 , -1);
+    let bgPass = new Background(this, "bgPass", 0, -Game.TILE_SIZE*3, 0);
 
-    let fg = new Foreground(this, "fg1", 0, Game.TILE_SIZE, 0);
+    let fg = new Foreground(this, "fg1", 0, -Game.TILE_SIZE * 2, 0);
 
     //DESDOBLE SOMBRA/COLOR
     let colorPlayer = this.objControl.colorPlayer;
@@ -89,10 +96,10 @@ TestScene.prototype.create = function () {
 
     //FIN DESDOBLE SOMBRA/COLOR
 
-    Scene.prototype.create.call(this);
+    
 
     this.camera.setTarget(this.selectedPlayer);
-
+    console.log(physics.quadTree);
 }
 
 /*se llama al update del padre para que automaticamente vaya actualizando los objetos que contiene,
@@ -100,7 +107,7 @@ adicionalmente podemos crear cosas nuevas o hacer cualquier tipo de gestion en e
 TestScene.prototype.update = function () {
     Scene.prototype.update.call(this);
     if (this.isSceneLoaded) {
-        //console.log("Estoy updateando la escena");
+        
     }
 }
 
@@ -112,4 +119,42 @@ TestScene.prototype.draw = function () {
 
 
     }
+}
+
+TestScene.prototype.swapPlayer = function(){
+    if(this.objTarget == undefined){
+        
+        let otherPlayer = null;
+    
+        if(this.selectedPlayer == this.objControl.colorPlayer){
+            otherPlayer = this.objControl.shadowPlayer;
+            this.objControl.colorPlayer.setCurrentState("DESELECTED");
+            this.objControl.shadowPlayer.setCurrentState("SELECTED");
+        }else if(this.selectedPlayer == this.objControl.shadowPlayer){
+            otherPlayer = this.objControl.colorPlayer;
+            if(this.objControl.colorPlayer.currentState != this.objControl.colorPlayer.states.DAMAGED){
+                this.objControl.colorPlayer.setCurrentState("SELECTED");
+            }else{
+                //this.objControl.colorPlayer.setCurrentState("SELECTED");
+            }
+            this.objControl.shadowPlayer.setCurrentState("DESELECTED");
+        }
+        //this.objControl.colorPlayer.stopMoving();
+        let initPos = new Point(this.selectedPlayer.pos.x,this.selectedPlayer.pos.y);
+        this.objTarget = new Target(this,0,0,initPos,otherPlayer.pos,0.1);
+        this.camera.setTarget(this.objTarget);
+    }
+}
+
+
+TestScene.prototype.changePlayer = function(){
+    
+    this.objTarget = null;
+    if(this.selectedPlayer == this.objControl.colorPlayer){
+        this.selectedPlayer = this.objControl.shadowPlayer;
+    }else if(this.selectedPlayer == this.objControl.shadowPlayer){
+        this.selectedPlayer = this.objControl.colorPlayer;
+    }
+    
+    this.camera.setTarget(this.selectedPlayer);
 }

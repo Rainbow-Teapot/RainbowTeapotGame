@@ -34,36 +34,38 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
         //objeto palanca
         if (color.b == 64) {
             if (color.r % 5 == 1) color.r--;
-            if (color.g % 5 == 1) color.g--;
-            //console.log(color.r);
-            //console.log(color.g);
+            if (color.g % 5 == 4) color.g--;
+            console.log(color.r);
+            console.log(color.g);
             new Lever(this.scene, x, y, 0, false, color.r * Game.TILE_SIZE, color.g * Game.TILE_SIZE);
             new Lever(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 0, true, color.r * Game.TILE_SIZE, color.g * Game.TILE_SIZE);
             //objeto puente levadizo
         } else if (color.r == 122 && color.g == 255) {
             if (color.b == 255) {
                 new Bridge(this.scene, x, y, 0, false, -1);
-                new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 0, true, -1);
+                new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, -1);
+                
             } else if (color.b == 128) {
                 new Bridge(this.scene, x, y, 0, false, 1);
-                new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 0, true, 1);
+                new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1);
+                
             }
             //objeto plataforma móvil     
         } else if (color.g == 64) {
             if (color.r == 122) {
                 new MovablePlatform(this.scene, x, y, 0, false, 1, color.b);
-                new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 0, true, 1, color.b);
+                new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1, color.b);
             } else if (color.r == 255) {
                 new MovablePlatform(this.scene, x, y, 0, false, 2, color.b);
-                new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 0, true, 2, color.b);
+                new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 2, color.b);
             }
+        }else if(color.g == 128 && color.b == 128){
+            new DamageBlock(this.scene, x, y, 0,color.r);
+            //new DamageBlock(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1,color.r);
         }
 
     } else if (color.a == 255) {
-        if (color.equals(new Color(0, 0, 0, 255))) {
-            let player = new Player(this.scene, x, y);
-            this.scene.player = player;
-        } else if (color.equals(new Color(0, 255, 0, 255))) {
+        if (color.equals(new Color(0, 255, 0, 255))) {
             let wall = new Wall(this.scene, x, y, 0);
         } else if (color.equals(new Color(255, 0, 0, 255))) {
             let wall = new Wall(this.scene, x, y, 1);
@@ -71,10 +73,10 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
             let wall1 = new Wall(this.scene, x, y, 0);
             let wall2 = new Wall(this.scene, x, y, 1);
         } else if (color.equals(new Color(255, 122, 0, 255))) {
-            new Door(this.scene, x, y, 0);
+            new Door(this.scene, x, y, 0, false);
         } else if (color.equals(new Color(0, 0, 255, 255))) {
             new Key(this.scene, x, y, 0, false);
-            new Key(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 0, true);
+            new Key(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true);
         } else if (color.equals(new Color(255, 255, 0, 255))) {
             console.log("created teapot");
             new GoldenTeapot(this.scene, x, y, 0);

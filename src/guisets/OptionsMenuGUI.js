@@ -43,6 +43,7 @@ OptionsMenuGUI.prototype.create = function () {
 
     };
 
+    //botones opciones musica
     let buttonVolumeUp = new Button(this.scene, viewportMiddleX + 105, 200, 0, buttonIncrementVolumeSprite, incrementVolume);
     let buttonVolumeDown = new Button(this.scene, viewportMiddleX - 125, 200, 0, buttonReduceVolumeSprite, decrementVolume);
     if (audio.music != null) {

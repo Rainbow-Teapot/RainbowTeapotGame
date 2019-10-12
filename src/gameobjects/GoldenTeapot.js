@@ -1,7 +1,8 @@
-function GoldenTeapot(scene, x, y){
-    Pickupable.call(this,scene,x,y);
+function GoldenTeapot(scene, x, y,depth){
+    Pickupable.call(this,scene,x,y,depth);
     this.type.push("GoldenTeapot");
     this.vel = 0.2;
+    this.isShadow = false;
     this.initPosY = this.pos.y - Game.TILE_SIZE/2;
     this.endPosY = this.pos.y;
    // this.sprite = new Sprite(this.scene,"goldenTeapot",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2,0);
