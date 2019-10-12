@@ -186,6 +186,8 @@ Scene.prototype.handleClick = function(e){
     if(clickedObject){
         clickedObject.performClick();
     }
+
+    console.log("estoy pulsando la pantalla");
 }
 
 Scene.prototype.destroy = function(){

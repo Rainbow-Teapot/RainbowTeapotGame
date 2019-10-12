@@ -2,26 +2,18 @@
 function Player(scene, x, y, depth){
     GameObject.call(this, scene, x, y, depth);
     this.type.push("Player");
-
     this.sprite = this.prepareAnimations();
     this.width = 64;
     this.height = 96;
-
     this.faceX = 1;
-
-    this.moveX = 0;
+    this.moveX = 1;
     this.VYmax = 20;
     this.VXMax = 9;
     this.currentVX = 0;
     this.currentVY = 0;
-
     this.gravity = 1;
-
     this.groundAcc = 1;
     this.groundFricc = 1.2;
-
-    //this.isSelected = true;
-
     this.isShadow = false;
     this.hasInmunity = false;
 
@@ -50,6 +42,8 @@ function Player(scene, x, y, depth){
 
     let that = this;
     this.timerInmunity = new Timer(this, function(){that.hasInmunity = false; that.sprite.alpha = 1.0;},2000);
+
+    this.controls = input.initControls();
 
 }
 /*Hererncia protoripica con GameObject */
@@ -123,11 +117,12 @@ Player.prototype.behaviour = function(){
 }
 
 Player.prototype.input = function(){
-    this.keyLeft = input.isDownKey("a");
-    this.keyRight = input.isDownKey("d");
-    this.keyJump = input.isPressedKey(" ");
-
-    if(input.isPressedKey("q")){
+    this.keyLeft = this.controls.leftCommand.execute();
+    this.keyRight = this.controls.rightCommand.execute();
+    this.keyJump = this.controls.jumpCommand.execute();
+    let swapKey = this.controls.changePlayerCommand.execute()
+    
+    if(swapKey){
         this.scene.swapPlayer();
     }
 }
@@ -181,7 +176,7 @@ Player.prototype.objectInteraction = function(){
         colPickup.pickUp();
     }
 
-    if(input.isPressedKey("e") ){
+    if(this.controls.interactCommand.execute() ){
         if(colDoor && this.scene.objControl.numKeys > 0 && !this.isShadow){ 
             colDoor.perform();
         }
