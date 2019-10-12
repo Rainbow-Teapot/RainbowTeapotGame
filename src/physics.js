@@ -1,12 +1,13 @@
 var physics = {
     quadTree : null,
+    movableList: [],
     initPhysics : function(x,y,width,height){
         physics.quadTree = new Quadtree(
                 {   x:x, 
                     y:y , 
                     width: width, 
                     height: height
-                },4 );
+                },4,20 );
     },
     placeMeeting: function(object, xOffset, yOffset, objToCollide){
         
@@ -17,7 +18,8 @@ var physics = {
             height: object.height - object.yOffsetColliderMask
         };
 
-        let collidedObjects = physics.quadTree.retrieve({collisionMask})
+        let collidedObjects = physics.quadTree.retrieve(collisionMask);
+        collidedObjects = collidedObjects.concat(physics.movableList);
 
         for(let i = 0; i < collidedObjects.length; i++){        
             if(collidedObjects[i].object.instanceOf(objToCollide)){   
@@ -32,7 +34,9 @@ var physics = {
         
         let collisionMask = physics.getCollisionMask(object,xOffset,yOffset);
         
-        let collidedObjects = physics.quadTree.retrieve({collisionMask})
+        let collidedObjects = physics.quadTree.retrieve(collisionMask);
+
+        collidedObjects = collidedObjects.concat(physics.movableList);
 
         for(let i = 0; i < collidedObjects.length; i++){        
             if(collidedObjects[i].object.instanceOf(objToCollide)){

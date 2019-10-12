@@ -66,7 +66,6 @@ Scene.prototype.preload = function(){
     
     Promise.all(this.loadingPromises).then( function(){
         console.log("Se han cargado todos los recursos");
-        physics.quadTree.clear();
         that.create();
     });
 };
@@ -76,11 +75,11 @@ que no tenemos nada con lo que trabajar para crear el nivel. Se llama a levelPar
 hereden de Scene*/
 Scene.prototype.create = function(){
 
-
+    physics.initPhysics(0, 0, this.width,this.height);
     this.camera = new Camera(this,viewport,0,0);
     this.isSceneLoaded = true;
     coreLoop.setScene(this);
-    console.log(physics.quadTree);
+    
 };
 
 /*actualizar todos los objetos y la camara*/
@@ -190,5 +189,5 @@ Scene.prototype.handleClick = function(e){
 }
 
 Scene.prototype.destroy = function(){
-
+    physics.quadTree.clear();
 }
