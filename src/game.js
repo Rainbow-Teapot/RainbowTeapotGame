@@ -8,7 +8,7 @@ var Game = {
     camera: null,
     TILE_SIZE: 64,
     lang: 0,
-
+    joystick: null,
     /*crea el juego, inicia el viewport (canvas), asigna la escena e inicia el GAMELOOP*/
     createGame : function(scene, posx, posy, width, height){
         Game.width = width;
@@ -23,6 +23,14 @@ var Game = {
         viewport.createViewport(width, height, posx, posy);
         //physics.initPhysics(0, 0, scene.width, scene.height);
         input.init(); 
+        game.joystick = new VirtualJoystick({
+            mouseSupport: true,
+            stationaryBase: true,
+            baseX: viewport.canvas.offsetLeft + Game.TILE_SIZE,
+            baseY: viewport.canvas.offsetTop + viewport.height - Game.TILE_SIZE,
+            stickRadius: 70,
+            limitStickTravel: true,
+    });
         coreLoop.loop();
         
     },

@@ -99,7 +99,6 @@ TestScene.prototype.create = function () {
     
 
     this.camera.setTarget(this.selectedPlayer);
-    console.log(physics.quadTree);
 }
 
 /*se llama al update del padre para que automaticamente vaya actualizando los objetos que contiene,
