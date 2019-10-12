@@ -13,7 +13,6 @@ var viewport = {
         viewport.canvas.height = height;
         viewport.canvas.style = "border:1px solid #c3c3c3; position:absolute; left: " + x + "px; top: " + y + "px;";
         viewport.canvas.addEventListener("click",Game.scene.handleClick,false);
-        viewport.canvas.addEventListener( "touchstart",Game.scene.handleClick,false );
     },
     initViewPort: function(width, height, x, y){
         viewport.width = width;
