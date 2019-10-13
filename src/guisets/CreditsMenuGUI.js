@@ -11,6 +11,8 @@ CreditsMenuGUI.prototype.create = function(){
 
     let viewportMiddleX = viewport.width/2;
 
+    let bgMenu = new Background(this.scene,"bgMenu", 0,0,0);
+
     //boton de ir para atras
     let buttonBackSprite = new GUIImage(this.scene,"botonVolver",50,50,0,0,114,52,0);
     let goMainMenu = function(){

@@ -15,6 +15,6 @@ Foreground.prototype.draw = function(camera){
 
     let posAtViewPort = posAtCamera.changeBase(viewport.basis);
 
-    context.drawImage(this.img,posAtViewPort.x, posAtViewPort.y + this.scene.shadowLevel * Game.TILE_SIZE);
+    context.drawImage(this.img,posAtViewPort.x, posAtViewPort.y);
 
 }

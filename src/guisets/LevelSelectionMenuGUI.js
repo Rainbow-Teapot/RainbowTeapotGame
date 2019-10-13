@@ -13,6 +13,8 @@ LevelSelectionMenuGUI.prototype.create = function(){
     let guiConfirmLevel = new ConfirmLevelGUI(this.scene);
     guiConfirmLevel.hide();
 
+    let bgMenu = new Background(this.scene,"bgMenu", 0,0,0);
+
     //boton de ir para atras
     let buttonBackSprite = new GUIImage(this.scene,"botonVolver",50,50,0,0,114,52,0);
     let goMainMenu = function(){

@@ -9,7 +9,7 @@ function Door(scene, x, y, depth,isShadow){
     this.walls = [new Wall(this.scene,x,y,0), new Wall(this.scene,x,y+Game.TILE_SIZE,0)];
     this.shadowSprite = new Sprite( this.scene,"doorShadow",
                                     this.pos.x,this.pos.y - Game.TILE_SIZE * this.scene.shadowLevel,
-                                    0,0,Game.TILE_SIZE,Game.TILE_SIZE*2,0);
+                                    0,0,Game.TILE_SIZE,Game.TILE_SIZE*2,1);
     this.collider = new Collider(this,this.pos.x,this.pos.y,this.width,this.height,0,0);
 }
 
