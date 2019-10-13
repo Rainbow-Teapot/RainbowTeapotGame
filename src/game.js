@@ -9,6 +9,7 @@ var Game = {
     TILE_SIZE: 64,
     lang: 0,
     joystick: null,
+    levels: [level1 = {width: 60,height: 18}],
     /*crea el juego, inicia el viewport (canvas), asigna la escena e inicia el GAMELOOP*/
     createGame : function(scene, posx, posy, width, height){
         Game.width = width;
@@ -34,7 +35,12 @@ var Game = {
         Game.scene = scene;
         //coreLoop.setScene(scene);
         scene.preload();
-    }
+    },
+    loadLevel(levelID){
+        let level = Game.levels[levelID];
+        let scene = new TestScene(level.width * Game.TILE_SIZE,level.height * Game.TILE_SIZE);
+        Game.changeScene(scene);
+    },
 
 
 }

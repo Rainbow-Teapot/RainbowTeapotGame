@@ -17,7 +17,7 @@ GameOverGUI.prototype.create = function(){
     //boton de repetir
     let buttonRestartSprite = new GUIImage(this.scene,"botonReempezar",50,50,0,0,114,52,0);
     let restartLevel = function(){
-        Game.changeScene(new TestScene(60 * Game.TILE_SIZE,18 * Game.TILE_SIZE));
+        Game.changeScene(new LoadingScene(20 *Game.TILE_SIZE, 20 * Game.TILE_SIZE , 0));
     };
     let buttonRestart = new Button(this.scene,viewportMiddleX - buttonRestartSprite.width -Game.TILE_SIZE,viewportDown,0,buttonRestartSprite, restartLevel);
 
