@@ -4,40 +4,44 @@ var input = {
     keysPress: new Map(),
 
     currentInputMode: null,
-    inputMode:{
-        DESKTOP_SINGLE : 0,
-        DESKTOP_DOUBLE : 1,
-        MOBILE : 2,
+    inputMode: {
+        DESKTOP_SINGLE: 0,
+        DESKTOP_DOUBLE: 1,
+        MOBILE: 2,
     },
     init: function () {
         //document.onkeydown = input.saveKey;
         document.onkeyup = input.removeKey;
 
         document.addEventListener('keydown', function (e) {
-            if ((e.keyCode === 18)) {
+            if (e.altKey || e.keyCode === 9 || e.ctrlKey || e.shiftKey || e.metaKey) {
                 console.log("FUERA");
                 e.preventDefault();
+                e.stopPropagation();
+                return;
             }
             else {
-                console.log("NO es alt"); 
-                document.onkeydown = input.saveKey;
+                console.log("NO es alt");
+                document.onkeydown = input.saveKey; 
             }
-        },{passive:false});
-        if(!window.mobilecheck()){
+        }, { passive: false });
+        dddddddddddd
+        document.addEventListener( 'dblclick', function(event) {  
+            console.log("Double click"); 
+            event.preventDefault();  
+            event.stopPropagation(); 
+          }, { passive: false }
+        );
+        
+        
+        if (!window.mobilecheck()) {
             input.currentInputMode = input.inputMode.DESKTOP_SINGLE;
-        }else{
+        } else {
             input.currentInputMode = input.inputMode.MOBILE;
         }
 
     },
     saveKey: function (e) {
-        var e2 = e.charCode || e.keyCode;
-
-        if ((e2 === 18) || (e2 === 9) || (e2 === 16) || (e2 === 17) || (e2 === 91)) {
-            console.log("mal");
-            e.preventDefault();
-            return false;
-        }       
 
 
         let key = e.key.toLowerCase();
@@ -67,19 +71,19 @@ var input = {
     isPressedKey: function (key) {
         return (input.keysPress.has(key)) ? 1 : 0;
     },
-    
-    initControls: function(){
+
+    initControls: function () {
 
         let controls = new Controls();
 
-        switch(input.currentInputMode){
+        switch (input.currentInputMode) {
             case input.inputMode.DESKTOP_SINGLE:
                 controls.jumpCommand = new JumpKeyboardCommand();
                 controls.interactCommand = new InteractKeyboardCommand();
                 controls.changePlayerCommand = new SwapPlayerKeyboardCommand();
                 controls.leftCommand = new LeftKeyboardCommand();
                 controls.rightCommand = new RightKeyboardCommand();
-                viewport.canvas.addEventListener("click",Game.scene.handleClick,false);
+                viewport.canvas.addEventListener("click", Game.scene.handleClick, false);
                 break;
             case input.inputMode.DESKTOP_DOUBLE:
                 /*controls.jumpCommand =
@@ -97,13 +101,13 @@ var input = {
                 Game.joystick = new VirtualJoystick({
                     mouseSupport: true,
                     stationaryBase: true,
-                    strokeStyle : 'white',
+                    strokeStyle: 'white',
                     baseX: viewport.canvas.offsetLeft + Game.TILE_SIZE,
                     baseY: viewport.canvas.offsetTop + viewport.height - Game.TILE_SIZE,
                     stickRadius: 800,
                     limitStickTravel: true,
                 });
-                viewport.canvas.addEventListener( "touchstart",Game.scene.handleClick,false );
+                viewport.canvas.addEventListener("touchstart", Game.scene.handleClick, false);
                 break;
         }
 
