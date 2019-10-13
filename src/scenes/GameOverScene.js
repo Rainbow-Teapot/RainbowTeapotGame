@@ -17,7 +17,7 @@ GameOverScene.prototype.preload = function(){
 
 GameOverScene.prototype.create = function(){
     audio.play(this.track);
-    let gui = new GameOverGUI(this);
+    this.gui = new GameOverGUI(this);
 
     Scene.prototype.create.call(this);
     

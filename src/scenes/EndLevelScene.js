@@ -16,9 +16,7 @@ EndLevelScene.prototype.preload = function(){
 
 EndLevelScene.prototype.create = function(){
     
-    
-    let gui = new EndLevelMenuGUI(this);
-
+    this.gui = new EndLevelMenuGUI(this);
     Scene.prototype.create.call(this);
     audio.play(this.track);
     

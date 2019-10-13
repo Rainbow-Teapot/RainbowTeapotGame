@@ -15,7 +15,7 @@ CreditsScene.prototype.preload = function(){
 
 CreditsScene.prototype.create = function(){
     
-    let gui = new CreditsMenuGUI(this);
+    this.gui = new CreditsMenuGUI(this);
 
     Scene.prototype.create.call(this);
     

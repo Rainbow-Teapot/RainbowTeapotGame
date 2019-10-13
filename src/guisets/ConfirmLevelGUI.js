@@ -11,6 +11,7 @@ ConfirmLevelGUI.prototype.create = function(){
 
     let font = "30px CartoonRegular";
     let viewportMiddleX = viewport.width/2;
+    let that = this;
 
     //board
     let board = new GUIImage(this.scene,"board", viewport.width/2,125,0,0,289,322,0);
@@ -19,13 +20,13 @@ ConfirmLevelGUI.prototype.create = function(){
     //boton para confirmar
     let buttonPlaySprite = new GUIImage(this.scene,"button",50,50,0,0,114,52,0);
     let playLevel = function(){
-        Game.changeScene(new TestScene(60 * Game.TILE_SIZE,18 * Game.TILE_SIZE));
+        
+        Game.changeScene(new LoadingScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE,0));
     };
     let buttonPlay = new Button(this.scene,viewportMiddleX - buttonPlaySprite.width/2 + 40,360,0,buttonPlaySprite, playLevel,i18n.translate(Game.lang, "play"),font);
 
     //boton para cerrar
     let buttonExitSprite = new GUIImage(this.scene,"botonCerrar",50,50,0,0,114,52,0);
-    let that = this;
     let cancelSelection = function(){
         that.hide();
     };
