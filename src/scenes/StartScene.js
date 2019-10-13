@@ -24,7 +24,8 @@ StartScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this, "botonCerrar", "./assets/gui/botonCerrar.png");
     Scene.prototype.loadToScene.call(this, "botonAjustes", "./assets/gui/botonAjustes.png");
     Scene.prototype.loadToScene.call(this, "volumeLine", "./assets/gui/palito.png");
-
+    Scene.prototype.loadToScene.call(this, "bgMenu", "./assets/backgrounds/bgMenu.png");
+    Scene.prototype.loadToScene.call(this, "fgMiss", "./assets/backgrounds/fgMissTeapot.png");
 
     Scene.prototype.preload.call(this);
     
@@ -33,6 +34,9 @@ StartScene.prototype.preload = function(){
 StartScene.prototype.create = function(){
     
     let font = "30px CartoonRegular";
+
+    //backeMenu
+    let bgMenu = new Background(this,"bgMenu", 0,0,0);
 
     //boton jugar
     let buttonSpritePlay = new GUIImage(this,"button",50,50,0,0,114,52,0);

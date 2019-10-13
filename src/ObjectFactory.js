@@ -53,11 +53,11 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
             //objeto plataforma móvil     
         } else if (color.g == 64) {
             if (color.r == 122) {
-                new MovablePlatform(this.scene, x, y, 0, false, 1, color.b);
-                new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1, color.b);
+                //new MovablePlatform(this.scene, x, y, 0, false, 1, color.b);
+                //new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1, color.b);
             } else if (color.r == 255) {
-                new MovablePlatform(this.scene, x, y, 0, false, 2, color.b);
-                new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 2, color.b);
+                //new MovablePlatform(this.scene, x, y, 0, false, 2, color.b);
+                //new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 2, color.b);
             }
         } else if (color.g == 128 && color.b == 128) {
             new DamageBlock(this.scene, x, y, 0, color.r);

@@ -8,7 +8,7 @@ var Game = {
     camera: null,
     TILE_SIZE: 64,
     lang: 0,
-
+    joystick: null,
     /*crea el juego, inicia el viewport (canvas), asigna la escena e inicia el GAMELOOP*/
     createGame : function(scene, posx, posy, width, height){
         Game.width = width;
@@ -22,7 +22,9 @@ var Game = {
         Game.changeScene(scene);
         viewport.createViewport(width, height, posx, posy);
         //physics.initPhysics(0, 0, scene.width, scene.height);
-        input.init(); 
+         
+        
+        input.init();
         coreLoop.loop();
         
     },
