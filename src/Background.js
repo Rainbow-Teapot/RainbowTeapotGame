@@ -1,5 +1,7 @@
 function Background(scene, img,x,y,depth){
     Drawable.call(this,scene,img,x,y,0,0,0,0, depth);
+    this.width = this.img.width;
+    this.height = this.img.height;
     this.scene.backgroundLayer.addElement(this);
 }
 
@@ -14,6 +16,6 @@ Background.prototype.draw = function(camera){
     posAtCamera.x += (camera.pos.x) * 0.2 * this.depth;
     let posAtViewPort = posAtCamera.changeBase(viewport.basis);
 
-    context.drawImage(this.img,posAtViewPort.x, posAtViewPort.y + this.scene.shadowLevel * Game.TILE_SIZE);
+    context.drawImage(this.img,posAtViewPort.x, posAtViewPort.y);
 
 }

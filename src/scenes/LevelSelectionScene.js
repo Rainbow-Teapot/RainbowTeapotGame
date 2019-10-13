@@ -15,7 +15,7 @@ LevelSelectionScene.prototype.preload = function () {
 
 LevelSelectionScene.prototype.create = function () {
 
-    let gui = new LevelSelectionMenuGUI(this);
+    this.gui = new LevelSelectionMenuGUI(this);
     Scene.prototype.create.call(this);   
 
 }

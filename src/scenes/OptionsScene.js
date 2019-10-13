@@ -13,7 +13,7 @@ OptionsScene.prototype.preload = function(){
 
 OptionsScene.prototype.create = function(){
     
-    let gui = new OptionsMenuGUI(this);
+    this.gui = new OptionsMenuGUI(this);
     Scene.prototype.create.call(this);
     
 }

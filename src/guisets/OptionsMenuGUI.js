@@ -11,6 +11,8 @@ OptionsMenuGUI.prototype.create = function () {
 
     let viewportMiddleX = viewport.width / 2;
 
+    let bgMenu = new Background(this.scene,"bgMenu", 0,0,0);
+
     //tablero
     let board = new GUIImage(this.scene, "board", viewport.width / 2, 125, 0, 0, 0, 0);
     board.pos.x -= board.width / 2;

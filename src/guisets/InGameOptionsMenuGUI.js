@@ -11,7 +11,7 @@ InGameOptionsMenuGUI.prototype.create = function(){
 
     let font = "30px CartoonRegular";
     let viewportMiddleX = viewport.width/2;
-
+    let that = this;
     //fondo
     let bgAlpha = new GUIImage(this.scene, null, 0,0,0,0,viewport.width,viewport.height);
     bgAlpha.setColor(new Color(155,175,183,255));
@@ -55,7 +55,7 @@ InGameOptionsMenuGUI.prototype.create = function(){
     let buttonSpriteResume = new GUIImage(this.scene,"button",50,50,0,0,114,52,0);
     viewportMiddleX = viewport.width/2 - buttonSpriteResume.width/2;
     viewportMiddleY = viewport.height/2 - buttonSpriteResume.height/2 + 80;
-    let that = this;
+    
     let resume = function(){
        that.hide();
     };
@@ -73,8 +73,8 @@ InGameOptionsMenuGUI.prototype.create = function(){
     //boton de repetir
     let buttonRestartSprite = new GUIImage(this.scene,"botonReempezar",50,50,0,0,114,52,0);
     let restartLevel = function(){
-        Game.changeScene(new TestScene(60 * Game.TILE_SIZE,18 * Game.TILE_SIZE));
-        //this.scene.restart();
+        
+        Game.changeScene(new LoadingScene(20 *Game.TILE_SIZE, 20 * Game.TILE_SIZE , 0));
     };
     let buttonRestart = new Button(this.scene,viewportMiddleX - Game.TILE_SIZE + 25,viewportMiddleY,0,buttonRestartSprite, restartLevel);
 

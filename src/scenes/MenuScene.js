@@ -20,7 +20,7 @@ MenuScene.prototype.preload = function () {
 MenuScene.prototype.create = function () {
     audio.play(this.track);
 
-    let gui = new MainMenuGUI(this);
+    this.gui = new MainMenuGUI(this);
 
     Scene.prototype.create.call(this);
 
