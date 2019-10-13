@@ -25,7 +25,7 @@ var input = {
                 document.onkeydown = input.saveKey; 
             }
         }, { passive: false });
-        dddddddddddd
+        
         document.addEventListener( 'dblclick', function(event) {  
             console.log("Double click"); 
             event.preventDefault();  
