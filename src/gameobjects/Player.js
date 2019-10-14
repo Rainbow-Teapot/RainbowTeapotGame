@@ -170,7 +170,7 @@ Player.prototype.objectInteraction = function(){
     let colDoor = physics.instancePlace(this,Math.sign(this.faceX) * 4,0,"Door");
     let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
     let colLever = physics.instancePlace(this,Math.sign(this.faceX),0,"Lever");
-    
+    let colSwitch = physics.instancePlace(this,Math.sign(this.faceX),0,"SwitchLight");
 
     if(colPickup && this.isAbleToInteractWith(colPickup)){
         colPickup.pickUp();
@@ -185,6 +185,11 @@ Player.prototype.objectInteraction = function(){
             colLever.action();
             
         }
+        if(colSwitch && this.isAbleToInteractWith(colSwitch)){
+            console.log("me he topado con la Switch");
+            colSwitch.action();
+            
+        }
     }
 
 
@@ -193,7 +198,7 @@ Player.prototype.objectInteraction = function(){
 Player.prototype.getDamaged = function(){
     if(!this.hasInmunity){
         let colDamage = physics.instancePlace(this,Math.sign(this.faceX), 0,"DamageBlock");
-        if(colDamage){
+        if(colDamage && colDamage.depth == this.depth){
             this.damage();
             this.hasInmunity = true;
             this.timerInmunity.initTimer();

@@ -6,6 +6,7 @@ function SwitchLight(scene,x,y,depth,isShadow,xActivable,yActivable){
     this.collider = new Collider(this,this.pos.x,this.pos.y,this.width,this.height,0,0);
     this.alreadyActioned = false;
     this.prepareSprite(this.isShadow);
+    console.log("ACTIVABLEEE: " + this.posActivable.x  + "   " + this.posActivable.y);
 }
 
 SwitchLight.prototype = Object.create(GameObject.prototype);
@@ -29,12 +30,12 @@ SwitchLight.prototype.action = function(){
             this.sprite.destroy();
             this.sprite = new Sprite(this.scene,"leverOn",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2);
             let shadowOther =  physics.instancePlace(null,this.pos.x, this.pos.y - Game.TILE_SIZE*this.scene.shadowLevel, "SwitchLight");
-            shadowOther.action();
+            //shadowOther.action();
         }else{
             this.sprite.destroy();
             this.sprite = new Sprite(this.scene,"leverOnShadow",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2);
             let colorOther =  physics.instancePlace(null,this.pos.x, this.pos.y + Game.TILE_SIZE*this.scene.shadowLevel, "SwitchLight");
-            colorOther.action();
+            //colorOther.action();
         }
         
         console.log("he activado la luz");

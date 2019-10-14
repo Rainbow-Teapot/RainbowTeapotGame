@@ -59,3 +59,18 @@ ShadowPlayer.prototype.passive = function(){
     this.sprite.alpha = colorPlayer.sprite.alpha;
     this.currentAnimation = colorPlayer.currentAnimation;
 }
+
+ShadowPlayer.prototype.getDamaged = function(){
+    if(this.currentState == this.states.SELECTED){
+        Player.prototype.getDamaged.call(this);
+    }
+}
+
+ShadowPlayer.prototype.update = function(){
+
+    let colDamage = physics.placeMeeting(this,this.faceX,0,"DamageBlock");
+    this.sprite.setVisible(!colDamage);
+
+    Player.prototype.update.call(this);
+
+}

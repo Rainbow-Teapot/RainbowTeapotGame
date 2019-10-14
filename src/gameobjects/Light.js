@@ -1,15 +1,19 @@
 function Light(scene, x, y, depth, isShadow, facingByColor, lightedTiles){
     Activable.call(this,scene,x,y,depth);
-    this.type("Light");
+    this.type.push("Light");
     this.isShadow = isShadow;
     this.faceX = 0;
     this.faceY = 0;
     this.lightedTiles = lightedTiles;
     this.widthOfDamageInTiles = 1;
-    this.damageShadowBlocks = new Array(lightedTiles * widthOfDamageInTiles);
+    this.alreadyActioned = false;
+    this.damageShadowBlocks = new Array(this.lightedTiles * this.widthOfDamageInTiles);
     this.isActivated = true;
+    this.sprite = new Sprite(this.scene,null,0,0,0,0,64,64);
     this.setFacingByColor(facingByColor);
     this.prepareDamageBlocks();
+    this.collider = new Collider(this, this.pos.x, this.pos.y, Game.TILE_SIZE, Game.TILE_SIZE, 0, 0);
+    console.log(this.pos);
 }
 
 Light.prototype = Object.create(Activable.prototype);
@@ -30,15 +34,12 @@ Light.prototype.setFacingByColor = function(facingByColor){
         case 128:
             this.faceX = 1;
             this.faceY = 0;
-            return this.facings.RIGHT;
         case 64:
             this.faceX = 0;
             this.faceY = 1;
-            return this.facings.DOWN;
         case 255:
             this.faceX = -1;
             this.faceY = 0;
-            return this.facings.LEFT;
         default:
             new Error(`Baf Facing colot at object Light`);
     }

@@ -13,7 +13,7 @@ Bridge.prototype.constructor = Bridge;
 
 Bridge.prototype.prepareSprite = function (isShadow, faceY) {
     if (!isShadow) {
-        console.log(this.pos);
+        
         if (faceY == -1) {
             this.sprite = new Sprite(this.scene, "bridgeY", this.pos.x, this.pos.y - Game.TILE_SIZE * 2, 0, 0, Game.TILE_SIZE / 2, Game.TILE_SIZE * 3);
         } else if (faceY == 1) {
