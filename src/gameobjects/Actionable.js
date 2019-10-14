@@ -15,9 +15,9 @@ Actionable.prototype.action = function(){
         activable.perform();
         this.isActivated = !this.isActivated;
         if(this.isActivated){
-            this.On(true);
+            this.On(2);
         }else{
-            this.Off(true);
+            this.Off(2);
         }  
         console.log("he activado el puente");
     }else{

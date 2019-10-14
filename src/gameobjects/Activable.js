@@ -11,9 +11,9 @@ Activable.prototype.constructor = Activable;
 Activable.prototype.perform = function () {
     this.activated = !this.activated;
     if(this.activated){
-        this.On(true);
+        this.On(2);
     }else{
-        this.Off(true);
+        this.Off(2);
     }
 }
 
