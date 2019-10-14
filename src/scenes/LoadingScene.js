@@ -20,18 +20,14 @@ LoadingScene.prototype.create = function(){
     Scene.prototype.create.call(this);
     let bg = new Background(this,"bgMenu",0,0,0);
     new Text(Game.scene, i18n.translate(Game.lang, "loading"),viewport.width/2,viewport.height - Game.TILE_SIZE,"60px CartoonRegular");    
-    //this.gui = new InGameOptionsMenuGUI(this);
-    //Game.loadLevel(this.levelToLoad);
+    let that = this;
+    let loadLevel = function(){
+        Game.loadLevel(that.levelToLoad);
+    };
+    this.timerLoad = new Timer(null,loadLevel,500);
+    this.timerLoad.initTimer();
 }
 
 LoadingScene.prototype.update = function(){
     Scene.prototype.update.call(this);
-    if (this.isSceneLoaded) {
-        if(this.charged != this.minUpdatesToAtLeastShowTheLoadingScene){
-            this.charged++;
-        }else{
-            Game.loadLevel(this.levelToLoad);
-            this.charged = 0;
-        }
-    }
 }
