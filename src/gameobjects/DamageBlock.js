@@ -13,7 +13,7 @@ function DamageBlock(scene, x, y, depth, facingColor){
     this.OFFSET_Y = 20;
     
     this.prepareCollider();
-    //this.sprite = new Sprite(this.scene,null,0,0,0,0,64,64);
+    this.sprite = new Sprite(this.scene,null,0,0,0,0,64,64);
     
 
 }

@@ -35,6 +35,7 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
         if(color.b == 200){
             new Light(this.scene,x,y,0,false,color.r,color.g);
             new Light(this.scene,x,y - Game.TILE_SIZE * this.scene.shadowLevel,1,true,color.r,color.g);
+            console.log("se ha cerad la luz");
         //objeto palanca
         }else if (color.b == 64) {
             if (color.r % 5 == 1) color.r--;
