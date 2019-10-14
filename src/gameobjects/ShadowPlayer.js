@@ -68,8 +68,8 @@ ShadowPlayer.prototype.getDamaged = function(){
 
 ShadowPlayer.prototype.update = function(){
 
-    let colDamage = physics.placeMeeting(this,this.faceX,0,"DamageBlock");
-    this.sprite.setVisible(!colDamage);
+    /*let colDamage = physics.placeMeeting(this,this.faceX,0,"DamageBlock");
+    this.sprite.setVisible(!colDamage);*/
 
     Player.prototype.update.call(this);
 

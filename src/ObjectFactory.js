@@ -33,7 +33,7 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
 
         //objeto luz
         if(color.b >= 198 && color.b <= 202){
-            new Light(this.scene,x,y,0,false,color.r,color.g);
+            //new Light(this.scene,x,y,0,false,color.r,color.g);
             //new Light(this.scene,x,y - Game.TILE_SIZE * this.scene.shadowLevel,1,true,color.r,color.g);
             console.log("se ha cerad la luz");
         //objeto palanca
@@ -48,8 +48,8 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
             //obj swicthLight
         } else if (color.r == 100){
             color.b--;
-            new SwitchLight(this.scene,x,y,0,false,color.g * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
-            new SwitchLight(this.scene,x,y - Game.TILE_SIZE * this.scene.shadowLevel,1,true,color.g * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
+            //new SwitchLight(this.scene,x,y,0,false,color.g * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
+            //new SwitchLight(this.scene,x,y - Game.TILE_SIZE * this.scene.shadowLevel,1,true,color.g * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
             //objeto puente levadizo
         }else if (color.r == 122 && color.g == 255) {
             if (color.b == 255) {
@@ -57,8 +57,8 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
                 new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, -1);
 
             } else if (color.b == 128) {
-                new Bridge(this.scene, x, y, 0, false, 1);
-                new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1);
+                //new Bridge(this.scene, x, y, 0, false, 1);
+                //new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1);
 
             }
             //objeto plataforma móvil     
