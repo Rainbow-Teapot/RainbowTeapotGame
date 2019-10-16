@@ -29,10 +29,16 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
         this.scene.selectedPlayer = objControl.colorPlayer;
 
 
-    } if (color.a == 128) {
+
+
+    }
+
+    /*
+    if (color.a == 128) {
 
         //objeto palanca
         if (color.b == 64) {
+            
             if (color.r % 5 == 1) color.r--;
             if (color.g % 5 == 4) color.g--;
             console.log(color.r);
@@ -84,5 +90,64 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
             new TeaLife(this.scene, x, y - 16, 0, false);
             new TeaLife(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 0, true);
         }
+    }*/
+    if (color.g == 0) {
+        
+        if (color.r == 128) {
+            if (color.b == 0) {                
+                new Wall(this.scene, x, y, 0);
+            } else if (color.b == 64) {  
+                new Wall(this.scene, x, y, 1);
+            } else if (color.b == 128) {
+                console.log("" + color.r + " "+ color.g + " "+ color.b); 
+                new Wall(this.scene, x, y, 0);
+                new Wall(this.scene, x, y, 1);
+            }
+        } else if (color.r == 64) {
+            if (color.b == 0) {
+                new Door(this.scene, x, y, 0, false);
+            } else if (color.b == 64) {
+                new Key(this.scene, x, y - 16, 0, false);
+                new Key(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel-16, 1, true);
+            } else if (color.b == 128) {
+                new GoldenTeapot(this.scene, x, y, 0);
+            } else if (color.b == 255) {
+                new TeaLife(this.scene, x, y - 16, 0, false);
+                new TeaLife(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 0, true);
+
+            }
+        }
     }
+    else if (color.g == 64) {
+        if (color.b == 0) {
+            new DamageBlock(this.scene, x, y, 0, color.r);
+        }
+        else if (color.b == 64) {
+            if (color.r == 0) {
+                new Bridge(this.scene, x, y, 0, false, 1);
+                new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1);
+
+            } else if (color.r == 64) {
+                new Bridge(this.scene, x, y, 0, false, -1);
+                new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, -1);
+            }
+            
+        } else {
+            if (color.r == 0) {
+                new MovablePlatform(this.scene, x, y, 0, false, 1, color.b);
+                new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1, color.b);
+            } else if (color.r == 64) {
+                new MovablePlatform(this.scene, x, y, 0, false, 2, color.b);
+                new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 2, color.b);
+            }
+
+        }
+
+    } else if (color.g == 128){
+        console.log(color.r); 
+        console.log(color.b); 
+        new Lever(this.scene, x, y, 0, false, color.r * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
+        new Lever(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 0, true, color.r * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
+    }
+
 }

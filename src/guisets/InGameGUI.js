@@ -32,7 +32,7 @@ InGameGUI.prototype.create = function(){
 
     //botones de juego en movil
     if(input.currentInputMode == input.inputMode.MOBILE){
-        let buttonSwapPlayerSprite = new GUIImage(this.scene,"botonAjustes",50,50,0,0,114,52,0);
+        let buttonSwapPlayerSprite = new GUIImage(this.scene,"mobileButton1",50,50,0,0,114,52,0);
         buttonSwapPlayerSprite.alpha = 0.3;
         let swapPlayerGUI = function(){
             this.scene.objControl.colorPlayer.controls.changePlayerCommand.ivoked = true;
@@ -41,7 +41,7 @@ InGameGUI.prototype.create = function(){
         let buttonSwap = new Button(this.scene,viewport.width - buttonOptionsSprite.width - 20,viewport.height - 130,0,buttonSwapPlayerSprite, swapPlayerGUI);
         buttonSwap.vel = 0;
 
-        let buttonInteractSprite = new GUIImage(this.scene,"botonAjustes",50,50,0,0,114,52,0);
+        let buttonInteractSprite = new GUIImage(this.scene,"mobileButton2",50,50,0,0,114,52,0);
         buttonInteractSprite.alpha = 0.3;
         let interactGUI = function(){
             this.scene.objControl.colorPlayer.controls.interactCommand.ivoked = true;
