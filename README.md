@@ -34,36 +34,145 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 <p>Se nos mostrará un botón en la parte superior derecha de la pantalla, que nos permitirá acceder al menú de opciones dentro del juego. Adicionalmente, y por último, un indicador que nos mostrará el tiempo que llevamos jugando al nivel.</p>
 <p>También aparecerá una línea en la parte superior derecha de la pantalla, que nos indicará la progresión dentro del nivel.</p>
 
-![Interfaz_01](Escenario_real.PNG)
+![Interfaz_01](Imagenes_readme/Escenario_real.PNG)
+
+![Interfaz_02](Imagenes_readme/Captura.PNG)
+
+**Niveles:**
+
+<p>Los niveles serán individuales, y no tendrán una progresión directa, pero sí necesaria, es decir, no se verá una progresión explícita dentro de cada nivel, pero es necesario completar un nivel para poder pasar al siguiente.</p>
+<p>Todos los niveles se estructuran de la misma manera, empezamos en el lateral izquierdo de la pantalla al inicio, y para completarlo tendremos que avanzar a la derecha hasta el final del mismo. Dentro de cada nivel existen cambios de escenario, es decir, una vez que lleguemos al final de una escena del nivel, el escenario se moverá para dejarnos avanzar, pero seguiremos estando en el mismo nivel.</p>
+<p>Existirán ciertos niveles que requerirán obtener algún coleccionable u objeto para poder superarlo, así como accionar algún mecanismo o eventos similares. También habrá niveles que requerirán completarlos en un tiempo determinado, o que podrás cambiar un numero limitado de veces entre el modo sombra y el modo normal.</p>
+<p>El objetivo de cada nivel es huir de los supuestos enemigos que nos persiguen, aunque no se verá explícitamente en el nivel que nos persigue alguien, simplemente se cuenta a modo informativo.</p>
+<p>Cuando se juegue el primer nivel, se incluirá un pequeño tutorial para explicar al jugador los controles y las mecánicas del juego, para que no haya lugar a dudas.</p>
+<p>En un principio, dentro de cada nivel no habrá ningún enemigo, pero si algún NPC. Podremos interactuar con ellos para que nos cuenten algún suceso curioso de la historia de los personajes principales del juego, o quizá algún consejo para ayudarnos a superar el nivel.</p>
+<p>Dentro de cada nivel, habrá elementos, pertenecientes al entorno, que podrán interactuar con el escenario, así como objetos que hieran a nuestra protagonista o a su propia sombra. Por ejemplo: Podrá haber zonas que sean puntiagudas o tengan pinchos, que puedan dañar al personaje real, o algún objeto que emita luz en el mundo de las sombras, y haga que la sombra se desvanezca en ese punto, haciendo que la sombra “se muera”.</p>
+<p>Cada nivel tendrá los mismos efectos de sonido, tanto para andar, saltar, superar un nivel, hablar con un NPC, desbloquear una puerta, accionar una palanca, coger un objeto, caerse al vacío, etc. A parte, se incorporará una música ambiental de fondo que ponga un poco más en situación dentro del juego.</p>
+
+**Nivel 1:**
+
+<p>El nivel uno empezará con un tutorial básico que explicará al jugador como usar los distintos controles que tiene el juego, y cómo funcionan las mecánicas básicas del juego. Está compuesto de 3 pantallas, que nos envuelven en un almacén, dónde estaba teniendo lugar una reunión secreta de O’Callahan, y Erin fue a investigarlo.</p>
+<p>Cometió un error, y fue descubierta, así que tiene que huir de ese almacén hasta la calle. Sin embargo, O’Callahan activa las trampas del almacén, que hará que Erin no lo tenga tan fácil:</p>
+
+![Nivel1](Imagenes_readme/Nivel1_01.png)
+
+<p>Esta pantalla corresponde a la primera parte del nivel, es decir, el tutorial. Para superarlo, primero tendremos que usar el modo sombra para que nuestra sombra atraviese la reja y coja la llave de al lado. Una vez pasado, tendrá que correr hasta el final del nivel para activar la palanca que hay detrás de la pared de reja, usando de nuevo el modo sombra. Esta palanca baja el puente levadizo que hay en la mitad del nivel, pudiendo acceder a la llave y al corazón. Con esta llave que coges, abres la puerta de la rejilla de más a la derecha, al lado de la palanca</p>
+
+**Nivel 2:**
+
+![Nivel2](Imagenes_readme/Nivel1_02.png)
+
+<p>Empezamos cogiendo una llave, que podremos usar más adelante para cualquiera de las dos puertas. El jugador deberá elegir que puerta abrir, porque en función de su decisión, así actuará para resolver el enigma:</p>
+	<p>1. Si abre la puerta de arriba, podrá accionar la palanca para bajar el puente levadizo de abajo, pero no tendrá una llave para abrir la puerta de abajo, por lo tanto habrá fallado en la resolución del nivel.</p>
+	<p>2. Si abres la puerta de abajo (opción correcta), podrás accionar el botón que está al lado del puente levadizo y desactivar la luz del piso de arriba. Como ya no tienes llave, deberás recurrir al modo sombra para que la sombra accione la palanca que baje el puente levadizo.</p>
+<p>Después, se podría seguir hacia la siguiente pantalla.</p>
+
+**Nivel 3:**
+
+![Nivel3](Imagenes_readme/Nivel1_03.png)
+
+<p>Empezamos cerca de la baldosa de la izquierda (0). Delante te encuentras una puerta, que solo se abre, a priori, si te quedas encima de la baldosa, por lo tanto, deberás dejar al personaje real ahí, y avanzar con el modo sombra. Tienes que accionar la palanca de electricidad (1) para desactivar la luz del escritorio y la de la plataforma de su derecha. Después tendrás que pulsar el botón del escritorio (2), para desactivar la luz (*) que hay enfocando al botón (3). Por último, hay que pulsar el botón (3), para dejar bajada la pared que estaba sujetando el personaje real desde la baldosa (0). Luego toca volver a modo normal, y llegar hasta el final del nivel.</p>
+
+**Progesión del Juego:**
+
+![Diagrama](Imagenes_readme/Diagrama_De_Flujo.png)
+
+**(1)Inicio de Juego:**
+
+<p>El juego empezará en la pantalla de inicio de juego(1), la cual tendrá un botón “Empezar” que nos llevará al menú principal. A parte de este botón, se verá un fondo con la temática del juego, el título del propio juego y algún otro detalle más que se pensará más adelante.</p>
+
+![Inicio](Imagenes_readme/Modelo_iniciar.png)
+
+<p>Al pulsar el botón empezar, nos llevará al menú principal del juego (2), donde tendremos tres botones principales: “Jugar”, que nos llevará al selector de niveles del juego; “Opciones”, que nos permitirá acceder a las opciones y configuraciones que tendrá nuestro juego; y créditos, que nos llevará a la pantalla de créditos.</p>
+<p>Adicionalmente, tendremos un botón en la esquina superior derecha de la pantalla con el que podremos salir del juego(discutir que hará).</p>
+<p>A los laterales de los botones principales tendremos dos imágenes de Erin, una suya(derecha) y una de su sombra(izquierda), orientadas, ambas, hacia los botones. El título del juego aparecerá en grande encima de los botones y, por último, habrá un fondo de estilo parallax scrolling con temática parecida a la de la pantalla de Inicio de Juego(1)</p>
+<p>Todo esto irá acompañado de una música de fondo.</p>
+
+**(2)Menú principal:**
+
+![MenuPrincipal](Imagenes_readme/Modelo_menu_ppal.png)
+
+<p>Si pulsamos en el Menú Principal (2) el botón de “Créditos”, nos mostrará una pantalla con el listado de los desarrolladores del videojuego(3), así como los roles que han desempeñado cada uno de los mismos. Tan solo contendrá un botón en forma de fecha en la esquina superior izquierda.</p>
+<p>Irá también acompañado de una música de fondo, distinta a la de otras pantalla que nos volverá al Menú Principal (2)</p>
+
+**(3)Créditos:**
+
+![Creditos](Imagenes_readme/Modelo_creditos.png)
+
+<p>Si pulsamos en el Menú Principal (2) el botón de “Opciones” nos llevará a la pantalla de Opciones(4), desde la cual podremos acceder a todos los elementos que podremos configurar dentro del juego. Habrá una pantalla cuadrada donde estarán recogidas todas las opciones en el centro de la pantalla: Podremos controlar el volumen general del juego, en una escala del 1 al 10; podremos cambiar el idioma del juego (de momento solo inglés y español) y activar y desactivar los efectos de sonido y la música.</p>
+<p>Esta pantalla compartirá el fondo con el menú principal, y poseerá una flecha en la esquina superior izquierda de la pantalla que nos retornará al menú principal.</p>
+
+**(4)Opciones:**
+
+![Opciones](Imagenes_readme/Modelo_opciones.png)
+
+<p>Si pulsamos en el Menú Principal (2) el botón de “Jugar” nos llevará a la pantalla de Selector de Niveles (5). Esta pantalla nos muestra todos los niveles que están disponibles en el juego en esa versión. Cada uno de los niveles estará representado por un botón con el nombre del nivel. Si pulsamos sobre uno de los niveles accederemos al mini-menú de ese nivel en concreto (5.1).</p>
+<p>Debajo y encima del botón de cada nivel estarán Erin y su sombra, respectivamente. Cuando seleccionemos otro nivel, ambas se moverán por las líneas dibujadas (rojo y verde) hasta que lleguen al nivel que hemos seleccionado. La línea de puntos es para indicar la progresión que tendrán los niveles.</p>
+<p>Desde un primer momento, solo estará disponible el nivel 1, por ende, los demás niveles estarán bloqueados y se verán en blanco y negro hasta que se desbloqueen. En el momento en el que se desbloquee un nivel, po En la esquina superior izquierda aparece una flecha que nos llevará a la pantalla de Menú Principal (2).</p>
+
+**(5)Selector de niveles:**
+
+![Selector](Imagenes_readme/Modelo_selector_niveles.png)
+
+**(5.1)Submenú selector de niveles:**
+
+<p>A la hora de clickar en cualquiera de los niveles que estén disponibles, nos aparecerá un submenú (5.1) que nos mostrará el título del nivel que vamos a jugar, el ranking de puntuación de dicho nivel, mostrando las 3 mejores puntuaciones que se han hecho en ese nivel. Debajo nos aparecerán dos botones, uno más grande, situado a la derecha, que nos llevará a jugar el nivel, y otro botón más pequeño, situado a la izquierda, que nos permitirá quitar este submenú y volver al selector de niveles (5). Adicionalmente, aparecerá miss teapot a la derecha del menú, y a la izquierda, su sombra. Ambas estarán enfrentadas (en simetría).</p>
+
+![MenuSelector](Imagenes_readme/Modelo_selector_niveles_nivel_seleccionado.png)
+
+**(6)In-Game:**
+
+<p>Si presionamos en el submenú del nivel (5.1) el botón de “Jugar”, nos llevará a la pantalla del propio nivel (6). En la pantalla del nivel tendremos lo que es el HUD, que nos mostrará la vida que tenemos actualmente en la esquina superior izquierda de la pantalla. En la parte central de la zona superior aparecerá un dibujo de una llave, siempre y cuando hayamos recogido alguna y no la hayamos usado. Por último, tendremos un botón con en la parte superior derecha de la pantalla que nos permitirá acceder al menú de opciones dentro de la partida (6.1).</p>
+
+![InGame](Imagenes_readme/Modelo_in_game.png)
+
+**(6.1)Opciones In-Game:**
+
+<p>Una vez accedamos al menú de opciones dentro de la partida, nos aparecerá un mini menú de opciones (6.1) donde podremos configurar distintos aspectos: primero tendremos una barra de nivel de volumen con niveles del 0 al 1; luego tendremos dos botones, el primero nos permite retornar la partida, y el segundo nos permite volver al Selector de Niveles (5).</p>
+
+![OpcionesGame](Imagenes_readme/Modelo_in_game_opciones.png)
+
+**(7)Fin del Juego:**
+
+<p>Una vez nos pasemos el nivel en cuestión, tendremos que coger una tetera dorada, la cual solo podrá coger Erin en su forma real, nos llevará a la pantalla de Fin de Juego (7), donde nos aparecerá un título felicitándonos por habernos pasado el nivel (Generalmente pondrá enhorabuena). Abajo nos saldrá el ranking actualizado tras la última jugada que hayas realizado al nivel. Por el resto, será igual que el ranking del submenú de selector de niveles(5.1)</p>
+
+![FinJuego](Imagenes_readme/Modelo_fin_juego.png)
+
+**Objetos / Coleccionables:**
+
+<p>**Llave Simple:**Una llave de un único uso dentro del mismo nivel que nos permite abrir una puerta que esté cerrada.</p>
+<p>**Bolsita de té:**Representa cada una de las vidas que tiene Erin. Cuando cogemos una en el escenario, se nos reestablece una vida. Cada vez Erin recibe daño, pierde una de las vidas.</p>
+<p>**Palanca:**Objeto que aparece dentro de los niveles para poder mover algún puente u obstáculo.</p>
+<p>**Interruptor:**Nos permite interactuar con las luces que hay en determinados niveles. Solo afectará a las luces que tienen el mismo símbolo que el propio interruptor.</p>
+<p>**Tetera dorada:**Nos indica el final del nivel que estamos jugando. Cuando se coge, se acaba el nivel en cuestión. Solo puede cogerla Erin, y no su sombra.</p>
+
+**Personajes:**
 
 
+<p>**Erin “Miss Teapot” Jameson:** Nuestra protagonista. Nació en uno de los barrios más pobres de Nueva Orleans, donde vivía con su madrastra. Su padre falleció siendo ella pequeña, y de su madre biológica no se sabe nada. Una intrépida ornitóloga, amante de los atardeceres al aire libre y del campo. Dedica su vida al cuidado de las aves: posee dos reservas naturales donde cuida a las aves en peligro de extinción, y a aquellas que no tengan hogar o estén enfermas. Ganó mucho dinero gracias a un libro que escribió unos años atrás, que fue Best-seller, con más de 7 ediciones, sobre cómo estudiar e investigar cada uno de los tipos de aves rapaces que existen en el mundo.</p>
+<p>Desde que tiene uso de razón, ha sido consciente de que tenía un poder que la hacía distinto del resto. Sin embargo, no fue hasta que tenía 12 años, cuando se dio cuenta de que podía controlarlo perfectamente, y cambiar entre su sombra y ella cuando quisiera.</p>
+<p>Un día descubrió que había una banda de mafiosos que se dedicaba al contrabando de aves exóticas. Esta noticia enfadó tanto a Erin que decidió poner fin a esto, pero no sabía dónde se metía, y ahora tiene un problema con ellos, y debe huir de la ciudad, ayudándose de su poder especial.</p>
+
+![Idle](Imagenes_readme/idle.png)
+
+![Idle2](Imagenes_readme/idle_2.png)
+
+<p>**William O’Callahan:** El jefe de la banda de criminales que se dedican al contrabando de aves. Es una persona ambiciosa, egoísta, y sumamente inteligente. Nació en un barrio humilde de Belfast, donde creció y se crio.</p>
+<p>Estuvo trabajando con su padre durante muchos años en la destilería ilegal que tenía su familia. Desde pequeño, aprendió cómo ganarse la vida de manera ilegal, sin que llegaran siquiera a sospechar de él.</p>
+<p>Le encantan los pajaritos extraños, pero más el dinero, así que decidió huir de su pueblo y dedicarse a la cría y venta de aves.</p>
+<p>Se mudó a EEUU con 27 años, allí conoció a un empresario que se dedicaba al contrabando de aves rapaces. Empezó a trabajar junto a él, hasta que vio que sus intereses no llegaban más allá de las águilas y los halcones, y decidió quitárselo de en medio. Ahora, él es el líder de la banda, y es respetado por todos sus súbditos. Se dedica al contrabando de todo tipo de especies de aves, siempre y cuando sean raras y valgan muchísimo dinero.</p>
 <p></p>
-<p></p>
-<p></p>
-
-**Mecánicas del juego:**
-
-<p align="justify">Nuestro jugador tendrá la oportunidad de experimentar todas las mecánicas clásicas de un juego de plataformas en dos dimensiones. Sin embargo, contará con el extra de una mecánica especial: podrá cambiar el control del personaje para jugar con su sombra, es decir, se podrá interactuar con la sombra de nuestra protagonista para sortear los obstáculos que nos encontraremos a lo largo de los niveles.</p>
-
-**Ejemplo de nivel:**
-
-<p>A continuación se muestra un ejemplo del nivel, se puede observar que la parte coloreada con bordes negros es el mundo real, mientras que la parte en color gris y sin color, es la parte por donde se mueve la sombra:</p>
-
-![Boceto](Imagenes_readme/Nivel1_01.png)
-
-<p>Aquí mostramos un ejemplo del juego propio de manera real, tal y como se vería en el juego: </p>
-
-![Nivel](Imagenes_readme/Escenario_real.PNG)
 
 **Prueba nuestro juego aquí:**
 
 <p>Github-pages: <strong>https://rainbow-teapot.github.io/RainbowTeapotGame/</strong> </p>
 
-**Desarrollado por Rainbow Teapot Studio. Todos los derechos reservados. 2019**
+**Equipo:**
+
+**Rainbow Teapot Studio**
 
 ![Logotipo](Imagenes_readme/RTLogo.png)
 
-**Integrantes del equipo de Rainbow Teapot Studios:**
 
 <p>Andrea Rodríguez González- Programador / Artista / Relaciones Públicas</p>
 
@@ -74,4 +183,6 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 <p>Juan Antonio Ruiz Ramirez- Ingeniero de Sonido</p>
 
 <p>Carlos Marques González - Game Designer / Level Designer</p>
+
+**Contacto:**
 
