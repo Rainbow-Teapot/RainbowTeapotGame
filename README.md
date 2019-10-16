@@ -1,7 +1,9 @@
 ﻿# Detectea Miss Teapot
 **Idea General:**
 
-![Tabla](Imagenes_readme/tabla.PNG)
+<p align="center">
+     <img src="Imagenes_readme/tabla.PNG">
+</p>
 
 **Contexto Histórico:**
 <p>Primera mitad del siglo XX. Estados Unidos. La mafia gobierna sobre muchas de las ciudades principales. Algunas de ellas todavía están recuperándose de la devastadora guerra civil del té que sufrió el país a finales del siglo XIX.</p>
@@ -34,9 +36,13 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 <p>Se nos mostrará un botón en la parte superior derecha de la pantalla, que nos permitirá acceder al menú de opciones dentro del juego. Adicionalmente, y por último, un indicador que nos mostrará el tiempo que llevamos jugando al nivel.</p>
 <p>También aparecerá una línea en la parte superior derecha de la pantalla, que nos indicará la progresión dentro del nivel.</p>
 
-![Interfaz_01](Imagenes_readme/Escenario_real.PNG)
+<p align="center">
+     <img src="Imagenes_readme/Escenario_real.PNG">
+</p>
 
-![Interfaz_02](Imagenes_readme/Captura.PNG)
+<p align="center">
+     <img src="Imagenes_readme/Captura.PNG">
+</p>
 
 **Niveles:**
 
@@ -75,13 +81,17 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 **Progesión del Juego:**
 
-![Diagrama](Imagenes_readme/Diagrama_De_Flujo.png)
+<p align="center">
+     <img src="Imagenes_readme/Diagrama_De_Flujo.png">
+</p>
 
 **(1) Inicio de Juego:**
 
 <p>El juego empezará en la pantalla de inicio de juego(1), la cual tendrá un botón “Empezar” que nos llevará al menú principal. A parte de este botón, se verá un fondo con la temática del juego, el título del propio juego y algún otro detalle más que se pensará más adelante.</p>
 
-![Inicio](Imagenes_readme/Modelo_Iniciar.png)
+<p align="center">
+     <img src="Imagenes_readme/Modelo_iniciar.png">
+</p>
 
 <p>Al pulsar el botón empezar, nos llevará al menú principal del juego (2), donde tendremos tres botones principales: “Jugar”, que nos llevará al selector de niveles del juego; “Opciones”, que nos permitirá acceder a las opciones y configuraciones que tendrá nuestro juego; y créditos, que nos llevará a la pantalla de créditos.</p>
 <p>Adicionalmente, tendremos un botón en la esquina superior derecha de la pantalla con el que podremos salir del juego(discutir que hará).</p>
@@ -90,21 +100,27 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 **(2) Menú principal:**
 
-![MenuPrincipal](Imagenes_readme/Modelo_menu_ppal.png)
+<p align="center">
+     <img src="Imagenes_readme/Modelo_menu_ppal.png">
+</p>
 
 <p>Si pulsamos en el Menú Principal (2) el botón de “Créditos”, nos mostrará una pantalla con el listado de los desarrolladores del videojuego(3), así como los roles que han desempeñado cada uno de los mismos. Tan solo contendrá un botón en forma de fecha en la esquina superior izquierda.</p>
 <p>Irá también acompañado de una música de fondo, distinta a la de otras pantalla que nos volverá al Menú Principal (2)</p>
 
 **(3) Créditos:**
 
-![Creditos](Imagenes_readme/Modelo_creditos.png)
+<p align="center">
+     <img src="Imagenes_readme/Modelo_creditos.png">
+</p>
 
 <p>Si pulsamos en el Menú Principal (2) el botón de “Opciones” nos llevará a la pantalla de Opciones(4), desde la cual podremos acceder a todos los elementos que podremos configurar dentro del juego. Habrá una pantalla cuadrada donde estarán recogidas todas las opciones en el centro de la pantalla: Podremos controlar el volumen general del juego, en una escala del 1 al 10; podremos cambiar el idioma del juego (de momento solo inglés y español) y activar y desactivar los efectos de sonido y la música.</p>
 <p>Esta pantalla compartirá el fondo con el menú principal, y poseerá una flecha en la esquina superior izquierda de la pantalla que nos retornará al menú principal.</p>
 
 **(4) Opciones:**
 
-![Opciones](Imagenes_readme/Modelo_opciones.png)
+<p align="center">
+     <img src="Imagenes_readme/Modelo_opciones.png">
+</p>
 
 <p>Si pulsamos en el Menú Principal (2) el botón de “Jugar” nos llevará a la pantalla de Selector de Niveles (5). Esta pantalla nos muestra todos los niveles que están disponibles en el juego en esa versión. Cada uno de los niveles estará representado por un botón con el nombre del nivel. Si pulsamos sobre uno de los niveles accederemos al mini-menú de ese nivel en concreto (5.1).</p>
 <p>Debajo y encima del botón de cada nivel estarán Erin y su sombra, respectivamente. Cuando seleccionemos otro nivel, ambas se moverán por las líneas dibujadas (rojo y verde) hasta que lleguen al nivel que hemos seleccionado. La línea de puntos es para indicar la progresión que tendrán los niveles.</p>
@@ -112,57 +128,80 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 **(5) Selector de niveles:**
 
-![Selector](Imagenes_readme/Modelo_selector_niveles.png)
+<p align="center">
+     <img src="Imagenes_readme/Modelo_selector_niveles.png">
+</p>
 
 **(5.1) Submenú selector de niveles:**
 
 <p>A la hora de clickar en cualquiera de los niveles que estén disponibles, nos aparecerá un submenú (5.1) que nos mostrará el título del nivel que vamos a jugar, el ranking de puntuación de dicho nivel, mostrando las 3 mejores puntuaciones que se han hecho en ese nivel. Debajo nos aparecerán dos botones, uno más grande, situado a la derecha, que nos llevará a jugar el nivel, y otro botón más pequeño, situado a la izquierda, que nos permitirá quitar este submenú y volver al selector de niveles (5). Adicionalmente, aparecerá miss teapot a la derecha del menú, y a la izquierda, su sombra. Ambas estarán enfrentadas (en simetría).</p>
 
-![MenuSelector](Imagenes_readme/Modelo_selector_niveles_nivel_seleccionado.png)
+<p align="center">
+     <img src="Imagenes_readme/Modelo_selector_niveles_nivel_seleccionado.png">
+</p>
 
 **(6) In-Game:**
 
 <p>Si presionamos en el submenú del nivel (5.1) el botón de “Jugar”, nos llevará a la pantalla del propio nivel (6). En la pantalla del nivel tendremos lo que es el HUD, que nos mostrará la vida que tenemos actualmente en la esquina superior izquierda de la pantalla. En la parte central de la zona superior aparecerá un dibujo de una llave, siempre y cuando hayamos recogido alguna y no la hayamos usado. Por último, tendremos un botón con en la parte superior derecha de la pantalla que nos permitirá acceder al menú de opciones dentro de la partida (6.1).</p>
 
-![InGame](Imagenes_readme/Modelo_in_game.png)
+<p align="center">
+     <img src="Imagenes_readme/Modelo_in_game.png">
+</p>
 
 **(6.1) Opciones In-Game:**
 
 <p>Una vez accedamos al menú de opciones dentro de la partida, nos aparecerá un mini menú de opciones (6.1) donde podremos configurar distintos aspectos: primero tendremos una barra de nivel de volumen con niveles del 0 al 1; luego tendremos dos botones, el primero nos permite retornar la partida, y el segundo nos permite volver al Selector de Niveles (5).</p>
 
-![OpcionesGame](Imagenes_readme/Modelo_in_game_opciones.png)
+<p align="center">
+     <img src="Imagenes_readme/Modelo_in_game_opciones.png">
+</p>
 
 **(7)Fin del Juego:**
 
 <p>Una vez nos pasemos el nivel en cuestión, tendremos que coger una tetera dorada, la cual solo podrá coger Erin en su forma real, nos llevará a la pantalla de Fin de Juego (7), donde nos aparecerá un título felicitándonos por habernos pasado el nivel (Generalmente pondrá enhorabuena). Abajo nos saldrá el ranking actualizado tras la última jugada que hayas realizado al nivel. Por el resto, será igual que el ranking del submenú de selector de niveles(5.1)</p>
 
-![FinJuego](Imagenes_readme/Modelo_fin_juego.png)
-
+<p align="center">
+     <img src="Imagenes_readme/Modelo_fin_juego.png">
+</p>
 **Objetos / Coleccionables:**
 
  **Llave Simple:** Una llave de un único uso dentro del mismo nivel que nos permite abrir una puerta que esté cerrada.</p>
 
-![llave](Imagenes_readme/llave.png)
+<p align="center">
+     <img src="Imagenes_readme/llave.png">
+</p>
 
  **Bolsita de té:** Representa cada una de las vidas que tiene Erin. Cuando cogemos una en el escenario, se nos reestablece una vida. Cada vez Erin recibe daño, pierde una de las vidas.
 
-![te](Imagenes_readme/bolsa_te.png)
+<p align="center">
+     <img src="Imagenes_readme/bolsa_te.png">
+</p>
 
  **Palanca:** Objeto que aparece dentro de los niveles para poder mover algún puente u obstáculo.
 
-![palanca_01](Imagenes_readme/palanca_derecha.png)
+<p align="center">
+     <img src="Imagenes_readme/palanca_derecha.png">
+</p>
 
-![palanca_02](Imagenes_readme/palanca_izquierda.png)
+<p align="center">
+     <img src="Imagenes_readme/palanca_izquierda.png">
+</p>
 
  **Interruptor:** Nos permite interactuar con las luces que hay en determinados niveles. Solo afectará a las luces que tienen el mismo símbolo que el propio interruptor.
 
-![interruptor_01](Imagenes_readme/interruptor_apagado.png)
+<p align="center">
+     <img src="Imagenes_readme/interruptor_apagado.png">
+</p>
 
-![interruptor_02](Imagenes_readme/interruptor_encendido.png)
+<p align="center">
+     <img src="Imagenes_readme/interruptor_encendido.png">
+</p>
 
  **Tetera dorada:** Nos indica el final del nivel que estamos jugando. Cuando se coge, se acaba el nivel en cuestión. Solo puede cogerla Erin, y no su sombra.
 
-![tet_dorada](Imagenes_readme/tetera_dorada.png)
+<p align="center">
+     <img src="Imagenes_readme/tetera_dorada.png">
+</p>
 
 **Personajes:**
 
@@ -170,9 +209,13 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 <p>Desde que tiene uso de razón, ha sido consciente de que tenía un poder que la hacía distinto del resto. Sin embargo, no fue hasta que tenía 12 años, cuando se dio cuenta de que podía controlarlo perfectamente, y cambiar entre su sombra y ella cuando quisiera.</p>
 <p>Un día descubrió que había una banda de mafiosos que se dedicaba al contrabando de aves exóticas. Esta noticia enfadó tanto a Erin que decidió poner fin a esto, pero no sabía dónde se metía, y ahora tiene un problema con ellos, y debe huir de la ciudad, ayudándose de su poder especial.</p>
 
-![Idle](Imagenes_readme/idle.png)
+<p align="center">
+     <img src="Imagenes_readme/idle.png">
+</p>
 
-![Idle2](Imagenes_readme/idle_2.png)
+<p align="center">
+     <img src="Imagenes_readme/idle_02.png">
+</p>
 
 **William O’Callahan:** El jefe de la banda de criminales que se dedican al contrabando de aves. Es una persona ambiciosa, egoísta, y sumamente inteligente. Nació en un barrio humilde de Belfast, donde creció y se crio.
 <p>Estuvo trabajando con su padre durante muchos años en la destilería ilegal que tenía su familia. Desde pequeño, aprendió cómo ganarse la vida de manera ilegal, sin que llegaran siquiera a sospechar de él.</p>
@@ -191,15 +234,15 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 ![Logotipo](Imagenes_readme/RTLogo.png)
 
 
-<p>Andrea Rodríguez González- Programador / Artista / Relaciones Públicas</p>
+<p align="center">Andrea Rodríguez González- Programador / Artista / Relaciones Públicas</p>
 
-<p>Marcos Agudo Alarcón - Programador / Relaciones Públicas </p>
+<p align="center">Marcos Agudo Alarcón - Programador / Relaciones Públicas </p>
 
-<p>Celia  Merino Valladolid- Artista</p>
+<p align="center">Celia  Merino Valladolid- Artista</p>
 
-<p>Juan Antonio Ruiz Ramirez- Ingeniero de Sonido</p>
+<p align="center">Juan Antonio Ruiz Ramirez- Ingeniero de Sonido</p>
 
-<p>Carlos Marques González - Game Designer / Level Designer</p>
+<p align="center">Carlos Marques González - Game Designer / Level Designer</p>
 
 **Contacto:**
 
@@ -207,16 +250,16 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
      <img src="Imagenes_readme/twitterlogodown.png">
 </p>
 
-<p align="center">[@RainbowTeapotSt](https://twitter.com/RainbowTeapotSt)</p>
+<p align="center">https://twitter.com/RainbowTeapotSt</p>
 
 <p align="center">
      <img width="256" height="256" src="Imagenes_readme/instagram-logo1.png">
 </p>
 
-<p align="center">[@Rainbowteapotst](https://www.instagram.com/rainbowteapotst/?hl=es)</p>
+<p align="center">https://www.instagram.com/rainbowteapotst/?hl=es</p>
 
 <p align="center">
-     <img width="256" height="256" src="Imagenes_readme/450_1000.png">
+     <img width="325" height="256" src="Imagenes_readme/450_1000.png">
 </p>
 
 <p align="center">rainbowteapotstudio@gmail.com</p>
