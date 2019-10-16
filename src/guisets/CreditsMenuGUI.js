@@ -22,7 +22,12 @@ CreditsMenuGUI.prototype.create = function(){
 
     //texto OPCIONES
     let textCredits = new Text(this.scene, i18n.translate(Game.lang, "credits"),viewportMiddleX,125,"60px CartoonRegular");
+    let text1 = new Text(this.scene, "Tetera 1",viewportMiddleX,210,"40px CartoonRegular");
+    let text2 = new Text(this.scene, "Tetera 2",viewportMiddleX,260,"40px CartoonRegular");
+    let text3 = new Text(this.scene, "Tetera 3",viewportMiddleX,310,"40px CartoonRegular");
+    let text4 = new Text(this.scene, "Tetera 4",viewportMiddleX,360,"40px CartoonRegular");
+    let text5 = new Text(this.scene, "Tetera 5",viewportMiddleX,410,"40px CartoonRegular");
 
     this.guiObjects.push(buttonBack);
-    this.guiSprites.push(textCredits);
+    this.guiSprites.push(textCredits, text1, text2, text3, text4, text5);
 };

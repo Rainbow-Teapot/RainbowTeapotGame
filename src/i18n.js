@@ -15,7 +15,8 @@ var i18n = {
         start: "EMPEZAR",
         lvl1: "Nivel 1",
         gameOver: "¡Te rompiste!",
-        loading: "Cargando..."
+        loading: "Cargando...",
+        tutorial: "controlsEsp"
     },
 
     eng:{
@@ -33,7 +34,8 @@ var i18n = {
         start: "START",
         lvl1: "Level 1",
         gameOver: "You broke!",
-        loading: "Loading..."
+        loading: "Loading...",
+        tutorial: "controlsEng"
 
     },
 

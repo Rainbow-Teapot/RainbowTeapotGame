@@ -19,33 +19,41 @@ TestScene.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "transition", "./assets/transition.png");
     Scene.prototype.loadToScene.call(this, "teapot", "./assets/teapot.png");
     Scene.prototype.loadToScene.call(this, "goldenTeapot", "./assets/objects/goldenTeapot.png");
+
     Scene.prototype.loadToScene.call(this, "door", "./assets/objects/door.png");
     Scene.prototype.loadToScene.call(this, "doorShadow", "./assets/objects/doorShadow.png");
+
     Scene.prototype.loadToScene.call(this, "key", "./assets/objects/key.png");
     Scene.prototype.loadToScene.call(this, "keyShadow", "./assets/objects/keyShadow.png");
     Scene.prototype.loadToScene.call(this, "keyOn", "./assets/objects/keyGUI.png");
     Scene.prototype.loadToScene.call(this, "keyOff", "./assets/objects/keyOffGUI.png");
+
     Scene.prototype.loadToScene.call(this, "teaLife", "./assets/objects/sobresTe.png");
+    Scene.prototype.loadToScene.call(this, "teaLifeShadow", "./assets/objects/teShadow.png");
     Scene.prototype.loadToScene.call(this, "teaLifeGUI", "./assets/objects/sobresTeGUI.png");
+
     Scene.prototype.loadToScene.call(this, "bridgeYShadow", "./assets/objects/puentesombra.png");
     Scene.prototype.loadToScene.call(this, "bridgeXShadow", "./assets//objects/puente2sombra.png");
     Scene.prototype.loadToScene.call(this, "bridgeY", "./assets/objects/puente.png");
     Scene.prototype.loadToScene.call(this, "bridgeX", "./assets/objects/puente2.png");
+
     Scene.prototype.loadToScene.call(this, "leverOn", "./assets/objects/palanca_derecha.png");
     Scene.prototype.loadToScene.call(this, "leverOff", "./assets/objects/palanca_izquierda.png");
     Scene.prototype.loadToScene.call(this, "leverOnShadow", "./assets/objects/palanca_derecha_sombra.png");
     Scene.prototype.loadToScene.call(this, "leverOffShadow", "./assets/objects/palanca_izquierda_sombra.png");
 
-    Scene.prototype.loadToScene.call(this,"lamp", "./assets/objects/lampara.png")
-    Scene.prototype.loadToScene.call(this,"lampShadow", "./assets/objects/lamparaShadow.png")
+    Scene.prototype.loadToScene.call(this,"lamp", "./assets/objects/lampara.png");
+    Scene.prototype.loadToScene.call(this,"lampShadow", "./assets/objects/lamparaShadow.png");
 
-    Scene.prototype.loadToScene.call(this,"switchOn", "./assets/objects/Interruptor_luz.png")
-    Scene.prototype.loadToScene.call(this,"switchOnShadow", "./assets/objects/Interruptor_luz_sombra.png")
-    Scene.prototype.loadToScene.call(this,"switchOff", "./assets/objects/Interruptor_luz_apagada.png")
-    Scene.prototype.loadToScene.call(this,"switchOffShadow", "./assets/objects/Interruptor_luz_apagado_sombra.png")
+    Scene.prototype.loadToScene.call(this,"switchOn", "./assets/objects/Interruptor_luz.png");
+    Scene.prototype.loadToScene.call(this,"switchOnShadow", "./assets/objects/Interruptor_luz_sombra.png");
+    Scene.prototype.loadToScene.call(this,"switchOff", "./assets/objects/Interruptor_luz_apagada.png");
+    Scene.prototype.loadToScene.call(this,"switchOffShadow", "./assets/objects/Interruptor_luz_apagado_sombra.png");    
+
+    Scene.prototype.loadToScene.call(this, "controlsEng", "./assets/objects/ControlesEng.png"); 
+    Scene.prototype.loadToScene.call(this, "controlsEsp", "./assets/objects/ControlesEsp.png");     
 
     //Aún por colocar
-    Scene.prototype.loadToScene.call(this, "teaLifeShadow", "./assets/objects/teShadow.png");
     Scene.prototype.loadToScene.call(this, "grid", "./assets/objects/reja.png");
     Scene.prototype.loadToScene.call(this, "gridShadow", "./assets/objects/rejaShadow.png");
 

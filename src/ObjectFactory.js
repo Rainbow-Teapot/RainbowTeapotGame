@@ -130,8 +130,11 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
 
             }
         }
-    }
-    else if (color.g == 64) {
+    } else if (color.g == 24) {
+        if (color.r == 0) {
+            new TutorialControls(this.scene, x-50, y+30, 1);     
+        }
+    } else if (color.g == 64) {
         if (color.b == 0) {
             //Obj damageBlock
             new DamageBlock(this.scene, x, y, 0, color.r);

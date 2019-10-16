@@ -15,7 +15,7 @@ var audio = {
 
         audio.music = new Audio(trackPath);
         audio.music.muted = false;
-        audio.music.volume = 0.3;
+        audio.music.volume = 0.5;
 
         if ((trackPath === audio.trackDefeat) || (trackPath === audio.trackVictory)) {
             audio.music.play();
