@@ -207,17 +207,23 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
      <img src="Imagenes_readme/twitterlogodown.png">
 </p>
 
-<p>[@RainbowTeapotSt](https://twitter.com/RainbowTeapotSt)</p>
+<p align="center">[@RainbowTeapotSt](https://twitter.com/RainbowTeapotSt)</p>
 
-![instagram](Imagenes_readme/instagram-logo1.png)
+<p align="center">
+     <img width="256" height="256" src="Imagenes_readme/instagram-logo1.png">
+</p>
 
-<p>[@Rainbowteapotst](https://www.instagram.com/rainbowteapotst/?hl=es)</p>
+<p align="center">[@Rainbowteapotst](https://www.instagram.com/rainbowteapotst/?hl=es)</p>
 
-![gmail](Imagenes_readme/450_1000.png)
+<p align="center">
+     <img width="256" height="256" src="Imagenes_readme/450_1000.png">
+</p>
 
-<p>rainbowteapotstudio@gmail.com</p>
+<p align="center">rainbowteapotstudio@gmail.com</p>
 
-![itchio](Imagenes_readme/itch-io_150445.png)
+<p align="center">
+     <img width="256" height="256" src="Imagenes_readme/itch-io_150445.png">
+</p>
 
-<p>RainbowTeapotStudio</p>
+<p align="center">RainbowTeapotStudio</p>
 
