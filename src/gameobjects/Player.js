@@ -169,8 +169,8 @@ Player.prototype.movement = function(){
 Player.prototype.objectInteraction = function(){
     let colDoor = physics.instancePlace(this,Math.sign(this.faceX) * 4,0,"Door");
     let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
-    let colLever = physics.instancePlace(this,Math.sign(this.faceX),0,"Lever");
-    let colSwitch = physics.instancePlace(this,Math.sign(this.faceX),0,"SwitchLight");
+    let colActionable = physics.instancePlace(this,Math.sign(this.faceX),0,"Actionable");
+    //let colSwitch = physics.instancePlace(this,Math.sign(this.faceX),0,"SwitchLight");
 
     if(colPickup && this.isAbleToInteractWith(colPickup)){
         colPickup.pickUp();
@@ -180,16 +180,16 @@ Player.prototype.objectInteraction = function(){
         if(colDoor && this.scene.objControl.numKeys > 0 && !this.isShadow){ 
             colDoor.perform();
         }
-        if(colLever && this.isAbleToInteractWith(colLever)){
+        if(colActionable && this.isAbleToInteractWith(colActionable)){
             console.log("me he topado con la lever");
-            colLever.action();
+            colActionable.action();
             
         }
-        if(colSwitch && this.isAbleToInteractWith(colSwitch)){
+        /*if(colSwitch && this.isAbleToInteractWith(colSwitch)){
             console.log("me he topado con la Switch");
             colSwitch.action();
             
-        }
+        }*/
     }
 
 

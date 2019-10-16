@@ -3,6 +3,7 @@ function Actionable(scene,x,y,depth,xActivable,yActivable){
     this.type.push("Actionable");
     this.posActivable = new Point(xActivable, yActivable);
     this.isActivated = false;
+    this.activableObject = "GameObject";
 }
 
 Actionable.prototype = Object.create(GameObject.prototype);
@@ -10,7 +11,7 @@ Actionable.prototype.constructor = Actionable;
 
 Actionable.prototype.action = function(){
     console.log(this.posActivable);
-    let activable = physics.instancePlace(null,this.posActivable.x, this.posActivable.y, "Bridge");
+    let activable = physics.instancePlace(null,this.posActivable.x, this.posActivable.y, this.activableObject);
     if(activable){
         activable.perform();
         this.isActivated = !this.isActivated;
