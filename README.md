@@ -77,32 +77,32 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 ![Diagrama](Imagenes_readme/Diagrama_De_Flujo.png)
 
-**(1)Inicio de Juego:**
+**(1) Inicio de Juego:**
 
 <p>El juego empezará en la pantalla de inicio de juego(1), la cual tendrá un botón “Empezar” que nos llevará al menú principal. A parte de este botón, se verá un fondo con la temática del juego, el título del propio juego y algún otro detalle más que se pensará más adelante.</p>
 
-![Inicio](Imagenes_readme/Modelo_iniciar.png)
+![Inicio](Imagenes_readme/Modelo_Iniciar.png)
 
 <p>Al pulsar el botón empezar, nos llevará al menú principal del juego (2), donde tendremos tres botones principales: “Jugar”, que nos llevará al selector de niveles del juego; “Opciones”, que nos permitirá acceder a las opciones y configuraciones que tendrá nuestro juego; y créditos, que nos llevará a la pantalla de créditos.</p>
 <p>Adicionalmente, tendremos un botón en la esquina superior derecha de la pantalla con el que podremos salir del juego(discutir que hará).</p>
 <p>A los laterales de los botones principales tendremos dos imágenes de Erin, una suya(derecha) y una de su sombra(izquierda), orientadas, ambas, hacia los botones. El título del juego aparecerá en grande encima de los botones y, por último, habrá un fondo de estilo parallax scrolling con temática parecida a la de la pantalla de Inicio de Juego(1)</p>
 <p>Todo esto irá acompañado de una música de fondo.</p>
 
-**(2)Menú principal:**
+**(2) Menú principal:**
 
 ![MenuPrincipal](Imagenes_readme/Modelo_menu_ppal.png)
 
 <p>Si pulsamos en el Menú Principal (2) el botón de “Créditos”, nos mostrará una pantalla con el listado de los desarrolladores del videojuego(3), así como los roles que han desempeñado cada uno de los mismos. Tan solo contendrá un botón en forma de fecha en la esquina superior izquierda.</p>
 <p>Irá también acompañado de una música de fondo, distinta a la de otras pantalla que nos volverá al Menú Principal (2)</p>
 
-**(3)Créditos:**
+**(3) Créditos:**
 
 ![Creditos](Imagenes_readme/Modelo_creditos.png)
 
 <p>Si pulsamos en el Menú Principal (2) el botón de “Opciones” nos llevará a la pantalla de Opciones(4), desde la cual podremos acceder a todos los elementos que podremos configurar dentro del juego. Habrá una pantalla cuadrada donde estarán recogidas todas las opciones en el centro de la pantalla: Podremos controlar el volumen general del juego, en una escala del 1 al 10; podremos cambiar el idioma del juego (de momento solo inglés y español) y activar y desactivar los efectos de sonido y la música.</p>
 <p>Esta pantalla compartirá el fondo con el menú principal, y poseerá una flecha en la esquina superior izquierda de la pantalla que nos retornará al menú principal.</p>
 
-**(4)Opciones:**
+**(4) Opciones:**
 
 ![Opciones](Imagenes_readme/Modelo_opciones.png)
 
@@ -110,23 +110,23 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 <p>Debajo y encima del botón de cada nivel estarán Erin y su sombra, respectivamente. Cuando seleccionemos otro nivel, ambas se moverán por las líneas dibujadas (rojo y verde) hasta que lleguen al nivel que hemos seleccionado. La línea de puntos es para indicar la progresión que tendrán los niveles.</p>
 <p>Desde un primer momento, solo estará disponible el nivel 1, por ende, los demás niveles estarán bloqueados y se verán en blanco y negro hasta que se desbloqueen. En el momento en el que se desbloquee un nivel, po En la esquina superior izquierda aparece una flecha que nos llevará a la pantalla de Menú Principal (2).</p>
 
-**(5)Selector de niveles:**
+**(5) Selector de niveles:**
 
 ![Selector](Imagenes_readme/Modelo_selector_niveles.png)
 
-**(5.1)Submenú selector de niveles:**
+**(5.1) Submenú selector de niveles:**
 
 <p>A la hora de clickar en cualquiera de los niveles que estén disponibles, nos aparecerá un submenú (5.1) que nos mostrará el título del nivel que vamos a jugar, el ranking de puntuación de dicho nivel, mostrando las 3 mejores puntuaciones que se han hecho en ese nivel. Debajo nos aparecerán dos botones, uno más grande, situado a la derecha, que nos llevará a jugar el nivel, y otro botón más pequeño, situado a la izquierda, que nos permitirá quitar este submenú y volver al selector de niveles (5). Adicionalmente, aparecerá miss teapot a la derecha del menú, y a la izquierda, su sombra. Ambas estarán enfrentadas (en simetría).</p>
 
 ![MenuSelector](Imagenes_readme/Modelo_selector_niveles_nivel_seleccionado.png)
 
-**(6)In-Game:**
+**(6) In-Game:**
 
 <p>Si presionamos en el submenú del nivel (5.1) el botón de “Jugar”, nos llevará a la pantalla del propio nivel (6). En la pantalla del nivel tendremos lo que es el HUD, que nos mostrará la vida que tenemos actualmente en la esquina superior izquierda de la pantalla. En la parte central de la zona superior aparecerá un dibujo de una llave, siempre y cuando hayamos recogido alguna y no la hayamos usado. Por último, tendremos un botón con en la parte superior derecha de la pantalla que nos permitirá acceder al menú de opciones dentro de la partida (6.1).</p>
 
 ![InGame](Imagenes_readme/Modelo_in_game.png)
 
-**(6.1)Opciones In-Game:**
+**(6.1) Opciones In-Game:**
 
 <p>Una vez accedamos al menú de opciones dentro de la partida, nos aparecerá un mini menú de opciones (6.1) donde podremos configurar distintos aspectos: primero tendremos una barra de nivel de volumen con niveles del 0 al 1; luego tendremos dos botones, el primero nos permite retornar la partida, y el segundo nos permite volver al Selector de Niveles (5).</p>
 
@@ -140,16 +140,34 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 **Objetos / Coleccionables:**
 
-<p>**Llave Simple:**Una llave de un único uso dentro del mismo nivel que nos permite abrir una puerta que esté cerrada.</p>
-<p>**Bolsita de té:**Representa cada una de las vidas que tiene Erin. Cuando cogemos una en el escenario, se nos reestablece una vida. Cada vez Erin recibe daño, pierde una de las vidas.</p>
-<p>**Palanca:**Objeto que aparece dentro de los niveles para poder mover algún puente u obstáculo.</p>
-<p>**Interruptor:**Nos permite interactuar con las luces que hay en determinados niveles. Solo afectará a las luces que tienen el mismo símbolo que el propio interruptor.</p>
-<p>**Tetera dorada:**Nos indica el final del nivel que estamos jugando. Cuando se coge, se acaba el nivel en cuestión. Solo puede cogerla Erin, y no su sombra.</p>
+<p> **Llave Simple:** Una llave de un único uso dentro del mismo nivel que nos permite abrir una puerta que esté cerrada.</p>
+
+![llave](Imagenes_readme/llave.png)
+
+ **Bolsita de té:** Representa cada una de las vidas que tiene Erin. Cuando cogemos una en el escenario, se nos reestablece una vida. Cada vez Erin recibe daño, pierde una de las vidas.
+
+![te](Imagenes_readme/bolsa_te.png)
+
+<p> **Palanca:** Objeto que aparece dentro de los niveles para poder mover algún puente u obstáculo.</p>
+
+![palanca_01](Imagenes_readme/palanca_derecha.png)
+
+![palanca_02](Imagenes_readme/palanca_izquierda.png)
+
+<p> **Interruptor:** Nos permite interactuar con las luces que hay en determinados niveles. Solo afectará a las luces que tienen el mismo símbolo que el propio interruptor.</p>
+
+![interruptor_01](Imagenes_readme/interruptor_apagado.png)
+
+![interruptor_02](Imagenes_readme/interruptor_encendido.png)
+
+<p> **Tetera dorada:** Nos indica el final del nivel que estamos jugando. Cuando se coge, se acaba el nivel en cuestión. Solo puede cogerla Erin, y no su sombra.</p>
+
+![tet_dorada](Imagenes_readme/tetera_dorada.png)
 
 **Personajes:**
 
 
-<p>**Erin “Miss Teapot” Jameson:** Nuestra protagonista. Nació en uno de los barrios más pobres de Nueva Orleans, donde vivía con su madrastra. Su padre falleció siendo ella pequeña, y de su madre biológica no se sabe nada. Una intrépida ornitóloga, amante de los atardeceres al aire libre y del campo. Dedica su vida al cuidado de las aves: posee dos reservas naturales donde cuida a las aves en peligro de extinción, y a aquellas que no tengan hogar o estén enfermas. Ganó mucho dinero gracias a un libro que escribió unos años atrás, que fue Best-seller, con más de 7 ediciones, sobre cómo estudiar e investigar cada uno de los tipos de aves rapaces que existen en el mundo.</p>
+<p> **Erin “Miss Teapot” Jameson:** Nuestra protagonista. Nació en uno de los barrios más pobres de Nueva Orleans, donde vivía con su madrastra. Su padre falleció siendo ella pequeña, y de su madre biológica no se sabe nada. Una intrépida ornitóloga, amante de los atardeceres al aire libre y del campo. Dedica su vida al cuidado de las aves: posee dos reservas naturales donde cuida a las aves en peligro de extinción, y a aquellas que no tengan hogar o estén enfermas. Ganó mucho dinero gracias a un libro que escribió unos años atrás, que fue Best-seller, con más de 7 ediciones, sobre cómo estudiar e investigar cada uno de los tipos de aves rapaces que existen en el mundo.</p>
 <p>Desde que tiene uso de razón, ha sido consciente de que tenía un poder que la hacía distinto del resto. Sin embargo, no fue hasta que tenía 12 años, cuando se dio cuenta de que podía controlarlo perfectamente, y cambiar entre su sombra y ella cuando quisiera.</p>
 <p>Un día descubrió que había una banda de mafiosos que se dedicaba al contrabando de aves exóticas. Esta noticia enfadó tanto a Erin que decidió poner fin a esto, pero no sabía dónde se metía, y ahora tiene un problema con ellos, y debe huir de la ciudad, ayudándose de su poder especial.</p>
 
@@ -157,7 +175,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 ![Idle2](Imagenes_readme/idle_2.png)
 
-<p>**William O’Callahan:** El jefe de la banda de criminales que se dedican al contrabando de aves. Es una persona ambiciosa, egoísta, y sumamente inteligente. Nació en un barrio humilde de Belfast, donde creció y se crio.</p>
+<p> **William O’Callahan:** El jefe de la banda de criminales que se dedican al contrabando de aves. Es una persona ambiciosa, egoísta, y sumamente inteligente. Nació en un barrio humilde de Belfast, donde creció y se crio.</p>
 <p>Estuvo trabajando con su padre durante muchos años en la destilería ilegal que tenía su familia. Desde pequeño, aprendió cómo ganarse la vida de manera ilegal, sin que llegaran siquiera a sospechar de él.</p>
 <p>Le encantan los pajaritos extraños, pero más el dinero, así que decidió huir de su pueblo y dedicarse a la cría y venta de aves.</p>
 <p>Se mudó a EEUU con 27 años, allí conoció a un empresario que se dedicaba al contrabando de aves rapaces. Empezó a trabajar junto a él, hasta que vio que sus intereses no llegaban más allá de las águilas y los halcones, y decidió quitárselo de en medio. Ahora, él es el líder de la banda, y es respetado por todos sus súbditos. Se dedica al contrabando de todo tipo de especies de aves, siempre y cuando sean raras y valgan muchísimo dinero.</p>
@@ -186,11 +204,12 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 **Contacto:**
 
-![twitter](Imagenes_readme/twitterlogodown.png)
+
+<img align="center" src="Imagenes_readme/twitterlogodown.png">
 
 <p>[@RainbowTeapotSt](https://twitter.com/RainbowTeapotSt)</p>
 
-![instagram](Imagenes_readme/istagram-logo1.png)
+![instagram](Imagenes_readme/instagram-logo1.png)
 
 <p>[@Rainbowteapotst](https://www.instagram.com/rainbowteapotst/?hl=es)</p>
 
