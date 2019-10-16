@@ -44,9 +44,12 @@ Sprite.prototype.draw = function(camera){
                                 this.width, this.height);
             
         }else{
-            context.drawImage(this.img,posAtViewPort.x , posAtViewPort.y );
+            context.drawImage(this.img, this.xInImage, this.yInImage,
+                                    this.width, this.height,
+                                    posAtViewPort.x , posAtViewPort.y,
+                                    this.width,this.height );
         }
-
+        
         context.globalAlpha = 1.0;
     }
 }

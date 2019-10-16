@@ -94,6 +94,8 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
         } else if (color.equals(new Color(255, 122, 122, 255))) {
             new TeaLife(this.scene, x, y - 16, 0, false);
             new TeaLife(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 0, true);
+        } else if(color.equals(new Color(0,0,0,255))){
+            new ShadowBlock(this.scene, x, y, 1);
         }
     }
 }

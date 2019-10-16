@@ -15,6 +15,7 @@ function Drawable(scene, img, x, y, xInImage, yInImage, width, height, depth){
     }
     this.scale = new Point(1.0,1.0);
     this.alpha = 1.0;
+    this.rot = 0;
     this.color = new Color(0,0,0,255);
 }
 

@@ -18,15 +18,15 @@ Bridge.prototype.prepareSprite = function (isShadow, faceY) {
     if (!isShadow) {
         
         if (faceY == -1) {
-            this.sprite = new Sprite(this.scene, "bridgeY", this.pos.x, this.pos.y - Game.TILE_SIZE * 2, 0, 0, Game.TILE_SIZE / 2, Game.TILE_SIZE * 3,0);
+            this.sprite = new Sprite(this.scene, "bridgeY", this.pos.x, this.pos.y - Game.TILE_SIZE * 2, 15, 0, Game.TILE_SIZE , Game.TILE_SIZE * 4,0);
         } else if (faceY == 1) {
-            this.sprite = new Sprite(this.scene, "bridgeY", this.pos.x, this.pos.y, 0, 0, Game.TILE_SIZE / 2, Game.TILE_SIZE * 3,0);
+            this.sprite = new Sprite(this.scene, "bridgeY", this.pos.x, this.pos.y, 15, 0, Game.TILE_SIZE , Game.TILE_SIZE * 4,0);
         }
     } else {
         if (faceY == -1) {
-            this.sprite = new Sprite(this.scene, "bridgeYShadow", this.pos.x, this.pos.y - Game.TILE_SIZE * 2, 0, 0, Game.TILE_SIZE / 2, Game.TILE_SIZE * 3,1);
+            this.sprite = new Sprite(this.scene, "bridgeYShadow", this.pos.x, this.pos.y - Game.TILE_SIZE * 2, 15, 0, Game.TILE_SIZE , Game.TILE_SIZE * 4,1);
         } else if (faceY == 1) {
-            this.sprite = new Sprite(this.scene, "bridgeYShadow", this.pos.x, this.pos.y, 0, 0, Game.TILE_SIZE / 2, Game.TILE_SIZE * 3,1);
+            this.sprite = new Sprite(this.scene, "bridgeYShadow", this.pos.x, this.pos.y, 15, 0, Game.TILE_SIZE , Game.TILE_SIZE * 4,1);
         }
     }
 }
@@ -96,12 +96,12 @@ Bridge.prototype.Off = function(actionedByHand){
         this.switchCollisions();
         
         if(!this.isShadow){
-            this.sprite = new Sprite(this.scene, "bridgeY", this.pos.x, this.pos.y - Game.TILE_SIZE * 2, 0, 0, Game.TILE_SIZE / 2, Game.TILE_SIZE * 3,0);
+            this.sprite = new Sprite(this.scene, "bridgeY", this.pos.x, this.pos.y - Game.TILE_SIZE * 2, 15, 0, Game.TILE_SIZE , Game.TILE_SIZE * 4,0);
             let shadowBridge = physics.instancePlace(null, this.pos.x, this.pos.y - Game.TILE_SIZE * this.scene.shadowLevel, "Bridge");
             if (shadowBridge)
                 shadowBridge.Off(actionedByHand);
         }else{
-            this.sprite = new Sprite(this.scene, "bridgeYShadow", this.pos.x, this.pos.y - Game.TILE_SIZE * 2, 0, 0, Game.TILE_SIZE / 2, Game.TILE_SIZE * 3,1);
+            this.sprite = new Sprite(this.scene, "bridgeYShadow", this.pos.x, this.pos.y - Game.TILE_SIZE * 2, 15, 0, Game.TILE_SIZE , Game.TILE_SIZE * 4,1);
             let colorBridge = physics.instancePlace(null, this.pos.x, this.pos.y + Game.TILE_SIZE * this.scene.shadowLevel, "Bridge");
             if (colorBridge)
                 colorBridge.Off(actionedByHand);
