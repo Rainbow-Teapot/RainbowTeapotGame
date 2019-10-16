@@ -140,7 +140,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 **Objetos / Coleccionables:**
 
-<p> **Llave Simple:** Una llave de un único uso dentro del mismo nivel que nos permite abrir una puerta que esté cerrada.</p>
+ **Llave Simple:** Una llave de un único uso dentro del mismo nivel que nos permite abrir una puerta que esté cerrada.</p>
 
 ![llave](Imagenes_readme/llave.png)
 
@@ -148,26 +148,25 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 ![te](Imagenes_readme/bolsa_te.png)
 
-<p> **Palanca:** Objeto que aparece dentro de los niveles para poder mover algún puente u obstáculo.</p>
+ **Palanca:** Objeto que aparece dentro de los niveles para poder mover algún puente u obstáculo.
 
 ![palanca_01](Imagenes_readme/palanca_derecha.png)
 
 ![palanca_02](Imagenes_readme/palanca_izquierda.png)
 
-<p> **Interruptor:** Nos permite interactuar con las luces que hay en determinados niveles. Solo afectará a las luces que tienen el mismo símbolo que el propio interruptor.</p>
+ **Interruptor:** Nos permite interactuar con las luces que hay en determinados niveles. Solo afectará a las luces que tienen el mismo símbolo que el propio interruptor.
 
 ![interruptor_01](Imagenes_readme/interruptor_apagado.png)
 
 ![interruptor_02](Imagenes_readme/interruptor_encendido.png)
 
-<p> **Tetera dorada:** Nos indica el final del nivel que estamos jugando. Cuando se coge, se acaba el nivel en cuestión. Solo puede cogerla Erin, y no su sombra.</p>
+ **Tetera dorada:** Nos indica el final del nivel que estamos jugando. Cuando se coge, se acaba el nivel en cuestión. Solo puede cogerla Erin, y no su sombra.
 
 ![tet_dorada](Imagenes_readme/tetera_dorada.png)
 
 **Personajes:**
 
-
-<p> **Erin “Miss Teapot” Jameson:** Nuestra protagonista. Nació en uno de los barrios más pobres de Nueva Orleans, donde vivía con su madrastra. Su padre falleció siendo ella pequeña, y de su madre biológica no se sabe nada. Una intrépida ornitóloga, amante de los atardeceres al aire libre y del campo. Dedica su vida al cuidado de las aves: posee dos reservas naturales donde cuida a las aves en peligro de extinción, y a aquellas que no tengan hogar o estén enfermas. Ganó mucho dinero gracias a un libro que escribió unos años atrás, que fue Best-seller, con más de 7 ediciones, sobre cómo estudiar e investigar cada uno de los tipos de aves rapaces que existen en el mundo.</p>
+ **Erin “Miss Teapot” Jameson:** Nuestra protagonista. Nació en uno de los barrios más pobres de Nueva Orleans, donde vivía con su madrastra. Su padre falleció siendo ella pequeña, y de su madre biológica no se sabe nada. Una intrépida ornitóloga, amante de los atardeceres al aire libre y del campo. Dedica su vida al cuidado de las aves: posee dos reservas naturales donde cuida a las aves en peligro de extinción, y a aquellas que no tengan hogar o estén enfermas. Ganó mucho dinero gracias a un libro que escribió unos años atrás, que fue Best-seller, con más de 7 ediciones, sobre cómo estudiar e investigar cada uno de los tipos de aves rapaces que existen en el mundo.
 <p>Desde que tiene uso de razón, ha sido consciente de que tenía un poder que la hacía distinto del resto. Sin embargo, no fue hasta que tenía 12 años, cuando se dio cuenta de que podía controlarlo perfectamente, y cambiar entre su sombra y ella cuando quisiera.</p>
 <p>Un día descubrió que había una banda de mafiosos que se dedicaba al contrabando de aves exóticas. Esta noticia enfadó tanto a Erin que decidió poner fin a esto, pero no sabía dónde se metía, y ahora tiene un problema con ellos, y debe huir de la ciudad, ayudándose de su poder especial.</p>
 
@@ -175,7 +174,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 ![Idle2](Imagenes_readme/idle_2.png)
 
-<p> **William O’Callahan:** El jefe de la banda de criminales que se dedican al contrabando de aves. Es una persona ambiciosa, egoísta, y sumamente inteligente. Nació en un barrio humilde de Belfast, donde creció y se crio.</p>
+**William O’Callahan:** El jefe de la banda de criminales que se dedican al contrabando de aves. Es una persona ambiciosa, egoísta, y sumamente inteligente. Nació en un barrio humilde de Belfast, donde creció y se crio.
 <p>Estuvo trabajando con su padre durante muchos años en la destilería ilegal que tenía su familia. Desde pequeño, aprendió cómo ganarse la vida de manera ilegal, sin que llegaran siquiera a sospechar de él.</p>
 <p>Le encantan los pajaritos extraños, pero más el dinero, así que decidió huir de su pueblo y dedicarse a la cría y venta de aves.</p>
 <p>Se mudó a EEUU con 27 años, allí conoció a un empresario que se dedicaba al contrabando de aves rapaces. Empezó a trabajar junto a él, hasta que vio que sus intereses no llegaban más allá de las águilas y los halcones, y decidió quitárselo de en medio. Ahora, él es el líder de la banda, y es respetado por todos sus súbditos. Se dedica al contrabando de todo tipo de especies de aves, siempre y cuando sean raras y valgan muchísimo dinero.</p>
@@ -204,8 +203,9 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 **Contacto:**
 
-
-<img align="center" src="Imagenes_readme/twitterlogodown.png">
+<p align="center">
+     <img src="Imagenes_readme/twitterlogodown.png">
+</p>
 
 <p>[@RainbowTeapotSt](https://twitter.com/RainbowTeapotSt)</p>
 
