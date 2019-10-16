@@ -186,3 +186,19 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 **Contacto:**
 
+![twitter](Imagenes_readme/twitterlogodown.png)
+
+<p>[@RainbowTeapotSt](https://twitter.com/RainbowTeapotSt)</p>
+
+![instagram](Imagenes_readme/istagram-logo1.png)
+
+<p>[@Rainbowteapotst](https://www.instagram.com/rainbowteapotst/?hl=es)</p>
+
+![gmail](Imagenes_readme/450_1000.png)
+
+<p>rainbowteapotstudio@gmail.com</p>
+
+![itchio](Imagenes_readme/itch-io_150445.png)
+
+<p>RainbowTeapotStudio</p>
+
