@@ -23,18 +23,17 @@
 <p>Nuestro jugador tendrá la oportunidad de experimentar todas las mecánicas clásicas de un juego de plataformas en dos dimensiones. Sin embargo, contará con el extra de una mecánica especial: podrá cambiar el control del personaje para jugar con su sombra, es decir, se podrá interactuar con la sombra de nuestra protagonista para sortear los obstáculos que nos encontraremos a lo largo de los niveles.</p>
 <p>¿Cómo funciona esta mecánica?, muy fácil: El jugador verá en todo momento en la pantalla al personaje y a su sombra, junto con el resto del nivel. Cuando el jugador lo considere oportuno, podrá elegir cambiar para controlar a la sombra del personaje. Mientras se controle al personaje, la sombra imitará los movimientos de éste, tal y como haría una sombra común. No obstante, cuando elijamos controlar a la sombra, nuestro personaje real se quedará inmóvil. La sombra solo podrá moverse por los bordes de las sombras que generen los objetos del escenario en concreto. Una vez se esté jugando con la sombra, para volver a jugar con el personaje real, bastará con pulsar de nuevo el botón correspondiente, y la cámara volverá al personaje real.</p>
 <p>Existirán momentos en los que dependeremos de lo que haga la sombra para poder avanzar dentro del nivel, mientras que habrá situaciones en las que tendremos que ayudar a la sombra para que pueda avanzar en su parte del escenario. 
-No podremos cambiar al modo sombra en cualquier momento, se tiene que dar la situación de que la sombra esté alineada con la sombra de algún objeto a modo de suelo. Si no, no pasará nada.</p>
-<p>Existen ciertos tipos de eventos que la sombra puede realizar y el personaje real no. La sombra puede, a parte de pasar por las paredes con rejilla, recibe daño si le da la luz directa de manera artificial, ya sea con bombillas, lámparas, farolas, etc.</p>
+No podremos cambiar al modo sombra en cualquier momento, se tiene que dar la situación de que la sombra esté alineada con la sombra de algún objeto a modo de suelo. Si no, no pasará nada. Por ejemplo, mientras el personaje está en el aire por un salto, no podremos cambiar al modo sombra, o viceversa, tendremos que esperar a que llegue al suelo.</p>
+<p>Existen ciertos tipos de eventos que la sombra puede realizar y el personaje real no. La sombra puede, aparte de pasar por las paredes con rejilla, recibir daño si le da la luz directa de manera artificial, ya sea con bombillas, lámparas, farolas, etc. Añadiendo que es inmune a las sombras de los pinchos, elemento que sí hace daño a Erin.</p>
 <p>La vista principal del juego consiste en un plano frontal, donde se ve el escenario real, con nuestro personaje real, y, encima de éste, el escenario proyectado por la sombra. Todo con vista en 2D.</p>
-<p>Los controles están basados en cualquier videojuego de plataformas en dos dimensiones: En el caso de que sea un jugador, podremos controlar al personaje usando las teclas “W, A, S y D” o las flechas de dirección. También se podrá saltar con el personaje, y hacer algún movimiento extra, como agacharse, todavía pendiente de evaluar. Sin embargo, si se juega en modo multijugador local, un jugador manejará la sombra con “W, A, S y D”, mientras que el otro manejará al personaje real con las flechas de dirección. Estos son los ajustes predeterminados, el jugador podrá elegir cambiar la configuración para invertir estos controles. 
-Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra y el modo normal.</p>
+<p>Los controles están basados en cualquier videojuego de plataformas en dos dimensiones: Podremos controlar al personaje usando las teclas “W, A, S y D” o las flechas de dirección. También se podrá saltar con el personaje.  
+Adicionalmente, se usará la tecla “Q” para cambiar entre el modo sombra y el modo normal y la tecla “E” para activar los objetos que sean necesarios en el nivel: una palanca, un interruptor, etc.</p>
 <p>No habrá sistema de guardar/cargar partida puesto que se trata de un juego rápido, habrá que pasarse los niveles enteros para poder acceder al siguiente. Lo único que se guardará será el progreso de los niveles, para no tener que empezar desde el principio cada vez que se cargue la página; y la puntuación del jugador dentro del nivel, que dependerá del tiempo que haya tardado en superar el nivel, o del número de veces que haya cambiado entre el modo sombra y el modo normal.</p>
 
 **Interfaces:**
 
-<p>El juego posee una interfaz un tanto sencilla: Para empezar, tenemos el HUD, que será básicamente un indicador de si estamos en el modo sombra o en el modo normal y una barra que indicará la vida del personaje. La vida puede perderse tanto en el modo sombra como el normal, y puede reestablecerse también en ambos modos.</p>
+<p>El juego posee una interfaz un tanto sencilla: Para empezar, tenemos el HUD, que estará compuesto básicamente por las tres bolsitas de té, que representan cada una de las vidas de Erin y el indicador de la llave. La vida puede perderse tanto en el modo sombra como el normal, y puede reestablecerse también en ambos modos.</p>
 <p>Se nos mostrará un botón en la parte superior derecha de la pantalla, que nos permitirá acceder al menú de opciones dentro del juego. Adicionalmente, y por último, un indicador que nos mostrará el tiempo que llevamos jugando al nivel.</p>
-<p>También aparecerá una línea en la parte superior derecha de la pantalla, que nos indicará la progresión dentro del nivel.</p>
 
 <p align="center">
      <img src="Imagenes_readme/Escenario_real.PNG">
@@ -47,11 +46,11 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 **Niveles:**
 
 <p>Los niveles serán individuales, y no tendrán una progresión directa, pero sí necesaria, es decir, no se verá una progresión explícita dentro de cada nivel, pero es necesario completar un nivel para poder pasar al siguiente.</p>
-<p>Todos los niveles se estructuran de la misma manera, empezamos en el lateral izquierdo de la pantalla al inicio, y para completarlo tendremos que avanzar a la derecha hasta el final del mismo. Dentro de cada nivel existen cambios de escenario, es decir, una vez que lleguemos al final de una escena del nivel, el escenario se moverá para dejarnos avanzar, pero seguiremos estando en el mismo nivel.</p>
-<p>Existirán ciertos niveles que requerirán obtener algún coleccionable u objeto para poder superarlo, así como accionar algún mecanismo o eventos similares. También habrá niveles que requerirán completarlos en un tiempo determinado, o que podrás cambiar un numero limitado de veces entre el modo sombra y el modo normal.</p>
+<p>Todos los niveles se estructuran de la misma manera, empezamos en el lateral izquierdo de la pantalla al inicio, y para completarlo tendremos que avanzar a la derecha hasta el final del mismo, y coger la tetera dorada para poder finalizarlo. </p>
+<p>Existirán ciertos niveles que requerirán obtener algún coleccionable u objeto para poder superarlo, así como accionar algún mecanismo o eventos similares. También habrá niveles que requerirán completarlos en un tiempo determinado, o que podrás cambiar un número limitado de veces entre el modo sombra y el modo normal (Niveles más avanzados).</p>
 <p>El objetivo de cada nivel es huir de los supuestos enemigos que nos persiguen, aunque no se verá explícitamente en el nivel que nos persigue alguien, simplemente se cuenta a modo informativo.</p>
 <p>Cuando se juegue el primer nivel, se incluirá un pequeño tutorial para explicar al jugador los controles y las mecánicas del juego, para que no haya lugar a dudas.</p>
-<p>En un principio, dentro de cada nivel no habrá ningún enemigo, pero si algún NPC. Podremos interactuar con ellos para que nos cuenten algún suceso curioso de la historia de los personajes principales del juego, o quizá algún consejo para ayudarnos a superar el nivel.</p>
+<p>En un principio, dentro de cada nivel no habrá ningún enemigo, pero si algún NPC. Podremos interactuar con ellos para que nos cuenten algún suceso curioso de la historia de los personajes principales del juego, o quizá algún consejo para ayudarnos a superar el nivel (Niveles más avanzados).</p>
 <p>Dentro de cada nivel, habrá elementos, pertenecientes al entorno, que podrán interactuar con el escenario, así como objetos que hieran a nuestra protagonista o a su propia sombra. Por ejemplo: Podrá haber zonas que sean puntiagudas o tengan pinchos, que puedan dañar al personaje real, o algún objeto que emita luz en el mundo de las sombras, y haga que la sombra se desvanezca en ese punto, haciendo que la sombra “se muera”.</p>
 <p>Cada nivel tendrá los mismos efectos de sonido, tanto para andar, saltar, superar un nivel, hablar con un NPC, desbloquear una puerta, accionar una palanca, coger un objeto, caerse al vacío, etc. A parte, se incorporará una música ambiental de fondo que ponga un poco más en situación dentro del juego.</p>
 
@@ -94,7 +93,6 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 </p>
 
 <p>Al pulsar el botón empezar, nos llevará al menú principal del juego (2), donde tendremos tres botones principales: “Jugar”, que nos llevará al selector de niveles del juego; “Opciones”, que nos permitirá acceder a las opciones y configuraciones que tendrá nuestro juego; y créditos, que nos llevará a la pantalla de créditos.</p>
-<p>Adicionalmente, tendremos un botón en la esquina superior derecha de la pantalla con el que podremos salir del juego(discutir que hará).</p>
 <p>A los laterales de los botones principales tendremos dos imágenes de Erin, una suya(derecha) y una de su sombra(izquierda), orientadas, ambas, hacia los botones. El título del juego aparecerá en grande encima de los botones y, por último, habrá un fondo de estilo parallax scrolling con temática parecida a la de la pantalla de Inicio de Juego(1)</p>
 <p>Todo esto irá acompañado de una música de fondo.</p>
 
@@ -242,25 +240,25 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 **Contacto:**
 
 <p align="center">
-     <img src="Imagenes_readme/twitterlogodown.png">
+     <img width="128" height="128"src="Imagenes_readme/twitterlogodown.png">
 </p>
 
 <p align="center">https://twitter.com/RainbowTeapotSt</p>
 
 <p align="center">
-     <img width="256" height="256" src="Imagenes_readme/instagram-logo1.png">
+     <img width="128" height="128" src="Imagenes_readme/instagram-logo1.png">
 </p>
 
 <p align="center">https://www.instagram.com/rainbowteapotst/?hl=es</p>
 
 <p align="center">
-     <img width="325" height="256" src="Imagenes_readme/450_1000.png">
+     <img width="175" height="128" src="Imagenes_readme/450_1000.png">
 </p>
 
 <p align="center">rainbowteapotstudio@gmail.com</p>
 
 <p align="center">
-     <img width="256" height="256" src="Imagenes_readme/itch-io_150445.png">
+     <img width="128" height="128" src="Imagenes_readme/itch-io_150445.png">
 </p>
 
 <p align="center">RainbowTeapotStudio</p>
