@@ -7,6 +7,7 @@ var Game = {
     scene: null,
     camera: null,
     TILE_SIZE: 64,
+    FRAM_RATE: 60,
     lang: 0,
     joystick: null,
     levels: [level1 = {width: 60,height: 18}],

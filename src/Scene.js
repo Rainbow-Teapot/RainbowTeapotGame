@@ -87,6 +87,7 @@ Scene.prototype.update = function(){
     if(this.isSceneLoaded){
         
         for(let i = 0; i < this.gameObjects.length; i++){
+            //console.log(this.gameObjects[i].type);
             this.gameObjects[i].update();
         }
         for(let i = 0; i < this.animations.length; i++){

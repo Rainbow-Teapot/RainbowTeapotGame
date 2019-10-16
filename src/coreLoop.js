@@ -36,18 +36,19 @@ var coreLoop = {
     en currentStamp tenemos el tiempo exacto en el que el bucle hace una iteración*/
     loop : function(currentStamp){
 
-        idRequest = window.requestAnimationFrame(coreLoop.loop);
+        setTimeout(function(){
+            idRequest = window.requestAnimationFrame(coreLoop.loop);
 
-        coreLoop.update(coreLoop.scene);
-        coreLoop.draw(coreLoop.scene);
-
-        if(currentStamp - coreLoop.lastStamp > 999){
-            coreLoop.lastStamp = currentStamp;
-            coreLoop.logProfile();
-            coreLoop.resetProfile();
-        }
-        input.reset(); 
-
+            coreLoop.update(coreLoop.scene);
+            coreLoop.draw(coreLoop.scene);
+    
+            if(currentStamp - coreLoop.lastStamp > 999){
+                coreLoop.lastStamp = currentStamp;
+                coreLoop.logProfile();
+                coreLoop.resetProfile();
+            }
+            input.reset(); 
+        },1000/Game.FRAME_RATE);
     },
     
     /*Imprime por consola los UPS y los FPS */

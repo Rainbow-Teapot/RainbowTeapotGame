@@ -18,35 +18,40 @@ Sprite.prototype.constructor = Sprite;
 /*Se utiliza la camara para cambiar de base y ajustarse al canvas*/
 Sprite.prototype.draw = function(camera){
 
-    var canvas = document.getElementById("viewport");
-    var context = canvas.getContext('2d');
-    let posAtCamera = this.pos.changeBase(camera.basis);
-    let posAtViewPort = posAtCamera.changeBase(viewport.basis);
+    if(this.isVisible){
+        var canvas = document.getElementById("viewport");
+        var context = canvas.getContext('2d');
+        let posAtCamera = this.pos.changeBase(camera.basis);
+        let posAtViewPort = posAtCamera.changeBase(viewport.basis);
 
-    context.globalAlpha = this.alpha;
-    
-    if(!this.img){
-            context.beginPath();
-            context.fillStyle = this.color.toHTML();
-            context.fillRect(posAtViewPort.x,posAtViewPort.y,this.width,this.height);
+        context.globalAlpha = this.alpha;
         
-    }else if (this.currentAnimation){
+        if(!this.img){
+                context.beginPath();
+                context.fillStyle = this.color.toHTML();
+                context.fillRect(posAtViewPort.x,posAtViewPort.y,this.width,this.height);
+            
+        }else if (this.currentAnimation){
 
+            
+            let frameToDraw = this.currentAnimation.currentFrame;            
+            let xOffsetOnImage = frameToDraw % this.imgWidthInSprite * this.width;
+            let yOffsetOnImage = Math.floor(frameToDraw / this.imgWidthInSprite) * this.height;
+            
+            context.drawImage(  this.img,xOffsetOnImage, yOffsetOnImage, 
+                                this.width, this.height, 
+                                posAtViewPort.x , posAtViewPort.y, 
+                                this.width, this.height);
+            
+        }else{
+            context.drawImage(this.img, this.xInImage, this.yInImage,
+                                    this.width, this.height,
+                                    posAtViewPort.x , posAtViewPort.y,
+                                    this.width,this.height );
+        }
         
-        let frameToDraw = this.currentAnimation.currentFrame;            
-        let xOffsetOnImage = frameToDraw % this.imgWidthInSprite * this.width;
-        let yOffsetOnImage = Math.floor(frameToDraw / this.imgWidthInSprite) * this.height;
-        
-        context.drawImage(  this.img,xOffsetOnImage, yOffsetOnImage, 
-                            this.width, this.height, 
-                            posAtViewPort.x , posAtViewPort.y, 
-                            this.width, this.height);
-        
-    }else{
-        context.drawImage(this.img,posAtViewPort.x , posAtViewPort.y );
+        context.globalAlpha = 1.0;
     }
-
-    context.globalAlpha = 1.0;
 }
 
 Sprite.prototype.blinkEffect = function(velFade){

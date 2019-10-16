@@ -36,6 +36,13 @@ TestScene.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "leverOnShadow", "./assets/objects/palanca_derecha_sombra.png");
     Scene.prototype.loadToScene.call(this, "leverOffShadow", "./assets/objects/palanca_izquierda_sombra.png");
 
+    Scene.prototype.loadToScene.call(this,"lamp", "./assets/objects/lampara.png")
+    Scene.prototype.loadToScene.call(this,"lampShadow", "./assets/objects/lamparaShadow.png")
+
+    Scene.prototype.loadToScene.call(this,"switchOn", "./assets/objects/Interruptor_luz.png")
+    Scene.prototype.loadToScene.call(this,"switchOnShadow", "./assets/objects/Interruptor_luz_sombra.png")
+    Scene.prototype.loadToScene.call(this,"switchOff", "./assets/objects/Interruptor_luz_apagada.png")
+    Scene.prototype.loadToScene.call(this,"switchOffShadow", "./assets/objects/Interruptor_luz_apagado_sombra.png")
 
     //Aún por colocar
     Scene.prototype.loadToScene.call(this, "teaLifeShadow", "./assets/objects/teShadow.png");
@@ -80,7 +87,7 @@ TestScene.prototype.create = function () {
     let bg2 = new Background(this, "bg2", 0, Game.TILE_SIZE*5  , -1);
     let bgPass = new Background(this, "bgPass", 0, 0, 0);
 
-    let fg = new Foreground(this, "fg1", 0, Game.TILE_SIZE, 0);
+    //let fg = new Foreground(this, "fg1", 0, Game.TILE_SIZE, 0);
 
     //DESDOBLE SOMBRA/COLOR
     let colorPlayer = this.objControl.colorPlayer;

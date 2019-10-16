@@ -12,22 +12,17 @@ var input = {
     init: function () {
         //document.onkeydown = input.saveKey;
         document.onkeyup = input.removeKey;
+        document.onkeydown = input.saveKey; 
 
         document.addEventListener('keydown', function (e) {
             if (e.altKey || e.keyCode === 9 || e.ctrlKey || e.shiftKey || e.metaKey) {
-                console.log("FUERA");
                 e.preventDefault();
                 e.stopPropagation();
                 return;
             }
-            else {
-                console.log("NO es alt");
-                document.onkeydown = input.saveKey; 
-            }
         }, { passive: false });
         
         document.addEventListener( 'dblclick', function(event) {  
-            console.log("Double click"); 
             event.preventDefault();  
             event.stopPropagation(); 
           }, { passive: false }
