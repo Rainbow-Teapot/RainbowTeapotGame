@@ -90,7 +90,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 <p>El juego empezará en la pantalla de inicio de juego(1), la cual tendrá un botón “Empezar” que nos llevará al menú principal. A parte de este botón, se verá un fondo con la temática del juego, el título del propio juego y algún otro detalle más que se pensará más adelante.</p>
 
 <p align="center">
-     <img src="Imagenes_readme/Modelo_iniciar.png">
+     <img src="Imagenes_readme/Modelo_Iniciar.png">
 </p>
 
 <p>Al pulsar el botón empezar, nos llevará al menú principal del juego (2), donde tendremos tres botones principales: “Jugar”, que nos llevará al selector de niveles del juego; “Opciones”, que nos permitirá acceder a las opciones y configuraciones que tendrá nuestro juego; y créditos, que nos llevará a la pantalla de créditos.</p>
@@ -181,9 +181,6 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 <p align="center">
      <img src="Imagenes_readme/palanca_derecha.png">
-</p>
-
-<p align="center">
      <img src="Imagenes_readme/palanca_izquierda.png">
 </p>
 
@@ -191,9 +188,6 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 
 <p align="center">
      <img src="Imagenes_readme/interruptor_apagado.png">
-</p>
-
-<p align="center">
      <img src="Imagenes_readme/interruptor_encendido.png">
 </p>
 
@@ -214,7 +208,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 </p>
 
 <p align="center">
-     <img src="Imagenes_readme/idle_02.png">
+     <img src="Imagenes_readme/idle_2.png">
 </p>
 
 **William O’Callahan:** El jefe de la banda de criminales que se dedican al contrabando de aves. Es una persona ambiciosa, egoísta, y sumamente inteligente. Nació en un barrio humilde de Belfast, donde creció y se crio.
