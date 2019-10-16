@@ -1,45 +1,54 @@
 function Lever(scene,x,y,depth,isShadow,xActivable,yActivable){
-    GameObject.call(this,scene,x,y,depth);
+    Actionable.call(this,scene,x,y,depth,xActivable,yActivable);
     this.type.push("Lever");
     this.isShadow = isShadow;
-    this.posActivable = new Point(xActivable, yActivable);
     this.collider = new Collider(this,this.pos.x,this.pos.y,this.width,this.height,0,0);
-    this.alreadyActioned = false;
     this.prepareSprite(this.isShadow);
+    this.activableObject = "Bridge";
 }
 
-Lever.prototype = Object.create(GameObject.prototype);
+Lever.prototype = Object.create(Actionable.prototype);
 Lever.prototype.constructor = Lever;
 
 Lever.prototype.prepareSprite = function(isShadow){
     if(!isShadow){
-        this.sprite = new Sprite(this.scene,"leverOff",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2);
+        this.sprite = new Sprite(this.scene,"leverOff",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE);
     }else{
-        this.sprite = new Sprite(this.scene,"leverOffShadow",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2);
+        this.sprite = new Sprite(this.scene,"leverOffShadow",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE);
     }
 }
 
-Lever.prototype.action = function(){
-    console.log(this.posActivable);
-    let activable = physics.instancePlace(null,this.posActivable.x, this.posActivable.y, "Bridge");
-    if(activable && !this.alreadyActioned){
-        activable.perform();
-        this.alreadyActioned = true;
+Lever.prototype.On = function(actionedByHand){
+
+    if(actionedByHand > 0){
+        this.sprite.destroy();
+        actionedByHand--;
         if(!this.isShadow){
-            this.sprite.destroy();
-            this.sprite = new Sprite(this.scene,"leverOn",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2);
+            this.sprite = new Sprite(this.scene,"leverOn",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE);
             let shadowOther =  physics.instancePlace(null,this.pos.x, this.pos.y - Game.TILE_SIZE*this.scene.shadowLevel, "Lever");
-            shadowOther.action();
+            shadowOther.On(actionedByHand);
         }else{
-            this.sprite.destroy();
-            this.sprite = new Sprite(this.scene,"leverOnShadow",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2);
+            this.sprite = new Sprite(this.scene,"leverOnShadow",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE);
             let colorOther =  physics.instancePlace(null,this.pos.x, this.pos.y + Game.TILE_SIZE*this.scene.shadowLevel, "Lever");
-            colorOther.action();
+            colorOther.On(actionedByHand);
         }
-        
-        console.log("he activado el puente");
-    }else{
-        console.log("No he encontrado nada");
+    }
+}
+
+Lever.prototype.Off = function(actionedByHand){
+
+    if(actionedByHand > 0){
+        this.sprite.destroy();
+        actionedByHand--;
+        if(!this.isShadow){
+            this.sprite = new Sprite(this.scene,"leverOff",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE);
+            let shadowOther =  physics.instancePlace(null,this.pos.x, this.pos.y - Game.TILE_SIZE*this.scene.shadowLevel, "Lever");
+            shadowOther.Off(actionedByHand);
+        }else{
+            this.sprite = new Sprite(this.scene,"leverOffShadow",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE);
+            let colorOther =  physics.instancePlace(null,this.pos.x, this.pos.y + Game.TILE_SIZE*this.scene.shadowLevel, "Lever");
+            colorOther.Off(actionedByHand);
+        }
     }
 }
 

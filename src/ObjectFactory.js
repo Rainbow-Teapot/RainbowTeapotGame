@@ -31,23 +31,34 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
 
     } if (color.a == 128) {
 
+        //objeto luz
+        if(color.b >= 198 && color.b <= 202){
+            new Light(this.scene,x,y,0,false,color.r,color.g);
+            new Light(this.scene,x,y - Game.TILE_SIZE * this.scene.shadowLevel,1,true,color.r,color.g);
+            console.log("se ha cerad la luz");
         //objeto palanca
-        if (color.b == 64) {
+        }else if (color.b == 64) {
             if (color.r % 5 == 1) color.r--;
             if (color.g % 5 == 4) color.g--;
             console.log(color.r);
             console.log(color.g);
             new Lever(this.scene, x, y, 0, false, color.r * Game.TILE_SIZE, color.g * Game.TILE_SIZE);
             new Lever(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 0, true, color.r * Game.TILE_SIZE, color.g * Game.TILE_SIZE);
+            
+            //obj swicthLight
+        } else if (color.r == 100){
+            color.b--;
+            new SwitchLight(this.scene,x,y,0,false,color.g * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
+            new SwitchLight(this.scene,x,y - Game.TILE_SIZE * this.scene.shadowLevel,1,true,color.g * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
             //objeto puente levadizo
-        } else if (color.r == 122 && color.g == 255) {
+        }else if (color.r == 122 && color.g == 255) {
             if (color.b == 255) {
                 new Bridge(this.scene, x, y, 0, false, -1);
                 new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, -1);
 
             } else if (color.b == 128) {
-                new Bridge(this.scene, x, y, 0, false, 1);
-                new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1);
+                //new Bridge(this.scene, x, y, 0, false, 1);
+                //new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1);
 
             }
             //objeto plataforma móvil     
@@ -83,6 +94,8 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
         } else if (color.equals(new Color(255, 122, 122, 255))) {
             new TeaLife(this.scene, x, y - 16, 0, false);
             new TeaLife(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 0, true);
+        } else if(color.equals(new Color(0,0,0,255))){
+            new ShadowBlock(this.scene, x, y, 1);
         }
     }
 }
