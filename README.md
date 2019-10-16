@@ -90,7 +90,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 <p>El juego empezará en la pantalla de inicio de juego(1), la cual tendrá un botón “Empezar” que nos llevará al menú principal. A parte de este botón, se verá un fondo con la temática del juego, el título del propio juego y algún otro detalle más que se pensará más adelante.</p>
 
 <p align="center">
-     <img src="Imagenes_readme/Modelo_Iniciar.png">
+     <img width="640" height="480" src="Imagenes_readme/Modelo_Iniciar.png">
 </p>
 
 <p>Al pulsar el botón empezar, nos llevará al menú principal del juego (2), donde tendremos tres botones principales: “Jugar”, que nos llevará al selector de niveles del juego; “Opciones”, que nos permitirá acceder a las opciones y configuraciones que tendrá nuestro juego; y créditos, que nos llevará a la pantalla de créditos.</p>
@@ -101,7 +101,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 **(2) Menú principal:**
 
 <p align="center">
-     <img src="Imagenes_readme/Modelo_menu_ppal.png">
+     <img width="640" height="480" src="Imagenes_readme/Modelo_menu_ppal.png">
 </p>
 
 <p>Si pulsamos en el Menú Principal (2) el botón de “Créditos”, nos mostrará una pantalla con el listado de los desarrolladores del videojuego(3), así como los roles que han desempeñado cada uno de los mismos. Tan solo contendrá un botón en forma de fecha en la esquina superior izquierda.</p>
@@ -110,7 +110,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 **(3) Créditos:**
 
 <p align="center">
-     <img src="Imagenes_readme/Modelo_creditos.png">
+     <img width="640" height="480" src="Imagenes_readme/Modelo_creditos.png">
 </p>
 
 <p>Si pulsamos en el Menú Principal (2) el botón de “Opciones” nos llevará a la pantalla de Opciones(4), desde la cual podremos acceder a todos los elementos que podremos configurar dentro del juego. Habrá una pantalla cuadrada donde estarán recogidas todas las opciones en el centro de la pantalla: Podremos controlar el volumen general del juego, en una escala del 1 al 10; podremos cambiar el idioma del juego (de momento solo inglés y español) y activar y desactivar los efectos de sonido y la música.</p>
@@ -119,7 +119,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 **(4) Opciones:**
 
 <p align="center">
-     <img src="Imagenes_readme/Modelo_opciones.png">
+     <img width="640" height="480" src="Imagenes_readme/Modelo_opciones.png">
 </p>
 
 <p>Si pulsamos en el Menú Principal (2) el botón de “Jugar” nos llevará a la pantalla de Selector de Niveles (5). Esta pantalla nos muestra todos los niveles que están disponibles en el juego en esa versión. Cada uno de los niveles estará representado por un botón con el nombre del nivel. Si pulsamos sobre uno de los niveles accederemos al mini-menú de ese nivel en concreto (5.1).</p>
@@ -129,7 +129,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 **(5) Selector de niveles:**
 
 <p align="center">
-     <img src="Imagenes_readme/Modelo_selector_niveles.png">
+     <img width="640" height="480" src="Imagenes_readme/Modelo_selector_niveles.png">
 </p>
 
 **(5.1) Submenú selector de niveles:**
@@ -137,7 +137,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 <p>A la hora de clickar en cualquiera de los niveles que estén disponibles, nos aparecerá un submenú (5.1) que nos mostrará el título del nivel que vamos a jugar, el ranking de puntuación de dicho nivel, mostrando las 3 mejores puntuaciones que se han hecho en ese nivel. Debajo nos aparecerán dos botones, uno más grande, situado a la derecha, que nos llevará a jugar el nivel, y otro botón más pequeño, situado a la izquierda, que nos permitirá quitar este submenú y volver al selector de niveles (5). Adicionalmente, aparecerá miss teapot a la derecha del menú, y a la izquierda, su sombra. Ambas estarán enfrentadas (en simetría).</p>
 
 <p align="center">
-     <img src="Imagenes_readme/Modelo_selector_niveles_nivel_seleccionado.png">
+     <img width="640" height="480" src="Imagenes_readme/Modelo_selector_niveles_nivel_seleccionado.png">
 </p>
 
 **(6) In-Game:**
@@ -145,7 +145,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 <p>Si presionamos en el submenú del nivel (5.1) el botón de “Jugar”, nos llevará a la pantalla del propio nivel (6). En la pantalla del nivel tendremos lo que es el HUD, que nos mostrará la vida que tenemos actualmente en la esquina superior izquierda de la pantalla. En la parte central de la zona superior aparecerá un dibujo de una llave, siempre y cuando hayamos recogido alguna y no la hayamos usado. Por último, tendremos un botón con en la parte superior derecha de la pantalla que nos permitirá acceder al menú de opciones dentro de la partida (6.1).</p>
 
 <p align="center">
-     <img src="Imagenes_readme/Modelo_in_game.png">
+     <img width="640" height="480" src="Imagenes_readme/Modelo_in_game.png">
 </p>
 
 **(6.1) Opciones In-Game:**
@@ -153,7 +153,7 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 <p>Una vez accedamos al menú de opciones dentro de la partida, nos aparecerá un mini menú de opciones (6.1) donde podremos configurar distintos aspectos: primero tendremos una barra de nivel de volumen con niveles del 0 al 1; luego tendremos dos botones, el primero nos permite retornar la partida, y el segundo nos permite volver al Selector de Niveles (5).</p>
 
 <p align="center">
-     <img src="Imagenes_readme/Modelo_in_game_opciones.png">
+     <img width="640" height="480" src="Imagenes_readme/Modelo_in_game_opciones.png">
 </p>
 
 **(7)Fin del Juego:**
@@ -161,8 +161,9 @@ Adicionalmente, se usará la tecla “Shift” para cambiar entre el modo sombra
 <p>Una vez nos pasemos el nivel en cuestión, tendremos que coger una tetera dorada, la cual solo podrá coger Erin en su forma real, nos llevará a la pantalla de Fin de Juego (7), donde nos aparecerá un título felicitándonos por habernos pasado el nivel (Generalmente pondrá enhorabuena). Abajo nos saldrá el ranking actualizado tras la última jugada que hayas realizado al nivel. Por el resto, será igual que el ranking del submenú de selector de niveles(5.1)</p>
 
 <p align="center">
-     <img src="Imagenes_readme/Modelo_fin_juego.png">
+     <img width="640" height="480" src="Imagenes_readme/Modelo_fin_juego.png">
 </p>
+
 **Objetos / Coleccionables:**
 
  **Llave Simple:** Una llave de un único uso dentro del mismo nivel que nos permite abrir una puerta que esté cerrada.</p>
