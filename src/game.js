@@ -11,6 +11,7 @@ var Game = {
     lang: 0,
     joystick: null,
     levels: [level1 = {width: 60,height: 18}],
+    langs: ["ENG","SPN"],
     /*crea el juego, inicia el viewport (canvas), asigna la escena e inicia el GAMELOOP*/
     createGame : function(scene, posx, posy, width, height){
         Game.width = width;

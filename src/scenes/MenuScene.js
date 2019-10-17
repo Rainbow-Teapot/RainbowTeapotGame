@@ -1,6 +1,6 @@
 function MenuScene(width, height) {
     Scene.call(this, width, height);
-    this.transition = new Transition;
+    this.transition = new Transition();
     this.track = audio.trackMenu;
 
 }
