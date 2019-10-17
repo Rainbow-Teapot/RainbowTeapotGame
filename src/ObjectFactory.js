@@ -123,6 +123,10 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
             } else if (color.b == 128) {
                 //Obj golden teapot
                 new GoldenTeapot(this.scene, x, y, 0);
+            } else if (color.b == 192) {
+                //Obj golden spoon
+                new GoldenSpoon(this.scene, x, y - 16, 0, false);
+                new GoldenSpoon(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 0, true);
             } else if (color.b == 255) {
                 //Obj teaLife 
                 new TeaLife(this.scene, x, y - 16, 0, false);
@@ -132,7 +136,7 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
         }
     } else if (color.g == 24) {
         if (color.r == 0) {
-            new TutorialControls(this.scene, x-50, y+30, 1);     
+            new TutorialControls(this.scene, x - 50, y + 20, 1);
         }
     } else if (color.g == 64) {
         if (color.b == 0) {

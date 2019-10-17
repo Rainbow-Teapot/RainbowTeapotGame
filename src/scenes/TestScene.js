@@ -53,6 +53,9 @@ TestScene.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "controlsEng", "./assets/objects/ControlesEng.png"); 
     Scene.prototype.loadToScene.call(this, "controlsEsp", "./assets/objects/ControlesEsp.png");     
 
+    Scene.prototype.loadToScene.call(this, "goldenSpoon", "./assets/objects/goldenSpoon.png"); 
+    Scene.prototype.loadToScene.call(this, "goldenSpoonShadow", "./assets/objects/goldenSpoonShadow.png");  
+
     //Aún por colocar
     Scene.prototype.loadToScene.call(this, "grid", "./assets/objects/reja.png");
     Scene.prototype.loadToScene.call(this, "gridShadow", "./assets/objects/rejaShadow.png");
@@ -95,7 +98,7 @@ TestScene.prototype.create = function () {
     let bg2 = new Background(this, "bg2", 0, Game.TILE_SIZE*5  , -1);
     let bgPass = new Background(this, "bgPass", 0, 0, 0);
 
-    //let fg = new Foreground(this, "fg1", 0, Game.TILE_SIZE, 0);
+    let fg = new Foreground(this, "fg1", 0, Game.TILE_SIZE, 0);
 
     //DESDOBLE SOMBRA/COLOR
     let colorPlayer = this.objControl.colorPlayer;
