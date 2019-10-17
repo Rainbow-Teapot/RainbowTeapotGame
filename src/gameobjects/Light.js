@@ -59,34 +59,34 @@ Light.prototype.prepareDamageBlocks = function(){
 Light.prototype.prepareSprite = function(){
 
     let strSprite = "lamp";
-
+    let depth = 0;
     if(this.isShadow){
         strSprite += "Shadow";
+        depth = 1;
     }
 
     if(this.faceX == 1){
-        this.sprite = new Sprite(this.scene,strSprite,0,0,Game.TILE_SIZE,Game.TILE_SIZE,Game.TILE_SIZE,Game.TILE_SIZE);
+        this.sprite = new Sprite(this.scene,strSprite,0,0,Game.TILE_SIZE,Game.TILE_SIZE,Game.TILE_SIZE,Game.TILE_SIZE,depth);
     }else if(this.faceX == -1){
-        this.sprite = new Sprite(this.scene,strSprite,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE,Game.TILE_SIZE);
+        this.sprite = new Sprite(this.scene,strSprite,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE,Game.TILE_SIZE,depth);
     }else if(this.faceY == 1){
-        this.sprite = new Sprite(this.scene,strSprite,0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE);
+        this.sprite = new Sprite(this.scene,strSprite,0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE,depth);
     }else if(this.faceY == -1){
-        this.sprite = new Sprite(this.scene,strSprite,0,0,Game.TILE_SIZE,0,Game.TILE_SIZE,Game.TILE_SIZE);
+        this.sprite = new Sprite(this.scene,strSprite,0,0,Game.TILE_SIZE,0,Game.TILE_SIZE,Game.TILE_SIZE,depth);
     }
-    
 }
 
 Light.prototype.On = function(){
     this.activated = true;
     for(let i = 0; i < this.damageShadowBlocks.length; i++ ){
-        this.damageShadowBlocks[i].disable = true;
+        this.damageShadowBlocks[i].disable = false;
     }
 }
 
 Light.prototype.Off = function(){
     this.activated = false;
     for(let i = 0; i < this.damageShadowBlocks.length; i++ ){
-        this.damageShadowBlocks[i].disable = false;
+        this.damageShadowBlocks[i].disable = true;
     }
 }
 

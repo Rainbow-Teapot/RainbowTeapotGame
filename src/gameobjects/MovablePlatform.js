@@ -34,9 +34,9 @@ Movable.prototype.prepareSprite = function (isShadow) {
     let sprite = null;
 
     if (!isShadow) {
-        sprite = new Sprite(this.scene, "movablePlatform", 0, 0, 0, 0, Game.TILE_SIZE, Game.TILE_SIZE, 0);
+        sprite = new Sprite(this.scene, "movablePlatform", 0, 0, 0, 0, Game.TILE_SIZE * 4, Game.TILE_SIZE, 0);
     } else {
-        sprite = new Sprite(this.scene, "movablePlatformShadow", 0, 0, 0, 0, Game.TILE_SIZE, Game.TILE_SIZE, 0);
+        sprite = new Sprite(this.scene, "movablePlatformShadow", 0, 0, 0, 0, Game.TILE_SIZE * 4, Game.TILE_SIZE, 0);
     }
 
     return sprite;

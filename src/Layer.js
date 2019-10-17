@@ -22,6 +22,12 @@ Layer.prototype.draw = function(camera){
     }
 }
 
+Layer.prototype.console = function(){
+    for(let i = 0; i < this.elements.length; i++){
+        console.log(this.elements[i].depth);
+    }
+}
+
 Layer.prototype.sortByDepth = function(){
     this.elements.sort(function(a,b){
         if(a.depth > b.depth){

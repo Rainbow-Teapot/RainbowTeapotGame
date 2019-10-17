@@ -126,11 +126,11 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
             } else if (color.b == 192) {
                 //Obj golden spoon
                 new GoldenSpoon(this.scene, x, y - 16, 0, false);
-                new GoldenSpoon(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 0, true);
+                new GoldenSpoon(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 1, true);
             } else if (color.b == 255) {
                 //Obj teaLife 
                 new TeaLife(this.scene, x, y - 16, 0, false);
-                new TeaLife(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 0, true);
+                new TeaLife(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 1, true);
 
             }
         }
@@ -167,7 +167,7 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
     } else if (color.g == 128) {
         //Obj lever
         new Lever(this.scene, x, y, 0, false, color.r * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
-        new Lever(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 0, true, color.r * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
+        new Lever(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, color.r * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
     } else if (color.g == 192) {
         //Obj light
         new Light(this.scene, x, y, 0, false, color.r, color.b);
