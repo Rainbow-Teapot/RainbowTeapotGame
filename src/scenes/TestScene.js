@@ -97,13 +97,9 @@ TestScene.prototype.create = function () {
     let bg = new Background(this, "bg1", -Game.TILE_SIZE / 2 - 1, Game.TILE_SIZE, 0);
     let bg2 = new Background(this, "bg2", 0, Game.TILE_SIZE*5  , -1);
     let bgPass = new Background(this, "bgPass", 0, 0, 0);
-<<<<<<< HEAD
 
     let fg = new Foreground(this, "fg1", 0, Game.TILE_SIZE, 0);
 
-=======
-    
->>>>>>> ft/Newspaper
     //DESDOBLE SOMBRA/COLOR
     let colorPlayer = this.objControl.colorPlayer;
     let shadowPlayer = this.objControl.shadowPlayer;
