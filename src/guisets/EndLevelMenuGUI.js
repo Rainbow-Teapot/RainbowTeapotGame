@@ -31,16 +31,18 @@ EndLevelMenuGUI.prototype.create = function(){
                     i18n.translate(Game.lang, "levels"), "40px CartoonRegular");
 
     //boton de siguientes
-    let buttonNextSprite = new GUIImage(this.scene,"botonContinuar",50,50,0,0,114,52,0);
-    let goNextLevel = function(){
-        
-        Game.changeScene(new LoadingScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE,Game.lastLevelPlayed + 1));
-    };
-    let buttonNext = new Button(this.scene,viewportMiddleX + 200 - buttonNextSprite.width,viewportDown,0,buttonNextSprite, goNextLevel);
-
+    if(Game.lastLevelPlayed < Game.levels.length){
+        let buttonNextSprite = new GUIImage(this.scene,"botonContinuar",50,50,0,0,114,52,0);
+        let goNextLevel = function(){
+            
+            Game.changeScene(new LoadingScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE,Game.lastLevelPlayed + 1));
+        };
+        let buttonNext = new Button(this.scene,viewportMiddleX + 200 - buttonNextSprite.width,viewportDown,0,buttonNextSprite, goNextLevel);
+        this.guiObjects.push(buttonNext);
+    }
     //texto congratulaciones
     let textCongrants = new Text(this.scene,i18n.translate(Game.lang, "win"),viewportMiddleX,110,"60px CartoonRegular");
 
-    this.guiObjects.push(buttonRestart,buttonNext,buttonLevel);
+    this.guiObjects.push(buttonRestart,buttonLevel);
     this.guiSprites.push(textCongrants);
 };
