@@ -9,6 +9,6 @@ function TutorialControls(scene, x, y, depth){
 }
 
 TutorialControls.prototype = Object.create(GameObject.prototype);
-TutorialControls.prototype.constructor = TurorialControls;
+TutorialControls.prototype.constructor = TutorialControls;
 
 

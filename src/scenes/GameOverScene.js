@@ -8,9 +8,6 @@ GameOverScene.prototype = Object.create(Scene.prototype);
 GameOverScene.prototype.constructor = GameOverScene;
 
 GameOverScene.prototype.preload = function(){
-
-    //Scene.prototype.loadToScene.call(this,"button", "./assets/touch.png");
-    
     Scene.prototype.preload.call(this);
     
 }

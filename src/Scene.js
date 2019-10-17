@@ -26,6 +26,7 @@ function Scene(width, height){
     this.GUILayer = new Layer();
 
     this.selectedPlayer = null;
+    this.levelSelected = 0;
 
     this.transition = null;
     this.fadeType = "fadeIn";
