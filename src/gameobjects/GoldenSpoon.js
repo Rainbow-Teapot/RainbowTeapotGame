@@ -39,8 +39,14 @@ GoldenSpoon.prototype.pickUp = function () {
         }
         if (otherSpoon) {
             otherSpoon.destroy();
+            
         }
-        
+
+    this.scene.goldenSpoons++; 
+    this.scene.objControl.pickSpoon(); 
+    console.log(this.scene.goldenSpoons); 
+    
+
     Pickupable.prototype.pickUp.call(this);
 }
 

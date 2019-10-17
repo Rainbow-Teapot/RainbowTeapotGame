@@ -37,6 +37,7 @@ function Scene(width, height){
 
     this.middleSceneX = width/2;
 
+    this.goldenSpoons = 0; 
     
     this.objectFactory = new ObjectFactory(this);
 

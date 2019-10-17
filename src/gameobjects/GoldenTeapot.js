@@ -27,6 +27,7 @@ GoldenTeapot.prototype.prepareAnimations = function () {
 
 
 GoldenTeapot.prototype.pickUp = function () {
+    Game.goldenSpoons += this.scene.goldenSpoons; 
     this.scene.fadeType = "fadeOut";
     this.scene.functionFade = function () {
         Game.changeScene(new EndLevelScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE));

@@ -55,6 +55,8 @@ TestScene.prototype.preload = function () {
 
     Scene.prototype.loadToScene.call(this, "goldenSpoon", "./assets/objects/goldenSpoon.png"); 
     Scene.prototype.loadToScene.call(this, "goldenSpoonShadow", "./assets/objects/goldenSpoonShadow.png");  
+    Scene.prototype.loadToScene.call(this, "goldenSpoonGUI", "./assets/objects/goldenSpoonGUI.png");  
+
 
     //Aún por colocar
     Scene.prototype.loadToScene.call(this, "grid", "./assets/objects/reja.png");
@@ -85,8 +87,7 @@ TestScene.prototype.preload = function () {
 podemos crear objetos necesarios que se puedan necesitar para esta escena en concreto */
 TestScene.prototype.create = function () {
 
-    Scene.prototype.create.call(this);
-
+    Scene.prototype.create.call(this);   
     audio.play(this.track);
 
     let tileFactory = new TileFactory(this, "tilemap64", "palette0");
