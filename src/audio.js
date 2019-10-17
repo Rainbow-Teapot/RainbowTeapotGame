@@ -103,7 +103,7 @@ var audio = {
             audio.soundEffect.pause();
             audio.soundEffect.src = "";
         }
-
+        
 
         audio.soundEffect = new Audio(effectSound);
         audio.soundEffect.muted = false;
