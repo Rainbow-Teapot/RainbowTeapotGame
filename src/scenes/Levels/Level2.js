@@ -49,11 +49,14 @@ Level2.prototype.preload = function () {
 
     Scene.prototype.loadToScene.call(this, "goldenSpoon", "./assets/objects/goldenSpoon.png"); 
     Scene.prototype.loadToScene.call(this, "goldenSpoonShadow", "./assets/objects/goldenSpoonShadow.png");  
+    Scene.prototype.loadToScene.call(this, "goldenSpoonGUI", "./assets/objects/goldenSpoonGUI.png");  
 
     //Aún por colocar
     Scene.prototype.loadToScene.call(this, "grid", "./assets/objects/reja.png");
     Scene.prototype.loadToScene.call(this, "gridShadow", "./assets/objects/rejaShadow.png");
 
+    Scene.prototype.loadToScene.call(this, "movablePlatform", "./assets/objects/platform.png");
+    Scene.prototype.loadToScene.call(this, "movablePlatformShadow", "./assets/objects/platformShadow.png");
 
     Scene.prototype.loadToScene.call(this, "teapotShadow", "./assets/teapotShadow.png");
 
@@ -65,9 +68,9 @@ Level2.prototype.preload = function () {
 
     Scene.prototype.loadToScene.call(this, "palette0", "./assets/palette0.png");
     Scene.prototype.loadToScene.call(this, "tilemapFactory", "./assets/levels/tilemap_factory.png");
-    Scene.prototype.loadToScene.call(this, "layermap0", "./assets/levels/layermap0_level1.png");
-    Scene.prototype.loadToScene.call(this, "layermap1", "./assets/levels/layermap1_level1.png");
-    Scene.prototype.loadToScene.call(this, "objectLayer0", "./assets/levels/objectLayer0_level1.png");
+    Scene.prototype.loadToScene.call(this, "layermapLevel2_0", "./assets/levels/layermap0_lvl2.png");
+    Scene.prototype.loadToScene.call(this, "layermapLevel2_1", "./assets/levels/layermap1_lvl2.png");
+    Scene.prototype.loadToScene.call(this, "objectLayerLevel2_0", "./assets/levels/objectLayer0_lvl2.png");
 
     this.numLayers = 2;
 
@@ -83,8 +86,8 @@ Level2.prototype.create = function () {
     audio.play(this.track);
 
     let tileFactory = new TileFactory(this, "tilemapFactory", "palette0");
-    levelParser.parseTiles(this, "layermap", tileFactory);
-    levelParser.parseObjects(this, "objectLayer");
+    levelParser.parseTiles(this, "layermapLevel2_", tileFactory);
+    levelParser.parseObjects(this, "objectLayerLevel2_");
 
     this.gui = new InGameGUI(this);
     let bg = new Background(this, "bg1", -Game.TILE_SIZE / 2 - 1, Game.TILE_SIZE, 0);

@@ -67,9 +67,9 @@ Level1.prototype.preload = function () {
 
     Scene.prototype.loadToScene.call(this, "palette0", "./assets/palette0.png");
     Scene.prototype.loadToScene.call(this, "tilemapFactory", "./assets/levels/tilemap_factory.png");
-    Scene.prototype.loadToScene.call(this, "layermap0", "./assets/levels/layermap0_level1.png");
-    Scene.prototype.loadToScene.call(this, "layermap1", "./assets/levels/layermap1_level1.png");
-    Scene.prototype.loadToScene.call(this, "objectLayer0", "./assets/levels/objectLayer0_level1.png");
+    Scene.prototype.loadToScene.call(this, "layermapLevel1_0", "./assets/levels/layermap0_lvl1.png");
+    Scene.prototype.loadToScene.call(this, "layermapLevel1_1", "./assets/levels/layermap1_lvl1.png");
+    Scene.prototype.loadToScene.call(this, "objectLayerLevel1_0", "./assets/levels/objectLayer0_lvl1.png");
 
     this.numLayers = 2;
 
@@ -84,8 +84,8 @@ Level1.prototype.create = function () {
     audio.play(this.track);
 
     let tileFactory = new TileFactory(this, "tilemapFactory", "palette0");
-    levelParser.parseTiles(this, "layermap", tileFactory);
-    levelParser.parseObjects(this, "objectLayer");
+    levelParser.parseTiles(this, "layermapLevel1_", tileFactory);
+    levelParser.parseObjects(this, "objectLayerLevel1_");
 
     this.gui = new InGameGUI(this);
     let bg = new Background(this, "bg1", -Game.TILE_SIZE / 2 - 1, Game.TILE_SIZE, 0);
