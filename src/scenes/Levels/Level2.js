@@ -22,6 +22,8 @@ Level2.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "keyOn", "./assets/objects/keyGUI.png");
     Scene.prototype.loadToScene.call(this, "keyOff", "./assets/objects/keyOffGUI.png");
 
+    Scene.prototype.loadToScene.call(this, "light", "./assets/objects/light.png");
+
     Scene.prototype.loadToScene.call(this, "teaLife", "./assets/objects/sobresTe.png");
     Scene.prototype.loadToScene.call(this, "teaLifeShadow", "./assets/objects/teShadow.png");
     Scene.prototype.loadToScene.call(this, "teaLifeGUI", "./assets/objects/sobresTeGUI.png");
@@ -94,7 +96,7 @@ Level2.prototype.create = function () {
     let bg2 = new Background(this, "bg2", 0, Game.TILE_SIZE*5  , -1);
     let bgPass = new Background(this, "bgPass", 0, 0, 0);
 
-    let fg = new Foreground(this, "fg1", 0, Game.TILE_SIZE, 0);
+    let fg = new Foreground(this, "fg1", 0, Game.TILE_SIZE*3, 0);
 
     let colorPlayer = this.objControl.colorPlayer;
     let shadowPlayer = this.objControl.shadowPlayer;

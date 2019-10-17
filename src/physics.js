@@ -8,6 +8,7 @@ var physics = {
                     width: width, 
                     height: height
                 },4,20 );
+        physics.movableList = [];
     },
     placeMeeting: function(object, xOffset, yOffset, objToCollide){
         

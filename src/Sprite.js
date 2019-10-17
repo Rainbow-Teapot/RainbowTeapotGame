@@ -47,7 +47,7 @@ Sprite.prototype.draw = function(camera){
             context.drawImage(this.img, this.xInImage, this.yInImage,
                                     this.width, this.height,
                                     posAtViewPort.x , posAtViewPort.y,
-                                    this.width,this.height );
+                                    this.width * this.xScale,this.height *this.yScale);
         }
         
         context.globalAlpha = 1.0;

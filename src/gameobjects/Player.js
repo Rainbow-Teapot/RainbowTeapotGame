@@ -42,7 +42,7 @@ function Player(scene, x, y, depth) {
     this.keyJump = 0;
 
     let that = this;
-    this.timerInmunity = new Timer(this, function () { that.hasInmunity = false; that.sprite.alpha = 1.0; }, 2000);
+    this.timerInmunity = new Timer(this, function () { that.hasInmunity = false; that.sprite.alpha = 1.0; }, 1000);
 
     this.controls = input.initControls();
 
@@ -202,7 +202,7 @@ Player.prototype.getDamaged = function () {
             this.currentAnimation = this.animations.DAMAGED;
             this.currentState = this.states.DAMAGED;
             this.moveX = Math.sign(this.pos.x - colDamage.pos.x);
-            this.currentVX = 9 * this.moveX;
+            this.currentVX = 9 * this.moveX * 1.5;
             this.currentVY = -9;
         }
     }

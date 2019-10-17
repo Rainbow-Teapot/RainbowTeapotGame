@@ -8,6 +8,8 @@ function Drawable(scene, img, x, y, xInImage, yInImage, width, height, depth){
     this.xInImage = xInImage;
     this.yInImage = yInImage;
     this.isVisible = true;
+    this.xScale = 1;
+    this.yScale = 1;
     if(img){
         this.img = cache.retrieve(img).img;
         this.imgWidthInSprite = this.img.width / this.width;

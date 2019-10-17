@@ -11,10 +11,18 @@ function Light(scene, x, y, depth, isShadow, facingByColor, lightedTiles){
     this.activated = true;
     
     this.setFacingByColor(facingByColor);
-    this.prepareDamageBlocks();
+    if(!this.isShadow){
+        this.prepareDamageBlocks();
+        this.On();
+        this.prepareLightSprite();
+        this.spriteLight.xScale = this.lightedTiles * Math.abs(this.faceX) + 1;
+        this.spriteLight.yScale = this.lightedTiles * Math.abs(this.faceY) + 1;
+        console.log(this.pos);
+        console.log(this.spriteLight.pos);
+    }
     this.prepareSprite();
     this.collider = new Collider(this, this.pos.x, this.pos.y, Game.TILE_SIZE, Game.TILE_SIZE, 0, 0);
-    this.On();
+    
     console.log(this.pos);
 }
 
@@ -27,18 +35,26 @@ Light.prototype.setFacingByColor = function(facingByColor){
         case 0:
             this.faceX = 0;
             this.faceY = -1;
+            this.xOffset = 0;
+            this.yOffset = -Game.TILE_SIZE * this.lightedTiles - Game.TILE_SIZE + Game.TILE_SIZE/6;
             break;
         case 128:
             this.faceX = 1;
             this.faceY = 0;
+            this.xOffset = Game.TILE_SIZE - Game.TILE_SIZE/6;
+            this.yOffset = 0;
             break;
         case 64:
             this.faceX = 0;
             this.faceY = 1;
+            this.xOffset = 0;
+            this.yOffset = Game.TILE_SIZE - Game.TILE_SIZE/6;
             break;
         case 255:
             this.faceX = -1;
             this.faceY = 0;
+            this.xOffset = -Game.TILE_SIZE * this.lightedTiles - Game.TILE_SIZE + Game.TILE_SIZE /6 ;
+            this.yOffset = 0;
             break;
         default:
             new Error(`Bad Facing color at object Light`);
@@ -53,6 +69,18 @@ Light.prototype.prepareDamageBlocks = function(){
     for(let i = 0; i < this.damageShadowBlocks.length; i++){
         this.damageShadowBlocks[i] = new DamageBlock(this.scene,posDamage.x + Game.TILE_SIZE * this.faceX * i,
                                                 posDamage.y + Game.TILE_SIZE *this.faceY * i,1,13);
+    }
+}
+
+Light.prototype.prepareLightSprite = function(){
+    if(this.faceX == 1){
+        this.spriteLight = new Sprite(this.scene,"light",this.pos.x + this.xOffset,this.pos.y + this.yOffset,Game.TILE_SIZE,Game.TILE_SIZE,Game.TILE_SIZE,Game.TILE_SIZE,-3);
+    }else if(this.faceX == -1){
+        this.spriteLight = new Sprite(this.scene,"light",this.pos.x + this.xOffset,this.pos.y + this.yOffset,0,Game.TILE_SIZE,Game.TILE_SIZE,Game.TILE_SIZE,-3);
+    }else if(this.faceY == 1){
+        this.spriteLight = new Sprite(this.scene,"light",this.pos.x + this.xOffset,this.pos.y + this.yOffset,0,0,Game.TILE_SIZE,Game.TILE_SIZE,-3);
+    }else if(this.faceY == -1){
+        this.spriteLight = new Sprite(this.scene,"light",this.pos.x + this.xOffset,this.pos.y + this.yOffset,Game.TILE_SIZE,0,Game.TILE_SIZE,Game.TILE_SIZE,-3);
     }
 }
 
@@ -78,16 +106,20 @@ Light.prototype.prepareSprite = function(){
 
 Light.prototype.On = function(){
     this.activated = true;
+    if(this.spriteLight) this.spriteLight.setVisible(true);
     for(let i = 0; i < this.damageShadowBlocks.length; i++ ){
         this.damageShadowBlocks[i].disable = false;
     }
+    console.log("He activado la linetar");
 }
 
 Light.prototype.Off = function(){
     this.activated = false;
+    if(this.spriteLight) this.spriteLight.setVisible(false);
     for(let i = 0; i < this.damageShadowBlocks.length; i++ ){
         this.damageShadowBlocks[i].disable = true;
     }
+    console.log("He desactivado la linetar");
 }
 
 

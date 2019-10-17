@@ -20,9 +20,8 @@ ConfirmLevelGUI.prototype.create = function(){
     //boton para confirmar
     let buttonPlaySprite = new GUIImage(this.scene,"button",50,50,0,0,114,52,0);
     let playLevel = function(){
-        console.log(that.scene.levelSelected);
         if(that.scene.levelSelected != 1){
-            Game.loadLevel(that.scene.levelSelected);
+            Game.changeScene(new LoadingScene(20*Game.TILE_SIZE,20 *Game.TILE_SIZE,that.scene.levelSelected));
         }else{
             Game.changeScene(new NewspaperScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE));
         }

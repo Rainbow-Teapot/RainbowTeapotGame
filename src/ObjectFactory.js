@@ -158,10 +158,13 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
             if (color.r == 0) {
                 new MovablePlatform(this.scene, x, y, 0, false, 1, color.b);
                 new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1, color.b);
+                
             } else if (color.r == 64) {
                 new MovablePlatform(this.scene, x, y, 0, false, 2, color.b);
                 new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 2, color.b);
+                //console.log("He instanciado un MOVABLE PLATFORM");
             }
+           
         }
 
     } else if (color.g == 128) {
