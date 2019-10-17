@@ -5,21 +5,71 @@ var audio = {
     trackDefeat: "./music/defeat_theme.mp3",
     trackVictory: "./music/victory_theme_high.mp3",
     trackLevel1: "./music/level_1.mp3",
+    trackLevel2: "./music/level_2.mp3",
+    trackLevel3: "./music/level_3.mp3",
+
+    soundEffect: null,
+    effectDamage: "./music/soundEffects/damage.mp3",
+    effectDoor: "./music/soundEffects/door1.mp3",
+    effectBridge: "./music/soundEffects/drawbridge.mp3",
+    effectLife: "./music/soundEffects/extra_life.mp3",
+    effectJump: "./music/soundEffects/jump.mp3",
+    effectKey: "./music/soundEffects/key.mp3",
+    effectLever: "./music/soundEffects/lever.mp3",
+    effectTea: "./music/soundEffects/tea.mp3",
 
     play: function (trackPath) {
-        if (audio.music != null) {
 
+        if (audio.music != null) {
             audio.music.pause();
             audio.music.src = "";
         }
-
         audio.music = new Audio(trackPath);
         audio.music.muted = false;
         audio.music.volume = 0.5;
+        /*
+                switch (trackPath) {
+                    case audio.effectDamage:
+                    case audio.effectJump:
+                    case audio.effectKey:
+                    case audio.effectLever:
+                    case audio.trackVictory:
+                    case audio.trackDefeat:
+                        audio.music = new Audio(trackPath);
+                        audio.music.muted = false;
+                        audio.music.volume = 0.3;
+                        audio.music.play();
+                        break;
+                    case audio.trackDefeat:
+                    case audio.trackVictory:
+                        if (audio.music != null) {
+                            audio.music.pause();
+                            audio.music.src = "";
+                        }
+                        audio.effectSound = new Audio(trackPath);                
+                        audio.effectSound = 0.5;
+                        audio.music.play();
+                        break;
+                    default:
+        
+                        if (audio.music != null) {
+                            audio.music.pause();
+                            audio.music.src = "";
+                        }
+                        audio.music = new Audio(trackPath);
+                        audio.music.muted = false;
+                        audio.music.volume = 0.5;
+                        audio.music.addEventListener('ended', function () {
+                            this.currentTime = 0;
+                            this.play();
+                        }, false);
+                        audio.music.play();
+                }
+            */
+
 
         if ((trackPath === audio.trackDefeat) || (trackPath === audio.trackVictory)) {
             audio.music.play();
-            
         }
         else {
             audio.music.addEventListener('ended', function () {
@@ -28,6 +78,7 @@ var audio = {
             }, false);
             audio.music.play();
         }
+
 
         //const playPromise = audio.music.play();
         /*if (playPromise !== null){
@@ -46,5 +97,21 @@ var audio = {
         return false;
     },
 
+    playEffect: function (effectSound) {
+        console.log("PLay " + effectSound);
+        if (audio.soundEffect != null) {
+            audio.soundEffect.pause();
+            audio.soundEffect.src = "";
+        }
+
+
+        audio.soundEffect = new Audio(effectSound);
+        audio.soundEffect.muted = false;
+        audio.soundEffect.volume = 0.5;
+
+        audio.soundEffect.play();
+
+
+    }
 
 };
