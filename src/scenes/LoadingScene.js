@@ -9,11 +9,7 @@ LoadingScene.prototype = Object.create(Scene.prototype);
 LoadingScene.prototype.constructor = LoadingScene;
 
 LoadingScene.prototype.preload = function(){
-
-    //Scene.prototype.loadToScene.call(this,"button", "./assets/touch.png");
-    
-    Scene.prototype.preload.call(this);
-    
+    Scene.prototype.preload.call(this);    
 }
 
 LoadingScene.prototype.create = function(){

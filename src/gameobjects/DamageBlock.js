@@ -13,8 +13,8 @@ function DamageBlock(scene, x, y, depth, facingColor){
     this.OFFSET_Y = 20;
     
     this.prepareCollider();
-    //this.sprite = new Sprite(this.scene,null,0,0,0,0,64,64);
-    
+    //this.sprite = new Sprite(this.scene,null,this.collider.x,this.collider.y,0,0,this.collider.width,this.collider.height);
+    //this.sprite = 0.3;
 
 }
 
@@ -36,6 +36,10 @@ DamageBlock.prototype.setFacingByColor = function(color){
     }
 }
 
+DamageBlock.prototype.update = function(){
+
+}
+
 DamageBlock.prototype.prepareCollider = function(){
 
     let xOffset = 0;
@@ -54,7 +58,7 @@ DamageBlock.prototype.prepareCollider = function(){
             height -= this.OFFSET_Y;
             break;
         case this.facings.LEFT:
-            xOffset = -this.OFFSET_X;
+            xOffset = this.OFFSET_X;
             break;
         case this.facings.NORMAL:
             break;

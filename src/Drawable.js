@@ -7,6 +7,9 @@ function Drawable(scene, img, x, y, xInImage, yInImage, width, height, depth){
     this.depth = depth;
     this.xInImage = xInImage;
     this.yInImage = yInImage;
+    this.isVisible = true;
+    this.xScale = 1;
+    this.yScale = 1;
     if(img){
         this.img = cache.retrieve(img).img;
         this.imgWidthInSprite = this.img.width / this.width;
@@ -14,6 +17,7 @@ function Drawable(scene, img, x, y, xInImage, yInImage, width, height, depth){
     }
     this.scale = new Point(1.0,1.0);
     this.alpha = 1.0;
+    this.rot = 0;
     this.color = new Color(0,0,0,255);
 }
 
@@ -44,4 +48,8 @@ Drawable.prototype.setAlpha = function(alpha){
 
 Drawable.prototype.setColor = function(color){
     this.color = color;
+}
+
+Drawable.prototype.setVisible = function(visible){
+    this.isVisible = visible;
 }

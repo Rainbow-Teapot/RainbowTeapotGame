@@ -26,6 +26,10 @@ StartScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this, "volumeLine", "./assets/gui/palito.png");
     Scene.prototype.loadToScene.call(this, "bgMenu", "./assets/backgrounds/bgMenu.png");
     Scene.prototype.loadToScene.call(this, "fgMiss", "./assets/backgrounds/fgMissTeapot.png");
+    Scene.prototype.loadToScene.call(this,"mobileButton1", "./assets/gui/mobileButton1.png");
+    Scene.prototype.loadToScene.call(this,"mobileButton2", "./assets/gui/mobileButton2.png");
+    Scene.prototype.loadToScene.call(this, "goldenSpoonGUI_", "./assets/objects/goldenSpoonGUI_.png");  
+
 
     Scene.prototype.preload.call(this);
     

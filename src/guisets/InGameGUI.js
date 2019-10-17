@@ -17,6 +17,10 @@ InGameGUI.prototype.create = function(){
         this.lifes[i] = new GUIImage(this.scene,"teaLifeGUI",10 + this.OFFSET_TEABAG * i,10,0,0,64,64,0);
     }
 
+    this.goldenSpoons = new GUIImage(this.scene, "goldenSpoonGUI", 10, 85, 0, 0, 30, 30, 0)
+    this.numGoldenSpoons = new Text(this.scene, "x" +this.scene.goldenSpoons, 60,140, "20px CartoonRegular", new Color(255,255,255,255));
+
+
     //llave
     this.key = new GUIImage(this.scene,"keyOff", viewport.width/2 - Game.TILE_SIZE/2, 10,0,0,64,64,0);
 
@@ -32,7 +36,7 @@ InGameGUI.prototype.create = function(){
 
     //botones de juego en movil
     if(input.currentInputMode == input.inputMode.MOBILE){
-        let buttonSwapPlayerSprite = new GUIImage(this.scene,"botonAjustes",50,50,0,0,114,52,0);
+        let buttonSwapPlayerSprite = new GUIImage(this.scene,"mobileButton1",50,50,0,0,114,52,0);
         buttonSwapPlayerSprite.alpha = 0.3;
         let swapPlayerGUI = function(){
             this.scene.objControl.colorPlayer.controls.changePlayerCommand.ivoked = true;
@@ -41,7 +45,7 @@ InGameGUI.prototype.create = function(){
         let buttonSwap = new Button(this.scene,viewport.width - buttonOptionsSprite.width - 20,viewport.height - 130,0,buttonSwapPlayerSprite, swapPlayerGUI);
         buttonSwap.vel = 0;
 
-        let buttonInteractSprite = new GUIImage(this.scene,"botonAjustes",50,50,0,0,114,52,0);
+        let buttonInteractSprite = new GUIImage(this.scene,"mobileButton2",50,50,0,0,114,52,0);
         buttonInteractSprite.alpha = 0.3;
         let interactGUI = function(){
             this.scene.objControl.colorPlayer.controls.interactCommand.ivoked = true;
@@ -72,4 +76,8 @@ InGameGUI.prototype.pickUpKey = function(){
 }
 InGameGUI.prototype.useKey = function(){
     this.key.setImage("keyOff");
+}
+
+InGameGUI.prototype.pickUpGoldenSpoon = function(){
+    this.numGoldenSpoons.string = "x"+this.scene.goldenSpoons;      
 }

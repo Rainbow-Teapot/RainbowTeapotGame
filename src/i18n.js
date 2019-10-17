@@ -13,9 +13,11 @@ var i18n = {
         play: "JUGAR",
         resume: "VOLVER",
         start: "EMPEZAR",
-        lvl1: "Nivel 1",
+        lvl: "Nivel",
         gameOver: "¡Te rompiste!",
-        loading: "Cargando..."
+        loading: "Cargando...",
+        tutorial: "controlsEsp",
+        skip: "Saltar",
     },
 
     eng:{
@@ -31,10 +33,11 @@ var i18n = {
         play:"PLAY",
         resume: "RESUME",
         start: "START",
-        lvl1: "Level 1",
+        lvl: "Level",
         gameOver: "You broke!",
-        loading: "Loading..."
-
+        loading: "Loading...",
+        tutorial: "controlsEng",
+        skip: "Skip",
     },
 
     translate: function(language, elem){       

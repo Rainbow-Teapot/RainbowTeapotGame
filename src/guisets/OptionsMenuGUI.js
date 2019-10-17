@@ -37,17 +37,17 @@ OptionsMenuGUI.prototype.create = function () {
 
     let incrementVolume = function () {
         if (audio.setVolume(0.1))
-            teapotVolumeSprite.pos.x += 0.1 * 180;
+            teapotVolumeSprite.pos.x += 0.1 * 150;
     };
     let decrementVolume = function () {
         if (audio.setVolume(-0.1))
-            teapotVolumeSprite.pos.x -= 0.1 * 180;
+            teapotVolumeSprite.pos.x -= 0.1 * 150;
 
     };
 
     //botones opciones musica
-    let buttonVolumeUp = new Button(this.scene, viewportMiddleX + 105, 200, 0, buttonIncrementVolumeSprite, incrementVolume);
-    let buttonVolumeDown = new Button(this.scene, viewportMiddleX - 125, 200, 0, buttonReduceVolumeSprite, decrementVolume);
+    let buttonVolumeUp = new Button(this.scene, viewportMiddleX + 95, 200, 0, buttonIncrementVolumeSprite, incrementVolume);
+    let buttonVolumeDown = new Button(this.scene, viewportMiddleX - 130, 200, 0, buttonReduceVolumeSprite, decrementVolume);
     if (audio.music != null) {
         if (audio.music.muted === false) {
             var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX - 110 + (audio.music.volume * 180), 200, 0 ,0, 0, 0);
@@ -66,9 +66,9 @@ OptionsMenuGUI.prototype.create = function () {
     let buttonTeapotSprite;
 
     if (Game.lang === i18n.eng)
-        buttonTeapotSprite = new GUIImage(this.scene, "teapotEng", 40, 40, 0, 0, 114, 52, 0);
-    else {
         buttonTeapotSprite = new GUIImage(this.scene, "teapotEsp", 40, 40, 0, 0, 114, 52, 0);
+    else {
+        buttonTeapotSprite = new GUIImage(this.scene, "teapotEng", 40, 40, 0, 0, 114, 52, 0);
     }
 
 

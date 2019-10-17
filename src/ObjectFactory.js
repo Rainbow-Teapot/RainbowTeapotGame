@@ -27,27 +27,39 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
 
 
         this.scene.selectedPlayer = objControl.colorPlayer;
+    }
 
+    /*
+    if (color.a == 128) {
 
-    } if (color.a == 128) {
-
+        //objeto luz
+        if(color.b >= 198 && color.b <= 202){
+            new Light(this.scene,x,y,0,false,color.r,color.g);
+            new Light(this.scene,x,y - Game.TILE_SIZE * this.scene.shadowLevel,1,true,color.r,color.g);
+            console.log("se ha cerad la luz");
         //objeto palanca
-        if (color.b == 64) {
+        }else if (color.b == 64) {
             if (color.r % 5 == 1) color.r--;
             if (color.g % 5 == 4) color.g--;
             console.log(color.r);
             console.log(color.g);
             new Lever(this.scene, x, y, 0, false, color.r * Game.TILE_SIZE, color.g * Game.TILE_SIZE);
             new Lever(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 0, true, color.r * Game.TILE_SIZE, color.g * Game.TILE_SIZE);
+            
+            //obj swicthLight
+        } else if (color.r == 100){
+            color.b--;
+            new SwitchLight(this.scene,x,y,0,false,color.g * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
+            new SwitchLight(this.scene,x,y - Game.TILE_SIZE * this.scene.shadowLevel,1,true,color.g * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
             //objeto puente levadizo
-        } else if (color.r == 122 && color.g == 255) {
+        }else if (color.r == 122 && color.g == 255) {
             if (color.b == 255) {
                 new Bridge(this.scene, x, y, 0, false, -1);
                 new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, -1);
 
             } else if (color.b == 128) {
-                new Bridge(this.scene, x, y, 0, false, 1);
-                new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1);
+                //new Bridge(this.scene, x, y, 0, false, 1);
+                //new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1);
 
             }
             //objeto plataforma móvil     
@@ -83,6 +95,90 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
         } else if (color.equals(new Color(255, 122, 122, 255))) {
             new TeaLife(this.scene, x, y - 16, 0, false);
             new TeaLife(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 0, true);
+        } else if(color.equals(new Color(0,0,0,255))){
+            new ShadowBlock(this.scene, x, y, 1);
         }
+    }*/
+    if (color.g == 0) {
+
+        if (color.r == 128) {
+            //Obj wall 
+            if (color.b == 0) {
+                new Wall(this.scene, x, y, 0);
+            } else if (color.b == 64) {
+                new Wall(this.scene, x, y, 1);
+            } else if (color.b == 128) {
+                console.log("" + color.r + " " + color.g + " " + color.b);
+                new Wall(this.scene, x, y, 0);
+                new Wall(this.scene, x, y, 1);
+            }
+        } else if (color.r == 64) {
+            if (color.b == 0) {
+                //Obj door
+                new Door(this.scene, x, y, 0, false);
+            } else if (color.b == 64) {
+                //Obj key 
+                new Key(this.scene, x, y - 16, 0, false);
+                new Key(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 1, true);
+            } else if (color.b == 128) {
+                //Obj golden teapot
+                new GoldenTeapot(this.scene, x, y, 0);
+            } else if (color.b == 192) {
+                //Obj golden spoon
+                new GoldenSpoon(this.scene, x, y - 16, 0, false);
+                new GoldenSpoon(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 1, true);
+            } else if (color.b == 255) {
+                //Obj teaLife 
+                new TeaLife(this.scene, x, y - 16, 0, false);
+                new TeaLife(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel - 16, 1, true);
+
+            }
+        }
+    } else if (color.g == 24) {
+        if (color.r == 0) {
+            new TutorialControls(this.scene, x - 50, y + 20, 1);
+        }
+    } else if (color.g == 64) {
+        if (color.b == 0) {
+            //Obj damageBlock
+            new DamageBlock(this.scene, x, y, 0, color.r);
+        }
+        else if (color.b == 64) {
+            //Obj bridge
+            if (color.r == 0) {
+                new Bridge(this.scene, x, y, 0, false, 1);
+                new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1);
+
+            } else if (color.r == 64) {
+                new Bridge(this.scene, x, y, 0, false, -1);
+                new Bridge(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, -1);
+            }
+        } else {
+            //Obj movable Platform
+            if (color.r == 0) {
+                new MovablePlatform(this.scene, x, y, 0, false, 1, color.b);
+                new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 1, color.b);
+                
+            } else if (color.r == 64) {
+                new MovablePlatform(this.scene, x, y, 0, false, 2, color.b);
+                new MovablePlatform(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, 2, color.b);
+                //console.log("He instanciado un MOVABLE PLATFORM");
+            }
+           
+        }
+
+    } else if (color.g == 128) {
+        //Obj lever
+        new Lever(this.scene, x, y, 0, false, color.r * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
+        new Lever(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, color.r * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
+    } else if (color.g == 192) {
+        //Obj light
+        new Light(this.scene, x, y, 0, false, color.r, color.b);
+        new Light(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, color.r, color.b);
+    } else if (color.g == 224) {
+        //Obj switchLight
+        new SwitchLight(this.scene, x, y, 0, false, color.r * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
+        new SwitchLight(this.scene, x, y - Game.TILE_SIZE * this.scene.shadowLevel, 1, true, color.r * Game.TILE_SIZE, color.b * Game.TILE_SIZE);
     }
+
 }
