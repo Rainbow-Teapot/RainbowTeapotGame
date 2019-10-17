@@ -12,7 +12,7 @@ var Game = {
     //coger del localstorage
     goldenSpoons: 0,
     joystick: null,
-    levels: [level1 = {width: 60,height: 18}, level2 = {width: 60, height: 18}, level3 =  {width: 60, height: 20}],
+    levels: [level1 = {width: 60,height: 18}, level2 = {width: 60, height: 20}, level3 =  {width: 60, height: 20}],
     lastLevelPlayed: 0,
     langs: ["ENG","SPN"],
     /*crea el juego, inicia el viewport (canvas), asigna la escena e inicia el GAMELOOP*/
