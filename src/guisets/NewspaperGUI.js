@@ -19,7 +19,7 @@ NewspaperGUI.prototype.create = function(){
     let news = new GUIImage(this.scene,paperStr,viewport.width/2 - 640/2,viewport.height/2 - 480/2,0,0,0,0,0);
    
     let skipPaper = function(){
-        Game.changeScene(new LoadingScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE,0));
+        Game.changeScene(new LoadingScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE,1));
     }
 
 

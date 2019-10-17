@@ -28,8 +28,9 @@ GoldenTeapot.prototype.prepareAnimations = function () {
 
 GoldenTeapot.prototype.pickUp = function () {
     this.scene.fadeType = "fadeOut";
+    let that  = this;
     this.scene.functionFade = function () {
-        Game.changeScene(new EndLevelScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE));
+        Game.changeScene(new EndLevelScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE),that.scene.level);
     }
 
     let colorPlayer = this.scene.objControl.colorPlayer;

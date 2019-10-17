@@ -7,10 +7,7 @@ LevelSelectionScene.prototype = Object.create(Scene.prototype);
 LevelSelectionScene.prototype.constructor = LevelSelectionScene;
 
 LevelSelectionScene.prototype.preload = function () {
-
-    //Scene.prototype.loadToScene.call(this,"button", "./assets/touch.png");
     Scene.prototype.preload.call(this);
-
 }
 
 LevelSelectionScene.prototype.create = function () {

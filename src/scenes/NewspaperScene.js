@@ -22,6 +22,6 @@ NewspaperScene.prototype.create = function(){
     
 }
 
-StartScene.prototype.update = function(){
+NewspaperScene.prototype.update = function(){
     Scene.prototype.update.call(this);
 }

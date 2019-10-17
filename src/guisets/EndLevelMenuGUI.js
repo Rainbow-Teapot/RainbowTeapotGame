@@ -18,7 +18,7 @@ EndLevelMenuGUI.prototype.create = function(){
     let buttonRestartSprite = new GUIImage(this.scene,"botonReempezar",50,50,0,0,114,52,0);
     let restartLevel = function(){
         
-        Game.changeScene(new LoadingScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE,0));
+        Game.changeScene(new LoadingScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE,Game.lastLevelPlayed));
     };
     let buttonRestart = new Button(this.scene,viewportMiddleX - 200,viewportDown,0,buttonRestartSprite, restartLevel);
 
@@ -34,7 +34,7 @@ EndLevelMenuGUI.prototype.create = function(){
     let buttonNextSprite = new GUIImage(this.scene,"botonContinuar",50,50,0,0,114,52,0);
     let goNextLevel = function(){
         
-        Game.changeScene(new LoadingScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE,0));
+        Game.changeScene(new LoadingScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE,Game.lastLevelPlayed + 1));
     };
     let buttonNext = new Button(this.scene,viewportMiddleX + 200 - buttonNextSprite.width,viewportDown,0,buttonNextSprite, goNextLevel);
 

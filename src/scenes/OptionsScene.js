@@ -6,8 +6,6 @@ OptionsScene.prototype = Object.create(Scene.prototype);
 OptionsScene.prototype.constructor = OptionsScene;
 
 OptionsScene.prototype.preload = function(){
-
-    //Scene.prototype.loadToScene.call(this,"button", "./assets/touch.png");
     Scene.prototype.preload.call(this);
 }
 

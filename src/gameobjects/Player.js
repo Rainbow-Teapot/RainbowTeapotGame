@@ -76,7 +76,7 @@ Player.prototype.update = function(){
     
     //si se ve un delay ponerlo abajo
     GameObject.prototype.update.call(this);
-    
+   
     this.behaviour();
     this.animation();
     this.handleColisions(); 
@@ -170,7 +170,6 @@ Player.prototype.objectInteraction = function(){
     let colDoor = physics.instancePlace(this,Math.sign(this.faceX) * 4,0,"Door");
     let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
     let colActionable = physics.instancePlace(this,Math.sign(this.faceX),0,"Actionable");
-    //let colSwitch = physics.instancePlace(this,Math.sign(this.faceX),0,"SwitchLight");
 
     if(colPickup && this.isAbleToInteractWith(colPickup)){
         colPickup.pickUp();
@@ -185,14 +184,7 @@ Player.prototype.objectInteraction = function(){
             colActionable.action();
             
         }
-        /*if(colSwitch && this.isAbleToInteractWith(colSwitch)){
-            console.log("me he topado con la Switch");
-            colSwitch.action();
-            
-        }*/
     }
-
-
 }
 
 Player.prototype.getDamaged = function(){

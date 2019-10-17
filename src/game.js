@@ -10,7 +10,8 @@ var Game = {
     FRAM_RATE: 60,
     lang: 0,
     joystick: null,
-    levels: [level1 = {width: 60,height: 18}],
+    levels: [level1 = {width: 60,height: 18}, level2 = {width: 60, height: 20}],
+    lastLevelPlayed: 0,
     langs: ["ENG","SPN"],
     /*crea el juego, inicia el viewport (canvas), asigna la escena e inicia el GAMELOOP*/
     createGame : function(scene, posx, posy, width, height){
@@ -39,8 +40,29 @@ var Game = {
         scene.preload();
     },
     loadLevel(levelID){
-        let level = Game.levels[levelID];
-        let scene = new TestScene(level.width * Game.TILE_SIZE,level.height * Game.TILE_SIZE);
+        let level = Game.levels[--levelID];
+        console.log("[GAME] Entrado nivel: " + levelID);
+        let scene = null; 
+        switch (levelID) {
+            case 0:
+                console.log("Entrado nivel 1");
+                scene = new Level1(level.width * Game.TILE_SIZE,level.height * Game.TILE_SIZE, levelID);
+                break;
+            case 1:
+                console.log("Entrado nivel 2");
+                scene = new Level2(level.width * Game.TILE_SIZE,level.height * Game.TILE_SIZE, levelID);
+                break;
+            case 2:
+                scene = new Level3(level.width * Game.TILE_SIZE,level.height * Game.TILE_SIZE, levelID);
+                break;
+            case 3:
+
+                break;
+            default:
+                new Error("No level");
+                break;
+        }
+        
         Game.changeScene(scene);
     },
 
