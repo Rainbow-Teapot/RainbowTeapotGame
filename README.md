@@ -196,6 +196,13 @@ Adicionalmente, se usará la tecla “Q” para cambiar entre el modo sombra y e
      <img src="Imagenes_readme/tetera_dorada.png">
 </p>
 
+**Cucharilla dorada:** Moneda dentro del juego. Se obtendrán en los niveles y con ellas podremos comprar más niveles, o niveles exclusivos.
+
+
+<p align="center">
+     <img src="Imagenes_readme/goldenSpoon.png">
+</p>
+
 **Personajes:**
 
  **Erin “Miss Teapot” Jameson:** Nuestra protagonista. Nació en uno de los barrios más pobres de Nueva Orleans, donde vivía con su madrastra. Su padre falleció siendo ella pequeña, y de su madre biológica no se sabe nada. Una intrépida ornitóloga, amante de los atardeceres al aire libre y del campo. Dedica su vida al cuidado de las aves: posee dos reservas naturales donde cuida a las aves en peligro de extinción, y a aquellas que no tengan hogar o estén enfermas. Ganó mucho dinero gracias a un libro que escribió unos años atrás, que fue Best-seller, con más de 7 ediciones, sobre cómo estudiar e investigar cada uno de los tipos de aves rapaces que existen en el mundo.
