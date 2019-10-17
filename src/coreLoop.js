@@ -22,7 +22,7 @@ var coreLoop = {
         let canvas = document.getElementById("viewport");
         let context = canvas.getContext('2d');
         //context.clearRect(0,0, canvas.width, canvas.height);
-        context.fillStyle = "white";
+        context.fillStyle = "black";
         context.fillRect(0,0, canvas.width, canvas.height);
         if(scene)
             scene.draw();

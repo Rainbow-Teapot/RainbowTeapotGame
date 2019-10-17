@@ -16,7 +16,8 @@ var i18n = {
         lvl1: "Nivel 1",
         gameOver: "¡Te rompiste!",
         loading: "Cargando...",
-        tutorial: "controlsEsp"
+        tutorial: "controlsEsp",
+        skip: "Saltar",
     },
 
     eng:{
@@ -35,8 +36,8 @@ var i18n = {
         lvl1: "Level 1",
         gameOver: "You broke!",
         loading: "Loading...",
-        tutorial: "controlsEng"
-
+        tutorial: "controlsEng",
+        skip: "Skip",
     },
 
     translate: function(language, elem){       

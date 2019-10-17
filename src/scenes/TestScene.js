@@ -97,23 +97,26 @@ TestScene.prototype.create = function () {
     let bg = new Background(this, "bg1", -Game.TILE_SIZE / 2 - 1, Game.TILE_SIZE, 0);
     let bg2 = new Background(this, "bg2", 0, Game.TILE_SIZE*5  , -1);
     let bgPass = new Background(this, "bgPass", 0, 0, 0);
+<<<<<<< HEAD
 
     let fg = new Foreground(this, "fg1", 0, Game.TILE_SIZE, 0);
 
+=======
+    
+>>>>>>> ft/Newspaper
     //DESDOBLE SOMBRA/COLOR
     let colorPlayer = this.objControl.colorPlayer;
     let shadowPlayer = this.objControl.shadowPlayer;
 
-    this.objControl.shadowPlayer.pos.y = this.objControl.colorPlayer.pos.y;
+    shadowPlayer.pos.y = colorPlayer.pos.y;
     let tweenbgPass = new Tween(this, bgPass, 4, bgPass.pos.x, bgPass.pos.y - Game.TILE_SIZE * 3, 0, -1);
     let tweenbg2 = new Tween(this, bg2, 4, bg2.pos.x, bg2.pos.y - Game.TILE_SIZE * 3, 0, -1);
     let tweenPlayer = new Tween(this, shadowPlayer, 4,
-        shadowPlayer.pos.x, colorPlayer.pos.y - Game.TILE_SIZE * 3, 0, -1);
-
-
+    shadowPlayer.pos.x, colorPlayer.pos.y - Game.TILE_SIZE * 3, 0, -1);
+    
     //FIN DESDOBLE SOMBRA/COLOR
 
-
+    let fg = new Foreground(this, "fg1", 0, Game.TILE_SIZE, 0);
 
     this.camera.setTarget(this.selectedPlayer);
 }
