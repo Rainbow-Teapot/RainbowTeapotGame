@@ -25,6 +25,9 @@ LevelSelectionMenuGUI.prototype.create = function(){
     //texto NIVELES
     let textLevels = new Text(this.scene,i18n.translate(Game.lang, "levels"),viewportMiddleX,125,"60px CartoonRegular");
 
+    //cucharitas
+    this.goldenSpoons = new GUIImage(this.scene, "goldenSpoonGUI_", 15, 100, 0, 0, 20, 30, 0)
+    this.numGoldenSpoons = new Text(this.scene, "x" +Game.goldenSpoons, 75,170, "20px CartoonRegular");
 
     let viewportMiddleY = viewport.height/2;
     //boton jugar

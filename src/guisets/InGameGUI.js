@@ -17,6 +17,10 @@ InGameGUI.prototype.create = function(){
         this.lifes[i] = new GUIImage(this.scene,"teaLifeGUI",10 + this.OFFSET_TEABAG * i,10,0,0,64,64,0);
     }
 
+    this.goldenSpoons = new GUIImage(this.scene, "goldenSpoonGUI", 10, 85, 0, 0, 30, 30, 0)
+    this.numGoldenSpoons = new Text(this.scene, "x" +this.scene.goldenSpoons, 60,140, "20px CartoonRegular", new Color(255,255,255,255));
+
+
     //llave
     this.key = new GUIImage(this.scene,"keyOff", viewport.width/2 - Game.TILE_SIZE/2, 10,0,0,64,64,0);
 
@@ -72,4 +76,8 @@ InGameGUI.prototype.pickUpKey = function(){
 }
 InGameGUI.prototype.useKey = function(){
     this.key.setImage("keyOff");
+}
+
+InGameGUI.prototype.pickUpGoldenSpoon = function(){
+    this.numGoldenSpoons.string = "x"+this.scene.goldenSpoons;      
 }

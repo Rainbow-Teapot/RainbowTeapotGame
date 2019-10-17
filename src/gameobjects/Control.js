@@ -33,3 +33,8 @@ Control.prototype.heal = function(){
         this.scene.gui.riseHealth();
     }
 }
+
+Control.prototype.pickSpoon = function(){
+    this.scene.gui.pickUpGoldenSpoon(); 
+
+}
