@@ -3,7 +3,7 @@ se añade el solito a la escena*/
 function Sprite(scene, img, x, y, xInImage, yInImage, width, height, depth){
     
     Drawable.call(this,scene,img, x, y, xInImage, yInImage, width, height, depth);
-    
+    this.name = img;
     this.animations = new Map();
     this.currentAnimation = null;
     this.color = new Color(255,0,0,255);

@@ -3,6 +3,7 @@ function Player(scene, x, y, depth) {
     GameObject.call(this, scene, x, y, depth);
     this.type.push("Player");
     this.sprite = this.prepareAnimations();
+    
     this.width = 64;
     this.height = 96;
     this.faceX = 1;
@@ -52,7 +53,7 @@ Player.prototype.constructor = Player;
 
 Player.prototype.prepareAnimations = function () {
 
-    let sprite = new Sprite(this.scene, "teapot", this.x, this.y, 0, 0, 64, 96, 0);
+    let sprite = new Sprite(this.scene, "teapot", this.x, this.y, 0, 0, 64, 96, -1);
 
     sprite.addAnimation("idleR", 16, 19, 4, -1);
     sprite.addAnimation("walkR", 0, 7, 3, -1);
@@ -85,7 +86,7 @@ Player.prototype.update = function () {
         this.sprite.blinkEffect(0.1);
     //this.sprite.alpha = 0.5;
 
-  
+    this.sprite.depth = -1;
 
 
 }
