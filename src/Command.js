@@ -34,7 +34,7 @@ function JumpJoystickCommand(){
 
     this.execute = function(){
         let distance = Math.hypot(Game.joystick.deltaX(), Game.joystick.deltaY())
-        return Game.joystick.up() && distance > 30 && distance < 200;
+        return Game.joystick.up() && distance > 80 && distance < 200;
     }
 }
 
