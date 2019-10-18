@@ -3,6 +3,7 @@ function Chronometer(scene, x,y,depth){
    this.start = null;
    this.end = null;
    this.diff = null;
+   this.timerID = 0;
    this.text = new Text(this.scene,"00:00:000", this.pos.x, this.pos.y,"20px CartoonRegular", new Color(255,255,255,255));
 }
 
@@ -33,7 +34,7 @@ Chronometer.prototype.chronoLoop = function(){
     //pintamos aquí.
     this.text.string =  min + ":" + sec + ":" + msec;
     let that = this;
-    timerID = setTimeout(function(){
+    this.timerID = setTimeout(function(){
         that.chronoLoop();
     }, 100);
 }
@@ -53,7 +54,7 @@ Chronometer.prototype.continueChrono = function(){
 	this.chronoLoop();
 }
 Chronometer.prototype.stopChrono = function(){
-	clearTimeout(timerID);
+	clearTimeout(this.timerID);
 }
 
 
