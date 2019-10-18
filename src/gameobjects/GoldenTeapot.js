@@ -30,9 +30,11 @@ GoldenTeapot.prototype.pickUp = function () {
     Game.goldenSpoons += this.scene.goldenSpoons;
     localStorage.setItem("golden-spoons", Game.goldenSpoons);
     this.scene.fadeType = "fadeOut";
+    Game.endMusic(); 
     let that  = this;
     this.scene.functionFade = function () {
         Game.changeScene(new EndLevelScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE),that.scene.level);
+        
     }
 
     let colorPlayer = this.scene.objControl.colorPlayer;

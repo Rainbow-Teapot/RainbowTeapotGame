@@ -68,6 +68,7 @@ InGameOptionsMenuGUI.prototype.create = function () {
     viewportMiddleX = viewport.width / 2 - buttonSpriteLevel.width / 2;
     viewportMiddleY = viewport.height / 2 - buttonSpriteLevel.height / 2 + 150;
     let goLevelSelection = function () {
+        Game.endMusic(); 
         Game.changeScene(new LevelSelectionScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE));
     };
     let buttonLevel = new Button(this.scene, viewportMiddleX + 35, viewportMiddleY, 0, buttonSpriteLevel, goLevelSelection, i18n.translate(Game.lang, "levels"), font);

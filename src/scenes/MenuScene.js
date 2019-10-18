@@ -13,7 +13,14 @@ MenuScene.prototype.preload = function () {
 }
 
 MenuScene.prototype.create = function () {
-    audio.play(this.track);
+    if(audio!=null){
+        if(audio.music== null || audio.music.paused){
+            audio.play(this.track);
+        }
+    }else{
+          audio.play(this.track);
+    }
+  
 
     this.gui = new MainMenuGUI(this);
 

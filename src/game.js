@@ -78,8 +78,16 @@ var Game = {
             Game.goldenSpoons = parseInt(goldenSpoons,10);
         }
         if(rankings){
-            Game.ranking = JSON.parse(rankings);
+            Game.ranking = JSON.parse(rankings);            
         }
-    },
+    },    
+    endMusic(){
+        if (audio.music != null) {
+            audio.music.pause();
+            audio.music.src = "";
+        }
+        console.log(audio.music); 
+        console.log(audio.music.src); 
+    }
 
 }

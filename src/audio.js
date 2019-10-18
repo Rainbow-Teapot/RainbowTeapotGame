@@ -23,50 +23,11 @@ var audio = {
         if (audio.music != null) {
             audio.music.pause();
             audio.music.src = "";
+            
         }
         audio.music = new Audio(trackPath);
         audio.music.muted = false;
-        audio.music.volume = 0.5;
-        /*
-                switch (trackPath) {
-                    case audio.effectDamage:
-                    case audio.effectJump:
-                    case audio.effectKey:
-                    case audio.effectLever:
-                    case audio.trackVictory:
-                    case audio.trackDefeat:
-                        audio.music = new Audio(trackPath);
-                        audio.music.muted = false;
-                        audio.music.volume = 0.3;
-                        audio.music.play();
-                        break;
-                    case audio.trackDefeat:
-                    case audio.trackVictory:
-                        if (audio.music != null) {
-                            audio.music.pause();
-                            audio.music.src = "";
-                        }
-                        audio.effectSound = new Audio(trackPath);                
-                        audio.effectSound = 0.5;
-                        audio.music.play();
-                        break;
-                    default:
-        
-                        if (audio.music != null) {
-                            audio.music.pause();
-                            audio.music.src = "";
-                        }
-                        audio.music = new Audio(trackPath);
-                        audio.music.muted = false;
-                        audio.music.volume = 0.5;
-                        audio.music.addEventListener('ended', function () {
-                            this.currentTime = 0;
-                            this.play();
-                        }, false);
-                        audio.music.play();
-                }
-            */
-
+        audio.music.volume = 0.5;      
 
         if ((trackPath === audio.trackDefeat) || (trackPath === audio.trackVictory)) {
             audio.music.play();
@@ -78,7 +39,6 @@ var audio = {
             }, false);
             audio.music.play();
         }
-
 
         //const playPromise = audio.music.play();
         /*if (playPromise !== null){
@@ -102,16 +62,13 @@ var audio = {
         if (audio.soundEffect != null) {
             audio.soundEffect.pause();
             audio.soundEffect.src = "";
-        }
-        
+        }        
 
         audio.soundEffect = new Audio(effectSound);
         audio.soundEffect.muted = false;
         audio.soundEffect.volume = 0.5;
 
         audio.soundEffect.play();
-
-
     }
 
 };

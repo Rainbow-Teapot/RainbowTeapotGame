@@ -17,6 +17,7 @@ GameOverGUI.prototype.create = function(){
     //boton de repetir
     let buttonRestartSprite = new GUIImage(this.scene,"botonReempezar",50,50,0,0,114,52,0);
     let restartLevel = function(){
+        
         Game.changeScene(new LoadingScene(20 *Game.TILE_SIZE, 20 * Game.TILE_SIZE , Game.lastLevelPlayed));
     };
     let buttonRestart = new Button(this.scene,viewportMiddleX - buttonRestartSprite.width -Game.TILE_SIZE,viewportDown,0,buttonRestartSprite, restartLevel);
@@ -24,6 +25,7 @@ GameOverGUI.prototype.create = function(){
     //boton de seleccion de niveles
     let buttonLevelSprite = new GUIImage(this.scene,"button",50,50,0,0,114,52,0);
     let goLevelSelection = function(){
+        Game.endMusic(); 
         Game.changeScene(new LevelSelectionScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
     let buttonLevel = new Button(this.scene,viewportMiddleX -Game.TILE_SIZE,viewportDown,0,buttonLevelSprite, goLevelSelection,

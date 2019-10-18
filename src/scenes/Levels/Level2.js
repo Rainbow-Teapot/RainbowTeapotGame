@@ -27,7 +27,8 @@ Level2.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "teaLife", "./assets/objects/sobresTe.png");
     Scene.prototype.loadToScene.call(this, "teaLifeShadow", "./assets/objects/teShadow.png");
     Scene.prototype.loadToScene.call(this, "teaLifeGUI", "./assets/objects/sobresTeGUI.png");
-
+    
+    //Dont need them
     Scene.prototype.loadToScene.call(this, "bridgeYShadow", "./assets/objects/puentesombra.png");
     Scene.prototype.loadToScene.call(this, "bridgeXShadow", "./assets//objects/puente2sombra.png");
     Scene.prototype.loadToScene.call(this, "bridgeY", "./assets/objects/puente.png");

@@ -13,6 +13,7 @@ LoadingScene.prototype.preload = function(){
 }
 
 LoadingScene.prototype.create = function(){
+    
     Scene.prototype.create.call(this);
     let bg = new Background(this,"bgMenu",0,0,0);
     new Text(Game.scene, i18n.translate(Game.lang, "loading"),viewport.width/2,viewport.height - Game.TILE_SIZE,"60px CartoonRegular");    

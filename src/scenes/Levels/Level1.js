@@ -36,6 +36,7 @@ Level1.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "leverOnShadow", "./assets/objects/palanca_derecha_sombra.png");
     Scene.prototype.loadToScene.call(this, "leverOffShadow", "./assets/objects/palanca_izquierda_sombra.png");
 
+    //Dont need them 
     Scene.prototype.loadToScene.call(this,"lamp", "./assets/objects/lampara.png");
     Scene.prototype.loadToScene.call(this,"lampShadow", "./assets/objects/lamparaShadow.png");
 
