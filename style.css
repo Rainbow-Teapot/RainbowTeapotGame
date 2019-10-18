@@ -4,3 +4,9 @@ body {
 	background-image:url("./assets/backgrounds/bg_web_2.png");
 	background-repeat: repeat-x;
 }
+#logo{
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
