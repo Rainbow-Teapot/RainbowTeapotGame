@@ -104,7 +104,8 @@ Level1.prototype.create = function () {
     let tweenbg2 = new Tween(this, bg2, 4, bg2.pos.x, bg2.pos.y - Game.TILE_SIZE * 3, 0, -1);
     let tweenPlayer = new Tween(this, shadowPlayer, 4,
     shadowPlayer.pos.x, colorPlayer.pos.y - Game.TILE_SIZE * 3, 0, -1);
-    
+    this.tutorial.pos.y += Game.TILE_SIZE*3;
+    let tweenTutorial = new Tween(this,this.tutorial,4,this.tutorial.pos.x,this.tutorial.pos.y - Game.TILE_SIZE * 3,0,-1);
     //FIN DESDOBLE SOMBRA/COLOR
 
     this.camera.setTarget(this.selectedPlayer);

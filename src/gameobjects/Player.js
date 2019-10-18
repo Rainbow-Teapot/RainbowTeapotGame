@@ -43,8 +43,7 @@ function Player(scene, x, y, depth) {
 
     let that = this;
     this.timerInmunity = new Timer(this, function () { that.hasInmunity = false; that.sprite.alpha = 1.0; }, 1000);
-
-    this.controls = input.initControls();
+    this.controls = Game.controls;
 
 }
 /*Hererncia protoripica con GameObject */
