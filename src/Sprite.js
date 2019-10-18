@@ -22,6 +22,8 @@ Sprite.prototype.draw = function(camera){
         var canvas = document.getElementById("viewport");
         var context = canvas.getContext('2d');
         let posAtCamera = this.pos.changeBase(camera.basis);
+        posAtCamera.x = Math.floor(posAtCamera.x);
+        posAtCamera.y = Math.floor(posAtCamera.y);
         let posAtViewPort = posAtCamera.changeBase(viewport.basis);
 
         context.globalAlpha = this.alpha;

@@ -24,6 +24,8 @@ Tile.prototype.draw = function(camera){
     //context.fillStyle = this.color.toHTML();
 
     let posAtCamera = this.pos.changeBase(camera.basis);
+    posAtCamera.x = Math.floor(posAtCamera.x);
+    posAtCamera.y = Math.floor(posAtCamera.y);
     let posAtViewPort = posAtCamera.changeBase(viewport.basis);
 
     context.drawImage(this.img,this.posInImage.x, this.posInImage.y, 
