@@ -107,4 +107,6 @@ Level1.prototype.create = function () {
     //FIN DESDOBLE SOMBRA/COLOR
 
     this.camera.setTarget(this.selectedPlayer);
+    this.objControl.initChrono();
+
 }

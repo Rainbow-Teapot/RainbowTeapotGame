@@ -11,9 +11,11 @@ var Game = {
     lang: 0,
     //coger del localstorage
     goldenSpoons: 0,
+    ranking : [],
     joystick: null,
     levels: [level1 = {width: 60,height: 18}, level2 = {width: 60, height: 20}, level3 =  {width: 60, height: 20}],
     lastLevelPlayed: 0,
+    lastScore : "",
     langs: ["ENG","SPN"],
     /*crea el juego, inicia el viewport (canvas), asigna la escena e inicia el GAMELOOP*/
     createGame : function(scene, posx, posy, width, height){
@@ -24,7 +26,7 @@ var Game = {
         
 
         console.log("le juego se ha iniciado");
-        
+        Game.initLocalStorage();
         Game.changeScene(scene);
         viewport.createViewport(width, height, posx, posy);
         //physics.initPhysics(0, 0, scene.width, scene.height);
@@ -67,6 +69,17 @@ var Game = {
         
         Game.changeScene(scene);
     },
+    initLocalStorage(){
 
+        let goldenSpoons = localStorage.getItem("golden-spoons");
+        let rankings = localStorage.getItem("rankings");
+
+        if(goldenSpoons){
+            Game.goldenSpoons = parseInt(goldenSpoons,10);
+        }
+        if(rankings){
+            Game.ranking = JSON.parse(rankings);
+        }
+    },
 
 }
