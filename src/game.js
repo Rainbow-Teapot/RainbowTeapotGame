@@ -79,6 +79,14 @@ var Game = {
         }
         if(rankings){
             Game.ranking = JSON.parse(rankings);
+            console.log(Game.ranking);
+        }else{
+            Game.ranking = new Array(Game.levels);
+            for(let i = 0; i < Game.levels.length; i++){
+                let rankingDummy = ["??:??:???","??:??:???","??:??:???"];
+                Game.ranking[i] = rankingDummy;
+            }
+            localStorage.setItem("rankings", JSON.stringify(Game.ranking));
         }
     },
 

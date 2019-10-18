@@ -1,6 +1,6 @@
 function LevelSelectionScene(width, height) {
     Scene.call(this, width, height);
-    
+    this.levelSelected = 1;
 }
 
 LevelSelectionScene.prototype = Object.create(Scene.prototype);
