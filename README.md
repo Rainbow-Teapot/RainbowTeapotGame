@@ -23,10 +23,6 @@
 <p>Github-pages: <strong>https://rainbow-teapot.github.io/RainbowTeapotGame/</strong> </p>
 
 
-**Prueba nuestro juego aquí:**
-
-<p>Github-pages: <strong>https://rainbow-teapot.github.io/RainbowTeapotGame/</strong> </p>
-
 **Mecánicas del juego:**
 
 <p>Nuestro jugador tendrá la oportunidad de experimentar todas las mecánicas clásicas de un juego de plataformas en dos dimensiones. Sin embargo, contará con el extra de una mecánica especial: podrá cambiar el control del personaje para jugar con su sombra, es decir, se podrá interactuar con la sombra de nuestra protagonista para sortear los obstáculos que nos encontraremos a lo largo de los niveles.</p>
@@ -251,14 +247,16 @@ Adicionalmente, se usará la tecla “Q” para cambiar entre el modo sombra y e
 **Contacto:**
 
 
+![Logotipo](Imagenes_readme/RTLogoClara.png)
+
+<p align="center">https://twitter.com/RainbowTeapotSt</p>
+
+
+
 <p align="center">
      <img width="128" height="128"src="Imagenes_readme/twitterlogodown.png">
 </p>
 
-
-![Logotipo](Imagenes_readme/RTLogoClara.png)
-
-<p align="center">https://twitter.com/RainbowTeapotSt</p>
 
 
 <p align="center">
