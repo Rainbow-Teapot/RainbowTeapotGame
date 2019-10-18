@@ -71,10 +71,8 @@ Adicionalmente, se usará la tecla “Q” para cambiar entre el modo sombra y e
 
 ![Nivel2](Imagenes_readme/Nivel1_02.png)
 
-<p>Empezamos cogiendo una llave, que podremos usar más adelante para cualquiera de las dos puertas. El jugador deberá elegir que puerta abrir, porque en función de su decisión, así actuará para resolver el enigma:</p>
-	<p>1. Si abre la puerta de arriba, podrá accionar la palanca para bajar el puente levadizo de abajo, pero no tendrá una llave para abrir la puerta de abajo, por lo tanto habrá fallado en la resolución del nivel.</p>
-	<p>2. Si abres la puerta de abajo (opción correcta), podrás accionar el botón que está al lado del puente levadizo y desactivar la luz del piso de arriba. Como ya no tienes llave, deberás recurrir al modo sombra para que la sombra accione la palanca que baje el puente levadizo.</p>
-<p>Después, se podría seguir hacia la siguiente pantalla.</p>
+<p>Empezamos en la parte de la izquierda del mapa. Tendremos que sortear el agua, que hace daño a Miss Teapot, a través de la plataforma móvil. Después, necesitaremos coger la llave que está en la parte de abajo a la derecha, al lado de la luz, pero primero tendremos que apargar la luz para que la sombra pueda atravesar la puerta sin que se haga daño con la luz, para ello tendremos que apagar la luz con el interruptor que está más a la derecha.</p>
+<p>Una vez cojamos la llave, podremos abrir la puerta con Erin y avanzar por la parte de abajo. Después, se podría seguir hacia la siguiente pantalla.</p>
 
 **Nivel 3:**
 
