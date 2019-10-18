@@ -25,6 +25,7 @@ EndLevelMenuGUI.prototype.create = function(){
     //boton de seleccion de niveles
     let buttonLevelSprite = new GUIImage(this.scene,"button",50,50,0,0,114,52,0);
     let goLevelSelection = function(){
+        Game.endMusic(); 
         Game.changeScene(new LevelSelectionScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
     let buttonLevel = new Button(this.scene,viewportMiddleX - buttonLevelSprite.width/2,viewportDown,0,buttonLevelSprite, goLevelSelection,
@@ -34,7 +35,7 @@ EndLevelMenuGUI.prototype.create = function(){
     if(Game.lastLevelPlayed < Game.levels.length){
         let buttonNextSprite = new GUIImage(this.scene,"botonContinuar",50,50,0,0,114,52,0);
         let goNextLevel = function(){
-            
+            Game.endMusic(); 
             Game.changeScene(new LoadingScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE,Game.lastLevelPlayed + 1));
         };
         let buttonNext = new Button(this.scene,viewportMiddleX + 200 - buttonNextSprite.width,viewportDown,0,buttonNextSprite, goNextLevel);
@@ -43,6 +44,9 @@ EndLevelMenuGUI.prototype.create = function(){
     //texto congratulaciones
     let textCongrants = new Text(this.scene,i18n.translate(Game.lang, "win"),viewportMiddleX,110,"60px CartoonRegular");
 
+
+    let textScore = new Text(this.scene,Game.lastScore,viewportMiddleX,viewport.height/2,"80px CartoonRegular");
+
     this.guiObjects.push(buttonRestart,buttonLevel);
-    this.guiSprites.push(textCongrants);
+    this.guiSprites.push(textCongrants,textScore);
 };

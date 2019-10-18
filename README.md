@@ -22,7 +22,12 @@
 
 <p>Github-pages: <strong>https://rainbow-teapot.github.io/RainbowTeapotGame/</strong> </p>
 
-**Mecánicas Principales:**
+
+**Prueba nuestro juego aquí:**
+
+<p>Github-pages: <strong>https://rainbow-teapot.github.io/RainbowTeapotGame/</strong> </p>
+
+**Mecánicas del juego:**
 
 <p>Nuestro jugador tendrá la oportunidad de experimentar todas las mecánicas clásicas de un juego de plataformas en dos dimensiones. Sin embargo, contará con el extra de una mecánica especial: podrá cambiar el control del personaje para jugar con su sombra, es decir, se podrá interactuar con la sombra de nuestra protagonista para sortear los obstáculos que nos encontraremos a lo largo de los niveles.</p>
 <p>¿Cómo funciona esta mecánica?, muy fácil: El jugador verá en todo momento en la pantalla al personaje y a su sombra, junto con el resto del nivel. Cuando el jugador lo considere oportuno, podrá elegir cambiar para controlar a la sombra del personaje. Mientras se controle al personaje, la sombra imitará los movimientos de éste, tal y como haría una sombra común. No obstante, cuando elijamos controlar a la sombra, nuestro personaje real se quedará inmóvil. La sombra solo podrá moverse por los bordes de las sombras que generen los objetos del escenario en concreto. Una vez se esté jugando con la sombra, para volver a jugar con el personaje real, bastará con pulsar de nuevo el botón correspondiente, y la cámara volverá al personaje real.</p>
@@ -245,17 +250,24 @@ Adicionalmente, se usará la tecla “Q” para cambiar entre el modo sombra y e
 
 **Contacto:**
 
+
 <p align="center">
      <img width="128" height="128"src="Imagenes_readme/twitterlogodown.png">
 </p>
 
+
+![Logotipo](Imagenes_readme/RTLogoClara.png)
+
 <p align="center">https://twitter.com/RainbowTeapotSt</p>
+
 
 <p align="center">
      <img width="128" height="128" src="Imagenes_readme/instagram-logo1.png">
 </p>
 
+
 <p align="center">https://www.instagram.com/rainbowteapotst/?hl=es</p>
+
 
 <p align="center">
      <img width="175" height="128" src="Imagenes_readme/450_1000.png">

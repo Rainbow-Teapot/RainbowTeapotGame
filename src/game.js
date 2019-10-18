@@ -9,11 +9,16 @@ var Game = {
     TILE_SIZE: 64,
     FRAM_RATE: 60,
     lang: 0,
+    volume: 0.5,
     //coger del localstorage
     goldenSpoons: 0,
+    ranking : [],
     joystick: null,
+    lastLevelBeaten: 0,
     levels: [level1 = {width: 60,height: 18}, level2 = {width: 60, height: 20}, level3 =  {width: 60, height: 20}],
     lastLevelPlayed: 0,
+    lastScore : "",
+    paused: false,
     langs: ["ENG","SPN"],
     /*crea el juego, inicia el viewport (canvas), asigna la escena e inicia el GAMELOOP*/
     createGame : function(scene, posx, posy, width, height){
@@ -24,7 +29,7 @@ var Game = {
         
 
         console.log("le juego se ha iniciado");
-        
+        Game.initLocalStorage();
         Game.changeScene(scene);
         viewport.createViewport(width, height, posx, posy);
         //physics.initPhysics(0, 0, scene.width, scene.height);
@@ -67,6 +72,41 @@ var Game = {
         
         Game.changeScene(scene);
     },
+    initLocalStorage(){
 
+        let goldenSpoons = localStorage.getItem("golden-spoons");
+        let rankings = localStorage.getItem("rankings");
+        let lastLevelBeaten = localStorage.getItem("lastLevelBeaten")
+
+        if(goldenSpoons){
+            Game.goldenSpoons = parseInt(goldenSpoons,10);
+        }
+        if(rankings){
+            Game.ranking = JSON.parse(rankings);
+            console.log(Game.ranking);
+        }else{
+            Game.ranking = new Array(Game.levels);
+            for(let i = 0; i < Game.levels.length; i++){
+                let rankingDummy = ["??:??:???","??:??:???","??:??:???"];
+                Game.ranking[i] = rankingDummy;
+            }
+            localStorage.setItem("rankings", JSON.stringify(Game.ranking));
+        }
+        if(lastLevelBeaten){
+            Game.lastLevelBeaten =  parseInt(lastLevelBeaten,10);;
+        }
+    },    
+    endMusic(){
+        if (audio.music != null) {
+            audio.music.pause();
+            audio.music.src = "";
+        }        
+    }, 
+    pauseGame(){
+        Game.paused = true;
+    },
+    resumeGame(){
+        Game.paused = false;
+    }
 
 }

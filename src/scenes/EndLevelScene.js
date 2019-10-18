@@ -21,4 +21,5 @@ EndLevelScene.prototype.create = function(){
 
 EndLevelScene.prototype.update = function(){
     Scene.prototype.update.call(this);
+    
 }

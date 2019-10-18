@@ -77,8 +77,12 @@ Player.prototype.update = function () {
 
     //si se ve un delay ponerlo abajo
     GameObject.prototype.update.call(this);
-   
-    this.behaviour();
+    
+    if(Game.paused){
+        this.stopMoving();
+    }else{
+        this.behaviour();
+    }
     this.animation();
     this.handleColisions();
 
@@ -94,6 +98,7 @@ Player.prototype.update = function () {
 Player.prototype.behaviour = function () {
     switch (this.currentState) {
         case this.states.DISABLED:
+            this.currentAnimation = this.animations.IDLE;
             this.stopMoving();
             break;
         case this.states.SELECTED:
@@ -132,8 +137,9 @@ Player.prototype.input = function () {
 }
 
 Player.prototype.stopMoving = function () {
-    this.currentAnimation = this.animations.IDLE;
+    
     this.currentVX = 0;
+    this.currentVY = 0;
     this.moveX = 0;
 }
 
