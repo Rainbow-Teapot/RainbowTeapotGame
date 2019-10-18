@@ -44,6 +44,9 @@ EndLevelMenuGUI.prototype.create = function(){
     //texto congratulaciones
     let textCongrants = new Text(this.scene,i18n.translate(Game.lang, "win"),viewportMiddleX,110,"60px CartoonRegular");
 
+
+    let textScore = new Text(this.scene,Game.lastScore,viewportMiddleX,viewport.height/2,"80px CartoonRegular");
+
     this.guiObjects.push(buttonRestart,buttonLevel);
-    this.guiSprites.push(textCongrants);
+    this.guiSprites.push(textCongrants,textScore);
 };

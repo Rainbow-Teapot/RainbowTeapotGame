@@ -36,5 +36,23 @@ ConfirmLevelGUI.prototype.create = function(){
     let buttonCancel = new Button(this.scene,viewportMiddleX - 140,360,0,buttonExitSprite, cancelSelection);
 
     this.guiSprites.push(board);
+
+    //texto de las scores
+    this.textScores = new Array(3);
+    for(let i = 0; i < this.textScores.length; i++){
+        this.textScores[i] = new Text(this.scene,(i+ 1) + "........" + Game.ranking[this.scene.levelSelected - 1][i],
+                                board.pos.x + board.width/2, board.pos.y + 75 + 70*i, "32px CartoonRegular");
+        this.guiSprites.push(this.textScores[i]);
+    }
+
+    
     this.guiObjects.push(buttonCancel,buttonPlay);
 };
+
+ConfirmLevelGUI.prototype.show = function(){
+    GUISet.prototype.show.call(this);
+    console.log(this.scene.levelSelected);
+    for(let i = 0; i < this.textScores.length; i++){
+        this.textScores[i].string = (i+ 1) + "........" + Game.ranking[this.scene.levelSelected-1][i];
+    }
+}

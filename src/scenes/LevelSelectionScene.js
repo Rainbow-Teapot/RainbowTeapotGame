@@ -2,6 +2,7 @@ function LevelSelectionScene(width, height) {
     Scene.call(this, width, height);
     this.track = audio.trackMenu;
     
+    this.levelSelected = 1;
 }
 
 LevelSelectionScene.prototype = Object.create(Scene.prototype);
