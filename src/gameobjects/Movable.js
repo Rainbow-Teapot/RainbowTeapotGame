@@ -3,7 +3,7 @@ function Movable(scene, x, y, depth) {
     this.activated = false;
     this.type.push("Movable");
 
-
+    this.maxVel = 2;
     this.vel = 0.5;
     this.initPosX = this.pos.x;
     this.endPosX = this.pos.x + Game.TILE_SIZE / 2;
@@ -25,6 +25,8 @@ Movable.prototype.perform = function () {
 
 
 Movable.prototype.update = function () {
+
+    this.vel = this.maxVel * !Game.paused;
 
     if (this.faceX === 1) {
         if (this.pos.x < this.endPosX) {

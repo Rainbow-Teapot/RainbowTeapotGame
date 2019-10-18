@@ -33,6 +33,7 @@ InGameGUI.prototype.create = function(){
     let buttonOptionsSprite = new GUIImage(this.scene,"botonAjustes",50,50,0,0,114,52,0);
     let showOptionMenu = function(){
         that.scene.objControl.pauseChrono();
+        Game.pauseGame();
         optionMenu.show();
     };
     let buttonOptions = new Button(this.scene,viewport.width - buttonOptionsSprite.width - 25,10,0,buttonOptionsSprite, showOptionMenu);

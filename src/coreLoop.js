@@ -37,7 +37,7 @@ var coreLoop = {
     loop : function(currentStamp){
 
         setTimeout(function(){
-            idRequest = window.requestAnimationFrame(coreLoop.loop);
+            coreLoop.idRequest = window.requestAnimationFrame(coreLoop.loop);
 
             coreLoop.update(coreLoop.scene);
             coreLoop.draw(coreLoop.scene);
@@ -58,7 +58,14 @@ var coreLoop = {
     resetProfile : function(){
         coreLoop.ups = 0;
         coreLoop.fps = 0;
+    },
+    pauseLoop : function(){
+        cancelAnimationFrame(coreLoop.idRequest);
+    }, 
+    resumeLoop : function(){
+        coreLoop.idRequest = window.requestAnimationFrame(coreLoop.loop);
     }
+
 }
 
   
