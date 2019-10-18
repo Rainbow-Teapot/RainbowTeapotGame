@@ -14,6 +14,7 @@ var Game = {
     goldenSpoons: 0,
     ranking : [],
     joystick: null,
+    lastLevelBeaten: 0,
     levels: [level1 = {width: 60,height: 18}, level2 = {width: 60, height: 20}, level3 =  {width: 60, height: 20}],
     lastLevelPlayed: 0,
     lastScore : "",
@@ -75,6 +76,7 @@ var Game = {
 
         let goldenSpoons = localStorage.getItem("golden-spoons");
         let rankings = localStorage.getItem("rankings");
+        let lastLevelBeaten = localStorage.getItem("lastLevelBeaten")
 
         if(goldenSpoons){
             Game.goldenSpoons = parseInt(goldenSpoons,10);
@@ -89,6 +91,9 @@ var Game = {
                 Game.ranking[i] = rankingDummy;
             }
             localStorage.setItem("rankings", JSON.stringify(Game.ranking));
+        }
+        if(lastLevelBeaten){
+            Game.lastLevelBeaten =  parseInt(lastLevelBeaten,10);;
         }
     },    
     endMusic(){

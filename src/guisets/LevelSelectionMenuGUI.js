@@ -31,13 +31,6 @@ LevelSelectionMenuGUI.prototype.create = function(){
     this.goldenSpoons = new GUIImage(this.scene, "goldenSpoonGUI_", 15, 100, 0, 0, 20, 30, 0)
     this.numGoldenSpoons = new Text(this.scene, "x" + Game.goldenSpoons, 75,170, "20px CartoonRegular");
 
-    //boton Nivel
-    /*let buttonSpritePlay = new GUIImage(this.scene,"button",50,50,0,0,114,52,0);
-    viewportMiddleX = viewport.width/2 - buttonSpritePlay.width/2;
-    viewportMiddleY = viewport.height/2 - buttonSpritePlay.height/2;
-    
-    let buttonPlay = new Button(this.scene,viewportMiddleX,viewportMiddleY,0,buttonSpritePlay, goLevelSelection, i18n.translate(Game.lang, "lvl1"),"30px CartoonRegular");
-    */
     this.createLevelButton();
 
     this.guiObjects.push(buttonBack);
@@ -56,10 +49,16 @@ LevelSelectionMenuGUI.prototype.createLevelButton = function(){
     for(let i = 0; i < (Game.levels.length - 1)/ this.LEVELS_PER_ROW + 1; i++){
         for (let j = 0; j < Math.min(this.LEVELS_PER_ROW, Game.levels.length - this.LEVELS_PER_ROW * i); j++){
             let buttonSpritePlay = new GUIImage(this.scene,"button",50,50,0,0,114,52,0);
+            let levelIndex = (i* this.LEVELS_PER_ROW+j+1)
             let currentButton = new Button(this.scene, viewport.width/2 - buttonSpritePlay.width*3/2 + j * buttonSpritePlay.width,
                                                         viewport.height/2 - buttonSpritePlay.height/2 + i * Game.TILE_SIZE,
-                                                        0,buttonSpritePlay, goLevelSelection, i18n.translate(Game.lang, "lvl") + " " + (i* this.LEVELS_PER_ROW+j+1),"30px CartoonRegular");
-            currentButton.levelIndex = i* this.LEVELS_PER_ROW+j+1;
+                                                        0,buttonSpritePlay, goLevelSelection, i18n.translate(Game.lang, "lvl") + " " + levelIndex,"30px CartoonRegular");
+            currentButton.levelIndex = levelIndex;
+            if(levelIndex > Game.lastLevelBeaten + 1){
+                buttonSpritePlay.alpha = 0.3;
+                currentButton.vel = 0;
+                currentButton.isEnable = false;
+            }
             this.guiObjects.push(currentButton);
         }
     }

@@ -29,6 +29,8 @@ GoldenTeapot.prototype.prepareAnimations = function () {
 GoldenTeapot.prototype.pickUp = function () {
     Game.goldenSpoons += this.scene.goldenSpoons;
     Game.lastScore = this.scene.objControl.chrono.getChrono();
+    Game.lastLevelBeaten = Math.max(Game.lastLevelBeaten, this.scene.level)
+
     localStorage.setItem("golden-spoons", Game.goldenSpoons);
     this.scene.fadeType = "fadeOut";
     Game.endMusic(); 
@@ -50,6 +52,7 @@ GoldenTeapot.prototype.pickUp = function () {
     Game.ranking[this.scene.level - 1].pop();
 
     localStorage.setItem("rankings", JSON.stringify(Game.ranking));
+    localStorage.setItem("lastLevelBeaten",Game.lastLevelBeaten);
 
     Pickupable.prototype.pickUp.call(this);
 }
