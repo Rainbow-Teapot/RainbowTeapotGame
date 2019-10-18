@@ -246,15 +246,12 @@ Adicionalmente, se usará la tecla “Q” para cambiar entre el modo sombra y e
 
 **Contacto:**
 
-
-<p align="center">https://twitter.com/RainbowTeapotSt</p>
-
-
 <p align="center">
      <img width="128" height="128"src="Imagenes_readme/twitterlogodown.png">
 </p>
 
 
+<p align="center">https://twitter.com/RainbowTeapotSt</p>
 
 <p align="center">
      <img width="128" height="128" src="Imagenes_readme/instagram-logo1.png">
