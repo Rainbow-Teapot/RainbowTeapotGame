@@ -46,11 +46,8 @@ GoldenTeapot.prototype.pickUp = function () {
 
 
     Game.ranking[this.scene.level - 1].push(Game.lastScore);
-    console.log( Game.ranking[this.scene.level - 1]);
     Game.ranking[this.scene.level - 1].sort();
-    console.log( Game.ranking[this.scene.level - 1]);
     Game.ranking[this.scene.level - 1].pop();
-    console.log( Game.ranking[this.scene.level - 1]);
 
     localStorage.setItem("rankings", JSON.stringify(Game.ranking));
 
