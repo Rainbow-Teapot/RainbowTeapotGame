@@ -18,6 +18,10 @@
 <p>Hablamos de un videojuego con estética cartoon en dos dimensiones ambientado en Estados Unidos, en la década de 1930, donde nuestra protagonista, Erin, vivirá momentos de tensión y aventura mientras huye de la banda de mafiosos que pretende liquidarla. Erin cometió un error muy grave al enfadar al que no debía, y ahora se ve obligada a recorrer las frías calles de Nueva Orleans mientras da esquinazo a O’Callahan y su banda de matones.</p> 
 <p>Lo que este villano no sabe es que Erin fue bendecida de nacimiento con un poder que le hace un tanto especial: es capaz de comunicarse con su sombra e interactuar con ella. ¿Conseguirá Erin escapar de los suburbios de una metrópolis de 1932 custodiada por la mafia?</p>
 
+**Prueba nuestro juego aquí:**
+
+<p>Github-pages: <strong>https://rainbow-teapot.github.io/RainbowTeapotGame/</strong> </p>
+
 **Mecánicas Principales:**
 
 <p>Nuestro jugador tendrá la oportunidad de experimentar todas las mecánicas clásicas de un juego de plataformas en dos dimensiones. Sin embargo, contará con el extra de una mecánica especial: podrá cambiar el control del personaje para jugar con su sombra, es decir, se podrá interactuar con la sombra de nuestra protagonista para sortear los obstáculos que nos encontraremos a lo largo de los niveles.</p>
@@ -223,18 +227,15 @@ Adicionalmente, se usará la tecla “Q” para cambiar entre el modo sombra y e
 <p>Se mudó a EEUU con 27 años, allí conoció a un empresario que se dedicaba al contrabando de aves rapaces. Empezó a trabajar junto a él, hasta que vio que sus intereses no llegaban más allá de las águilas y los halcones, y decidió quitárselo de en medio. Ahora, él es el líder de la banda, y es respetado por todos sus súbditos. Se dedica al contrabando de todo tipo de especies de aves, siempre y cuando sean raras y valgan muchísimo dinero.</p>
 <p></p>
 
-**Prueba nuestro juego aquí:**
-
-<p>Github-pages: <strong>https://rainbow-teapot.github.io/RainbowTeapotGame/</strong> </p>
 
 **Equipo:**
 
 **Rainbow Teapot Studio**
 
-![Logotipo](Imagenes_readme/RTLogo.png)
+![Logotipo](Imagenes_readme/RTLogoClara.png)
 
 
-<p align="center">Andrea Rodríguez González- Programador / Artista / Relaciones Públicas</p>
+<p align="center">Andrea Rodríguez González- Artista Técnica / Relaciones Públicas</p>
 
 <p align="center">Marcos Agudo Alarcón - Programador / Relaciones Públicas </p>
 
