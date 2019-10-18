@@ -1,6 +1,7 @@
 //Keyboard Controls
 function JumpKeyboardCommand(){
     this.execute = function(){        
+        
         return input.isPressedKey(" ");
     }
 }

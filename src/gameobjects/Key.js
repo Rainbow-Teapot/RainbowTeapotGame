@@ -31,7 +31,8 @@ Key.prototype.pickUp = function () {
     if (this.scene.objControl.numKeys == 0) {
         this.scene.objControl.numKeys++;
         let otherKey = null;
-        if (!this.isShadow) {
+        audio.playEffect(audio.effectKey);
+        if (!this.isShadow) {            
             otherKey = physics.instancePlace(null, this.pos.x, this.pos.y - Game.TILE_SIZE * this.scene.shadowLevel, "Key");
         } else {
             otherKey = physics.instancePlace(null, this.pos.x, this.pos.y + Game.TILE_SIZE * this.scene.shadowLevel, "Key");
