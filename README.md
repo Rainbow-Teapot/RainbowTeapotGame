@@ -247,10 +247,7 @@ Adicionalmente, se usará la tecla “Q” para cambiar entre el modo sombra y e
 **Contacto:**
 
 
-![Logotipo](Imagenes_readme/RTLogoClara.png)
-
 <p align="center">https://twitter.com/RainbowTeapotSt</p>
-
 
 
 <p align="center">
