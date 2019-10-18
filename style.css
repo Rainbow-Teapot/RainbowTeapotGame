@@ -1,0 +1,23 @@
+
+body {
+	background-color: #fff;
+	background-image:url("./assets/backgrounds/bg_web_2.png");
+	background-repeat: repeat-x;
+}
+#logo{
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+canvas {
+    padding: 0;
+    margin: auto;
+	margin-top:200px;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
