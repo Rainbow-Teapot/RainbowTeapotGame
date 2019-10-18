@@ -17,6 +17,7 @@ var Game = {
     levels: [level1 = {width: 60,height: 18}, level2 = {width: 60, height: 20}, level3 =  {width: 60, height: 20}],
     lastLevelPlayed: 0,
     lastScore : "",
+    paused: false,
     langs: ["ENG","SPN"],
     /*crea el juego, inicia el viewport (canvas), asigna la escena e inicia el GAMELOOP*/
     createGame : function(scene, posx, posy, width, height){
@@ -95,6 +96,12 @@ var Game = {
             audio.music.pause();
             audio.music.src = "";
         }        
+    }, 
+    pauseGame(){
+        Game.paused = true;
+    },
+    resumeGame(){
+        Game.paused = false;
     }
 
 }
