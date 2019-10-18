@@ -34,7 +34,7 @@ var input = {
         } else {
             input.currentInputMode = input.inputMode.MOBILE;
         }
-
+        Game.controls = input.initControls();
     },
     saveKey: function (e) {
 

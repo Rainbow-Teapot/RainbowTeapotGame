@@ -136,7 +136,7 @@ ObjectFactory.prototype.createProductFromColor = function (color, x, y) {
         }
     } else if (color.g == 24) {
         if (color.r == 0) {
-            new TutorialControls(this.scene, x - 50, y + 20, 1);
+            this.scene.tutorial = new TutorialControls(this.scene, x - 50, y + 20, 1);
         }
     } else if (color.g == 64) {
         if (color.b == 0) {

@@ -62,7 +62,7 @@ InGameOptionsMenuGUI.prototype.create = function () {
         Game.resumeGame();
         that.hide();
     };
-    let buttonResume = new Button(this.scene, viewportMiddleX, viewportMiddleY, 0, buttonSpriteResume, resume, i18n.translate(Game.lang, "resume"), font);
+    let buttonResume = new Button(this.scene, viewportMiddleX, board.pos.y + 155, 0, buttonSpriteResume, resume, i18n.translate(Game.lang, "resume"), font);
 
     //boton volver a la seleccion de niveles
     let buttonSpriteLevel = new GUIImage(this.scene, "button", 50, 50, 0, 0, 114, 52, 0);
@@ -73,7 +73,7 @@ InGameOptionsMenuGUI.prototype.create = function () {
         Game.resumeGame();
         Game.changeScene(new LevelSelectionScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE));
     };
-    let buttonLevel = new Button(this.scene, viewportMiddleX + 35, viewportMiddleY, 0, buttonSpriteLevel, goLevelSelection, i18n.translate(Game.lang, "levels"), font);
+    let buttonLevel = new Button(this.scene, viewportMiddleX + 35, board.pos.y + 230, 0, buttonSpriteLevel, goLevelSelection, i18n.translate(Game.lang, "levels"), font);
 
     //boton de repetir
     let buttonRestartSprite = new GUIImage(this.scene, "botonReempezar", 50, 50, 0, 0, 114, 52, 0);
@@ -81,7 +81,7 @@ InGameOptionsMenuGUI.prototype.create = function () {
         Game.resumeGame();
         Game.changeScene(new LoadingScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE, Game.lastLevelPlayed));
     };
-    let buttonRestart = new Button(this.scene, viewportMiddleX - Game.TILE_SIZE + 25, viewportMiddleY, 0, buttonRestartSprite, restartLevel);
+    let buttonRestart = new Button(this.scene, viewportMiddleX - Game.TILE_SIZE + 25, board.pos.y + 230, 0, buttonRestartSprite, restartLevel);
 
     this.guiSprites.push(bgAlpha, board, textVolume, textOptions, buttonVolumeLine, teapotVolumeSprite);
     this.guiObjects.push(buttonResume, buttonLevel, buttonVolumeDown, buttonVolumeUp, buttonRestart);
