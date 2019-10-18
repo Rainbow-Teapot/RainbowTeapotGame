@@ -9,6 +9,10 @@
 
 <p>Detectea Miss Teapot es juego de plataformas y puzzles en dos dimensiones, estilo cartoon y ambientado en la primera mitad del siglo XX en EEUU</p>
 
+**Prueba nuestro juego aquí:**
+
+<p>Github-pages: <strong>https://rainbow-teapot.github.io/RainbowTeapotGame/</strong> </p>
+
 **Mecánicas del juego:**
 
 <p align="justify">Nuestro jugador tendrá la oportunidad de experimentar todas las mecánicas clásicas de un juego de plataformas en dos dimensiones. Sin embargo, contará con el extra de una mecánica especial: podrá cambiar el control del personaje para jugar con su sombra, es decir, se podrá interactuar con la sombra de nuestra protagonista para sortear los obstáculos que nos encontraremos a lo largo de los niveles.</p>
@@ -23,17 +27,14 @@
 
 ![Nivel](Imagenes_readme/Escenario_real.PNG)
 
-**Prueba nuestro juego aquí:**
-
-<p>Github-pages: <strong>https://rainbow-teapot.github.io/RainbowTeapotGame/</strong> </p>
 
 **Desarrollado por Rainbow Teapot Studio. Todos los derechos reservados. 2019**
 
-![Logotipo](Imagenes_readme/RTLogo.png)
+![Logotipo](Imagenes_readme/RTLogoClara.png)
 
 **Integrantes del equipo de Rainbow Teapot Studios:**
 
-<p>Andrea Rodríguez González- Programador / Artista / Relaciones Públicas</p>
+<p>Andrea Rodríguez González- Artista técnica / Relaciones Públicas</p>
 
 <p>Marcos Agudo Alarcón - Programador / Relaciones Públicas </p>
 
