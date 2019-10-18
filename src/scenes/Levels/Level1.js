@@ -34,16 +34,7 @@ Level1.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "leverOn", "./assets/objects/palanca_derecha.png");
     Scene.prototype.loadToScene.call(this, "leverOff", "./assets/objects/palanca_izquierda.png");
     Scene.prototype.loadToScene.call(this, "leverOnShadow", "./assets/objects/palanca_derecha_sombra.png");
-    Scene.prototype.loadToScene.call(this, "leverOffShadow", "./assets/objects/palanca_izquierda_sombra.png");
-
-    //Dont need them 
-    Scene.prototype.loadToScene.call(this,"lamp", "./assets/objects/lampara.png");
-    Scene.prototype.loadToScene.call(this,"lampShadow", "./assets/objects/lamparaShadow.png");
-
-    Scene.prototype.loadToScene.call(this,"switchOn", "./assets/objects/Interruptor_luz.png");
-    Scene.prototype.loadToScene.call(this,"switchOnShadow", "./assets/objects/Interruptor_luz_sombra.png");
-    Scene.prototype.loadToScene.call(this,"switchOff", "./assets/objects/Interruptor_luz_apagada.png");
-    Scene.prototype.loadToScene.call(this,"switchOffShadow", "./assets/objects/Interruptor_luz_apagado_sombra.png");    
+    Scene.prototype.loadToScene.call(this, "leverOffShadow", "./assets/objects/palanca_izquierda_sombra.png");     
 
     Scene.prototype.loadToScene.call(this, "controlsEng", "./assets/objects/ControlesEng.png"); 
     Scene.prototype.loadToScene.call(this, "controlsEsp", "./assets/objects/ControlesEsp.png");     

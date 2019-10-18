@@ -15,7 +15,7 @@ var Game = {
     ranking : [],
     joystick: null,
     lastLevelBeaten: 0,
-    levels: [level1 = {width: 60,height: 18}, level2 = {width: 60, height: 20}, level3 =  {width: 60, height: 20}],
+    levels: [level1 = {width: 60,height: 18}, level2 = {width: 60, height: 20}, level3 =  {width: 60, height: 22}],
     lastLevelPlayed: 0,
     lastScore : "",
     paused: false,

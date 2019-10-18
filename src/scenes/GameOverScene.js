@@ -15,8 +15,10 @@ GameOverScene.prototype.preload = function(){
 GameOverScene.prototype.create = function(){
     let bgMenu = new GUIImage(this,"bgMenu",0,0,0,0,114,52,0);
     this.gui = new GameOverGUI(this);
-
+    
     Scene.prototype.create.call(this);
+    Game.endMusic(); 
+    audio.play(this.track); 
     
 }
 
