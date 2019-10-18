@@ -31,7 +31,7 @@ InGameOptionsMenuGUI.prototype.create = function () {
     let buttonVolumeLine = new GUIImage(this.scene, "volumeLine", viewportMiddleX - 109, 225, 0, 0, 0, 0, 0);
 
 
-    var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX - 110 + (audio.music.volume * 180), 200, 0, 0, 32, 32, 0);
+    var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX - 100 + (audio.music.volume * 180), 200, 0, 0, 32, 32, -1);
 
 
     let incrementVolume = function () {

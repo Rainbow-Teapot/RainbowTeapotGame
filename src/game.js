@@ -9,6 +9,7 @@ var Game = {
     TILE_SIZE: 64,
     FRAM_RATE: 60,
     lang: 0,
+    volume: 0.5,
     //coger del localstorage
     goldenSpoons: 0,
     ranking : [],
@@ -85,9 +86,7 @@ var Game = {
         if (audio.music != null) {
             audio.music.pause();
             audio.music.src = "";
-        }
-        console.log(audio.music); 
-        console.log(audio.music.src); 
+        }        
     }
 
 }

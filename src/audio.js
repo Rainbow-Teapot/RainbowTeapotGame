@@ -27,7 +27,7 @@ var audio = {
         }
         audio.music = new Audio(trackPath);
         audio.music.muted = false;
-        audio.music.volume = 0.5;      
+        audio.music.volume = Game.volume;      
 
         if ((trackPath === audio.trackDefeat) || (trackPath === audio.trackVictory)) {
             audio.music.play();
@@ -50,6 +50,7 @@ var audio = {
         if (audio.music != null) {
             let futureVolume = audio.music.volume + volume;
             if ((0 <= futureVolume) && (futureVolume <= 1.0)) {
+                Game.volume = futureVolume; 
                 audio.music.volume = futureVolume;
                 return true;
             }

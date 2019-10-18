@@ -11,7 +11,7 @@ OptionsMenuGUI.prototype.create = function () {
 
     let viewportMiddleX = viewport.width / 2;
 
-    let bgMenu = new Background(this.scene,"bgMenu", 0,0,0);
+    let bgMenu = new Background(this.scene, "bgMenu", 0, 0, 0);
 
     //tablero
     let board = new GUIImage(this.scene, "board", viewport.width / 2, 125, 0, 0, 0, 0);
@@ -36,12 +36,16 @@ OptionsMenuGUI.prototype.create = function () {
 
 
     let incrementVolume = function () {
-        if (audio.setVolume(0.1))
-            teapotVolumeSprite.pos.x += 0.1 * 150;
-    };
+        if (Game.volume != 0) {
+            if (audio.setVolume(0.1))
+                teapotVolumeSprite.pos.x += 0.1 * 150;
+        }
+    }
     let decrementVolume = function () {
-        if (audio.setVolume(-0.1))
-            teapotVolumeSprite.pos.x -= 0.1 * 150;
+        if (Game.volume != 0) {
+            if (audio.setVolume(-0.1))
+                teapotVolumeSprite.pos.x -= 0.1 * 150;
+        }
 
     };
 
@@ -51,8 +55,8 @@ OptionsMenuGUI.prototype.create = function () {
     buttonVolumeUp.vel = 0;
     buttonVolumeDown.vel = 0;
     if (audio.music != null) {
-        if (audio.music.muted === false) {
-            var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX - 110 + (audio.music.volume * 180), 200, 0 ,0, 0, 0);
+        if (!audio.music.muted || Game.volume != 0) {
+            var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX - 110 + (audio.music.volume * 180), 200, 0, 0, 0, 0);
         }
     }
 
@@ -96,16 +100,19 @@ OptionsMenuGUI.prototype.create = function () {
     let onOffMusic = function () {
 
         if (audio.music === null) {
-            console.log(this.scene);
             audio.play(this.scene.track);
             tickSprite.isVisible = true;
 
-        } else if (audio.music.muted === true) {
+        } else if (Game.volume == 0) {
+            console.log("Volume = 0, dale candela"); 
             audio.music.muted = false;
+            Game.volume = audio.music.volume; 
             tickSprite.isVisible = true;
 
         } else {
+            console.log("Silencia"); 
             audio.music.muted = true;
+            Game.volume = 0;
             tickSprite.isVisible = false;
         }
         Game.changeScene(new OptionsScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE));
@@ -115,7 +122,7 @@ OptionsMenuGUI.prototype.create = function () {
     let buttonOnOffMusic = new Button(this.scene, viewportMiddleX + 75, 320, 0, buttonOnOffMusicSprite, onOffMusic);
 
     let tickSprite = new GUIImage(this.scene, "tick", viewportMiddleX + 75, 315, 0, 0, 0, 0);
-    
+
     if ((audio.music === null) || (audio.music.muted === true))
         tickSprite.isVisible = false;
     else {
