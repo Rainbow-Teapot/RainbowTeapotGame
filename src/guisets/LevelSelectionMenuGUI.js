@@ -29,7 +29,7 @@ LevelSelectionMenuGUI.prototype.create = function(){
 
     //cucharitas
     this.goldenSpoons = new GUIImage(this.scene, "goldenSpoonGUI_", 15, 100, 0, 0, 20, 30, 0)
-    this.numGoldenSpoons = new Text(this.scene, "x" +Game.goldenSpoons, 75,170, "20px CartoonRegular");
+    this.numGoldenSpoons = new Text(this.scene, "x" + Game.goldenSpoons, 75,170, "20px CartoonRegular");
 
     //boton Nivel
     /*let buttonSpritePlay = new GUIImage(this.scene,"button",50,50,0,0,114,52,0);

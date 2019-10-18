@@ -48,15 +48,17 @@ InGameOptionsMenuGUI.prototype.create = function () {
 
 
 
-    let buttonVolumeUp = new Button(this.scene, viewportMiddleX + 95, 200, 0, buttonIncrementVolumeSprite, incrementVolume);
-    let buttonVolumeDown = new Button(this.scene, viewportMiddleX - 130, 200, 0, buttonReduceVolumeSprite, decrementVolume);
-
+    let buttonVolumeUp = new Button(this.scene, viewportMiddleX + 95, 208, 0, buttonIncrementVolumeSprite, incrementVolume);
+    let buttonVolumeDown = new Button(this.scene, viewportMiddleX - 130, 208, 0, buttonReduceVolumeSprite, decrementVolume);
+    buttonVolumeUp.vel = 0;
+    buttonVolumeDown.vel = 0;
     //boton volver al juego
     let buttonSpriteResume = new GUIImage(this.scene, "button", 50, 50, 0, 0, 114, 52, 0);
     viewportMiddleX = viewport.width / 2 - buttonSpriteResume.width / 2;
     viewportMiddleY = viewport.height / 2 - buttonSpriteResume.height / 2 + 80;
 
     let resume = function () {
+        that.scene.objControl.resumeChrono();
         that.hide();
     };
     let buttonResume = new Button(this.scene, viewportMiddleX, viewportMiddleY, 0, buttonSpriteResume, resume, i18n.translate(Game.lang, "resume"), font);

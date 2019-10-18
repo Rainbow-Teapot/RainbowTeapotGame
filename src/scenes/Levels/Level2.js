@@ -104,6 +104,6 @@ Level2.prototype.create = function () {
     colorPlayer.currentState = colorPlayer.states.SELECTED;
     shadowPlayer.currentState = shadowPlayer.states.DESELECTED;
 
-
     this.camera.setTarget(this.selectedPlayer);
+    this.objControl.initChrono();
 }

@@ -5,7 +5,7 @@ function Control(scene, x, y){
     this.numKeys = 0;
     this.MAX_LIFES = 3;
     this.numLifes = this.MAX_LIFES;
-    
+    this.chrono = new Chronometer(this.scene,viewport.width/2,viewport.height - 20,0);
 }
 
 Control.prototype = Object.create(GameObject.prototype);
@@ -37,4 +37,16 @@ Control.prototype.heal = function(){
 Control.prototype.pickSpoon = function(){
     this.scene.gui.pickUpGoldenSpoon(); 
 
+}
+
+Control.prototype.initChrono = function(){
+    this.chrono.startChrono();
+}
+
+Control.prototype.pauseChrono = function(){
+    this.chrono.stopChrono();
+}
+
+Control.prototype.resumeChrono = function(){
+    this.chrono.continueChrono();
 }

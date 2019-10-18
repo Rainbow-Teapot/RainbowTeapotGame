@@ -46,8 +46,10 @@ OptionsMenuGUI.prototype.create = function () {
     };
 
     //botones opciones musica
-    let buttonVolumeUp = new Button(this.scene, viewportMiddleX + 95, 200, 0, buttonIncrementVolumeSprite, incrementVolume);
-    let buttonVolumeDown = new Button(this.scene, viewportMiddleX - 130, 200, 0, buttonReduceVolumeSprite, decrementVolume);
+    let buttonVolumeUp = new Button(this.scene, viewportMiddleX + 95, 208, 0, buttonIncrementVolumeSprite, incrementVolume);
+    let buttonVolumeDown = new Button(this.scene, viewportMiddleX - 130, 208, 0, buttonReduceVolumeSprite, decrementVolume);
+    buttonVolumeUp.vel = 0;
+    buttonVolumeDown.vel = 0;
     if (audio.music != null) {
         if (audio.music.muted === false) {
             var teapotVolumeSprite = new GUIImage(this.scene, "teapotVolume", viewportMiddleX - 110 + (audio.music.volume * 180), 200, 0 ,0, 0, 0);

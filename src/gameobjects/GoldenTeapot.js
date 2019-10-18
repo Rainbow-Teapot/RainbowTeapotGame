@@ -27,7 +27,8 @@ GoldenTeapot.prototype.prepareAnimations = function () {
 
 
 GoldenTeapot.prototype.pickUp = function () {
-    Game.goldenSpoons += this.scene.goldenSpoons; 
+    Game.goldenSpoons += this.scene.goldenSpoons;
+    localStorage.setItem("golden-spoons", Game.goldenSpoons);
     this.scene.fadeType = "fadeOut";
     let that  = this;
     this.scene.functionFade = function () {
