@@ -67,8 +67,8 @@ var audio = {
         }  */      
 
         audio.soundEffect = new Audio(effectSound);
-        audio.soundEffect.muted = false;
-        audio.soundEffect.volume = 0.3;
+        audio.soundEffect.muted = false;        
+        audio.soundEffect.volume = Game.effectsVolume; 
 
         audio.soundEffect.play();
     }

@@ -10,6 +10,7 @@ var Game = {
     FRAM_RATE: 60,
     lang: 0,
     volume: 0.5,
+    effectsVolume: 0.3,
     //coger del localstorage
     goldenSpoons: 0,
     ranking : [],
