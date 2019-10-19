@@ -1,5 +1,6 @@
 function ExtraLevelsScene(width, height){
     Scene.call(this,width,height);
+    this.levelSelected = 1;
 }
 
 ExtraLevelsScene.prototype = Object.create(Scene.prototype);
@@ -12,9 +13,11 @@ ExtraLevelsScene.prototype.preload = function(){
 }
 
 ExtraLevelsScene.prototype.create = function(){
-    
-    this.gui = new CreditsMenuGUI(this);
+    if(audio.music === null || audio.music.paused){
+        audio.play(this.track);
+    }
 
+    this.gui = new ExtraLevelSelectionMenuGUI(this);
     Scene.prototype.create.call(this);
     
 }

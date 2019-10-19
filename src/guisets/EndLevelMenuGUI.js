@@ -32,7 +32,7 @@ EndLevelMenuGUI.prototype.create = function(){
                     i18n.translate(Game.lang, "levels"), "40px CartoonRegular");
 
     //boton de siguientes
-    if(Game.lastLevelPlayed < Game.levels.length){
+    if(Game.lastLevelPlayed < Game.levels.length - 1){
         let buttonNextSprite = new GUIImage(this.scene,"botonContinuar",50,50,0,0,114,52,0);
         let goNextLevel = function(){
             Game.endMusic(); 
@@ -42,10 +42,15 @@ EndLevelMenuGUI.prototype.create = function(){
         this.guiObjects.push(buttonNext);
     }
     //texto congratulaciones
-    let textCongrants = new Text(this.scene,i18n.translate(Game.lang, "win"),viewportMiddleX,110,"60px CartoonRegular");
+    let textCongrants = new Text(this.scene,i18n.translate(Game.lang, "win"),viewportMiddleX,100,"60px CartoonRegular");
 
 
     let textScore = new Text(this.scene,Game.lastScore,viewportMiddleX,viewport.height/2,"80px CartoonRegular");
+    console.log(Game.ranking[Game.lastLevelPlayed - 1][0]);
+    if(Game.lastScore == Game.ranking[Game.lastLevelPlayed - 1][0]){
+        let textRecord = new Text(this.scene,i18n.translate(Game.lang, "record"),viewportMiddleX,viewport.height/2 +100,"40px CartoonRegular");
+        this.guiSprites.push(textRecord);
+    }
 
     this.guiObjects.push(buttonRestart,buttonLevel);
     this.guiSprites.push(textCongrants,textScore);

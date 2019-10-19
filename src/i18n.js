@@ -18,6 +18,8 @@ var i18n = {
         loading: "Cargando...",
         tutorial: "controlsEsp",
         skip: "Saltar",
+        extraLevels: "NIVELES EXTRA",
+        record: "¡NUEVO RECORD!",
     },
 
     eng:{
@@ -38,6 +40,8 @@ var i18n = {
         loading: "Loading...",
         tutorial: "controlsEng",
         skip: "Skip",
+        extraLevels: "EXTRA LEVELS",
+        record: "NEW RECORD!",
     },
 
     translate: function(language, elem){       

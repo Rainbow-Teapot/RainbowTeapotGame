@@ -15,11 +15,13 @@ Text.prototype.constructor = Text;
 Text.prototype.draw = function(camera){
     var canvas = document.getElementById("viewport");
     var context = canvas.getContext('2d');
+    context.globlalAlpha = this.alpha;
     context.fillStyle = this.color.toHTML();
     context.font = this.font;
     context.textAlign = "center";
     if(this.isVisible)
     context.fillText(this.string,this.pos.x,this.pos.y);
+    context.globlalAlpha = 1.0;
 }
 
 Text.prototype.changeColor = function(color){
