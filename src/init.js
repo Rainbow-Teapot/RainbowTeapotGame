@@ -11,8 +11,8 @@ var init = function(){
     
     const X_OFFSET = 0;
     const Y_OFFSET = 0;
-    const WIDTH_GAME = 900;
-    const HEIGHT_GAME = 600;
+    const WIDTH_GAME = 910;
+    const HEIGHT_GAME = 512;
     
     let scene = new StartScene(WIDTH_SCENE, HEIGHT_SCENE);
 

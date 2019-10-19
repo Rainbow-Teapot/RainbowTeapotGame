@@ -43,7 +43,7 @@ function Player(scene, x, y, depth) {
 
     let that = this;
     this.timerInmunity = new Timer(this, function () { that.hasInmunity = false; that.sprite.alpha = 1.0; }, 1000);
-    this.controls = Game.controls;
+    this.controls = input.initControls();
 
 }
 /*Hererncia protoripica con GameObject */
@@ -54,9 +54,9 @@ Player.prototype.prepareAnimations = function () {
 
     let sprite = new Sprite(this.scene, "teapot", this.x, this.y, 0, 0, 64, 96, -1);
 
-    sprite.addAnimation("idleR", 16, 19, 4, -1);
+    sprite.addAnimation("idleR", 16, 19, 6, -1);
     sprite.addAnimation("walkR", 0, 7, 3, -1);
-    sprite.addAnimation("idleL", 20, 23, 4, -1);
+    sprite.addAnimation("idleL", 20, 23, 6, -1);
     sprite.addAnimation("walkL", 8, 15, 3, -1);
 
     sprite.addAnimation("jumpUpL", 25, 25, 3, -1);
