@@ -59,13 +59,14 @@ ExtraLevelSelectionMenuGUI.prototype.createLevelButton = function(){
     let purchaseLevel = function(){
         
         currentButton.vel = 0.1;
-        buttonSpritePlay.alpa = 1.0;
+        buttonSpritePlay.alpha = 1.0;
         currentButton.isEnable = true;
         Game.goldenSpoons -= currentButton.price;
         localStorage.setItem("golden-spoons",Game.goldenSpoons);
         Game.extraPurchased = true;
         localStorage.setItem("extra-purchased", true);
         this.isEnable = false;
+        this.vel = 0;
     }
     
     if(!Game.extraPurchased){
