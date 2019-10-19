@@ -52,7 +52,7 @@ ExtraLevelSelectionMenuGUI.prototype.createLevelButton = function(){
 
     let currentButton = new Button(this.scene, viewport.width/2 - buttonSpritePlay.width*3/2,
         viewport.height/2 - buttonSpritePlay.height/2,
-        0,buttonSpritePlay, goLevelSelection, i18n.translate(Game.lang, "lvl") + " " + 1,"30px CartoonRegular");
+        0,buttonSpritePlay, goLevelSelection, i18n.translate(Game.lang, "extraLvl") + " " + 1,"28px CartoonRegular");
     currentButton.levelIndex = 4;
     currentButton.price = 5;
 

@@ -20,6 +20,7 @@ var i18n = {
         skip: "Saltar",
         extraLevels: "NIVELES EXTRA",
         record: "¡NUEVO RECORD!",
+        extraLvl: "Nivel Extra"
     },
 
     eng:{
@@ -42,6 +43,7 @@ var i18n = {
         skip: "Skip",
         extraLevels: "EXTRA LEVELS",
         record: "NEW RECORD!",
+        extraLvl: "Extra Level"
     },
 
     translate: function(language, elem){       
