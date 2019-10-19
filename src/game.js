@@ -66,7 +66,7 @@ var Game = {
                 scene = new Level3(level.width * Game.TILE_SIZE,level.height * Game.TILE_SIZE, levelID);
                 break;
             case 3:
-                scene = new Level1(level.width * Game.TILE_SIZE,level.height * Game.TILE_SIZE, levelID);
+                scene = new ExtraLevel1(level.width * Game.TILE_SIZE,level.height * Game.TILE_SIZE, levelID);
                 break;
             default:
                 new Error("No level");
