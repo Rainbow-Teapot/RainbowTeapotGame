@@ -29,7 +29,7 @@ LevelSelectionMenuGUI.prototype.create = function(){
     let goExtraLevels = function(){
         Game.changeScene(new ExtraLevelsScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
-    let buttonExtra = new Button(this.scene,viewport.width - Game.TILE_SIZE*1.5,25,0,buttonExtraSprite, goExtraLevels);
+    let buttonExtra = new Button(this.scene,viewport.width - Game.TILE_SIZE*1.6,25,0,buttonExtraSprite, goExtraLevels);
 
     //texto NIVELES
     let textLevels = new Text(this.scene,i18n.translate(Game.lang, "levels"),viewportMiddleX,125,"60px CartoonRegular");

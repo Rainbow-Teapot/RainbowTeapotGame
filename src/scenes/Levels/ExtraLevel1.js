@@ -62,10 +62,10 @@ ExtraLevel1.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "teapotShadow", "./assets/teapotShadow.png");
 
 
-    Scene.prototype.loadToScene.call(this, "bg4", "./assets/backgrounds/bg_nivel2_1.png");
-    //Scene.prototype.loadToScene.call(this, "bg2", "./assets/backgrounds/bg_nivel1_2.png");
-   // Scene.prototype.loadToScene.call(this, "fg1", "./assets/backgrounds/fg_nivel1_1.png");
-    //Scene.prototype.loadToScene.call(this, "bgPass", "./assets/backgrounds/bgPass.png");
+    Scene.prototype.loadToScene.call(this, "bg4_1", "./assets/backgrounds/bg_nivel4_1.png");
+    Scene.prototype.loadToScene.call(this, "bg4_2", "./assets/backgrounds/bg_nivel4_2.png");
+    Scene.prototype.loadToScene.call(this, "fg4_1", "./assets/backgrounds/fg_nivel4_1.png");
+    
 
     Scene.prototype.loadToScene.call(this, "palette0", "./assets/palette0.png");
     Scene.prototype.loadToScene.call(this, "tilemapCity", "./assets/levels/tilemap_city.png");
@@ -91,11 +91,10 @@ ExtraLevel1.prototype.create = function () {
     levelParser.parseObjects(this, "objectLayerExtraLevel1_");
 
     this.gui = new InGameGUI(this);
-    let bg = new Background(this, "bg4", -Game.TILE_SIZE / 2 - 1, Game.TILE_SIZE, 0);
-    //let bg2 = new Background(this, "bg2", 0, Game.TILE_SIZE*5  , -1);
-    //let bgPass = new Background(this, "bgPass", 0, 0, 0);
+    let bg = new Background(this, "bg4_1", Game.TILE_SIZE-5, -Game.TILE_SIZE+2, 0);
+    let bg2 = new Background(this, "bg4_2", 0, Game.TILE_SIZE*2  , -1);   
 
-    //let fg = new Foreground(this, "fg1", 0, Game.TILE_SIZE*3, 0);
+    let fg = new Foreground(this, "fg4_1", 0, Game.TILE_SIZE*2, 0);
 
     let colorPlayer = this.objControl.colorPlayer;
     let shadowPlayer = this.objControl.shadowPlayer;

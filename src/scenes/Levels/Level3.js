@@ -1,5 +1,5 @@
 function Level3(width, height) {
-    MasterLevel.call(this, width, height,3);
+    MasterLevel.call(this, width, height, 3);
     this.track = audio.trackLevel3;
 }
 
@@ -35,26 +35,25 @@ Level3.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "leverOn", "./assets/objects/palanca_derecha.png");
     Scene.prototype.loadToScene.call(this, "leverOff", "./assets/objects/palanca_izquierda.png");
     Scene.prototype.loadToScene.call(this, "leverOnShadow", "./assets/objects/palanca_derecha_sombra.png");
-    Scene.prototype.loadToScene.call(this, "leverOffShadow", "./assets/objects/palanca_izquierda_sombra.png");     
-    
-    Scene.prototype.loadToScene.call(this,"lamp", "./assets/objects/lampara.png");
-    Scene.prototype.loadToScene.call(this,"lampShadow", "./assets/objects/lamparaShadow.png");
+    Scene.prototype.loadToScene.call(this, "leverOffShadow", "./assets/objects/palanca_izquierda_sombra.png");
 
-    Scene.prototype.loadToScene.call(this,"switchOn", "./assets/objects/Interruptor_luz.png");
-    Scene.prototype.loadToScene.call(this,"switchOnShadow", "./assets/objects/Interruptor_luz_sombra.png");
-    Scene.prototype.loadToScene.call(this,"switchOff", "./assets/objects/Interruptor_luz_apagada.png");
-    Scene.prototype.loadToScene.call(this,"switchOffShadow", "./assets/objects/Interruptor_luz_apagado_sombra.png");    
+    Scene.prototype.loadToScene.call(this, "lamp", "./assets/objects/lampara.png");
+    Scene.prototype.loadToScene.call(this, "lampShadow", "./assets/objects/lamparaShadow.png");
 
-    Scene.prototype.loadToScene.call(this, "goldenSpoon", "./assets/objects/goldenSpoon.png"); 
-    Scene.prototype.loadToScene.call(this, "goldenSpoonShadow", "./assets/objects/goldenSpoonShadow.png");  
-    Scene.prototype.loadToScene.call(this, "goldenSpoonGUI", "./assets/objects/goldenSpoonGUI.png");     
+    Scene.prototype.loadToScene.call(this, "switchOn", "./assets/objects/Interruptor_luz.png");
+    Scene.prototype.loadToScene.call(this, "switchOnShadow", "./assets/objects/Interruptor_luz_sombra.png");
+    Scene.prototype.loadToScene.call(this, "switchOff", "./assets/objects/Interruptor_luz_apagada.png");
+    Scene.prototype.loadToScene.call(this, "switchOffShadow", "./assets/objects/Interruptor_luz_apagado_sombra.png");
+
+    Scene.prototype.loadToScene.call(this, "goldenSpoon", "./assets/objects/goldenSpoon.png");
+    Scene.prototype.loadToScene.call(this, "goldenSpoonShadow", "./assets/objects/goldenSpoonShadow.png");
+    Scene.prototype.loadToScene.call(this, "goldenSpoonGUI", "./assets/objects/goldenSpoonGUI.png");
 
     Scene.prototype.loadToScene.call(this, "teapotShadow", "./assets/teapotShadow.png");
 
-    Scene.prototype.loadToScene.call(this, "bg1_3", "./assets/backgrounds/bg_nivel2_1.png");
-    //Scene.prototype.loadToScene.call(this, "bg2_3", "./assets/backgrounds/bg_nivel1_2.png");
-    //Scene.prototype.loadToScene.call(this, "fg1_3", "./assets/backgrounds/fg_nivel1_1.png");
-    //Scene.prototype.loadToScene.call(this, "bgPass_3", "./assets/backgrounds/bgPass.png");
+    Scene.prototype.loadToScene.call(this, "bg3_1", "./assets/backgrounds/bg_nivel3_1.png");
+    Scene.prototype.loadToScene.call(this, "bg3_2", "./assets/backgrounds/bg_nivel3_2.png");
+    Scene.prototype.loadToScene.call(this, "fg3_1", "./assets/backgrounds/fg_nivel3_1.png");
 
     Scene.prototype.loadToScene.call(this, "palette0", "./assets/palette0.png");
     Scene.prototype.loadToScene.call(this, "tilemapCity", "./assets/levels/tilemap_city.png");
@@ -80,14 +79,13 @@ Level3.prototype.create = function () {
     levelParser.parseObjects(this, "objectLayerLevel3_");
 
     this.gui = new InGameGUI(this);
-    let bg = new Background(this, "bg1_3", -Game.TILE_SIZE / 2 - 1, Game.TILE_SIZE*3+2, 0);
-    //let bg2 = new Background(this, "bg2_3", 0, Game.TILE_SIZE*5  , -1);
-    //let bgPass = new Background(this, "bgPass_3", 0, 0, 0);
-    //let fg = new Foreground(this, "fg1_3", 0, Game.TILE_SIZE*3, 0);
+    let bg = new Background(this, "bg3_1", -Game.TILE_SIZE / 2 - 1, -Game.TILE_SIZE, 0);
+    let bg2 = new Background(this, "bg3_2", 0, Game.TILE_SIZE * 4, -1);
+    let fg = new Foreground(this, "fg3_1", 0, Game.TILE_SIZE * 3, 0);
 
     let colorPlayer = this.objControl.colorPlayer;
     let shadowPlayer = this.objControl.shadowPlayer;
-    
+
     colorPlayer.currentState = colorPlayer.states.SELECTED;
     shadowPlayer.currentState = shadowPlayer.states.DESELECTED;
 
