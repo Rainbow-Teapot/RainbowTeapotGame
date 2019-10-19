@@ -2,13 +2,19 @@ function Timer(object,timeFunction, timeMS){
     this.object = object;
     this.timeFunction = timeFunction;
     this.timeMS = timeMS;
+    this.timerID = -1;
 }
 
 Timer.prototype.initTimer = function(bolInterval = false){
     if(!bolInterval){
-        window.setTimeout(this.timeFunction,this.timeMS);
+        this.timerID = window.setTimeout(this.timeFunction,this.timeMS);
     }else{
-        window.setInterval(this.timeFunction,this.timeMS);
+        this.timerID = window.setInterval(this.timeFunction,this.timeMS);
     }
+}
+
+Timer.prototype.resetTimer = function(){
+    window.clearTimeout(this.timerID);
+    this.initTimer();
 }
 

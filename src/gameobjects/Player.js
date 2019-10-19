@@ -24,6 +24,7 @@ function Player(scene, x, y, depth) {
         WALKING: 1,
         JUMPING: 2,
         DAMAGED: 3,
+        DRINKING_TEA: 4,
     }
 
     this.states = {
@@ -32,7 +33,7 @@ function Player(scene, x, y, depth) {
         DESELECTED: 2,
         DAMAGED: 3,
     }
-
+    this.drinkingTea = false;
     this.yOffsetColliderMask = 15;
     this.numLifes = this.scene.objControl.numLifes;
     this.currentState = this.states.DISABLED;
@@ -44,6 +45,8 @@ function Player(scene, x, y, depth) {
 
     let that = this;
     this.timerInmunity = new Timer(this, function () { that.hasInmunity = false; that.sprite.alpha = 1.0; }, 1000);
+    this.timerTeAnimation = new Timer(this, function(){that.drinkingTea = true;}, 10000);
+    this.timerTeAnimation.initTimer();
     this.controls = input.initControls();
 
 }
@@ -70,11 +73,8 @@ Player.prototype.prepareAnimations = function () {
     this.sprite.addAnimation("damagedR", 26, 26, 3, 3);
     this.sprite.addAnimation("damagedL", 27, 27, 3, 3);
 
-    //this.sprite.addAnimation("idleTeaR")
-    //this.sprite.addAnimation("idleTeaL")
-
-    //return sprite;
-
+    this.sprite.addAnimation("idleTeaR",32,55,3,1);
+    this.sprite.addAnimation("idleTeaL",56,79,3,1);
 };
 
 /*Aquí metemos el comportamento del personaje en cada actualización */
@@ -93,11 +93,8 @@ Player.prototype.update = function () {
 
     if (this.hasInmunity)
         this.sprite.blinkEffect(0.1);
-    //this.sprite.alpha = 0.5;
-
+    
     this.sprite.depth = -1;
-
-
 }
 
 Player.prototype.behaviour = function () {
@@ -118,12 +115,8 @@ Player.prototype.behaviour = function () {
             break;
         case this.states.DAMAGED:
             if (this.sprite.currentAnimation.isFinished) {
-                //console.log("HE TERMINADO LA ANIMCAION DE DAÑO");
                 this.currentState = this.states.SELECTED;
-
             }
-            //console.log("me estoy haciedno daño");
-            //this.movement();
             break;
         default:
             break;
@@ -161,10 +154,19 @@ Player.prototype.movement = function () {
         this.currentVX = this.approach(this.currentVX, this.VXMax * this.moveX, this.groundAcc);
         this.faceX = this.moveX;
         this.currentAnimation = this.animations.WALKING;
-
+        this.drinkingTea = false;
+        this.timerTeAnimation.resetTimer();
     } else {
         this.currentVX = this.approach(this.currentVX, 0, this.groundFricc);
-        this.currentAnimation = this.animations.IDLE;
+        if(!this.drinkingTea){
+            this.currentAnimation = this.animations.IDLE;
+        }else{
+            this.currentAnimation = this.animations.DRINKING_TEA;
+            if(this.sprite.currentAnimation.isFinished){
+                this.drinkingTea = false;
+                this.timerTeAnimation.resetTimer();
+            }
+        }
     }
 
     //velocidad horizontal movable
@@ -181,7 +183,8 @@ Player.prototype.movement = function () {
         this.currentVY = -this.VYmax;
         if (this.isShadow)
             audio.playEffect(audio.effectJump);
-
+        this.drinkingTea = false;
+        this.timerTeAnimation.resetTimer();
     }
 }
 
@@ -241,48 +244,47 @@ Player.prototype.passive = function () {
 
 Player.prototype.animation = function () {
 
+    let animation = "";
+
     switch (this.currentAnimation) {
         case this.animations.IDLE:
-            if (this.faceX == 1)
-                this.sprite.initAnimation("idleR");
-            else if (this.faceX == -1)
-                this.sprite.initAnimation("idleL");
+            animation = "idle";
             break;
 
         case this.animations.WALKING:
-
-            if (this.faceX == 1)
-                this.sprite.initAnimation("walkR");
-            else if (this.faceX == -1)
-                this.sprite.initAnimation("walkL");
+            animation = "walk";
             break;
 
         case this.animations.JUMPING:
             if (this.currentVY > 0) {
-                if (this.faceX == 1) {
-                    this.sprite.initAnimation("jumpDownR");
-                } else if (this.faceX == -1) {
-                    this.sprite.initAnimation("jumpDownL");
-                }
+                animation = "jumpDown"
             } else {
-                if (this.faceX == 1) {
-                    this.sprite.initAnimation("jumpUpR");
-                } else if (this.faceX == -1) {
-                    this.sprite.initAnimation("jumpUpL");
-                }
+               animation = "jumpUp"
             }
-
             break;
+
         case this.animations.DAMAGED:
-            if (this.faceX == 1) {
-                this.sprite.initAnimation("damagedR");
-            } else if (this.faceX == -1) {
-                this.sprite.initAnimation("damagedL");
-            }
+            animation = "damaged";
+            break;
+
+        case this.animations.DRINKING_TEA:
+            animation = "idleTea";
+            break;
+
         default:
             break;
     }
+
+    this.initAnimationByFacing(animation);
 };
+
+Player.prototype.initAnimationByFacing = function(animationName){
+    if (this.faceX == 1) {
+        this.sprite.initAnimation(animationName + "R");
+    } else if (this.faceX == -1) {
+        this.sprite.initAnimation(animationName + "L");
+    }
+}
 
 Player.prototype.handleColisions = function () {
 
