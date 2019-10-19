@@ -46,7 +46,7 @@ Level2.prototype.preload = function () {
     Scene.prototype.loadToScene.call(this, "teapotShadow", "./assets/teapotShadow.png");
 
     Scene.prototype.loadToScene.call(this, "bg2_1", "./assets/backgrounds/bg_nivel1_1.png");
-    Scene.prototype.loadToScene.call(this, "bg2_2", "./assets/backgrounds/bg_nivel1_2.png");
+    Scene.prototype.loadToScene.call(this, "bg2_2", "./assets/backgrounds/bg_nivel2_2.png");
     Scene.prototype.loadToScene.call(this, "fg2_1", "./assets/backgrounds/fg_nivel2_1.png");
     
 
@@ -75,10 +75,10 @@ Level2.prototype.create = function () {
 
     this.gui = new InGameGUI(this);
     let bg = new Background(this, "bg2_1", -Game.TILE_SIZE / 2 - 1, Game.TILE_SIZE, 0);
-    let bg2 = new Background(this, "bg2_2", 0, Game.TILE_SIZE*5  , -1);
+    let bg2 = new Background(this, "bg2_2", Game.TILE_SIZE, Game.TILE_SIZE, -1);
     
 
-    let fg = new Foreground(this, "fg2_1", 0, Game.TILE_SIZE, 0);
+    let fg = new Foreground(this, "fg2_1", Game.TILE_SIZE, Game.TILE_SIZE, 0);
 
     let colorPlayer = this.objControl.colorPlayer;
     let shadowPlayer = this.objControl.shadowPlayer;
