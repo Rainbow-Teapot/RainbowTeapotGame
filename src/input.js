@@ -34,10 +34,9 @@ var input = {
         } else {
             input.currentInputMode = input.inputMode.MOBILE;
         }
-        Game.controls = input.initControls();
+        //Game.controls = input.initControls();
     },
     saveKey: function (e) {
-
 
         let key = e.key.toLowerCase();
         if (!input.keys.get(key))
@@ -69,6 +68,7 @@ var input = {
 
     initControls: function () {
 
+        
         let controls = new Controls();
 
         switch (input.currentInputMode) {
@@ -93,19 +93,21 @@ var input = {
                 controls.changePlayerCommand = new ClickButtonCommand();
                 controls.leftCommand = new LeftJoystickCommand();
                 controls.rightCommand = new RightJoystickCommand();
-                Game.joystick = new VirtualJoystick({
-                    mouseSupport: true,
-                    stationaryBase: true,
-                    strokeStyle: 'white',
-                    baseX: viewport.canvas.offsetLeft + Game.TILE_SIZE,
-                    baseY: viewport.canvas.offsetTop + viewport.height - Game.TILE_SIZE,
-                    stickRadius: 800,
-                    limitStickTravel: true,
-                });
+                if(Game.joystick == null){
+                    Game.joystick = new VirtualJoystick({
+                        mouseSupport: true,
+                        stationaryBase: true,
+                        strokeStyle: 'white',
+                        baseX: viewport.canvas.offsetLeft + Game.TILE_SIZE + 20,
+                        baseY: viewport.canvas.offsetTop + viewport.canvas.offsetHeight - Game.TILE_SIZE,
+                        stickRadius: 800,
+                        limitStickTravel: true,
+                    });
+                }
                 viewport.canvas.addEventListener("touchstart", Game.scene.handleClick, false);
                 break;
         }
-
+        Game.controls = controls;
         return controls;
     },
 

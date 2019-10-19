@@ -14,8 +14,8 @@ MainMenuGUI.prototype.create = function(){
     let font = "30px CartoonRegular";
 
     let bgMenu = new Background(this.scene,"bgMenu", 0,0,0);
-    let fgTeapot = new Foreground(this.scene,"fgMiss",Game.TILE_SIZE +5,0,0);
-    new Foreground(this.scene, "logo", viewport.width/2 - 110, 15, 0); 
+    let fgTeapot = new Foreground(this.scene,"fgMiss",125,115,0);
+    new Foreground(this.scene, "logo", viewport.width/2 - 120, 10, 0); 
 
    // let tittle = new Text(this.scene,"Detec-Tea",viewportMiddleX -70,100,"80px Folks");
     //let tittle2 = new Text(this.scene,"Miss Teapot",viewportMiddleX + 50 ,170,"80px Folks");

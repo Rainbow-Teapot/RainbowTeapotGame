@@ -53,6 +53,7 @@ StartScene.prototype.create = function(){
         Game.changeScene(new MenuScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
     };
     let buttonPlay = new Button(this,viewportMiddleX,viewportMiddleY,0,buttonSpritePlay, goLevelSelection,i18n.translate(Game.lang, "start"),font);
+    let logo = new GUIImage(this,"logo",230,50,0,0,114,52,0);
 
     Scene.prototype.create.call(this);
     

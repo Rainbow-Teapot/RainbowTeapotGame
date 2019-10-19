@@ -1,5 +1,16 @@
 /*Esperar a que se cargue el DOM*/
 document.addEventListener('DOMContentLoaded', function(){
+    FBInstant.initializeAsync().then(function () {
+        FBInstant.setLoadingProgress(100);
+        FBInstant.startGameAsync().then(function () {
+            var windowWidth = window.innerWidth;
+            var windowHeight = window.innerHeight;
+            if (windowWidth > windowHeight) {
+                windowWidth = windowHeight / 1.8;
+            }
+            var gameWidth = windowWidth * gameOptions.gameHeight / windowHeight;
+        })
+    })
     init();
 }, false);
 
@@ -11,8 +22,8 @@ var init = function(){
     
     const X_OFFSET = 0;
     const Y_OFFSET = 0;
-    const WIDTH_GAME = 900;
-    const HEIGHT_GAME = 600;
+    const WIDTH_GAME = 910;
+    const HEIGHT_GAME = 512;
     
     let scene = new StartScene(WIDTH_SCENE, HEIGHT_SCENE);
 

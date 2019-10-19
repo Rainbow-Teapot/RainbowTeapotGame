@@ -24,6 +24,13 @@ LevelSelectionMenuGUI.prototype.create = function(){
     };
     let buttonBack = new Button(this.scene,25,25,0,buttonBackSprite, goMainMenu);
 
+    //boton de ir para los niveles extra
+    let buttonExtraSprite = new GUIImage(this.scene,"botonContinuar",50,50,0,0,114,52,0);
+    let goExtraLevels = function(){
+        Game.changeScene(new ExtraLevelsScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE));
+    };
+    let buttonExtra = new Button(this.scene,viewport.width - Game.TILE_SIZE*1.6,25,0,buttonExtraSprite, goExtraLevels);
+
     //texto NIVELES
     let textLevels = new Text(this.scene,i18n.translate(Game.lang, "levels"),viewportMiddleX,125,"60px CartoonRegular");
 
@@ -33,7 +40,7 @@ LevelSelectionMenuGUI.prototype.create = function(){
 
     this.createLevelButton();
 
-    this.guiObjects.push(buttonBack);
+    this.guiObjects.push(buttonBack,buttonExtra);
     this.guiSprites.push(textLevels);
 };
 
@@ -46,8 +53,8 @@ LevelSelectionMenuGUI.prototype.createLevelButton = function(){
     };
 
 
-    for(let i = 0; i < (Game.levels.length - 1)/ this.LEVELS_PER_ROW + 1; i++){
-        for (let j = 0; j < Math.min(this.LEVELS_PER_ROW, Game.levels.length - this.LEVELS_PER_ROW * i); j++){
+    for(let i = 0; i < (Game.levels.length - 1)/ this.LEVELS_PER_ROW + 1 - 1; i++){
+        for (let j = 0; j < Math.min(this.LEVELS_PER_ROW, Game.levels.length - 1 - this.LEVELS_PER_ROW * i); j++){
             let buttonSpritePlay = new GUIImage(this.scene,"button",50,50,0,0,114,52,0);
             let levelIndex = (i* this.LEVELS_PER_ROW+j+1)
             let currentButton = new Button(this.scene, viewport.width/2 - buttonSpritePlay.width*3/2 + j * buttonSpritePlay.width,
