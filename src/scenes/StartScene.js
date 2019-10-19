@@ -34,7 +34,9 @@ StartScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this, "logo", "./assets/backgrounds/gameLogo.png"); 
     Scene.prototype.loadToScene.call(this, "celia", "./assets/credits/celia.png");
     Scene.prototype.loadToScene.call(this, "juanantonio", "./assets/credits/juanantonio.png");
-    Scene.prototype.loadToScene.call(this, "andrea", "./assets/credits/andrea.png");
+    Scene.prototype.loadToScene.call(this, "andrea", "./assets/credits/andrea2.png");
+    Scene.prototype.loadToScene.call(this, "carlos", "./assets/credits/carlos.png");
+
 
 
 
