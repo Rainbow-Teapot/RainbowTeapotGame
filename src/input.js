@@ -38,7 +38,6 @@ var input = {
     },
     saveKey: function (e) {
 
-
         let key = e.key.toLowerCase();
         if (!input.keys.get(key))
             input.keysPress.set(key, key);
@@ -69,49 +68,47 @@ var input = {
 
     initControls: function () {
 
-        if(Game.controls == null){
-            let controls = new Controls();
+        
+        let controls = new Controls();
 
-            switch (input.currentInputMode) {
-                case input.inputMode.DESKTOP_SINGLE:
-                    controls.jumpCommand = new JumpKeyboardCommand();
-                    controls.interactCommand = new InteractKeyboardCommand();
-                    controls.changePlayerCommand = new SwapPlayerKeyboardCommand();
-                    controls.leftCommand = new LeftKeyboardCommand();
-                    controls.rightCommand = new RightKeyboardCommand();
-                    viewport.canvas.addEventListener("click", Game.scene.handleClick, false);
-                    break;
-                case input.inputMode.DESKTOP_DOUBLE:
-                    /*controls.jumpCommand =
-                    controls.interactCommand = 
-                    controls.changePlayerCommand = 
-                    controls.leftCommand = 
-                    controls.rightCommand = */
-                    break;
-                case input.inputMode.MOBILE:
-                    controls.jumpCommand = new JumpJoystickCommand();
-                    controls.interactCommand = new ClickButtonCommand();
-                    controls.changePlayerCommand = new ClickButtonCommand();
-                    controls.leftCommand = new LeftJoystickCommand();
-                    controls.rightCommand = new RightJoystickCommand();
+        switch (input.currentInputMode) {
+            case input.inputMode.DESKTOP_SINGLE:
+                controls.jumpCommand = new JumpKeyboardCommand();
+                controls.interactCommand = new InteractKeyboardCommand();
+                controls.changePlayerCommand = new SwapPlayerKeyboardCommand();
+                controls.leftCommand = new LeftKeyboardCommand();
+                controls.rightCommand = new RightKeyboardCommand();
+                viewport.canvas.addEventListener("click", Game.scene.handleClick, false);
+                break;
+            case input.inputMode.DESKTOP_DOUBLE:
+                /*controls.jumpCommand =
+                controls.interactCommand = 
+                controls.changePlayerCommand = 
+                controls.leftCommand = 
+                controls.rightCommand = */
+                break;
+            case input.inputMode.MOBILE:
+                controls.jumpCommand = new JumpJoystickCommand();
+                controls.interactCommand = new ClickButtonCommand();
+                controls.changePlayerCommand = new ClickButtonCommand();
+                controls.leftCommand = new LeftJoystickCommand();
+                controls.rightCommand = new RightJoystickCommand();
+                if(Game.joystick == null){
                     Game.joystick = new VirtualJoystick({
                         mouseSupport: true,
                         stationaryBase: true,
                         strokeStyle: 'white',
-                        baseX: viewport.canvas.offsetLeft + Game.TILE_SIZE,
-                        baseY: viewport.canvas.offsetTop + viewport.height - Game.TILE_SIZE,
+                        baseX: viewport.canvas.offsetLeft + Game.TILE_SIZE + 20,
+                        baseY: viewport.canvas.offsetTop + viewport.canvas.offsetHeight - Game.TILE_SIZE,
                         stickRadius: 800,
                         limitStickTravel: true,
                     });
-                    viewport.canvas.addEventListener("touchstart", Game.scene.handleClick, false);
-                    break;
-            }
-            Game.controls = controls;
-            return controls;
-        }else{
-            return Game.controls;
+                }
+                viewport.canvas.addEventListener("touchstart", Game.scene.handleClick, false);
+                break;
         }
-        
+        Game.controls = controls;
+        return controls;
     },
 
 };

@@ -33,9 +33,23 @@ function SwapPlayerKeyboardCommand(){
 //joystick Control
 function JumpJoystickCommand(){
 
+    this.canJump = true;
+
     this.execute = function(){
         let distance = Math.hypot(Game.joystick.deltaX(), Game.joystick.deltaY())
-        return Game.joystick.up() && distance > 80 && distance < 200;
+        let propperDistance = Game.joystick.up() && distance > this.getTreeshold() && distance < 200;
+        let ableToJump = this.canJump && propperDistance;
+        this.canJump = !propperDistance;
+        return ableToJump;
+    }
+
+    this.getTreeshold = function(){
+        
+        if(viewport.canvas.offsetWidth > 1000){
+            return 90;
+        }else{
+            return 60;
+        }
     }
 }
 
