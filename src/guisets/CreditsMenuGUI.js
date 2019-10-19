@@ -23,10 +23,10 @@ CreditsMenuGUI.prototype.create = function(){
     //texto OPCIONES
     let textCredits = new Text(this.scene, i18n.translate(Game.lang, "credits"),viewportMiddleX,100,"60px CartoonRegular");
     
-    let c1 = new GUIImage(this.scene, "celia", viewport.width/2- 232, 140, 0, 0, 0, 0); 
+    let c1 = new GUIImage(this.scene, "andrea", viewport.width/2- 232, 140, 0, 0, 0, 0); 
     let c2 = new GUIImage(this.scene, "celia", viewport.width/2 +32, 140, 0, 0, 0, 0); 
     let c3= new GUIImage(this.scene, "celia", 90, viewport.height -c1.height -60, 0, 0, 0, 0);     
-    let c4 = new GUIImage(this.scene, "celia", viewport.width/2-c1.width/2,viewport.height -c1.height -60, 0, 0, 0, 0); 
+    let c4 = new GUIImage(this.scene, "juanantonio", viewport.width/2-c1.width/2,viewport.height -c1.height -60, 0, 0, 0, 0);     
     let c5 = new GUIImage(this.scene, "celia", viewport.width-c1.width -90, viewport.height -c1.height -60, 0, 0, 0, 0); 
     let text1 = new Text(this.scene, "Andrea Rodríguez", c1.pos.x + 100,c1.pos.y+c1.height+25,"30px CartoonRegular");
     let text2 = new Text(this.scene, "Carlos Marques",c2.pos.x+100,c2.pos.y+c2.height+25,"30px CartoonRegular");
