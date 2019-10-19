@@ -32,7 +32,9 @@ GoldenSpoon.prototype.prepareAnimations = function (isShadow) {
 
 GoldenSpoon.prototype.pickUp = function () {
     let otherSpoon = null;
-        if (!this.isShadow) {
+    audio.playEffect(audio.effectSpoon);
+        if (!this.isShadow) {            
+        
             otherSpoon = physics.instancePlace(null, this.pos.x, this.pos.y - Game.TILE_SIZE * this.scene.shadowLevel, "GoldenSpoon");
         } else {
             otherSpoon = physics.instancePlace(null, this.pos.x, this.pos.y + Game.TILE_SIZE * this.scene.shadowLevel, "GoldenSpoon");

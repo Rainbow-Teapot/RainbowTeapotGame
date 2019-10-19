@@ -13,6 +13,7 @@ var audio = {
     effectDoor: "./music/soundEffects/door1.mp3",
     effectBridge: "./music/soundEffects/drawbridge.mp3",
     effectLife: "./music/soundEffects/extra_life.mp3",
+    effectSpoon: "./music/soundEffects/extra_life.mp3",
     effectJump: "./music/soundEffects/jump.mp3",
     effectKey: "./music/soundEffects/key.mp3",
     effectLever: "./music/soundEffects/lever.mp3",
@@ -60,14 +61,14 @@ var audio = {
 
     playEffect: function (effectSound) {
         console.log("PLay " + effectSound);
-        if (audio.soundEffect != null) {
+        /*if (audio.soundEffect != null) {
             audio.soundEffect.pause();
-            audio.soundEffect.src = "";
-        }        
+            //audio.soundEffect.src = "";
+        }  */      
 
         audio.soundEffect = new Audio(effectSound);
         audio.soundEffect.muted = false;
-        audio.soundEffect.volume = 0.5;
+        audio.soundEffect.volume = 0.3;
 
         audio.soundEffect.play();
     }
