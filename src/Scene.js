@@ -172,6 +172,11 @@ Scene.prototype.removeGameObject = function(gameObject){
 Scene.prototype.handleClick = function(e){
     let clickPos = viewport.getCursorPosition(e);
     let clickedObject = null;
+    let factorWidth = viewport.width/ viewport.canvas.offsetWidth;
+    let factorHeight = viewport.height/ viewport.canvas.offsetHeight;
+
+    clickPos.x *= factorWidth;
+    clickPos.y *= factorHeight;
 
     for(let i = 0; i < Game.scene.clickableObjects.length; i++){
         let currentClickableObject = Game.scene.clickableObjects[i];
