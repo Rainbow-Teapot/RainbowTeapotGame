@@ -1,5 +1,16 @@
 /*Esperar a que se cargue el DOM*/
 document.addEventListener('DOMContentLoaded', function(){
+    FBInstant.initializeAsync().then(function () {
+        FBInstant.setLoadingProgress(100);
+        FBInstant.startGameAsync().then(function () {
+            var windowWidth = window.innerWidth;
+            var windowHeight = window.innerHeight;
+            if (windowWidth > windowHeight) {
+                windowWidth = windowHeight / 1.8;
+            }
+            var gameWidth = windowWidth * gameOptions.gameHeight / windowHeight;
+        })
+    })
     init();
 }, false);
 
