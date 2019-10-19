@@ -1,5 +1,6 @@
 function ShadowPlayer(scene, x, y, depth){
     Player.call(this,scene, x, y, depth);
+    
     this.type.push("ShadowPlayer");
     this.isShadow = true;
 }
@@ -7,24 +8,10 @@ function ShadowPlayer(scene, x, y, depth){
 ShadowPlayer.prototype = Object.create(Player.prototype);
 ShadowPlayer.prototype.constructor = ShadowPlayer;
 
-ShadowPlayer.prototype.prepareAnimations = function(){
-    let sprite = new Sprite(this.scene, "teapotShadow", this.x, this.y,0,0,64,96,0);
-    sprite.addAnimation("idleR",16,19,6,-1);
-    sprite.addAnimation("walkR",0,7,3,-1);
-    sprite.addAnimation("idleL",20,23,6,-1);
-    sprite.addAnimation("walkL",8,15,3,-1);
+ShadowPlayer.prototype.prepareSprite = function(){
 
-    sprite.addAnimation("jumpUpL",25,25,3,-1);
-    sprite.addAnimation("jumpDownL",25,25,3,-1);
-    sprite.addAnimation("jumpUpR",24,24,3,-1);
-    sprite.addAnimation("jumpDownR",24,24,3,-1);
-
-    sprite.addAnimation("damagedR",26,26,3,3);
-    sprite.addAnimation("damagedL",27,27,3,3);
-
-    return sprite;
-};
-
+    this.sprite = new Sprite(this.scene, "teapotShadow", this.x, this.y,0,0,64,96,0);
+}
 
 ShadowPlayer.prototype.objectInteraction = function(){
     Player.prototype.objectInteraction.call(this);

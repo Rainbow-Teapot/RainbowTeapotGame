@@ -2,7 +2,8 @@
 function Player(scene, x, y, depth) {
     GameObject.call(this, scene, x, y, depth);
     this.type.push("Player");
-    this.sprite = this.prepareAnimations();
+    this.prepareSprite();
+    this.prepareAnimations();
 
     this.width = 64;
     this.height = 96;
@@ -50,24 +51,29 @@ function Player(scene, x, y, depth) {
 Player.prototype = Object.create(GameObject.prototype);
 Player.prototype.constructor = Player;
 
+Player.prototype.prepareSprite = function(){
+    this.sprite = new Sprite(this.scene, "teapot", this.x, this.y, 0, 0, 64, 96, -1);
+}
+
 Player.prototype.prepareAnimations = function () {
 
-    let sprite = new Sprite(this.scene, "teapot", this.x, this.y, 0, 0, 64, 96, -1);
+    this.sprite.addAnimation("idleR", 16, 19, 6, -1);
+    this.sprite.addAnimation("walkR", 0, 7, 3, -1);
+    this.sprite.addAnimation("idleL", 20, 23, 6, -1);
+    this.sprite.addAnimation("walkL", 8, 15, 3, -1);
 
-    sprite.addAnimation("idleR", 16, 19, 6, -1);
-    sprite.addAnimation("walkR", 0, 7, 3, -1);
-    sprite.addAnimation("idleL", 20, 23, 6, -1);
-    sprite.addAnimation("walkL", 8, 15, 3, -1);
+    this.sprite.addAnimation("jumpUpL", 25, 25, 3, -1);
+    this.sprite.addAnimation("jumpDownL", 25, 25, 3, -1);
+    this.sprite.addAnimation("jumpUpR", 24, 24, 3, -1);
+    this.sprite.addAnimation("jumpDownR", 24, 24, 3, -1);
 
-    sprite.addAnimation("jumpUpL", 25, 25, 3, -1);
-    sprite.addAnimation("jumpDownL", 25, 25, 3, -1);
-    sprite.addAnimation("jumpUpR", 24, 24, 3, -1);
-    sprite.addAnimation("jumpDownR", 24, 24, 3, -1);
+    this.sprite.addAnimation("damagedR", 26, 26, 3, 3);
+    this.sprite.addAnimation("damagedL", 27, 27, 3, 3);
 
-    sprite.addAnimation("damagedR", 26, 26, 3, 3);
-    sprite.addAnimation("damagedL", 27, 27, 3, 3);
+    //this.sprite.addAnimation("idleTeaR")
+    //this.sprite.addAnimation("idleTeaL")
 
-    return sprite;
+    //return sprite;
 
 };
 
