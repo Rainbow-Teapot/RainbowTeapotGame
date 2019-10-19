@@ -25,10 +25,12 @@ SwitchLight.prototype.On = function(actionedByHand){
         this.sprite.destroy();
         actionedByHand--;
         if(!this.isShadow){
+            audio.playEffect(audio.effectLever); 
             this.sprite = new Sprite(this.scene,"switchOn",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE);
             let shadowOther =  physics.instancePlace(null,this.pos.x, this.pos.y - Game.TILE_SIZE*this.scene.shadowLevel, "SwitchLight");
             shadowOther.On(actionedByHand);
         }else{
+            audio.playEffect(audio.effectLever); 
             this.sprite = new Sprite(this.scene,"switchOnShadow",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE);
             let colorOther =  physics.instancePlace(null,this.pos.x, this.pos.y + Game.TILE_SIZE*this.scene.shadowLevel, "SwitchLight");
             colorOther.On(actionedByHand);
@@ -42,10 +44,12 @@ SwitchLight.prototype.Off = function(actionedByHand){
         this.sprite.destroy();
         actionedByHand--;
         if(!this.isShadow){
+            audio.playEffect(audio.effectLever); 
             this.sprite = new Sprite(this.scene,"switchOff",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE);
             let shadowOther =  physics.instancePlace(null,this.pos.x, this.pos.y - Game.TILE_SIZE*this.scene.shadowLevel, "SwitchLight");
             shadowOther.Off(actionedByHand);
         }else{
+            audio.playEffect(audio.effectLever); 
             this.sprite = new Sprite(this.scene,"switchOffShadow",0,0,0,0,Game.TILE_SIZE,Game.TILE_SIZE);
             let colorOther =  physics.instancePlace(null,this.pos.x, this.pos.y + Game.TILE_SIZE*this.scene.shadowLevel, "SwitchLight");
             colorOther.Off(actionedByHand);

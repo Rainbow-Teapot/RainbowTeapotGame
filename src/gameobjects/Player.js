@@ -3,7 +3,7 @@ function Player(scene, x, y, depth) {
     GameObject.call(this, scene, x, y, depth);
     this.type.push("Player");
     this.sprite = this.prepareAnimations();
-    
+
     this.width = 64;
     this.height = 96;
     this.faceX = 1;
@@ -16,7 +16,7 @@ function Player(scene, x, y, depth) {
     this.groundAcc = 1;
     this.groundFricc = 1.2;
     this.isShadow = false;
-    this.hasInmunity = false;    
+    this.hasInmunity = false;
 
     this.animations = {
         IDLE: 0,
@@ -76,10 +76,10 @@ Player.prototype.update = function () {
 
     //si se ve un delay ponerlo abajo
     GameObject.prototype.update.call(this);
-    
-    if(Game.paused){
+
+    if (Game.paused) {
         this.stopMoving();
-    }else{
+    } else {
         this.behaviour();
     }
     this.animation();
@@ -112,11 +112,11 @@ Player.prototype.behaviour = function () {
             break;
         case this.states.DAMAGED:
             if (this.sprite.currentAnimation.isFinished) {
-                console.log("HE TERMINADO LA ANIMCAION DE DAÑO");
+                //console.log("HE TERMINADO LA ANIMCAION DE DAÑO");
                 this.currentState = this.states.SELECTED;
 
             }
-            console.log("me estoy haciedno daño");
+            //console.log("me estoy haciedno daño");
             //this.movement();
             break;
         default:
@@ -136,7 +136,7 @@ Player.prototype.input = function () {
 }
 
 Player.prototype.stopMoving = function () {
-    
+
     this.currentVX = 0;
     this.currentVY = 0;
     this.moveX = 0;
@@ -171,14 +171,18 @@ Player.prototype.movement = function () {
         this.currentVY = this.approach(this.currentVY, this.VYmax, this.gravity);
         this.currentAnimation = this.animations.JUMPING;
     } else if (this.keyJump && (colGround || physics.placeMeeting(this, 0, 1, "MovablePlatform"))) {
+
         this.currentVY = -this.VYmax;
+        if (this.isShadow)
+            audio.playEffect(audio.effectJump);
+
     }
 }
 
-Player.prototype.objectInteraction = function(){
-    let colDoor = physics.instancePlace(this,Math.sign(this.faceX) * 4,0,"Door");
-    let colPickup = physics.instancePlace(this,Math.sign(this.faceX),0,"Pickupable");
-    let colActionable = physics.instancePlace(this,Math.sign(this.faceX),0,"Actionable");
+Player.prototype.objectInteraction = function () {
+    let colDoor = physics.instancePlace(this, Math.sign(this.faceX) * 4, 0, "Door");
+    let colPickup = physics.instancePlace(this, Math.sign(this.faceX), 0, "Pickupable");
+    let colActionable = physics.instancePlace(this, Math.sign(this.faceX), 0, "Actionable");
 
     if (colPickup && this.isAbleToInteractWith(colPickup)) {
         colPickup.pickUp();
@@ -189,7 +193,7 @@ Player.prototype.objectInteraction = function(){
             colDoor.perform();
         }
         if (colActionable && this.isAbleToInteractWith(colActionable)) {
-            console.log("me he topado con la lever");
+            //console.log("me he topado con la lever");
             colActionable.action();
 
         }
@@ -201,6 +205,7 @@ Player.prototype.getDamaged = function () {
         let colDamage = physics.instancePlace(this, Math.sign(this.faceX), 0, "DamageBlock");
 
         if (colDamage && colDamage.depth == this.depth) {
+
             this.damage();
             this.hasInmunity = true;
             this.timerInmunity.initTimer();
@@ -209,6 +214,13 @@ Player.prototype.getDamaged = function () {
             this.moveX = Math.sign(this.pos.x - colDamage.pos.x);
             this.currentVX = 9 * this.moveX * 1.5;
             this.currentVY = -9;
+            if (!this.isShadow) {
+                audio.playEffect(audio.effectDamage);
+                return;
+            } else {
+                audio.playEffect(audio.effectDamage);
+
+            }
         }
     }
 }
@@ -240,7 +252,6 @@ Player.prototype.animation = function () {
             break;
 
         case this.animations.JUMPING:
-
             if (this.currentVY > 0) {
                 if (this.faceX == 1) {
                     this.sprite.initAnimation("jumpDownR");

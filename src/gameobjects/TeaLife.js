@@ -32,9 +32,10 @@ TeaLife.prototype.pickUp = function () {
     if (this.scene.objControl.numLifes != this.scene.objControl.MAX_LIFES) {
 
         this.scene.objControl.heal();
+        audio.playEffect(audio.effectLife);
 
         let otherLife = null;
-        if (!this.isShadow) {
+        if (!this.isShadow) {            
             otherLife = physics.instancePlace(null, this.pos.x, this.pos.y - Game.TILE_SIZE * this.scene.shadowLevel, "TeaLife");
         } else {
             otherLife = physics.instancePlace(null, this.pos.x, this.pos.y + Game.TILE_SIZE * this.scene.shadowLevel, "TeaLife");

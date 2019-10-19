@@ -33,15 +33,7 @@ ShadowPlayer.prototype.objectInteraction = function(){
     if(colorPlayer.currentState == this.states.DAMAGED){
         this.scene.swapPlayer();
     }
-
-    if(input.isPressedKey("p")){
-        console.log("me curoo");
-        this.heal();
-    }
-    if(input.isPressedKey("o")){
-        console.log("me dañooo");
-        this.damage();
-    }
+    
     this.sprite.alpha = colorPlayer.sprite.alpha;
 }
 
@@ -61,7 +53,7 @@ ShadowPlayer.prototype.passive = function(){
 }
 
 ShadowPlayer.prototype.getDamaged = function(){
-    if(this.currentState == this.states.SELECTED){
+    if(this.currentState == this.states.SELECTED){       
         Player.prototype.getDamaged.call(this);
     }
 }
