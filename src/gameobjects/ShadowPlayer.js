@@ -9,9 +9,9 @@ ShadowPlayer.prototype.constructor = ShadowPlayer;
 
 ShadowPlayer.prototype.prepareAnimations = function(){
     let sprite = new Sprite(this.scene, "teapotShadow", this.x, this.y,0,0,64,96,0);
-    sprite.addAnimation("idleR",16,19,4,-1);
+    sprite.addAnimation("idleR",16,19,6,-1);
     sprite.addAnimation("walkR",0,7,3,-1);
-    sprite.addAnimation("idleL",20,23,4,-1);
+    sprite.addAnimation("idleL",20,23,6,-1);
     sprite.addAnimation("walkL",8,15,3,-1);
 
     sprite.addAnimation("jumpUpL",25,25,3,-1);

@@ -34,7 +34,7 @@ var input = {
         } else {
             input.currentInputMode = input.inputMode.MOBILE;
         }
-        Game.controls = input.initControls();
+        //Game.controls = input.initControls();
     },
     saveKey: function (e) {
 
@@ -69,44 +69,49 @@ var input = {
 
     initControls: function () {
 
-        let controls = new Controls();
+        if(Game.controls == null){
+            let controls = new Controls();
 
-        switch (input.currentInputMode) {
-            case input.inputMode.DESKTOP_SINGLE:
-                controls.jumpCommand = new JumpKeyboardCommand();
-                controls.interactCommand = new InteractKeyboardCommand();
-                controls.changePlayerCommand = new SwapPlayerKeyboardCommand();
-                controls.leftCommand = new LeftKeyboardCommand();
-                controls.rightCommand = new RightKeyboardCommand();
-                viewport.canvas.addEventListener("click", Game.scene.handleClick, false);
-                break;
-            case input.inputMode.DESKTOP_DOUBLE:
-                /*controls.jumpCommand =
-                controls.interactCommand = 
-                controls.changePlayerCommand = 
-                controls.leftCommand = 
-                controls.rightCommand = */
-                break;
-            case input.inputMode.MOBILE:
-                controls.jumpCommand = new JumpJoystickCommand();
-                controls.interactCommand = new ClickButtonCommand();
-                controls.changePlayerCommand = new ClickButtonCommand();
-                controls.leftCommand = new LeftJoystickCommand();
-                controls.rightCommand = new RightJoystickCommand();
-                Game.joystick = new VirtualJoystick({
-                    mouseSupport: true,
-                    stationaryBase: true,
-                    strokeStyle: 'white',
-                    baseX: viewport.canvas.offsetLeft + Game.TILE_SIZE,
-                    baseY: viewport.canvas.offsetTop + viewport.height - Game.TILE_SIZE,
-                    stickRadius: 800,
-                    limitStickTravel: true,
-                });
-                viewport.canvas.addEventListener("touchstart", Game.scene.handleClick, false);
-                break;
+            switch (input.currentInputMode) {
+                case input.inputMode.DESKTOP_SINGLE:
+                    controls.jumpCommand = new JumpKeyboardCommand();
+                    controls.interactCommand = new InteractKeyboardCommand();
+                    controls.changePlayerCommand = new SwapPlayerKeyboardCommand();
+                    controls.leftCommand = new LeftKeyboardCommand();
+                    controls.rightCommand = new RightKeyboardCommand();
+                    viewport.canvas.addEventListener("click", Game.scene.handleClick, false);
+                    break;
+                case input.inputMode.DESKTOP_DOUBLE:
+                    /*controls.jumpCommand =
+                    controls.interactCommand = 
+                    controls.changePlayerCommand = 
+                    controls.leftCommand = 
+                    controls.rightCommand = */
+                    break;
+                case input.inputMode.MOBILE:
+                    controls.jumpCommand = new JumpJoystickCommand();
+                    controls.interactCommand = new ClickButtonCommand();
+                    controls.changePlayerCommand = new ClickButtonCommand();
+                    controls.leftCommand = new LeftJoystickCommand();
+                    controls.rightCommand = new RightJoystickCommand();
+                    Game.joystick = new VirtualJoystick({
+                        mouseSupport: true,
+                        stationaryBase: true,
+                        strokeStyle: 'white',
+                        baseX: viewport.canvas.offsetLeft + Game.TILE_SIZE,
+                        baseY: viewport.canvas.offsetTop + viewport.height - Game.TILE_SIZE,
+                        stickRadius: 800,
+                        limitStickTravel: true,
+                    });
+                    viewport.canvas.addEventListener("touchstart", Game.scene.handleClick, false);
+                    break;
+            }
+            Game.controls = controls;
+            return controls;
+        }else{
+            return Game.controls;
         }
-
-        return controls;
+        
     },
 
 };
