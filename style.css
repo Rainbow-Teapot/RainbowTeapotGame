@@ -2,13 +2,16 @@
 body {
 	background-color: #fff;
 	background-image:url("./assets/backgrounds/bg_web_2.png");
-	background-repeat: repeat-x;
+    background-repeat: repeat-x;
+    touch-action: none;
 }
 #logo{
 	text-align: center;
 	display: block;
 	margin-left: auto;
-	margin-right: auto;
+    margin-right: auto;
+    touch-action: none;
+    user-select: none;
 }
 #viewport {
     padding: 0;
@@ -20,6 +23,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
+    touch-action: none;
 }
 
 /* 
