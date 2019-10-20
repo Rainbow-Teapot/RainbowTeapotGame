@@ -95,6 +95,8 @@ OptionsMenuGUI.prototype.create = function () {
     let textMusic = new Text(this.scene, i18n.translate(Game.lang, "music"), viewportMiddleX - 64, 350, "40px CartoonRegular");
 
     let buttonOnOffMusicSprite = new GUIImage(this.scene, "whiteSquare", 50, 50, 0, 0, 114, 52, 0);
+    let buttonOnOffSoundEffectsSprite = new GUIImage(this.scene, "whiteSquare", 50, 50, 0, 0, 114, 52, 0);
+
 
 
     let onOffMusic = function () {
@@ -119,6 +121,7 @@ OptionsMenuGUI.prototype.create = function () {
 
     };
 
+  
     let buttonOnOffMusic = new Button(this.scene, viewportMiddleX + 75, 320, 0, buttonOnOffMusicSprite, onOffMusic);
 
     let tickSprite = new GUIImage(this.scene, "tick", viewportMiddleX + 75, 315, 0, 0, 0, 0);
@@ -131,7 +134,29 @@ OptionsMenuGUI.prototype.create = function () {
 
     //texto efectos sonido
     let textSoundEffects = new Text(this.scene, i18n.translate(Game.lang, "sound"), viewportMiddleX - 64, 400, "40px CartoonRegular");
+    let onOffSoundEffects = function(){
+        if(Game.effectsVolume=== 0){
+            Game.effectsVolume = 0.3;
+            tickSprite2.isVisible = true; 
 
-    this.guiObjects.push(buttonBack, buttonTeapot, buttonVolumeUp, buttonVolumeDown, teapotVolumeSprite, tickSprite, buttonVolumeLine);
-    this.guiSprites.push(textOptions, board, textVolume, textLanguage, textMusic, textSoundEffects, buttonOnOffMusic);
+        }else{
+            Game.effectsVolume = 0; 
+            tickSprite2.isVisible = false; 
+        }   
+
+    }
+    
+    let buttonOnOffSoundEffects = new Button(this.scene, viewportMiddleX + 75, 370, 0, buttonOnOffSoundEffectsSprite, onOffSoundEffects);
+
+    let tickSprite2 = new GUIImage(this.scene, "tick", viewportMiddleX + 75, 365, 0, 0, 0, 0);
+
+    if (Game.effectsVolume ===0 )
+        tickSprite2.isVisible = false;
+    else {
+        tickSprite2.isVisible = true;
+    }
+
+
+    this.guiObjects.push(buttonBack, buttonTeapot, buttonVolumeUp, buttonVolumeDown, teapotVolumeSprite, tickSprite, buttonVolumeLine, buttonOnOffSoundEffects);
+    this.guiSprites.push(textOptions, board, textVolume, textLanguage, textMusic, textSoundEffects, buttonOnOffMusic, buttonOnOffSoundEffects, tickSprite2);
 };

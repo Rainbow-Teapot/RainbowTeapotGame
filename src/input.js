@@ -1,3 +1,5 @@
+/*Módulo para controlar el input del juego. Utiliza el patrón Command para manejar facilmente
+los controles de teclado y los controles de joystick y botones de movil*/
 var input = {
 
     keys: new Map(),
@@ -9,8 +11,9 @@ var input = {
         DESKTOP_DOUBLE: 1,
         MOBILE: 2,
     },
+    //Se preparan listeners y se ignoran teclas especiales como alt, control y shift
     init: function () {
-        //document.onkeydown = input.saveKey;
+        
         document.onkeyup = input.removeKey;
         document.onkeydown = input.saveKey; 
 
@@ -34,7 +37,7 @@ var input = {
         } else {
             input.currentInputMode = input.inputMode.MOBILE;
         }
-        //Game.controls = input.initControls();
+        
     },
     saveKey: function (e) {
 
@@ -42,7 +45,6 @@ var input = {
         if (!input.keys.get(key))
             input.keysPress.set(key, key);
         input.keys.set(key, key);
-        //console.log(key);
 
     },
     removeKey: function (e) {
@@ -65,7 +67,7 @@ var input = {
     isPressedKey: function (key) {
         return (input.keysPress.has(key)) ? 1 : 0;
     },
-
+    //Se crean controles para cada modo, el normal o simgleplayer o para movil
     initControls: function () {
 
         
@@ -113,6 +115,7 @@ var input = {
 
 };
 
+//Los comandos que se pueden realizar con los controles
 function Controls() {
     this.jumpCommand = null;
     this.interactCommand = null;

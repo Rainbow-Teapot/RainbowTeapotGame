@@ -1,3 +1,4 @@
+/*GameObject invisible que sive de colisión básica para la escena*/
 function Wall(scene, x, y, depth, width, height){
     GameObject.call(this, scene, x, y, depth);
     this.type.push("Wall");

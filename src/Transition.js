@@ -1,3 +1,5 @@
+/*Efecto de cambio entre las diferentes escenas. Trabaja con composición, con simplemente que la escena
+instancie una transiccion está se eejcutará */
 function Transition(){
     this.vel = 20;
     this.radius = 0;
@@ -42,6 +44,7 @@ Transition.prototype.fadeOut = function(camera,finishFadeOut){
     }
 }
 
+//Trabaja con operaciones de composicion del canvas para dibujarse
 Transition.prototype.draw = function(camera){
 
     let posAtViewPort = new Point(viewport.width/2,viewport.height/2);

@@ -1,3 +1,4 @@
+/*Protipo Control para el MODELO_VISTA_CONTROLADOR*/
 function Control(scene, x, y){
     GameObject.call(this, scene, x, y);
     this.colorPlayer = null;

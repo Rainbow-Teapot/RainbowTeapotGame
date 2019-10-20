@@ -1,3 +1,5 @@
+/*Objeto que bloquea el paso del personaje normal pero no la sombra, por ello tiene
+colliders favoreciendo la composicion*/
 function Door(scene, x, y, depth, isShadow) {
     GameObject.call(this, scene, x, y, depth);
     this.type.push("Door");
@@ -16,6 +18,7 @@ function Door(scene, x, y, depth, isShadow) {
 Door.prototype = Object.create(GameObject.prototype);
 Door.prototype.constructor = Door;
 
+//Abre la puerta
 Door.prototype.perform = function () {
     console.log("Puerta activada");
 

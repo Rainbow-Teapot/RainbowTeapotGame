@@ -1,4 +1,4 @@
-/*Por ahora solo llama al constructor del padre, en este caso GameObject*/
+/*Prototipo que representa al jugador, posee una máquina de estados y un conjunto de animaciones que lo definen*/
 function Player(scene, x, y, depth) {
     GameObject.call(this, scene, x, y, depth);
     this.type.push("Player");
@@ -45,7 +45,14 @@ function Player(scene, x, y, depth) {
 
     let that = this;
     this.timerInmunity = new Timer(this, function () { that.hasInmunity = false; that.sprite.alpha = 1.0; }, 1000);
-    this.timerTeAnimation = new Timer(this, function(){that.drinkingTea = true;}, 10000);
+    this.timerTeAnimation = new Timer(this, function(){
+        that.drinkingTea = true; 
+        console.log("tea time"); 
+        if(that.scene.selectedPlayer == that){
+            console.log("drinkins"); 
+            audio.playEffect(audio.effectTea); 
+
+    }}, 10000);
     this.timerTeAnimation.initTimer();
     this.controls = input.initControls();
 
@@ -97,6 +104,13 @@ Player.prototype.update = function () {
     this.sprite.depth = -1;
 }
 
+/*Máquina de estados finita, mejorable. 
+DISABLED, no hay input por parte del jugador solo puede estar parado
+SELECTED, el personae ha sido seleccionado y puede moverse, recibir input e interactuar con obejtos
+DESELECTED, cuando no está seleccionado el player actua de manera pasiva, sin moverse o bien copiando las acciones del otro
+DAMAGED, cuando se ve dañado, no puede recibir input
+Se ha hecho un intento de patron algoritmo haciendo que el jugador sombra heredase del jugador normal, no ha sido muy 
+beneficioso, la herencia a dado más problemas que soluciones el patrón*/
 Player.prototype.behaviour = function () {
     switch (this.currentState) {
         case this.states.DISABLED:
@@ -242,6 +256,7 @@ Player.prototype.passive = function () {
     this.movement();
 }
 
+/*Seleccionar animacion del sprite*/
 Player.prototype.animation = function () {
 
     let animation = "";
@@ -313,6 +328,7 @@ Player.prototype.handleColisions = function () {
     }
 }
 
+//que el personaje normal interactue con las cosas normales y el de sombra con las combras unicamente
 Player.prototype.isAbleToInteractWith = function (object) {
     return this.isShadow == object.isShadow;
 }

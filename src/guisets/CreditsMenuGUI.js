@@ -21,12 +21,18 @@ CreditsMenuGUI.prototype.create = function(){
     let buttonBack = new Button(this.scene,25,25,0,buttonBackSprite, goMainMenu);
 
     //texto OPCIONES
-    let textCredits = new Text(this.scene, i18n.translate(Game.lang, "credits"),viewportMiddleX,125,"60px CartoonRegular");
-    let text1 = new Text(this.scene, "Tetera 1",viewportMiddleX,210,"40px CartoonRegular");
-    let text2 = new Text(this.scene, "Tetera 2",viewportMiddleX,260,"40px CartoonRegular");
-    let text3 = new Text(this.scene, "Tetera 3",viewportMiddleX,310,"40px CartoonRegular");
-    let text4 = new Text(this.scene, "Tetera 4",viewportMiddleX,360,"40px CartoonRegular");
-    let text5 = new Text(this.scene, "Tetera 5",viewportMiddleX,410,"40px CartoonRegular");
+    let textCredits = new Text(this.scene, i18n.translate(Game.lang, "credits"),viewportMiddleX,100,"60px CartoonRegular");
+    
+    let c1 = new GUIImage(this.scene, "carlos", viewport.width/2- 232, 140, 0, 0, 0, 0); 
+    let c2 = new GUIImage(this.scene, "juanantonio", viewport.width/2 +32, 140, 0, 0, 0, 0); 
+    let c3= new GUIImage(this.scene, "celia", 90, viewport.height -c1.height -60, 0, 0, 0, 0);     
+    let c4 = new GUIImage(this.scene, "marcos", viewport.width/2-c1.width/2,viewport.height -c1.height -60, 0, 0, 0, 0);     
+    let c5 = new GUIImage(this.scene, "andrea", viewport.width-c1.width -90, viewport.height -c1.height -60, 0, 0, 0, 0); 
+    let text1 = new Text(this.scene, "Andrea Rodríguez", c5.pos.x + 100,c5.pos.y+c5.height+25,"30px CartoonRegular");
+    let text2 = new Text(this.scene, "Carlos Marques",c1.pos.x+100,c1.pos.y+c1.height+25,"30px CartoonRegular");
+    let text3 = new Text(this.scene, "Celia Merino",c3.pos.x+100,c3.pos.y+c3.height+25,"30px CartoonRegular");
+    let text4 = new Text(this.scene, "Juan Antonio Ruiz",c2.pos.x+100,c2.pos.y+c2.height+25,"30px CartoonRegular");
+    let text5 = new Text(this.scene, "Marcos Agudo",c4.pos.x+100,c4.pos.y+c4.height+25,"30px CartoonRegular");
 
     this.guiObjects.push(buttonBack);
     this.guiSprites.push(textCredits, text1, text2, text3, text4, text5);

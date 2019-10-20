@@ -1,3 +1,5 @@
+/*Pickupable que representa la llave que puede coger el jugador para abrir puertas, 
+solo se puede coger una*/
 function Key(scene, x, y, depth, isShadow) {
     Pickupable.call(this, scene, x, y, depth);
     this.type.push("Key");
@@ -27,6 +29,7 @@ Key.prototype.prepareAnimation = function (isShadow) {
     return sprite;
 }
 
+//Coge la llave y actualiza la GUI, si ya ha cogido una llave, no peude coger más
 Key.prototype.pickUp = function () {
     if (this.scene.objControl.numKeys == 0) {
         this.scene.objControl.numKeys++;

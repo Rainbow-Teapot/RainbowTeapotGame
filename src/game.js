@@ -7,9 +7,10 @@ var Game = {
     scene: null,
     camera: null,
     TILE_SIZE: 64,
-    FRAM_RATE: 60,
+    MAX_FRAME_RATE: 80,
     lang: 0,
     volume: 0.5,
+    effectsVolume: 0.3,
     //coger del localstorage
     goldenSpoons: 0,
     ranking : [],
@@ -35,8 +36,6 @@ var Game = {
         Game.initLocalStorage();
         Game.changeScene(scene);
         viewport.createViewport(width, height, posx, posy);
-        //physics.initPhysics(0, 0, scene.width, scene.height);
-         
         
         input.init();
         coreLoop.loop();
@@ -46,7 +45,6 @@ var Game = {
     /*para cambiar de escenas durante la ejecución del juego*/
     changeScene(scene){
         Game.scene = scene;
-        //coreLoop.setScene(scene);
         scene.preload();
     },
     loadLevel(levelID){

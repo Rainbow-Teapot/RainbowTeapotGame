@@ -1,3 +1,4 @@
+/*Prototipo que representa al jugador sombra, hereda del player normal*/
 function ShadowPlayer(scene, x, y, depth){
     Player.call(this,scene, x, y, depth);
     
@@ -24,6 +25,7 @@ ShadowPlayer.prototype.objectInteraction = function(){
     this.sprite.alpha = colorPlayer.sprite.alpha;
 }
 
+/*Copia al player normal*/
 ShadowPlayer.prototype.passive = function(){
     
     let colorPlayer = this.scene.objControl.colorPlayer;

@@ -28,6 +28,7 @@ Layer.prototype.console = function(){
     }
 }
 
+/*Ordenar los elementos de la layer por profundidad*/
 Layer.prototype.sortByDepth = function(){
     this.elements.sort(function(a,b){
         if(a.depth > b.depth){
