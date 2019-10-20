@@ -30,6 +30,6 @@ TestScene.prototype.create = function(){
 TestScene.prototype.update = function(){
     Scene.prototype.update.call(this);
     if(this.isSceneLoaded){
-        //console.log("Estoy updateando la escena");
+       
     }
 }

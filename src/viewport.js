@@ -15,7 +15,7 @@ var viewport = {
         viewport.height = height;
         viewport.pos = new Point(x,y);
         viewport.basis = new Point(0, 0);
-        console.log(viewport.basis);
+        
     }
 
 

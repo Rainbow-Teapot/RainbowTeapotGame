@@ -23,7 +23,7 @@ function Scene(width, height){
 Scene.prototype.loadToScene = function(tag,src){
     
     var promise = cache.load(tag,src).then(function(img){
-        console.log("Terminada de cargar recurso: " + tag);
+        //console.log("Terminada de cargar recurso: " + tag);
         cache.retrieve(tag).loadFlag = true;
     });
 
@@ -35,7 +35,7 @@ Scene.prototype.preload = function(){
     let that = this;
 
     Promise.all(this.loadingPromises).then( function(){
-        console.log("Se han cargado todos los recursos");
+        //console.log("Se han cargado todos los recursos");
         that.create();
     });
 };
@@ -48,8 +48,7 @@ Scene.prototype.create = function(){
 };
 
 Scene.prototype.update = function(){
-    if(this.isSceneLoaded){
-        //console.log("Estoy updateando la escena");
+    if(this.isSceneLoaded){        
         for(let i = 0; i < this.gameObjects.length; i++){
             this.gameObjects[i].update();
         }
