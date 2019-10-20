@@ -1,3 +1,4 @@
+/*Simplemente un wrapper del timer de js*/
 function Timer(object,timeFunction, timeMS){
     this.object = object;
     this.timeFunction = timeFunction;
@@ -18,3 +19,6 @@ Timer.prototype.resetTimer = function(){
     this.initTimer();
 }
 
+Timer.prototype.stopTimer = function(){
+    window.clearTimeout(this.timerID); 
+}

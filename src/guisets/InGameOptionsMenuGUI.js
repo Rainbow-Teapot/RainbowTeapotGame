@@ -9,6 +9,8 @@ InGameOptionsMenuGUI.prototype.constructor = InGameOptionsMenuGUI;
 
 InGameOptionsMenuGUI.prototype.create = function () {
 
+
+
     let font = "30px CartoonRegular";
     let viewportMiddleX = viewport.width / 2;
     let that = this;
@@ -69,8 +71,14 @@ InGameOptionsMenuGUI.prototype.create = function () {
     viewportMiddleX = viewport.width / 2 - buttonSpriteLevel.width / 2;
     viewportMiddleY = viewport.height / 2 - buttonSpriteLevel.height / 2 + 150;
     let goLevelSelection = function () {
-        Game.endMusic(); 
+        Game.endMusic();
         Game.resumeGame();
+        let colorPlayer = this.scene.objControl.colorPlayer;
+        let shadowPlayer = this.scene.objControl.shadowPlayer;
+
+        colorPlayer.timerTeAnimation.stopTimer();
+        shadowPlayer.timerTeAnimation.stopTimer();
+
         Game.changeScene(new LevelSelectionScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE));
     };
     let buttonLevel = new Button(this.scene, viewportMiddleX + 35, board.pos.y + 230, 0, buttonSpriteLevel, goLevelSelection, i18n.translate(Game.lang, "levels"), font);
@@ -79,6 +87,12 @@ InGameOptionsMenuGUI.prototype.create = function () {
     let buttonRestartSprite = new GUIImage(this.scene, "botonReempezar", 50, 50, 0, 0, 114, 52, 0);
     let restartLevel = function () {
         Game.resumeGame();
+
+        let colorPlayer = this.scene.objControl.colorPlayer;
+        let shadowPlayer = this.scene.objControl.shadowPlayer;
+
+        colorPlayer.timerTeAnimation.stopTimer();
+        shadowPlayer.timerTeAnimation.stopTimer();
         Game.changeScene(new LoadingScene(20 * Game.TILE_SIZE, 20 * Game.TILE_SIZE, Game.lastLevelPlayed));
     };
     let buttonRestart = new Button(this.scene, viewportMiddleX - Game.TILE_SIZE + 25, board.pos.y + 230, 0, buttonRestartSprite, restartLevel);
@@ -88,7 +102,7 @@ InGameOptionsMenuGUI.prototype.create = function () {
 
 };
 
-InGameOptionsMenuGUI.prototype.show = function(){
+InGameOptionsMenuGUI.prototype.show = function () {
     GUISet.prototype.show.call(this);
 
 }

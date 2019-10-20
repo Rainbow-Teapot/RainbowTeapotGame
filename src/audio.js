@@ -1,6 +1,7 @@
+/*Modulo de audio para reproducir la melodía del juego y los efectos de sonido*/
 var audio = {
     music: null,
-    track1: "./music/jazz_music.wav",
+    
     trackMenu: "./music/main_theme_media_intro.mp3",
     trackDefeat: "./music/defeat_theme.mp3",
     trackVictory: "./music/victory_theme_high.mp3",
@@ -12,12 +13,13 @@ var audio = {
     effectDamage: "./music/soundEffects/damage.mp3",
     effectDoor: "./music/soundEffects/door1.mp3",
     effectBridge: "./music/soundEffects/drawbridge.mp3",
-    effectLife: "./music/soundEffects/extra_life_celesta.mp3",
+    effectLife: "./music/soundEffects/extra_life_celesta200.mp3",
     effectSpoon: "./music/soundEffects/spoon.mp3",
     effectJump: "./music/soundEffects/jump.mp3",
     effectKey: "./music/soundEffects/key.mp3",
     effectLever: "./music/soundEffects/lever.mp3",
-    effectTea: "./music/soundEffects/tea.mp3",
+    effectTea: "./music/soundEffects/drink1.mp3",
+
 
     play: function (trackPath) {
 
@@ -67,8 +69,8 @@ var audio = {
         }  */      
 
         audio.soundEffect = new Audio(effectSound);
-        audio.soundEffect.muted = false;
-        audio.soundEffect.volume = 0.3;
+        audio.soundEffect.muted = false;        
+        audio.soundEffect.volume = Game.effectsVolume; 
 
         audio.soundEffect.play();
     }

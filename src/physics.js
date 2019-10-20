@@ -1,3 +1,5 @@
+/*Deteccion de colisiones que mulan las funcionalidades de Game Maker, utiliza dos funciones básicas,
+placeMeeting e instancePlace. Utiliza un Quadtree*/
 var physics = {
     quadTree : null,
     movableList: [],
@@ -10,6 +12,7 @@ var physics = {
                 },4,20 );
         physics.movableList = [];
     },
+    //Tan solo devuelve si un objeto a chocado con otro
     placeMeeting: function(object, xOffset, yOffset, objToCollide){
         
         let collisionMask = {
@@ -31,6 +34,7 @@ var physics = {
         }
         return false;
     },
+    //devuelve el objeto con el que se ha colisionado
     instancePlace: function(object, xOffset, yOffset, objToCollide){
         
         let collisionMask = physics.getCollisionMask(object,xOffset,yOffset);
@@ -49,6 +53,7 @@ var physics = {
         return null;
     
     },
+    //eleccion de la mascara de colision dependiendo si es con respecto a un objeto, o una búsqueda en la escena
     getCollisionMask : function(object,xOffset,yOffset){
         
         if(object){
@@ -71,6 +76,7 @@ var physics = {
         }
 
     },
+    //deteccion de colision básica
     intersect: function(objectA, objectB){
 
         let aMinPos = new Point(objectA.x, objectA.y);

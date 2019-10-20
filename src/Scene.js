@@ -85,12 +85,12 @@ Scene.prototype.create = function(){
 };
 
 /*actualizar todos los objetos y la camara*/
-Scene.prototype.update = function(){
+Scene.prototype.update = function(delta){
     if(this.isSceneLoaded){
         
         for(let i = 0; i < this.gameObjects.length; i++){
             //console.log(this.gameObjects[i].type);
-            this.gameObjects[i].update();
+            this.gameObjects[i].update(delta);
         }
         for(let i = 0; i < this.animations.length; i++){
             //console.log("Actualizando animaciones");
@@ -168,7 +168,7 @@ Scene.prototype.removeGameObject = function(gameObject){
         this.gameObjects.splice(index, 1);
     }  
 }
-
+//La escena se ocupa de ver si algún botón de su escena haya sido pulsado
 Scene.prototype.handleClick = function(e){
     let clickPos = viewport.getCursorPosition(e);
     let clickedObject = null;

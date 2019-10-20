@@ -1,3 +1,4 @@
+/*Interfaz para las factorias*/
 function Factory(scene){
     this.scene = scene;
     this.factoryMap = new Map();

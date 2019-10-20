@@ -1,3 +1,4 @@
+/*Actionable que enciende y apaga Bridges*/
 function Lever(scene,x,y,depth,isShadow,xActivable,yActivable){
     Actionable.call(this,scene,x,y,depth,xActivable,yActivable);
     this.type.push("Lever");

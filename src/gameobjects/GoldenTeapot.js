@@ -1,3 +1,4 @@
+/*Pickuable que representa la tetera dorada que termina el nivel*/
 function GoldenTeapot(scene, x, y, depth) {
     Pickupable.call(this, scene, x, y, depth);
     this.type.push("GoldenTeapot");
@@ -5,7 +6,6 @@ function GoldenTeapot(scene, x, y, depth) {
     this.isShadow = false;
     this.initPosY = this.pos.y - Game.TILE_SIZE / 2;
     this.endPosY = this.pos.y;
-    // this.sprite = new Sprite(this.scene,"goldenTeapot",0,0,0,0,Game.TILE_SIZE/2,Game.TILE_SIZE/2,0);
     this.sprite = this.prepareAnimations();
     this.sprite.initAnimation("idle");
 
@@ -25,7 +25,8 @@ GoldenTeapot.prototype.prepareAnimations = function () {
 
 };
 
-
+/*Acciona el final del nivel, lleva al jugador a la pantalla de victoria, guarda las cucharas
+doradas y guarda las puntuaciones*/
 GoldenTeapot.prototype.pickUp = function () {
     Game.goldenSpoons += this.scene.goldenSpoons;
     Game.lastScore = this.scene.objControl.chrono.getChrono();
@@ -43,6 +44,8 @@ GoldenTeapot.prototype.pickUp = function () {
     let colorPlayer = this.scene.objControl.colorPlayer;
     let shadowPlayer = this.scene.objControl.shadowPlayer;
 
+    colorPlayer.timerTeAnimation.stopTimer(); 
+    shadowPlayer.timerTeAnimation.stopTimer(); 
     colorPlayer.currentState = colorPlayer.states.DISABLED;
     shadowPlayer.currentState = shadowPlayer.states.DISABLED;
 

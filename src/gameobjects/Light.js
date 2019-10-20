@@ -1,3 +1,6 @@
+/*Protoripo para las faroles, contienen damagesBlocks para hacer daño a la dombra y así, 
+favorecer la composición. Además es un actiavable ya que puede apagarse y encenderse con
+actionables*/
 function Light(scene, x, y, depth, isShadow, facingByColor, lightedTiles){
     Activable.call(this,scene,x,y,depth);
     this.type.push("Light");

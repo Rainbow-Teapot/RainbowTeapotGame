@@ -32,6 +32,14 @@ StartScene.prototype.preload = function(){
     Scene.prototype.loadToScene.call(this,"mobileButton2", "./assets/gui/mobileButton2.png");
     Scene.prototype.loadToScene.call(this, "goldenSpoonGUI_", "./assets/objects/goldenSpoonGUI_.png");  
     Scene.prototype.loadToScene.call(this, "logo", "./assets/backgrounds/gameLogo.png"); 
+    Scene.prototype.loadToScene.call(this, "celia", "./assets/credits/celia.png");
+    Scene.prototype.loadToScene.call(this, "juanantonio", "./assets/credits/juanantonio.png");
+    Scene.prototype.loadToScene.call(this, "andrea", "./assets/credits/andrea2.png");
+    Scene.prototype.loadToScene.call(this, "carlos", "./assets/credits/carlos.png");
+    Scene.prototype.loadToScene.call(this, "marcos", "./assets/credits/marcos.png");
+
+
+
 
 
     Scene.prototype.preload.call(this);

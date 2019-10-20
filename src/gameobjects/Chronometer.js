@@ -1,3 +1,4 @@
+/*Cronometro para la puntacion de la partida. Untila la API de DATE, puede pararse, resetaerse e iniciarse*/
 function Chronometer(scene, x,y,depth){
    GameObject.call(this,scene,x,y,depth);
    this.start = null;
@@ -39,20 +40,23 @@ Chronometer.prototype.chronoLoop = function(){
     }, 100);
 }
 
+//Obetenemos el timepo actual del crono
 Chronometer.prototype.getChrono = function(){
     return this.text.string;
 }
 
+//iniciamos el cronometro
 Chronometer.prototype.startChrono = function(){
-
 	this.start = new Date();
 	this.chronoLoop();
 }
+//si ha sido parada, podemos ponerlo en marcha de nuevo.
 Chronometer.prototype.continueChrono = function(){
 	this.start = new Date()-this.diff;
 	this.start = new Date(this.start);
 	this.chronoLoop();
 }
+//Parar el cronometro
 Chronometer.prototype.stopChrono = function(){
 	clearTimeout(this.timerID);
 }
