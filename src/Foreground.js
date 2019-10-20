@@ -1,3 +1,4 @@
+/*Imagen que se pinta por encima de los objetos y de los tiles, soporta parallaz scrolling*/
 function Foreground(scene, img,x,y,depth){
     Drawable.call(this,scene,img,x,y,0,0,0,0, depth);
     this.scene.foregroundLayer.addElement(this);

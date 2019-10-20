@@ -1,3 +1,4 @@
+/*Objeto dummy para realizar el cambio de cámara entre personajes de maner suave*/
 function Target(scene, x, y, initPos, endPos,vel){
     GameObject.call(this, scene, x, y);
     this.type.push("Target");

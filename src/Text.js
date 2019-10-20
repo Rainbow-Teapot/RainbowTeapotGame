@@ -1,3 +1,4 @@
+/*Prototipo para dinujar cualquier tipo de texto*/
 function Text(scene, string,x,y,font,color){
     this.scene = scene;
     this.string = string;
@@ -24,10 +25,10 @@ Text.prototype.draw = function(camera){
     context.globlalAlpha = 1.0;
 }
 
+//podemos cambiar ciertos tipos de parámetros como el color, o la fuente en cualquier momento
 Text.prototype.changeColor = function(color){
     this.color = color;
 }
-
 Text.prototype.changeFont = function(font){
     this.font = font;
 }

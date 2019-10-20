@@ -1,3 +1,6 @@
+/*Bloque invisible que hace daño al jugador, así evitamos herencia y favorecemos la composición;
+cualquier objeto que tenga un FamageBlock hará daño. Tiene diferentes direcciones para cuadrar
+con las hitboxes de los pinchos*/
 function DamageBlock(scene, x, y, depth, facingColor){
     GameObject.call(this,scene,x,y,depth);
     this.type.push("DamageBlock");
@@ -18,6 +21,7 @@ function DamageBlock(scene, x, y, depth, facingColor){
 DamageBlock.prototype = Object.create(GameObject.prototype);
 DamageBlock.prototype.constructor = DamageBlock;
 
+//Dependiendo del color que se le ha suministrado tendrá una orientación distinta
 DamageBlock.prototype.setFacingByColor = function(color){
     switch(color){
         case 0:
@@ -33,10 +37,7 @@ DamageBlock.prototype.setFacingByColor = function(color){
     }
 }
 
-DamageBlock.prototype.update = function(){
-
-}
-
+//Preparar la hitbozx dependiendo de la orientación
 DamageBlock.prototype.prepareCollider = function(){
 
     let xOffset = 0;
@@ -64,4 +65,8 @@ DamageBlock.prototype.prepareCollider = function(){
             
     }
     this.collider = new Collider(this,this.pos.x,this.pos.y,width,height, xOffset, yOffset);
+}
+
+DamageBlock.prototype.update = function(){
+
 }

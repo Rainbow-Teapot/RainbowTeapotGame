@@ -1,3 +1,4 @@
+/*"prototipo abstractado" para dibujar, cualquier objetos que la implemente podrá ser dibujada en pantalla*/
 function Drawable(scene, img, x, y, xInImage, yInImage, width, height, depth){
     this.scene = scene;
     this.pos = new Point(x,y);

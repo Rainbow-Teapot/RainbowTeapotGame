@@ -15,7 +15,8 @@ function Sprite(scene, img, x, y, xInImage, yInImage, width, height, depth){
 Sprite.prototype = Object.create(Drawable.prototype);
 Sprite.prototype.constructor = Sprite;
 
-/*Se utiliza la camara para cambiar de base y ajustarse al canvas*/
+/*Se utiliza la camara para cambiar de base y ajustarse al canvas, se puede dibujar por defecto
+un cuadrado de tamaño el tile del juego, una animación o una imagen plana*/
 Sprite.prototype.draw = function(camera){
 
     if(this.isVisible){
@@ -56,6 +57,7 @@ Sprite.prototype.draw = function(camera){
     }
 }
 
+//efecto de blinkeo para la animación de daño
 Sprite.prototype.blinkEffect = function(velFade){
 
     this.alpha += velFade * this.alphaMult;

@@ -1,3 +1,5 @@
+/*Puente que bloquea el paso al jugador, tiene colisiones horizontales y verticales, para liberar el paso,
+y para bloquearlo correspondientemente. Se activa/desactiva (abajo/arriba) por medio de un Actionable*/
 function Bridge(scene, x, y, depth, isShadow, faceY) {
     Activable.call(this, scene, x, y, depth);
     this.type.push("Bridge");
@@ -14,6 +16,7 @@ function Bridge(scene, x, y, depth, isShadow, faceY) {
 Bridge.prototype = Object.create(Activable.prototype);
 Bridge.prototype.constructor = Bridge;
 
+//cambiar el sprite de si es sombra o no
 Bridge.prototype.prepareSprite = function (isShadow, faceY) {
     if (!isShadow) {
         
@@ -31,6 +34,7 @@ Bridge.prototype.prepareSprite = function (isShadow, faceY) {
     }
 }
 
+//crear las colisiones verticales del puente
 Bridge.prototype.prepareCollisionsY = function (faceY, isShadow) {
     let walls = new Array(this.sizeInWalls);
     let depth;
@@ -45,6 +49,7 @@ Bridge.prototype.prepareCollisionsY = function (faceY, isShadow) {
     return walls;
 }
 
+//crear las colisiones horizontales del puente
 Bridge.prototype.prepareCollisionsX = function (isShadow) {
     let walls = new Array(this.sizeInWalls);
     let depth;
@@ -59,6 +64,7 @@ Bridge.prototype.prepareCollisionsX = function (isShadow) {
     return walls;
 }
 
+//Cambia las colisiones horizontales por las verticales y viceversa
 Bridge.prototype.switchCollisions = function(){
 
     for(let i = 0; i < this.sizeInWalls; i++){
@@ -67,6 +73,7 @@ Bridge.prototype.switchCollisions = function(){
     }
 }
 
+//Método On Activable, cambia de sprite y de colisiones
 Bridge.prototype.On = function(actionedByHand){
     if(actionedByHand > 0){
         actionedByHand--;
@@ -88,6 +95,7 @@ Bridge.prototype.On = function(actionedByHand){
     }
 }
 
+//Método Off Activable, cambia de sprite y de colisiones
 Bridge.prototype.Off = function(actionedByHand){
     if(actionedByHand > 0){
         actionedByHand--;
@@ -111,5 +119,4 @@ Bridge.prototype.Off = function(actionedByHand){
 }
 
 Bridge.prototype.update = function () {
-    //this.sprite.depth = this.depth;
 }

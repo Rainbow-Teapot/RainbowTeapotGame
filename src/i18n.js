@@ -1,3 +1,4 @@
+/*traducciones*/
 var i18n = {
 
     esp:{

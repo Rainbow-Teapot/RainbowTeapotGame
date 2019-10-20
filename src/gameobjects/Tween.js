@@ -1,3 +1,4 @@
+/*Efectos de desplazamiento para GameObjects*/
 function Tween(scene,object,vel,endPosX,endPosY,faceX, faceY){
     GameObject.call(this,scene,0,0,0);
     this.object = object;

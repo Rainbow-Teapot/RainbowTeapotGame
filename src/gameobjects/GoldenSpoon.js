@@ -1,3 +1,4 @@
+/*Pickupable que representa las cucharas doradas */
 function GoldenSpoon(scene, x, y, depth, isShadow) {
     Pickupable.call(this, scene, x, y, depth);
     this.type.push("GoldenSpoon");    
@@ -29,7 +30,7 @@ GoldenSpoon.prototype.prepareAnimations = function (isShadow) {
     return sprite;
 };
 
-
+//simplemente se llama al objeto control para que actualice que se ha cogido la llave
 GoldenSpoon.prototype.pickUp = function () {
     let otherSpoon = null;
     audio.playEffect(audio.effectSpoon);

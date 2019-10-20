@@ -1,3 +1,6 @@
+/*Objto que representa a un botón, con la versatilidad de que puede hacer cualquier cosa que 
+un gameObject normal haga y tener cualquier apariencai por medio de sprite. Además de lo que un
+botón normal haga*/
 function Button(scene, x, y, depth, guiImage, functionOnClick, text,styleText,colorText){
     GameObject.call(this, scene, x, y, depth);
     this.sprite = guiImage;
@@ -13,12 +16,12 @@ function Button(scene, x, y, depth, guiImage, functionOnClick, text,styleText,co
     this.initPosY = this.pos.y - 6;
     this.endPosY = this.pos.y + 6;
     this.vel = 0.05;
-    //this.sprite.img.addEventListener('click', () => console.log("He pulsado el boton"));
 }
 
 Button.prototype = Object.create(GameObject.prototype);
 Button.prototype.constructor = Button;
 
+/*En este caso los botones se pueden mover gracias a que son un GameObject*/
 Button.prototype.update = function(){
     GameObject.prototype.update.call(this);
     
@@ -37,11 +40,13 @@ Button.prototype.update = function(){
     }
 }
 
+/*llamar a la función asignada cuadno se pulsa el boton*/
 Button.prototype.performClick = function(){
     if(this.isEnable)
         this.functionOnClick();
 }
 
+/*ocultar mostrar boton*/
 Button.prototype.setVisible = function(isVisible){
     this.isVisible = isVisible;
     this.isEnable = isVisible;

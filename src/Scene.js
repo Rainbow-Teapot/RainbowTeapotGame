@@ -168,7 +168,7 @@ Scene.prototype.removeGameObject = function(gameObject){
         this.gameObjects.splice(index, 1);
     }  
 }
-
+//La escena se ocupa de ver si algún botón de su escena haya sido pulsado
 Scene.prototype.handleClick = function(e){
     let clickPos = viewport.getCursorPosition(e);
     let clickedObject = null;
