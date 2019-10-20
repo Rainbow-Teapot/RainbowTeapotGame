@@ -1,3 +1,4 @@
+/*Prototipo para gestionar las animaciones basadas en sprite sheets*/
 function Animation(scene, initIndex, endIndex,frameRate, repetitions){
 
     this.scene = scene;
@@ -28,7 +29,7 @@ Animation.prototype.setActive = function(isActive){
     this.currentRepetition = 0;
     this.currentFrame = this.initIndex;
 }
-
+/*Aquí se calcula el proximo frame de la animacion*/
 Animation.prototype.update = function(){
     
     if(this.isActive){

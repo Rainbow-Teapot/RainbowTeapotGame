@@ -1,3 +1,4 @@
+/*Simplemente un wrapper del timer de js*/
 function Timer(object,timeFunction, timeMS){
     this.object = object;
     this.timeFunction = timeFunction;

@@ -1,3 +1,5 @@
+/*"prototipo abstracto" para objetos que son accionados por el player y estos a su vez activan otro
+objeto de la escena*/
 function Actionable(scene,x,y,depth,xActivable,yActivable){
     GameObject.call(this, scene, x, y, depth);
     this.type.push("Actionable");
@@ -9,6 +11,7 @@ function Actionable(scene,x,y,depth,xActivable,yActivable){
 Actionable.prototype = Object.create(GameObject.prototype);
 Actionable.prototype.constructor = Actionable;
 
+/*Se encienden y se apagan ellos mismo, y encienden y apagan el objeto activable asociado */
 Actionable.prototype.action = function(){
     console.log(this.posActivable);
     let activable = physics.instancePlace(null,this.posActivable.x, this.posActivable.y, this.activableObject);
@@ -26,6 +29,7 @@ Actionable.prototype.action = function(){
     }
 }
 
+//Métodos a implementar por los prototipos hijos
 Actionable.prototype.On= function(actionedByHand){
 
 }

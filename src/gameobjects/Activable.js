@@ -1,3 +1,4 @@
+/*"prototipo abstracto" para objetos que son accionados por objetos actionable de la escena*/
 function Activable(scene, x, y, depth) {
     GameObject.call(this, scene, x, y, depth);
     this.activated = false;
@@ -8,6 +9,7 @@ function Activable(scene, x, y, depth) {
 Activable.prototype = Object.create(GameObject.prototype);
 Activable.prototype.constructor = Activable;
 
+/*Apagado/encendido del actionable*/
 Activable.prototype.perform = function () {
     this.activated = !this.activated;
     if(this.activated){
@@ -17,6 +19,7 @@ Activable.prototype.perform = function () {
     }
 }
 
+/*Métodos a implementar por los prototipos hijos */
 Activable.prototype.On = function(actionedByHand){
 
 }

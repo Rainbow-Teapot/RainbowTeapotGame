@@ -1,3 +1,4 @@
+/*Lo primero que se pinta del nivel, soporto parallaz scrolling*/
 function Background(scene, img,x,y,depth){
     Drawable.call(this,scene,img,x,y,0,0,0,0, depth);
     this.width = this.img.width;

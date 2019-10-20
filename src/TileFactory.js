@@ -1,3 +1,4 @@
+/*Factoria que devuleve el tile asociado a un color por medio de una paleta*/
 function TileFactory(scene, tileMap, palette){
     
     Factory.call(this,scene);
@@ -8,6 +9,7 @@ function TileFactory(scene, tileMap, palette){
 TileFactory.prototype = Object.create(Factory.prototype);
 TileFactory.prototype.constructor = TileFactory;
 
+//creamos la relación entre paleta y tile
 TileFactory.prototype.createFactory = function(scene, tileMap, palette, layer){
     let canvas = document.createElement('canvas');
     let context = canvas.getContext('2d');
@@ -46,9 +48,9 @@ TileFactory.prototype.createFactory = function(scene, tileMap, palette, layer){
     }
 }
 
+//Obtenemos el tile por medio de su color
 TileFactory.prototype.createProductFromColor = function(color, x, y, depth){
     let tileInfo = this.factoryMap.get(color.toHTML());
-    //console.log(color.toHTML());
     new Tile(tileInfo.scene, tileInfo.img, 
             x, y, 
             tileInfo.xInImage, tileInfo.yInImage,

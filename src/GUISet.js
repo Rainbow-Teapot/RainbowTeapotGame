@@ -1,9 +1,9 @@
+/*Prototipo que representa un conjunto de elementos de GUI para casa escena, ya sean botones, imagenes
+o texto  */
 function GUISet(scene){
     this.scene = scene;
 
-    //almacena los objetos
     this.guiObjects = [];
-    //almacena el texto e imágenes que no son de ningun objeto
     this.guiSprites = [];
     this.isVisible = true;
 }
@@ -11,6 +11,7 @@ function GUISet(scene){
 GUISet.prototype = Object.create(GameObject.prototype);
 GUISet.prototype.constructor = GUISet;
 
+//motrar el conjunto
 GUISet.prototype.show = function(){
     if(!this.isVisible){
         for(let i = 0; i < this.guiSprites.length;i++){
@@ -23,6 +24,7 @@ GUISet.prototype.show = function(){
     }
 }
 
+//ocultar el conjunto
 GUISet.prototype.hide = function(){
     if(this.isVisible){
         for(let i = 0; i < this.guiObjects.length;i++){

@@ -1,3 +1,4 @@
+/*Modulo de audio para reproducir la melodía del juego y los efectos de sonido*/
 var audio = {
     music: null,
     

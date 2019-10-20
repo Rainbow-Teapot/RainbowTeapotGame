@@ -1,3 +1,4 @@
+/*prototipo abstracto para modelar cualquier objeto que se pueda recoger tocandolo*/
 function Pickupable(scene, x, y, depth) {
     GameObject.call(this, scene, x, y, depth);
     this.type.push("Pickupable");

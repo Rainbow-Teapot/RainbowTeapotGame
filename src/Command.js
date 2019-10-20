@@ -1,3 +1,4 @@
+//Comandos que implementan un método execute para que todos puedas ser tratados igual
 //Keyboard Controls
 function JumpKeyboardCommand(){
     this.execute = function(){        
