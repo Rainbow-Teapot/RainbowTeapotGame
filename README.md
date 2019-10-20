@@ -81,6 +81,11 @@ Adicionalmente, se usará la tecla “Q” para cambiar entre el modo sombra y e
 
 <p>Empezamos cerca de la baldosa de la izquierda (0). Delante te encuentras una puerta, que solo se abre, a priori, si te quedas encima de la baldosa, por lo tanto, deberás dejar al personaje real ahí, y avanzar con el modo sombra. Tienes que accionar la palanca de electricidad (1) para desactivar la luz del escritorio y la de la plataforma de su derecha. Después tendrás que pulsar el botón del escritorio (2), para desactivar la luz (*) que hay enfocando al botón (3). Por último, hay que pulsar el botón (3), para dejar bajada la pared que estaba sujetando el personaje real desde la baldosa (0). Luego toca volver a modo normal, y llegar hasta el final del nivel.</p>
 
+**Nivel Extra:**
+
+![NivelExtra](Imagenes_readme/nivel_extra.png)
+<p>Este nivel solo podrá jugarse si tenemos las cucharas suficientes como para “comprarlo”. Empezaremos en la parte izquierda del nivel, como siempre. Erin tendrá que saltar sobre las plataformas, pero se encuentra con que no puede pasar porque el puente levadizo le corta el paso (4). Para eso, tendrá que usar a su sombra, pero primero deberá apagar la luz (2) con el interruptor (1), ya que si no, no podrá avanzar con la sombra. Una vez esté la luz apagada, la sombra, deberá activar la palanca (3) para bajar el puente levadizo (4) y avanzar hacia la derecha para terminar el nivel.</p>
+
 **Progesión del Juego:**
 
 <p align="center">
