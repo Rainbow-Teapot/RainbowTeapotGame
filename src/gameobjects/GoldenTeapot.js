@@ -43,6 +43,8 @@ GoldenTeapot.prototype.pickUp = function () {
     let colorPlayer = this.scene.objControl.colorPlayer;
     let shadowPlayer = this.scene.objControl.shadowPlayer;
 
+    colorPlayer.timerTeAnimation.stopTimer(); 
+    shadowPlayer.timerTeAnimation.stopTimer(); 
     colorPlayer.currentState = colorPlayer.states.DISABLED;
     shadowPlayer.currentState = shadowPlayer.states.DISABLED;
 

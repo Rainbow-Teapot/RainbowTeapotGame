@@ -18,3 +18,6 @@ Timer.prototype.resetTimer = function(){
     this.initTimer();
 }
 
+Timer.prototype.stopTimer = function(){
+    window.clearTimeout(this.timerID); 
+}

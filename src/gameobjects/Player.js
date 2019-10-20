@@ -45,7 +45,14 @@ function Player(scene, x, y, depth) {
 
     let that = this;
     this.timerInmunity = new Timer(this, function () { that.hasInmunity = false; that.sprite.alpha = 1.0; }, 1000);
-    this.timerTeAnimation = new Timer(this, function(){that.drinkingTea = true;}, 10000);
+    this.timerTeAnimation = new Timer(this, function(){
+        that.drinkingTea = true; 
+        console.log("tea time"); 
+        if(that.scene.selectedPlayer == that){
+            console.log("drinkins"); 
+            audio.playEffect(audio.effectTea); 
+
+    }}, 10000);
     this.timerTeAnimation.initTimer();
     this.controls = input.initControls();
 

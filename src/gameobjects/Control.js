@@ -19,6 +19,11 @@ Control.prototype.damage = function(){
         this.scene.gui.lowerHealth();
 
         if(this.numLifes == 0){
+            let colorPlayer = this.scene.objControl.colorPlayer;
+            let shadowPlayer = this.scene.objControl.shadowPlayer;
+    
+            colorPlayer.timerTeAnimation.stopTimer();
+            shadowPlayer.timerTeAnimation.stopTimer();
             Game.changeScene(new GameOverScene(new GameOverScene(20 * Game.TILE_SIZE,20 * Game.TILE_SIZE)));
         }
 
