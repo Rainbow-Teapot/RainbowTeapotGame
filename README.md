@@ -231,6 +231,20 @@ Adicionalmente, se usará la tecla “Q” para cambiar entre el modo sombra y e
 <p>Se mudó a EEUU con 27 años, allí conoció a un empresario que se dedicaba al contrabando de aves rapaces. Empezó a trabajar junto a él, hasta que vio que sus intereses no llegaban más allá de las águilas y los halcones, y decidió quitárselo de en medio. Ahora, él es el líder de la banda, y es respetado por todos sus súbditos. Se dedica al contrabando de todo tipo de especies de aves, siempre y cuando sean raras y valgan muchísimo dinero.</p>
 <p></p>
 
+**Tecnologías Utilizadas:**
+<p>Para el desarrollo de esta práctica hemos usado distintos tipos de programas y metodologías de desarrollo. Todos los programas que no son de licencia libre, han sido utilizados con las apropiadas licencias de estudiante.</p>
+<p>Para el apartado de arte, se han usado programas como Photoshop.</p>
+<p>Para el apartado de diseño, se han usado Photoshop, Microsoft Word y Adobe Acrobat.</p>
+<p>Para el apartado de desarrollo, hemos usado Visual Studio Code. Hemos realizado Quad-Trees con ayuda de: </p>
+
+<strong>https://github.com/timohausmann/quadtree-js/</strong>
+
+<p>Y hemos creado el joystick virtual obtieniedo información de:</p>
+
+<strong>https://github.com/jeromeetienne/virtualjoystick.js/tree/gh-pages</strong>
+
+<p>Para el apartado de sonido, hemos usado Finale y LMMS. Para los efectos de sonido, los hemos grabado a mano, y luego editados con Audacity</p>
+<p>Por último, para la gestión de organización del proyecto, hemos usado Github Desktop y Trello. </p>
 
 **Equipo:**
 
