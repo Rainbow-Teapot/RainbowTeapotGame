@@ -233,7 +233,7 @@ Adicionalmente, se usará la tecla “Q” para cambiar entre el modo sombra y e
 
 **Tecnologías Utilizadas:**
 <p>Para el desarrollo de esta práctica hemos usado distintos tipos de programas y metodologías de desarrollo. Todos los programas que no son de licencia libre, han sido utilizados con las apropiadas licencias de estudiante.</p>
-<p>Para el apartado de arte, se han usado programas como Photoshop.</p>
+<p>Para el apartado de arte, se han usado programas como Photoshop e Inkscape.</p>
 <p>Para el apartado de diseño, se han usado Photoshop, Microsoft Word y Adobe Acrobat.</p>
 <p>Para el apartado de desarrollo, hemos usado Visual Studio Code. Hemos realizado Quad-Trees con ayuda de: </p>
 
