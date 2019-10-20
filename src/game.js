@@ -7,7 +7,7 @@ var Game = {
     scene: null,
     camera: null,
     TILE_SIZE: 64,
-    FRAM_RATE: 60,
+    MAX_FRAME_RATE: 80,
     lang: 0,
     volume: 0.5,
     effectsVolume: 0.3,

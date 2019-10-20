@@ -9,13 +9,10 @@ function DamageBlock(scene, x, y, depth, facingColor){
         NORMAL: 4,
     }
     this.currentFacing = this.setFacingByColor(facingColor)
-    this.OFFSET_X = 20;
-    this.OFFSET_Y = 20;
+    this.OFFSET_X = 25;
+    this.OFFSET_Y = 25;
     
     this.prepareCollider();
-    //this.sprite = new Sprite(this.scene,null,this.collider.x,this.collider.y,0,0,this.collider.width,this.collider.height);
-    //this.sprite = 0.3;
-
 }
 
 DamageBlock.prototype = Object.create(GameObject.prototype);

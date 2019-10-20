@@ -85,12 +85,12 @@ Scene.prototype.create = function(){
 };
 
 /*actualizar todos los objetos y la camara*/
-Scene.prototype.update = function(){
+Scene.prototype.update = function(delta){
     if(this.isSceneLoaded){
         
         for(let i = 0; i < this.gameObjects.length; i++){
             //console.log(this.gameObjects[i].type);
-            this.gameObjects[i].update();
+            this.gameObjects[i].update(delta);
         }
         for(let i = 0; i < this.animations.length; i++){
             //console.log("Actualizando animaciones");

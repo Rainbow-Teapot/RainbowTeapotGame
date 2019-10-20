@@ -48,7 +48,7 @@ var coreLoop = {
                 coreLoop.resetProfile();
             }
             input.reset(); 
-        },1000/Game.FRAME_RATE);
+        },1000/Game.MAX_FRAME_RATE);
     },
     
     /*Imprime por consola los UPS y los FPS */
